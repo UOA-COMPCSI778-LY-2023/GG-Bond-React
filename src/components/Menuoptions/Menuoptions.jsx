@@ -16,7 +16,7 @@ const Menuoptions = () => {
     <div id="menuoptions">
         <button className='menubutton'>
           <span onClick={toggleDarkOrLightMode}>{dark ? <FaLightbulb /> : <FaRegLightbulb /> }</span>
-          <div>Toggle Dark Mode</div>
+          {/* <div>Toggle Dark Mode</div> */}
         </button>
         <button><span><LiaDrawPolygonSolid /></span></button> {/*Draft */}
         <button><span><CiLocationArrow1 /></span></button> {/*Localization*/}
