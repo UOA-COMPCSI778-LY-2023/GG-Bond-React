@@ -1,41 +1,53 @@
-import './Map.css'
-import 'leaflet/dist/leaflet.css'
+import { MapContainer, LayersControl} from 'react-leaflet';
+import {
+  BasemapLayer,
+  FeatureLayer,
+  DynamicMapLayer,
+  TiledMapLayer,
+  ImageMapLayer
+} from "react-esri-leaflet";
 import Menuoptions from '../Menuoptions/Menuoptions';
-import { MapContainer, TileLayer, LayersControl} from 'react-leaflet';
-// import { Marker, Popup, , LayerGroup, FeatureGroup} from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+
+// import './Map.css'
+import { Marker, Popup} from 'react-leaflet';
 // import { Circle, Rectangle } from 'react-leaflet';
 
+
 const center = [-36.842, 174.760]
+// const apiKey = "AAPK4f354998bf5a4659b9d666b2069641897bTjGcAqQx-CfCSZNh9ToN7ANpoJDprU4gf08kNagIOaR_eSX7gjFQaqM9EzJmu-";
+// const baseUrl = "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles";
 
 function Map() {
     return (
+      
       <div className="Map">
-        <MapContainer center={center} zoom={16} scrollWheelZoom={true}>
-        <LayersControl position="topright">
-          <LayersControl.BaseLayer name="Open Street Map">
-            <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-          </LayersControl.BaseLayer>
+        <MapContainer id='mapId' center={center} zoom={16} scrollWheelZoom={true}>
+          <LayersControl position="topleft" collapsed={true}>
 
-          <LayersControl.BaseLayer checked name="Google Satellite">
-            <TileLayer
-            attribution='&copy; <a href="https://maps.google.com">Google Map</a>'
-            url="http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
-            maxZoom={19}
-            />
-          </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Light map" checked>
+              <BasemapLayer name="Gray" />
+            </LayersControl.BaseLayer>
 
-          <LayersControl.BaseLayer checked name="Trafic">
-            <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenTraficMap</a>'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            maxZoom={19}
-            />
-          </LayersControl.BaseLayer>
-        </LayersControl>
+            <LayersControl.BaseLayer name="Dark map">
+              <BasemapLayer name="DarkGray" />
+            </LayersControl.BaseLayer>
+
+            <LayersControl.BaseLayer name="Satellite">
+              <BasemapLayer name="Imagery" />
+            </LayersControl.BaseLayer>
+
+            <LayersControl.BaseLayer name="Oceans">
+              <BasemapLayer name="Oceans" />
+            </LayersControl.BaseLayer>
+
+          </LayersControl>
           <Menuoptions></Menuoptions>
+          <Marker position={center}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
         </MapContainer>
       </div>
     );
