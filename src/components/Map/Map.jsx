@@ -6,7 +6,7 @@ import {
   TiledMapLayer,
   ImageMapLayer
 } from "react-esri-leaflet";
-import Menuoptions from '../Menuoptions/Menuoptions';
+import MenuOptions from '../MenuOptions/MenuOptions';
 import 'leaflet/dist/leaflet.css';
 
 // import './Map.css'
@@ -42,12 +42,12 @@ function Map() {
               <BasemapLayer name="Imagery" />
             </LayersControl.BaseLayer>
 
-            <LayersControl.BaseLayer name="Oceans">
+            <LayersControl.BaseLayer name="Oceans" maxzoom={13}>
               <BasemapLayer name="Oceans" />
             </LayersControl.BaseLayer>
 
           </LayersControl>
-          <Menuoptions></Menuoptions>
+          <MenuOptions></MenuOptions>
           <Marker position={center}>
             <Popup>
               <ShipInfo ship={shipMockData}></ShipInfo>
