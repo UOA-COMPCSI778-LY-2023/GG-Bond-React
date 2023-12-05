@@ -7,7 +7,6 @@ import {
   ImageMapLayer
 } from "react-esri-leaflet";
 import MenuOptions from '../MenuOptions/MenuOptions';
-import 'leaflet/dist/leaflet.css';
 
 // import './Map.css'
 import { Marker, Popup} from 'react-leaflet';
@@ -15,7 +14,12 @@ import ShipInfo from '../ShipInfo/ShipInfo';
 import ReactDOMServer from 'react-dom/server';
 import shipMockData from '../ShipInfo/ShipMockData';
 // import { Circle, Rectangle } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
+//Mock
+import mockBoatsData from '../../MockData/MockData';
+import ShipMarker from '../ShipMarker/ShipMarker';
+//Mock
 
 const center = [-36.842, 174.760]
 // const apiKey = "AAPK4f354998bf5a4659b9d666b2069641897bTjGcAqQx-CfCSZNh9ToN7ANpoJDprU4gf08kNagIOaR_eSX7gjFQaqM9EzJmu-";
@@ -48,14 +52,15 @@ function Map() {
 
           </LayersControl>
           <MenuOptions></MenuOptions>
-          <Marker position={center}>
-            <Popup>
-              <ShipInfo ship={shipMockData}></ShipInfo>
-            </Popup>
-          </Marker>
+
+          {mockBoatsData.map((boatData, index) => (
+            <ShipMarker key={index} boatData={boatData} />
+          ))}
+
         </MapContainer>
       </div>
     );
   }
   
   export default Map;
+
