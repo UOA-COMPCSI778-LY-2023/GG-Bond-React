@@ -17,7 +17,7 @@ import 'leaflet/dist/leaflet.css';
 
 const shipIcon = L.divIcon({
   className: 'custom-icon',
-  html: ReactDOMServer.renderToString(<MdOutlineNavigation />),
+  html: ReactDOMServer.renderToString(<MdOutlineNavigation style={{ color: 'green', transform: 'rotate(45deg)' }}/>),
 });
 
 
