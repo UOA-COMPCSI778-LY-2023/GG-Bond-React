@@ -4,16 +4,35 @@ import { MdOutlineNavigation } from "react-icons/md";
 import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
 
-const shipIcon = (heading) => L.divIcon({
-    className: 'custom-icon',
-    html: ReactDOMServer.renderToString(<MdOutlineNavigation style={{ color: 'green', transform: `rotate(${heading}deg)` }}/>),
-});
+const shipTypeDic = {
+    "Tank" : "red",
+    "Cargo" : "lightgreen",
+    "Fishing" : "burlywood",
+    "Craft" : "yellow",
+    "Pleasure" : "purple",
+    "Tugs" : "lightblue",
+    "Passenger" : "blue",
+    "Navigation Aids" : "pink",
+    "Unspecified" : "gray"
+}
+
+const shipIcon = (heading, type) => {
+    const color = shipTypeDic[type] || 'gray'; 
+  
+    return L.divIcon({
+      className: 'custom-icon',
+      html: ReactDOMServer.renderToString(
+        <MdOutlineNavigation style={{ color, transform: `rotate(${heading}deg)` }} />
+      ),
+    });
+  };
+  
 
 const ShipMarker = ({ boatData }) => {
   const { name, type, speed, location, status } = boatData;
 
   return (
-    <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading)}>
+    <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}>
       <Popup>
         <div>
           <h3>{name}</h3>

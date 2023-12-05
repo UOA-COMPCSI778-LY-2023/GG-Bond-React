@@ -50,13 +50,7 @@ function Map() {
           {mockBoatsData.map((boatData, index) => (
             <ShipMarker key={index} boatData={boatData} />
           ))}
-
-
-          {/* <Marker position={center} icon={shipIcon}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker> */}
+          
         </MapContainer>
       </div>
     );
