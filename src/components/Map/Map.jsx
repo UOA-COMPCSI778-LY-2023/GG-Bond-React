@@ -11,12 +11,17 @@ import 'leaflet/dist/leaflet.css';
 
 // import './Map.css'
 import { Marker, Popup} from 'react-leaflet';
+import ShipInfo from '../ShipInfo/ShipInfo';
+import ReactDOMServer from 'react-dom/server';
+import shipMockData from '../ShipInfo/ShipMockData';
 // import { Circle, Rectangle } from 'react-leaflet';
 
 
 const center = [-36.842, 174.760]
 // const apiKey = "AAPK4f354998bf5a4659b9d666b2069641897bTjGcAqQx-CfCSZNh9ToN7ANpoJDprU4gf08kNagIOaR_eSX7gjFQaqM9EzJmu-";
 // const baseUrl = "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles";
+
+
 
 function Map() {
     return (
@@ -45,7 +50,7 @@ function Map() {
           <Menuoptions></Menuoptions>
           <Marker position={center}>
             <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
+              <ShipInfo ship={shipMockData}></ShipInfo>
             </Popup>
           </Marker>
         </MapContainer>
