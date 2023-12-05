@@ -1,7 +1,7 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import MapController from '../MapController/MapController';
-import Menuoptions from '../Menuoptions/Menuoptions';
+import Menuoptions from '../MenuOptions/MenuOptions';
 
 const containerStyle = {
     width: '100%',
