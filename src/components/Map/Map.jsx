@@ -6,7 +6,7 @@ import {
   TiledMapLayer,
   ImageMapLayer
 } from "react-esri-leaflet";
-import Menuoptions from '../Menuoptions/Menuoptions';
+import MenuOptions from '../MenuOptions/MenuOptions';
 import 'leaflet/dist/leaflet.css';
 
 // import './Map.css'
@@ -42,7 +42,7 @@ function Map() {
             </LayersControl.BaseLayer>
 
           </LayersControl>
-          <Menuoptions></Menuoptions>
+          <MenuOptions></MenuOptions>
           <Marker position={center}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.

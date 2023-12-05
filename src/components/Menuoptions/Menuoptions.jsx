@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react';
-import "./Menuoptions.css";
+import "./MenuOptions.css";
 import { IoIosSearch } from "react-icons/io";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
 
-const Menuoptions = () => {
+const MenuOptions = () => {
 
   const [dark, setDark] = useState(false);
   const toggleDarkOrLightMode = () => {
@@ -26,4 +26,4 @@ const Menuoptions = () => {
   );
 };
 
-export default Menuoptions;
+export default MenuOptions;
