@@ -15,7 +15,7 @@ import { Marker, Popup} from 'react-leaflet';
 // import { Circle, Rectangle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const customIcon = L.divIcon({
+const shipIcon = L.divIcon({
   className: 'custom-icon',
   html: ReactDOMServer.renderToString(<MdOutlineNavigation />),
 });
@@ -50,7 +50,7 @@ function Map() {
 
           </LayersControl>
           <MenuOptions></MenuOptions>
-          <Marker position={center} icon={customIcon}>
+          <Marker position={center} icon={shipIcon}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
@@ -61,3 +61,4 @@ function Map() {
   }
   
   export default Map;
+
