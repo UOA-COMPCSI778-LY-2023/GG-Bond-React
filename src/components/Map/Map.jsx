@@ -37,7 +37,7 @@ function Map() {
               <BasemapLayer name="Imagery" />
             </LayersControl.BaseLayer>
 
-            <LayersControl.BaseLayer name="Oceans">
+            <LayersControl.BaseLayer name="Oceans" maxzoom={13}>
               <BasemapLayer name="Oceans" />
             </LayersControl.BaseLayer>
 
