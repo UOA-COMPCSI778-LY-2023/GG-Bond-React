@@ -7,19 +7,15 @@ import {
   ImageMapLayer
 } from "react-esri-leaflet";
 import MenuOptions from '../MenuOptions/MenuOptions';
-import { MdOutlineNavigation } from "react-icons/md";
-import L from 'leaflet';
-import ReactDOMServer from 'react-dom/server';
-import { Marker, Popup} from 'react-leaflet';
+
 // import './Map.css'
 // import { Circle, Rectangle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const shipIcon = L.divIcon({
-  className: 'custom-icon',
-  html: ReactDOMServer.renderToString(<MdOutlineNavigation style={{ color: 'green', transform: 'rotate(45deg)' }}/>),
-});
-
+//Mock
+import mockBoatsData from '../../MockData/MockData';
+import ShipMarker from '../ShipMarker/ShipMarker';
+//Mock
 
 const center = [-36.842, 174.760]
 // const apiKey = "AAPK4f354998bf5a4659b9d666b2069641897bTjGcAqQx-CfCSZNh9ToN7ANpoJDprU4gf08kNagIOaR_eSX7gjFQaqM9EzJmu-";
@@ -50,11 +46,17 @@ function Map() {
 
           </LayersControl>
           <MenuOptions></MenuOptions>
-          <Marker position={center} icon={shipIcon}>
+
+          {mockBoatsData.map((boatData, index) => (
+            <ShipMarker key={index} boatData={boatData} />
+          ))}
+
+
+          {/* <Marker position={center} icon={shipIcon}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
-          </Marker>
+          </Marker> */}
         </MapContainer>
       </div>
     );
