@@ -49,3 +49,23 @@
 .menubutton:hover div{
     display: block;
 }
+
+.filter-dropdown {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1001;
+  }
+  
+  .filter-dropdown div {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .filter-dropdown div:hover {
+    background-color: #f0f0f0;
+  }
+  
