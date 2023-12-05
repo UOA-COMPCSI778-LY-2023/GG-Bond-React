@@ -6,7 +6,6 @@ import ReactDOMServer from 'react-dom/server';
 import ShipInfo from '../ShipInfo/ShipInfo';
 import shipMockData from '../ShipInfo/ShipMockData';
 
-
 const shipTypeDic = {
     "Tank" : "red",
     "Cargo" : "lightgreen",
@@ -34,7 +33,7 @@ const ShipMarker = ({ boatData }) => {
   const { name, type, speed, location, status } = boatData;
 
   return (
-    <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading)}>
+    <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}>
       <Popup>
         
         {/* <div>

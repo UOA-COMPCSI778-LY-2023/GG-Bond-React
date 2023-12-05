@@ -56,7 +56,7 @@ function Map() {
           {mockBoatsData.map((boatData, index) => (
             <ShipMarker key={index} boatData={boatData} />
           ))}
-
+          
         </MapContainer>
       </div>
     );
