@@ -7,11 +7,18 @@ import {
   ImageMapLayer
 } from "react-esri-leaflet";
 import MenuOptions from '../MenuOptions/MenuOptions';
+import { MdOutlineNavigation } from "react-icons/md";
+import L from 'leaflet';
+import ReactDOMServer from 'react-dom/server';
+import { Marker, Popup} from 'react-leaflet';
+// import './Map.css'
+// import { Circle, Rectangle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-// import './Map.css'
-import { Marker, Popup} from 'react-leaflet';
-// import { Circle, Rectangle } from 'react-leaflet';
+const shipIcon = L.divIcon({
+  className: 'custom-icon',
+  html: ReactDOMServer.renderToString(<MdOutlineNavigation style={{ color: 'green', transform: 'rotate(45deg)' }}/>),
+});
 
 
 const center = [-36.842, 174.760]
@@ -43,7 +50,7 @@ function Map() {
 
           </LayersControl>
           <MenuOptions></MenuOptions>
-          <Marker position={center}>
+          <Marker position={center} icon={shipIcon}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
@@ -54,3 +61,4 @@ function Map() {
   }
   
   export default Map;
+
