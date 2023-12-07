@@ -15,7 +15,7 @@ const shipTypeDic = {
     "Tugs" : "lightblue",
     "Passenger" : "blue",
     "Navigation Aids" : "pink",
-    "Unspecified" : "gray"
+    "Unspecified" : "lightgray"
 }
 
 const shipIcon = (heading, type) => {
