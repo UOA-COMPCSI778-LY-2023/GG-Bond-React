@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       {/* <Gmap></Gmap> */}
-      <Map></Map>
+      <Map />
     </div>
   );
 }
