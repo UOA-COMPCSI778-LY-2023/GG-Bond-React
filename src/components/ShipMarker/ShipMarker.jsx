@@ -1,6 +1,6 @@
 import React from 'react';
 import { Marker, Popup } from 'react-leaflet';
-import { MdOutlineNavigation } from "react-icons/md";
+import { FiNavigation2 } from "react-icons/fi";
 import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
 import ShipInfo from '../ShipInfo/ShipInfo';
@@ -15,34 +15,27 @@ const shipTypeDic = {
     "Tugs" : "lightblue",
     "Passenger" : "blue",
     "Navigation Aids" : "pink",
-    "Unspecified" : "gray"
+    "Unspecified" : "lightgray"
 }
 
 const shipIcon = (heading, type) => {
-    const color = shipTypeDic[type] || 'gray'; 
+    const color = shipTypeDic[type] || 'gray';
   
     return L.divIcon({
       className: 'custom-icon',
       html: ReactDOMServer.renderToString(
-        <MdOutlineNavigation style={{ color, transform: `rotate(${heading}deg)` }} />
+        <FiNavigation2 style={{strokeColor: "black", fill: color, transform: `rotate(${heading}deg) scale(1.5)` }} />
       ),
     });
   };
 
 const ShipMarker = ({ boatData }) => {
   const { name, type, speed, location, status } = boatData;
-
+  
   return (
     <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}>
       <Popup>
-        
-        {/* <div>
-          <h3>{name}</h3>
-          <p>Type: {type}</p>
-          <p>Speed: {speed} knots</p>
-          <p>Status: {status}</p>
-          {/* Add more details or styling as needed */}
-        {/* </div> */} 
+
         <ShipInfo ship={shipMockData}></ShipInfo>
 
       </Popup>
