@@ -1,0 +1,7502 @@
+[
+  {
+    "mmsi": 725000139,
+    "name": "MAnullTIALES",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Chile",
+    "country": "Chile",
+    "location": {
+      "latitude": -52.403005,
+      "longitude": -69.07586,
+      "heading": 0
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 354899000,
+    "name": "PHOENIX LEADER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 46.24447667,
+      "longitude": -142.353075,
+      "heading": 84
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 503110130,
+    "name": "SKAGEN",
+    "type_code": 0,
+    "type": "Not Available",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -19.80234833,
+      "longitude": 149.31575,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 211724920,
+    "name": "WESERTUG",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 53.51727667,
+      "longitude": 8.14789667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 211205970,
+    "name": "WEGA",
+    "type_code": 55,
+    "type": "Law Enforcement",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 54.21263,
+      "longitude": 7.93799833,
+      "heading": 36
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 244100063,
+    "name": "RPA 1",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 51.80013333,
+      "longitude": 4.63937167,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 219029785,
+    "name": "WIND OSPREY",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 52.40277,
+      "longitude": 4.09272333,
+      "heading": 239
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 412549233,
+    "name": "AL ASMAC 18",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 20.504145,
+      "longitude": -17.29638333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 357117000,
+    "name": "YUYO SPIRITS",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 32.14663667,
+      "longitude": -42.56534667,
+      "heading": 265
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 211795370,
+    "name": "WITTENBERG",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 51.85588667,
+      "longitude": 12.22348,
+      "heading": 0
+    },
+    "status": "Not Under Command",
+    "status_code": 2
+  },
+  {
+    "mmsi": 512008000,
+    "name": "SAN AOTEA II",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "New Zealand",
+    "country": "New Zealand",
+    "location": {
+      "latitude": -44.39310167,
+      "longitude": 171.2582133,
+      "heading": 46
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 245969000,
+    "name": "VOS PRELUDE",
+    "type_code": 59,
+    "type": "Ships Not Party to Armed Conflict",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 52.59,
+      "longitude": 1.72833333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 701593000,
+    "name": "PNA GC-200 EX-LENGA",
+    "type_code": 55,
+    "type": "Law Enforcement",
+    "country_code": "Argentina",
+    "country": "Argentina",
+    "location": {
+      "latitude": -34.57400167,
+      "longitude": -58.37938833,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 368225760,
+    "name": "JOSEPH G",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 28.89833333,
+      "longitude": -89.64666667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413030190,
+    "name": "HAIXUN0616",
+    "type_code": 55,
+    "type": "Law Enforcement",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 34.30806833,
+      "longitude": 120.2652683,
+      "heading": 0
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 431016455,
+    "name": "SUISEI",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 34.636695,
+      "longitude": 135.3621567,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 273373130,
+    "name": "SKIF",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 45.33642833,
+      "longitude": 36.46062833,
+      "heading": 320
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 477737600,
+    "name": "YM WELLNESS",
+    "type_code": 74,
+    "type": "Cargo",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": 5.81374167,
+      "longitude": 86.145945,
+      "heading": 267
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413226030,
+    "name": "XIN SHI SU 2",
+    "type_code": 40,
+    "type": "HSC",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 22.77333333,
+      "longitude": 113.6066667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 356804000,
+    "name": "HONU",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 8.91317667,
+      "longitude": -79.52695833,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 246517000,
+    "name": "FAIRPLAY XIV",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 51.34855833,
+      "longitude": 4.27336333,
+      "heading": 282
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 205479090,
+    "name": "CLEMA",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Belgium",
+    "country": "Belgium",
+    "location": {
+      "latitude": 51.91166667,
+      "longitude": 4.57833333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 413443060,
+    "name": "YUN TONG 501",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 30.00135,
+      "longitude": 122.0898,
+      "heading": 51
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 308541000,
+    "name": "GREEN SELJE",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Azores",
+    "country": "Azores",
+    "location": {
+      "latitude": 5.268315,
+      "longitude": -4.036555,
+      "heading": 130
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 368030340,
+    "name": "ENDLESS SUMMER",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 41.48666667,
+      "longitude": -71.325,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 538007810,
+    "name": "FAIRCHEM BLADE",
+    "type_code": 82,
+    "type": "Tanker",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 37.75375167,
+      "longitude": -9.64217667,
+      "heading": 345
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 538009922,
+    "name": "TOMINI BORA",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 22.23652833,
+      "longitude": 91.72471333,
+      "heading": 351
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 265036180,
+    "name": "OCCASION ARVIKA",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Sweden",
+    "country": "Sweden",
+    "location": {
+      "latitude": 57.76183667,
+      "longitude": 11.80305,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 211393390,
+    "name": "SEABED EXPLORER",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 53.85746333,
+      "longitude": 8.720415,
+      "heading": 312
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 352001381,
+    "name": "SH OLIVIA",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 34.72666667,
+      "longitude": 127.81,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 273210220,
+    "name": "PRIMORYE",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 1.30517,
+      "longitude": 104.1260167,
+      "heading": 319
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 574128134,
+    "name": "UNAVAILABLE",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Vietnam",
+    "country": "Vietnam",
+    "location": {
+      "latitude": 10.12166667,
+      "longitude": 113.8716667,
+      "heading": 0
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 538009740,
+    "name": "ORION GLOBE",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": -39.29049333,
+      "longitude": -61.53430333,
+      "heading": 325
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 241600000,
+    "name": "PLATYTERA",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Greece",
+    "country": "Greece",
+    "location": {
+      "latitude": 37.742005,
+      "longitude": 24.07203167,
+      "heading": 311
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 219026278,
+    "name": "OLIBEL II",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 57.05706667,
+      "longitude": 9.87777,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 368072280,
+    "name": "HOKULANI",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 48.61,
+      "longitude": -123.155,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 259004850,
+    "name": "NESOEYGUTT",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 66.59274833,
+      "longitude": 12.65906,
+      "heading": 260
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 574005350,
+    "name": "NAM PHAT OCEAN",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Vietnam",
+    "country": "Vietnam",
+    "location": {
+      "latitude": 21.965,
+      "longitude": 91.84666667,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 431005408,
+    "name": "SHINTATSU MARU",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 34.22233333,
+      "longitude": 133.2739,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 563019800,
+    "name": "BRILLANTE",
+    "type_code": 82,
+    "type": "Tanker",
+    "country_code": "Singapore",
+    "country": "Singapore",
+    "location": {
+      "latitude": 32.610115,
+      "longitude": -79.02789833,
+      "heading": 221
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 271010111,
+    "name": "STERLING",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Turkey",
+    "country": "Turkey",
+    "location": {
+      "latitude": 40.99872167,
+      "longitude": 28.958975,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 413786933,
+    "name": "SUSHUIYUNHUO8996",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.19104167,
+      "longitude": 119.5895433,
+      "heading": 265
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 667001715,
+    "name": "SOZOPOL-1",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Sierra Leone",
+    "country": "Sierra Leone",
+    "location": {
+      "latitude": 45.17083833,
+      "longitude": 36.501855,
+      "heading": 176
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 353273000,
+    "name": "CHEM HANA",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 34.45098167,
+      "longitude": 128.0476017,
+      "heading": 320
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 373076000,
+    "name": "NEW PINNACLE",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 48.51927167,
+      "longitude": -125.1717133,
+      "heading": 267
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 636015411,
+    "name": "ALMI GALAXY",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 9.25595,
+      "longitude": -56.15254833,
+      "heading": 215
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 994071391,
+    "name": "994071391         9V",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": -30.81248333,
+      "longitude": 100.5042483,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 257991800,
+    "name": "HUSVAER",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 70.36333333,
+      "longitude": 31.03333333,
+      "heading": 0
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 770576247,
+    "name": "D9 ALFREDO LABADIE",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "Uruguay",
+    "country": "Uruguay",
+    "location": {
+      "latitude": -34.89903333,
+      "longitude": -56.19869667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 244870878,
+    "name": "VARIA NOVA",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 53.183175,
+      "longitude": 5.56181167,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 566414000,
+    "name": "SPIRIT II",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Singapore",
+    "country": "Singapore",
+    "location": {
+      "latitude": 45.593705,
+      "longitude": 13.56811,
+      "heading": 54
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 416004339,
+    "name": "SHENG FENG NO266",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Taiwan",
+    "country": "Taiwan",
+    "location": {
+      "latitude": 17.80365,
+      "longitude": -179.955,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 241727000,
+    "name": "CHRISTOS XXVII",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Greece",
+    "country": "Greece",
+    "location": {
+      "latitude": 37.95473667,
+      "longitude": 23.55024,
+      "heading": 0
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 431010799,
+    "name": "DAIFUKUMARU",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 35.68666667,
+      "longitude": 139.955,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 305967000,
+    "name": "KREETE",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Antigua and Barbuda",
+    "country": "Antigua and Barbuda",
+    "location": {
+      "latitude": 54.528525,
+      "longitude": 18.52834833,
+      "heading": 103
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 250001767,
+    "name": "TEA ROSE",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Ireland",
+    "country": "Ireland",
+    "location": {
+      "latitude": 51.64833333,
+      "longitude": -9.905,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 538004747,
+    "name": "FEDERAL TIBER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 54.53473833,
+      "longitude": 18.52871667,
+      "heading": 58
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 367544060,
+    "name": "ANN ELISE",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.95333333,
+      "longitude": -90.03833333,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 245771000,
+    "name": "UK176 VERWACHTING",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 54.265,
+      "longitude": 5.3,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 305886000,
+    "name": "AMELIE BORCHARD",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Antigua and Barbuda",
+    "country": "Antigua and Barbuda",
+    "location": {
+      "latitude": 43.58233333,
+      "longitude": -9.60266667,
+      "heading": 16
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 440042920,
+    "name": "SUNJIN NO.900",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "South Korea",
+    "country": "South Korea",
+    "location": {
+      "latitude": 35.46685,
+      "longitude": 129.4075167,
+      "heading": 5
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 636016414,
+    "name": "MORNING SWAN",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": -30.53754,
+      "longitude": 114.41196,
+      "heading": 327
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 441984000,
+    "name": "STO LOBELIA",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "South Korea",
+    "country": "South Korea",
+    "location": {
+      "latitude": 13.915,
+      "longitude": 120.8216667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 219007378,
+    "name": "YDUN",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 55.85166667,
+      "longitude": 9.87666667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 205205690,
+    "name": "ALCATRAZ",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Belgium",
+    "country": "Belgium",
+    "location": {
+      "latitude": 51.25,
+      "longitude": 4.39,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 735058752,
+    "name": "CRUCEROS HUMBOLDT",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Ecuador",
+    "country": "Ecuador",
+    "location": {
+      "latitude": -0.481735,
+      "longitude": -90.30568833,
+      "heading": 93
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 413242870,
+    "name": "QIN RONG 17",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 29.99134167,
+      "longitude": 122.1527367,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 366610000,
+    "name": "NATHANIEL B PALMER",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": -53.16833333,
+      "longitude": -70.90666667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 735023435,
+    "name": "NORTADA",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Ecuador",
+    "country": "Ecuador",
+    "location": {
+      "latitude": -0.74833333,
+      "longitude": -90.30833333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 232013416,
+    "name": "QUEEN BEE",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 50.75215333,
+      "longitude": -1.52652667,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 567001390,
+    "name": "PILATUS 18",
+    "type_code": 74,
+    "type": "Cargo",
+    "country_code": "Thailand",
+    "country": "Thailand",
+    "location": {
+      "latitude": 12.6695,
+      "longitude": 101.15045,
+      "heading": 271
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 310447000,
+    "name": "LNG RIVER ORASHI",
+    "type_code": 84,
+    "type": "Tanker",
+    "country_code": "Bermuda",
+    "country": "Bermuda",
+    "location": {
+      "latitude": -25.415,
+      "longitude": 35.84833333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 248000939,
+    "name": "RUSH X",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Malta",
+    "country": "Malta",
+    "location": {
+      "latitude": 39.56647833,
+      "longitude": 2.64316333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 368032430,
+    "name": "LUCKY 1",
+    "type_code": 10,
+    "type": "Reserved",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.41997167,
+      "longitude": -93.93996833,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 311001150,
+    "name": "CMA CGM CHIWAN",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Bahamas",
+    "country": "Bahamas",
+    "location": {
+      "latitude": 6.43423167,
+      "longitude": 3.391495,
+      "heading": 294
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 413400370,
+    "name": "FAN AN 266",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 35.30697667,
+      "longitude": 119.73757,
+      "heading": 353
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 477996245,
+    "name": "YUE TAI",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": 22.36697667,
+      "longitude": 113.9786933,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 366499000,
+    "name": "KATIE ANN",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 53.90666667,
+      "longitude": -166.5133333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 431245000,
+    "name": "MATSUEI MARU NO8",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 44.518775,
+      "longitude": -38.15328833,
+      "heading": 43
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 416631000,
+    "name": "CHIEN CHANG 36",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Taiwan",
+    "country": "Taiwan",
+    "location": {
+      "latitude": -12.00604167,
+      "longitude": -133.7246417,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 503088870,
+    "name": "MATILDA",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -12.47374,
+      "longitude": 130.84315,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 232042919,
+    "name": "MAKO",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 50.71352167,
+      "longitude": -1.95930667,
+      "heading": 198
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 331478000,
+    "name": "TUNEQ",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Greenland",
+    "country": "Greenland",
+    "location": {
+      "latitude": 64.87662667,
+      "longitude": -52.71116833,
+      "heading": 344
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 225319000,
+    "name": "NUEVO MONTE VENTOSO",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Spain",
+    "country": "Spain",
+    "location": {
+      "latitude": -31.72988333,
+      "longitude": -44.46915833,
+      "heading": 78
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 244620205,
+    "name": "NAUTICA",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 52.24957,
+      "longitude": 6.78588,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 368644000,
+    "name": "FORTE",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 8.02186,
+      "longitude": -56.90236667,
+      "heading": 122
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 218356000,
+    "name": "GRIMMERSHOERN",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 53.179605,
+      "longitude": 8.55574,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 413847747,
+    "name": "GUANGQIAN001",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 22.506705,
+      "longitude": 113.84772,
+      "heading": 0
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 413365550,
+    "name": "QIN HANG GONG 201",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.23423667,
+      "longitude": 119.23379,
+      "heading": 139
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 710003124,
+    "name": "MARIA JOSE",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -12.97204333,
+      "longitude": -38.51848,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 271002605,
+    "name": "SERDAR-5",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Turkey",
+    "country": "Turkey",
+    "location": {
+      "latitude": 40.90401167,
+      "longitude": 27.468455,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 440186000,
+    "name": "ORIENTAL STAR",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "South Korea",
+    "country": "South Korea",
+    "location": {
+      "latitude": 33.76424833,
+      "longitude": 125.9473683,
+      "heading": 92
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 613099431,
+    "name": "GRAND OCEAN 1",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Cameroon",
+    "country": "Cameroon",
+    "location": {
+      "latitude": 10.80494,
+      "longitude": -16.51132833,
+      "heading": 13
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 636017703,
+    "name": "NSU TRUST",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": -11.51676167,
+      "longitude": -22.61293333,
+      "heading": 128
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 374725000,
+    "name": "PEQUENI",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 8.955,
+      "longitude": -79.56833333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 367028750,
+    "name": "MAGGIE RAE",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 30.20166667,
+      "longitude": -93.32333333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 273328490,
+    "name": "CK-2012",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 61.97791,
+      "longitude": 129.903735,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 574179890,
+    "name": "OC THIEN PHU E1",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Vietnam",
+    "country": "Vietnam",
+    "location": {
+      "latitude": 10.27956833,
+      "longitude": 107.0670167,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 239486100,
+    "name": "M/Y ELINA II",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Greece",
+    "country": "Greece",
+    "location": {
+      "latitude": 37.74333333,
+      "longitude": 23.42666667,
+      "heading": 0
+    },
+    "status": "Not Under Command",
+    "status_code": 2
+  },
+  {
+    "mmsi": 413791926,
+    "name": "WAN SHOU XIAN 6589",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.27372,
+      "longitude": 119.46756,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 667001616,
+    "name": "MACAU STAR",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Sierra Leone",
+    "country": "Sierra Leone",
+    "location": {
+      "latitude": 1.335,
+      "longitude": 103.36,
+      "heading": 0
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 273376220,
+    "name": "KRYM",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 70.92411333,
+      "longitude": 44.28808667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 431501866,
+    "name": "KAKUMEI MARU",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 31.39638333,
+      "longitude": 130.5459667,
+      "heading": 56
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 636021460,
+    "name": "SOUTHERN ANOA",
+    "type_code": 82,
+    "type": "Tanker",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 20.3,
+      "longitude": 71.30333333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 546022100,
+    "name": "F/V ULYSSE ONE",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Tahiti",
+    "country": "Tahiti",
+    "location": {
+      "latitude": -17.52794167,
+      "longitude": -149.5698317,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 503617200,
+    "name": "ALASKA ONE",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -27.85324833,
+      "longitude": 153.3633767,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 431018253,
+    "name": "HOSHU",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 37.096485,
+      "longitude": 136.5743,
+      "heading": 195
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 247381010,
+    "name": "ARIA",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Italy",
+    "country": "Italy",
+    "location": {
+      "latitude": 44.09899333,
+      "longitude": 9.82917167,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 413997026,
+    "name": "HONGCHUANG888",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 22.55260667,
+      "longitude": 113.72765,
+      "heading": 339
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 368070010,
+    "name": "WINDENSEMBLE",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 32.0231,
+      "longitude": -81.04609333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 316004787,
+    "name": "PACIFIC DISCOVERY",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Canada",
+    "country": "Canada",
+    "location": {
+      "latitude": 49.08560667,
+      "longitude": -123.1103083,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 431003135,
+    "name": "TOMOZURUMARU",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 33.05105,
+      "longitude": 129.6377833,
+      "heading": 261
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 525003571,
+    "name": "CSNUSANTARA EXPLORER",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "Indonesia",
+    "country": "Indonesia",
+    "location": {
+      "latitude": 62.36234,
+      "longitude": -179.4760133,
+      "heading": 0
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 244770251,
+    "name": "RIET",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 51.502375,
+      "longitude": -0.06993333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 100907510,
+    "name": "1",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": 37.86097,
+      "longitude": 123.8731767,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 622121512,
+    "name": "PMS 31",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Egypt",
+    "country": "Egypt",
+    "location": {
+      "latitude": 30.93369667,
+      "longitude": 28.85284,
+      "heading": 0
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 664543000,
+    "name": "HSIANG FA NO.26",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Seychelles",
+    "country": "Seychelles",
+    "location": {
+      "latitude": 22.58312167,
+      "longitude": 120.2942017,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 566743000,
+    "name": "IVS MERLION",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Singapore",
+    "country": "Singapore",
+    "location": {
+      "latitude": -28.95166667,
+      "longitude": 32.06666667,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 271045447,
+    "name": "MUBECCEL ANA",
+    "type_code": 53,
+    "type": "Port Tender",
+    "country_code": "Turkey",
+    "country": "Turkey",
+    "location": {
+      "latitude": 36.59398333,
+      "longitude": 36.17662333,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 150000340,
+    "name": "W150-77%",
+    "type_code": 0,
+    "type": "Not Available",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": -8.579315,
+      "longitude": 138.5216667,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 257742500,
+    "name": "SENJATIND",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 69.50889167,
+      "longitude": 17.90434,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 431115000,
+    "name": "GRACE BARLERIA",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": -19.19589,
+      "longitude": 114.7797533,
+      "heading": 2
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 710003369,
+    "name": "HB FILHOTE",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -1.51333333,
+      "longitude": -48.735,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 238836440,
+    "name": "BIOKOVAC",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Croatia",
+    "country": "Croatia",
+    "location": {
+      "latitude": 43.39166667,
+      "longitude": 16.37,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 367626860,
+    "name": "SPEENDRIFT",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 46.16804333,
+      "longitude": -123.0493333,
+      "heading": 317
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 235089955,
+    "name": "VANQUISH",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 52.93666667,
+      "longitude": 5.03166667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 367146780,
+    "name": "ROBERT G STONE JR",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.54,
+      "longitude": -90.76,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 228141800,
+    "name": "F/V S.S.F.3",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "France",
+    "country": "France",
+    "location": {
+      "latitude": 43.402625,
+      "longitude": 3.70058833,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 548592200,
+    "name": "MTUG  PROCYON",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Philippines",
+    "country": "Philippines",
+    "location": {
+      "latitude": 14.64068167,
+      "longitude": 120.9479917,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 310793000,
+    "name": "ALFRED TEMILE",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Bermuda",
+    "country": "Bermuda",
+    "location": {
+      "latitude": 6.385,
+      "longitude": 3.33333333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 271048545,
+    "name": "QUEEN OF MAKRI",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Turkey",
+    "country": "Turkey",
+    "location": {
+      "latitude": 36.63059833,
+      "longitude": 29.10621167,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 258018940,
+    "name": "ROSFJORD",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 58.23639333,
+      "longitude": 6.61254667,
+      "heading": 126
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 563156800,
+    "name": "PACIFIC MONACO",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Singapore",
+    "country": "Singapore",
+    "location": {
+      "latitude": 35.055,
+      "longitude": 129.7266667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 928004208,
+    "name": "BUOY-08 80%",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": -11.80929833,
+      "longitude": 158.2429833,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 413818372,
+    "name": "JIANG DONG HUO 788",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.86785333,
+      "longitude": 120.1632533,
+      "heading": 1
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 413821918,
+    "name": "WAN SHOU XIAN 9856",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.00553333,
+      "longitude": 120.6609217,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 273110099,
+    "name": "VIKTOR FESENKO",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 47.17908833,
+      "longitude": 39.60445667,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 367692120,
+    "name": "KATHLEEN DUPRE",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 30.07,
+      "longitude": -94.04666667,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 431000938,
+    "name": "KAIMONMARU",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 34.58511667,
+      "longitude": 135.4555567,
+      "heading": 288
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 367047120,
+    "name": "REBEL",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 45.647365,
+      "longitude": -122.739905,
+      "heading": 107
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 503036460,
+    "name": "MTS VANTAGE",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -21.26,
+      "longitude": 149.31,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413902751,
+    "name": "YUEGUANGZHOUGONG0077",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 23.11594667,
+      "longitude": 113.2193917,
+      "heading": 349
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 271045934,
+    "name": "FUNDAMENTAL",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Turkey",
+    "country": "Turkey",
+    "location": {
+      "latitude": 37.11144167,
+      "longitude": 27.28776667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 273563210,
+    "name": "OSTROV SHIKOTAN",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 43.08996667,
+      "longitude": 131.8915,
+      "heading": 253
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 405000344,
+    "name": "B LPG CHATOKI",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Bangladesh",
+    "country": "Bangladesh",
+    "location": {
+      "latitude": 22.16111833,
+      "longitude": 91.78125833,
+      "heading": 344
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 368019940,
+    "name": "KASSIDY LYN",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 40.89924,
+      "longitude": -70.25575,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 538009505,
+    "name": "SUPER RUBY",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 59.835575,
+      "longitude": 25.723985,
+      "heading": 129
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 219031114,
+    "name": "CANADIAN BULKER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": -33.2881,
+      "longitude": 115.6477,
+      "heading": 156
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 273351450,
+    "name": "VF TANKER-1",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 43.98183333,
+      "longitude": 28.96673667,
+      "heading": 181
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 265799760,
+    "name": "ARCANSAS",
+    "type_code": 0,
+    "type": "Not Available",
+    "country_code": "Sweden",
+    "country": "Sweden",
+    "location": {
+      "latitude": 57.26561,
+      "longitude": 16.46997167,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 235093173,
+    "name": "ARGUS",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 53.71833333,
+      "longitude": -6.33666667,
+      "heading": 0
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 352978152,
+    "name": "HUI FA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 36.02191,
+      "longitude": 120.2162267,
+      "heading": 233
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 244670098,
+    "name": "MAXIMA",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 51.78623,
+      "longitude": 4.64412,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 431500040,
+    "name": "GOEIMARU NO.38",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 23.44707833,
+      "longitude": -64.74839167,
+      "heading": 38
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 503718000,
+    "name": "ANTARCTIC DISCOVERY",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -42.87830667,
+      "longitude": 147.3412633,
+      "heading": 171
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 368157150,
+    "name": "BALTIMORE",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 40.475,
+      "longitude": -74.025,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 877227528,
+    "name": "VENNESUND BAT 2",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": 65.21631833,
+      "longitude": 12.03985167,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 338386358,
+    "name": "GOOD JUJU",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.54748333,
+      "longitude": -95.038685,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 417080432,
+    "name": "IMULA 0804 CHW",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Sri Lanka",
+    "country": "Sri Lanka",
+    "location": {
+      "latitude": -0.16387667,
+      "longitude": 61.613225,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 636012383,
+    "name": "GUANYIN",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 46.33333333,
+      "longitude": -10.00333333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 240901000,
+    "name": "TILOS",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Greece",
+    "country": "Greece",
+    "location": {
+      "latitude": 18.86426667,
+      "longitude": 72.19615,
+      "heading": 100
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 636019459,
+    "name": "YICK GUO",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 9.828775,
+      "longitude": -14.37602833,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 368246410,
+    "name": "FLAT OUT",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 32.71109667,
+      "longitude": -117.23319,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 725007600,
+    "name": "QUERELEMA",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Chile",
+    "country": "Chile",
+    "location": {
+      "latitude": -36.72694,
+      "longitude": -73.13006333,
+      "heading": 216
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 431006797,
+    "name": "NO:6 FUKUEIMARU",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 40.52769667,
+      "longitude": 141.5333783,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 273399670,
+    "name": "TENOR",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 61.573705,
+      "longitude": 176.2343083,
+      "heading": 40
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 431100728,
+    "name": "FUDOMARU NO33",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 42.98706,
+      "longitude": 144.36441,
+      "heading": 192
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 310528000,
+    "name": "METH. HEATHER SALLY",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Bermuda",
+    "country": "Bermuda",
+    "location": {
+      "latitude": 24.24371667,
+      "longitude": -135.398465,
+      "heading": 294
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 270400000,
+    "name": "UNAVAILABLE",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Czech Republic",
+    "country": "Czech Republic",
+    "location": {
+      "latitude": 50.205,
+      "longitude": 14.65333333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 356155000,
+    "name": "TRITON REEFER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 6.19436,
+      "longitude": -135.9966033,
+      "heading": 92
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 368200430,
+    "name": "KRAKEN   ( TVA  )",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 36.32,
+      "longitude": -86.41333333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 235087938,
+    "name": "RYOKAN 2",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 43.52301833,
+      "longitude": 6.94601333,
+      "heading": 307
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 735059295,
+    "name": "ECO GALAXY",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Ecuador",
+    "country": "Ecuador",
+    "location": {
+      "latitude": -1.34888333,
+      "longitude": -89.65844667,
+      "heading": 146
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 440135790,
+    "name": "207 KO RYO",
+    "type_code": 32,
+    "type": "Towing",
+    "country_code": "South Korea",
+    "country": "South Korea",
+    "location": {
+      "latitude": 35.04284,
+      "longitude": 128.9799683,
+      "heading": 354
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 367125100,
+    "name": "CAPT. TOM ECHOLS SR",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.78243,
+      "longitude": -95.07395333,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 334455660,
+    "name": "SANTA ADELA 2",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Honduras",
+    "country": "Honduras",
+    "location": {
+      "latitude": -11.95803833,
+      "longitude": -77.14105667,
+      "heading": 286
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 263482000,
+    "name": "GEMINI",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Portugal",
+    "country": "Portugal",
+    "location": {
+      "latitude": 37.13258667,
+      "longitude": -8.52676167,
+      "heading": 0
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 413865945,
+    "name": "YU HANG 666",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.00558333,
+      "longitude": 120.6618133,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 413760851,
+    "name": "WANHONGYUAN1218",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.26289667,
+      "longitude": 119.45367,
+      "heading": 106
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 354043000,
+    "name": "ONOZURU MARU",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 32.12166667,
+      "longitude": 134.3983333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 565960000,
+    "name": "SANSOVINO",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Singapore",
+    "country": "Singapore",
+    "location": {
+      "latitude": 21.39166667,
+      "longitude": -85.93833333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 251396870,
+    "name": "ALFSNES",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "Iceland",
+    "country": "Iceland",
+    "location": {
+      "latitude": 63.52164333,
+      "longitude": -20.11573167,
+      "heading": 236
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 367305420,
+    "name": "DOROTHY MORAN",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 36.84,
+      "longitude": -76.27,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 477624400,
+    "name": "NEWCASTLE EXPRESS",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": 23.78814,
+      "longitude": 120.178735,
+      "heading": 25
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 331613000,
+    "name": "MASIK MASTER",
+    "type_code": 38,
+    "type": "Reserved",
+    "country_code": "Greenland",
+    "country": "Greenland",
+    "location": {
+      "latitude": 61.99516833,
+      "longitude": -49.67576833,
+      "heading": 337
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 366904880,
+    "name": "MESABI MINER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 46.65833333,
+      "longitude": -84.765,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 345050029,
+    "name": "ECO III",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Mexico",
+    "country": "Mexico",
+    "location": {
+      "latitude": 18.812645,
+      "longitude": -92.70831833,
+      "heading": 18
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 244391236,
+    "name": "TEMPUS VALOREM",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 52.19066667,
+      "longitude": 4.49735,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 331856000,
+    "name": "MILLE KUKA",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Greenland",
+    "country": "Greenland",
+    "location": {
+      "latitude": 63.83980167,
+      "longitude": -51.39331833,
+      "heading": 111
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 368205350,
+    "name": "WILLIAM O",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.62,
+      "longitude": -90.995,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 366563000,
+    "name": "MAHIMAHI",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 37.7934,
+      "longitude": -122.3002,
+      "heading": 271
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 244820229,
+    "name": "AMBIANCE",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 52.69673,
+      "longitude": 5.28871667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 224175430,
+    "name": "ADVIENTO UNO",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Spain",
+    "country": "Spain",
+    "location": {
+      "latitude": 43.65666667,
+      "longitude": -7.34833333,
+      "heading": 0
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 367764630,
+    "name": "COLE GUIDRY",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.72359333,
+      "longitude": -95.02015333,
+      "heading": 71
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 258105480,
+    "name": "BLACK DRAGONFLY",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 62.46872167,
+      "longitude": 6.20367833,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 408317000,
+    "name": "SVITZER PELLA",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Bahrain",
+    "country": "Bahrain",
+    "location": {
+      "latitude": 26.19189333,
+      "longitude": 50.708635,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 362163000,
+    "name": "KAIRI",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Trinidad and Tobago",
+    "country": "Trinidad and Tobago",
+    "location": {
+      "latitude": 10.198035,
+      "longitude": -61.71194833,
+      "heading": 220
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 316003700,
+    "name": "EDGARKOTOKAK",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Canada",
+    "country": "Canada",
+    "location": {
+      "latitude": 70.7351,
+      "longitude": -117.7581617,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 800051497,
+    "name": "LIAOYINGYU 31069",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": 38.59991833,
+      "longitude": 121.1452433,
+      "heading": 84
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 270315000,
+    "name": "LABE 18",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Czech Republic",
+    "country": "Czech Republic",
+    "location": {
+      "latitude": 53.525695,
+      "longitude": 10.04090833,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 371671000,
+    "name": "GRAND LEGACY",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 22.23116667,
+      "longitude": -145.478,
+      "heading": 88
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 373574000,
+    "name": "AYYILDIZ",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 43.97294167,
+      "longitude": 36.12547,
+      "heading": 241
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 218851000,
+    "name": "GUAYAQUIL EXPRESS",
+    "type_code": 71,
+    "type": "Cargo",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 18.38733333,
+      "longitude": -69.55923667,
+      "heading": 309
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 477995458,
+    "name": "TSUI WAH 2",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": 22.35107,
+      "longitude": 114.0284,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 304869000,
+    "name": "FRIEDRICH",
+    "type_code": 78,
+    "type": "Cargo",
+    "country_code": "Antigua and Barbuda",
+    "country": "Antigua and Barbuda",
+    "location": {
+      "latitude": 35.055,
+      "longitude": 18.45,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 735059025,
+    "name": "DONA CHULE",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Ecuador",
+    "country": "Ecuador",
+    "location": {
+      "latitude": 3.55166667,
+      "longitude": -99.34833333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 657388000,
+    "name": "JENNIFER 1",
+    "type_code": 71,
+    "type": "Cargo",
+    "country_code": "Nigeria",
+    "country": "Nigeria",
+    "location": {
+      "latitude": 5.99710167,
+      "longitude": 5.46337,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 367057380,
+    "name": "DEL WILKINS",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.94666667,
+      "longitude": -90.165,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 636021904,
+    "name": "SEA RUNNER",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 55.73806667,
+      "longitude": 16.04672167,
+      "heading": 252
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413556920,
+    "name": "HUI ZONG GONG",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.35255,
+      "longitude": 121.62122,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 538004570,
+    "name": "GOLDEN ROSE",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": -12.165,
+      "longitude": 136.6333333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 211307920,
+    "name": "BONITO",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 54.18390167,
+      "longitude": 12.09797333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 367057260,
+    "name": "MARTIN J PELLEGRIN",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.20591667,
+      "longitude": -95.04838333,
+      "heading": 241
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 273350660,
+    "name": "VF TANKER-7",
+    "type_code": 81,
+    "type": "Tanker",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 43.99,
+      "longitude": 28.96,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 725001026,
+    "name": "JACAF",
+    "type_code": 63,
+    "type": "Passenger",
+    "country_code": "Chile",
+    "country": "Chile",
+    "location": {
+      "latitude": -43.91517,
+      "longitude": -73.683995,
+      "heading": 278
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 538003636,
+    "name": "VALARIS DS4",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": -25.50973167,
+      "longitude": -42.73357833,
+      "heading": 25
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 265814500,
+    "name": "KERMIT",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Sweden",
+    "country": "Sweden",
+    "location": {
+      "latitude": 63.69550167,
+      "longitude": 20.34740167,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 215908000,
+    "name": "KAATA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Malta",
+    "country": "Malta",
+    "location": {
+      "latitude": 57.59970667,
+      "longitude": 21.4405,
+      "heading": 61
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 431402033,
+    "name": "TAISEIMARU",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 34.514705,
+      "longitude": 133.676905,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 367133000,
+    "name": "CAPE FINISTERRE",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": -10.90215333,
+      "longitude": -169.0020167,
+      "heading": 18
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 257000260,
+    "name": "FROYSPRINT",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 63.76919333,
+      "longitude": 8.81963167,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 373636000,
+    "name": "SIDER COLOMBIA",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": -23.18763667,
+      "longitude": -42.98398,
+      "heading": 47
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 657246900,
+    "name": "NEWLAND",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Nigeria",
+    "country": "Nigeria",
+    "location": {
+      "latitude": 55.05864167,
+      "longitude": 10.618915,
+      "heading": 223
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 367002540,
+    "name": "DEWEY R",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 37.017055,
+      "longitude": -89.200605,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 227789150,
+    "name": "MS RENOIR",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "France",
+    "country": "France",
+    "location": {
+      "latitude": 48.85166667,
+      "longitude": 2.28333333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 412329692,
+    "name": "LU QING YUAN YU 210",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": -34.89833333,
+      "longitude": -56.19833333,
+      "heading": 0
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 413766857,
+    "name": "FUYANGYUANDONG1HAO",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.17062,
+      "longitude": 118.8556267,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 212018000,
+    "name": "X-PRESS ELBE",
+    "type_code": 71,
+    "type": "Cargo",
+    "country_code": "Cyprus",
+    "country": "Cyprus",
+    "location": {
+      "latitude": 54.14312,
+      "longitude": 9.34661,
+      "heading": 226
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 279202573,
+    "name": "MARCONI",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Serbia",
+    "country": "Serbia",
+    "location": {
+      "latitude": 48.16607167,
+      "longitude": 16.51609667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413798843,
+    "name": "YONGSHENG002",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.98480833,
+      "longitude": 120.821125,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 338160457,
+    "name": "OPUS TWO",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 33.975575,
+      "longitude": -118.45159,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 356158000,
+    "name": "TAO MARINER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 16.72,
+      "longitude": 148.615,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 232019568,
+    "name": "GOOD DOG",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 50.57174,
+      "longitude": -2.451095,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 413825351,
+    "name": "CHANGHANGYOU9HAO",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.923915,
+      "longitude": 120.1962933,
+      "heading": 29
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 257095070,
+    "name": "STORMHAV",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 69.68901,
+      "longitude": 19.01479333,
+      "heading": 199
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 258157000,
+    "name": "SPITSBERGEN",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 76.05833333,
+      "longitude": 7.29333333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 244710300,
+    "name": "SAILING HOME",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 51.23589167,
+      "longitude": 4.40779167,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 230351000,
+    "name": "HJORDIS",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Finland",
+    "country": "Finland",
+    "location": {
+      "latitude": 51.27085,
+      "longitude": 3.84658833,
+      "heading": 301
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 412767860,
+    "name": "HUA CHEN 87",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 30.00049,
+      "longitude": 122.068465,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 413795313,
+    "name": "WU HU JIN WANG 1022",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.28362667,
+      "longitude": 121.56768,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 338403926,
+    "name": "ALIBI",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 35.844185,
+      "longitude": -75.62202,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 367743660,
+    "name": "EVELYN JAMES",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.40666667,
+      "longitude": -94.74166667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 375338000,
+    "name": "RAKIWAI",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Saint Vincent and the Grenadines",
+    "country": "Saint Vincent and the Grenadines",
+    "location": {
+      "latitude": -46.594335,
+      "longitude": 168.338455,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 413363570,
+    "name": "HUAHAI601",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.44833333,
+      "longitude": 122.83,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 538006871,
+    "name": "REGIUS",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 35.70833333,
+      "longitude": -0.65,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 701006757,
+    "name": "PUNTA PARDELAS",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Argentina",
+    "country": "Argentina",
+    "location": {
+      "latitude": -43.34102333,
+      "longitude": -65.05689,
+      "heading": 298
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 440302920,
+    "name": "PILOT 1 HAN GUK",
+    "type_code": 50,
+    "type": "Pilot",
+    "country_code": "South Korea",
+    "country": "South Korea",
+    "location": {
+      "latitude": 34.86103667,
+      "longitude": 127.75192,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413903203,
+    "name": "YUEQINGYUANGONG 2618",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 23.13879,
+      "longitude": 113.1736217,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 710003920,
+    "name": "SAAM TAPAJO",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -32.03833333,
+      "longitude": -52.075,
+      "heading": 0
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 412331888,
+    "name": "LURISHANYUYANG69590",
+    "type_code": 0,
+    "type": "Not Available",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 35.513415,
+      "longitude": 119.8726967,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 312400000,
+    "name": "YUN QIAN 1",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Belize",
+    "country": "Belize",
+    "location": {
+      "latitude": 37.645,
+      "longitude": 120.2033333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 368215250,
+    "name": "RESOLUTE",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 32.725,
+      "longitude": -117.1916667,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 413777165,
+    "name": "JIN MA 6666",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.20583333,
+      "longitude": 119.6454,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 338163312,
+    "name": "WILLOUGHBY",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 46.30495833,
+      "longitude": -124.0361383,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 339256000,
+    "name": "KOJU",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Jamaica",
+    "country": "Jamaica",
+    "location": {
+      "latitude": 26.11166667,
+      "longitude": -80.10833333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 710004519,
+    "name": "ALCANTARA",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -2.54176833,
+      "longitude": -44.35847167,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 271046410,
+    "name": "M.BOAT-19",
+    "type_code": 59,
+    "type": "Ships Not Party to Armed Conflict",
+    "country_code": "Turkey",
+    "country": "Turkey",
+    "location": {
+      "latitude": 36.803865,
+      "longitude": 34.65497667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 244660048,
+    "name": "SYNTHESE 3",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 49.48036333,
+      "longitude": 8.58122667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 255806440,
+    "name": "MIRJAM",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Madeira",
+    "country": "Madeira",
+    "location": {
+      "latitude": 56.46065,
+      "longitude": 10.05958833,
+      "heading": 61
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 701108000,
+    "name": "MAR MARIA",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Argentina",
+    "country": "Argentina",
+    "location": {
+      "latitude": -43.08309,
+      "longitude": -62.161705,
+      "heading": 91
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 244850515,
+    "name": "EN AVANT 9",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 51.799255,
+      "longitude": 4.63953,
+      "heading": 207
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 569900000,
+    "name": "25",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": 32.02813833,
+      "longitude": 120.913365,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 211233300,
+    "name": "NIKAIA",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": -8.15166667,
+      "longitude": 117.7383333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 219029367,
+    "name": "FOXY LADY",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 55.10782833,
+      "longitude": 15.1469,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 431006032,
+    "name": "EIFUKUMARU NO.28",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 35.50104333,
+      "longitude": 139.7150617,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 431015351,
+    "name": "NO.8 KAKUWAMARU",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 35.41225,
+      "longitude": 139.6470467,
+      "heading": 80
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 538003892,
+    "name": "SANTY",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 4.77079167,
+      "longitude": 7.0097,
+      "heading": 351
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 367725870,
+    "name": "BUCHAnull 5",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 41.01833333,
+      "longitude": -73.53833333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 241192000,
+    "name": "MINERVA XANTHE",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Greece",
+    "country": "Greece",
+    "location": {
+      "latitude": 59.6762,
+      "longitude": 28.38247667,
+      "heading": 43
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 219223000,
+    "name": "MAERSK NEWPORT",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 38.76,
+      "longitude": 26.92833333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 367546320,
+    "name": "OCEAN DEFENDER",
+    "type_code": 54,
+    "type": "Vessel With Anti-Pollution Equipment",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 34.25022,
+      "longitude": -119.26561,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 369564000,
+    "name": "APOLLO",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.86358167,
+      "longitude": -93.93587667,
+      "heading": 300
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 574004960,
+    "name": "PETROLIMEX 21",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Vietnam",
+    "country": "Vietnam",
+    "location": {
+      "latitude": 30.76734,
+      "longitude": 121.461495,
+      "heading": 242
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 525101482,
+    "name": "KM BSS",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Indonesia",
+    "country": "Indonesia",
+    "location": {
+      "latitude": -30.45137333,
+      "longitude": 100.2973317,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 258534000,
+    "name": "RO SERVER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 61.104455,
+      "longitude": 5.02067833,
+      "heading": 216
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 255805695,
+    "name": "JSP PORTO",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Madeira",
+    "country": "Madeira",
+    "location": {
+      "latitude": -8.77152167,
+      "longitude": 13.26408167,
+      "heading": 229
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 229235000,
+    "name": "CMA CGM ALGECIRAS",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Malta",
+    "country": "Malta",
+    "location": {
+      "latitude": 1.53108167,
+      "longitude": 9.02436167,
+      "heading": 29
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413795312,
+    "name": "SUYANCHENGHUO 216598",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.39482333,
+      "longitude": 121.52476,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 219014818,
+    "name": "VH 1",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 55.70330333,
+      "longitude": 9.56268667,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 352001903,
+    "name": "MDL TOOFAN",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 50.43080833,
+      "longitude": 0.61130833,
+      "heading": 80
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 710016030,
+    "name": "LANCELOT",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -20.32278333,
+      "longitude": -40.33951667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 725003975,
+    "name": "DONA LAURA",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Chile",
+    "country": "Chile",
+    "location": {
+      "latitude": -41.50333333,
+      "longitude": -72.995,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 565831000,
+    "name": "FENGNING",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Singapore",
+    "country": "Singapore",
+    "location": {
+      "latitude": 29.60768333,
+      "longitude": -89.86106667,
+      "heading": 266
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 345070262,
+    "name": "SATURNO",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Mexico",
+    "country": "Mexico",
+    "location": {
+      "latitude": 18.615,
+      "longitude": -93.08833333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 227098950,
+    "name": "LOUKOUM",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "France",
+    "country": "France",
+    "location": {
+      "latitude": 52.41452667,
+      "longitude": 4.76878833,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 178800014,
+    "name": "BUOY-07  99%",
+    "type_code": 253,
+    "type": "UNAVAILABLE",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": -6.039855,
+      "longitude": -18.488425,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 636093038,
+    "name": "PELAGIC TARPON",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 1.3095,
+      "longitude": 104.1443333,
+      "heading": 306
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 477407100,
+    "name": "COLUMBIA RIVER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": 12.77416667,
+      "longitude": -69.3057,
+      "heading": 96
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413771956,
+    "name": "JIANGZHOU168",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.03216833,
+      "longitude": 120.580445,
+      "heading": 151
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 538009411,
+    "name": "FEDERAL FREEDOM",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 18.421055,
+      "longitude": -70.01759833,
+      "heading": 43
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 431402001,
+    "name": "HOSEI MARU NO.3",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 35.005,
+      "longitude": 136.6733333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 347042000,
+    "name": "STEADY",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Martinique",
+    "country": "Martinique",
+    "location": {
+      "latitude": 14.60166667,
+      "longitude": -61.05833333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 416007025,
+    "name": "RONG LIH FA NO.3",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Taiwan",
+    "country": "Taiwan",
+    "location": {
+      "latitude": 23.69118,
+      "longitude": 119.6066683,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 413236270,
+    "name": "null SHUN 29",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 25.51430333,
+      "longitude": 119.7294933,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 657109600,
+    "name": "MV KING DAVID",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Nigeria",
+    "country": "Nigeria",
+    "location": {
+      "latitude": 4.28812,
+      "longitude": 7.26076167,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 219024814,
+    "name": "CARPE DIEM",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 55.85853333,
+      "longitude": 9.87718667,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 538009620,
+    "name": "GRACEFUL GERTRUDE",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 20.95281667,
+      "longitude": -97.34438333,
+      "heading": 224
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 339222000,
+    "name": "WRECKLESS",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Jamaica",
+    "country": "Jamaica",
+    "location": {
+      "latitude": 26.10543833,
+      "longitude": -80.11761333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 412024840,
+    "name": "YA ZHOU SAN HAO",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 36.00184833,
+      "longitude": 120.1893067,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 316028909,
+    "name": "QUADRANT COMMANDER",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "Canada",
+    "country": "Canada",
+    "location": {
+      "latitude": 49.19908667,
+      "longitude": -123.134995,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 251711110,
+    "name": "NYI VIKINGUR SK-95",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Iceland",
+    "country": "Iceland",
+    "location": {
+      "latitude": 66.02083333,
+      "longitude": -14.82471667,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 205334890,
+    "name": "WERE DI",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Belgium",
+    "country": "Belgium",
+    "location": {
+      "latitude": 51.69154667,
+      "longitude": 4.61328167,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 366887510,
+    "name": "CROSBY VICTORY",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 28.52666667,
+      "longitude": -91.32833333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 477202600,
+    "name": "DHT MUSTANG",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": 35.773855,
+      "longitude": -138.4859217,
+      "heading": 279
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413239740,
+    "name": "YONGGANGXIAOTUO60HAO",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 29.89576,
+      "longitude": 122.0864,
+      "heading": 50
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 211292900,
+    "name": "HARLE KURIER",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 53.51333333,
+      "longitude": 8.145,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 412331101,
+    "name": "ZHONG SHUI 627",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": -14.339345,
+      "longitude": 168.7521133,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413224150,
+    "name": "HONG DE 97",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.97666667,
+      "longitude": 122.8316667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 316017162,
+    "name": "CAPE NADEN",
+    "type_code": 51,
+    "type": "SAR",
+    "country_code": "Canada",
+    "country": "Canada",
+    "location": {
+      "latitude": 48.85403167,
+      "longitude": -123.4979683,
+      "heading": 219
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 725001277,
+    "name": "NELTUME",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Chile",
+    "country": "Chile",
+    "location": {
+      "latitude": -18.47259167,
+      "longitude": -70.32519833,
+      "heading": 304
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 367561320,
+    "name": "MR ROLAND",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 27.809705,
+      "longitude": -97.362575,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 219006024,
+    "name": "STATHAV 21",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 57.71837833,
+      "longitude": 10.59265,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 6459025,
+    "name": "BELLE MARE NCG POST",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": -20.19630833,
+      "longitude": 57.77620667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 440008040,
+    "name": "SIN SUN DAE",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "South Korea",
+    "country": "South Korea",
+    "location": {
+      "latitude": 35.07933,
+      "longitude": 128.7845233,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 235075226,
+    "name": "COCO DE MER",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 39.56211667,
+      "longitude": 2.628765,
+      "heading": 192
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 477231500,
+    "name": "INCE POINT",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": -26.20430833,
+      "longitude": -48.36026333,
+      "heading": 108
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 244650981,
+    "name": "MINICA",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 51.81046333,
+      "longitude": 4.61064667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 98352297,
+    "name": "205-14",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": -14.48431667,
+      "longitude": -118.2420283,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 263447000,
+    "name": "NEPTUNO",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Portugal",
+    "country": "Portugal",
+    "location": {
+      "latitude": 41.19864333,
+      "longitude": -8.89512,
+      "heading": 289
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 538007254,
+    "name": "MV KEEPER",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": -35.23341333,
+      "longitude": 128.4387333,
+      "heading": 272
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 246366000,
+    "name": "BRAGE R",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": -2.595,
+      "longitude": -44.40833333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 235090402,
+    "name": "NORTHERN RIVER",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 50.80726333,
+      "longitude": -1.10450167,
+      "heading": 91
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 770576124,
+    "name": "PROMOPES I",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Uruguay",
+    "country": "Uruguay",
+    "location": {
+      "latitude": -34.89996,
+      "longitude": -56.20213,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 305773000,
+    "name": "VOHBURG",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Antigua and Barbuda",
+    "country": "Antigua and Barbuda",
+    "location": {
+      "latitude": 56.15240667,
+      "longitude": 10.23765333,
+      "heading": 223
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 311000742,
+    "name": "SINGAPORE VOYAGER",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Bahamas",
+    "country": "Bahamas",
+    "location": {
+      "latitude": 33.00216333,
+      "longitude": -117.81814,
+      "heading": 326
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 413793007,
+    "name": "LUJININGHUO6025",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.21193667,
+      "longitude": 119.65312,
+      "heading": 308
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 228068600,
+    "name": "JIF SURVEYOR",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "France",
+    "country": "France",
+    "location": {
+      "latitude": 43.50666667,
+      "longitude": -1.495,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 311073400,
+    "name": "ANNA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Bahamas",
+    "country": "Bahamas",
+    "location": {
+      "latitude": 37.56786667,
+      "longitude": 121.38485,
+      "heading": 270
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 368113580,
+    "name": "CASCADIA",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 37.26166667,
+      "longitude": -76.015,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 367649630,
+    "name": "MASSACHUSETTS",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 41.64103333,
+      "longitude": -87.15156333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 367506730,
+    "name": "DELTA",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 32.72731167,
+      "longitude": -117.2038833,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 371475000,
+    "name": "MSC CAROLINA",
+    "type_code": 72,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 50.30628833,
+      "longitude": -0.04688167,
+      "heading": 75
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 211210150,
+    "name": "GERMAN WARSHIP F219",
+    "type_code": 35,
+    "type": "Military",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 54.55166667,
+      "longitude": 12.27666667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 636018935,
+    "name": "SEACON SHANGHAI",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": -33.524785,
+      "longitude": -15.501095,
+      "heading": 93
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 377907128,
+    "name": "TOUAREG",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Saint Vincent and the Grenadines",
+    "country": "Saint Vincent and the Grenadines",
+    "location": {
+      "latitude": 16.23333333,
+      "longitude": -61.54833333,
+      "heading": 0
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 235117803,
+    "name": "CALMAR",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 52.46922833,
+      "longitude": 1.74082333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 259649000,
+    "name": "MELSHORN",
+    "type_code": 67,
+    "type": "Passenger",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 68.09188667,
+      "longitude": 16.351975,
+      "heading": 246
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 735058456,
+    "name": "OCEAN LADY",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "Ecuador",
+    "country": "Ecuador",
+    "location": {
+      "latitude": -0.935,
+      "longitude": -80.715,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 209530000,
+    "name": "AMISIA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Cyprus",
+    "country": "Cyprus",
+    "location": {
+      "latitude": 51.95333333,
+      "longitude": 4.155,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 991176102,
+    "name": "HNY761-02 71%",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": 11.345255,
+      "longitude": 169.1702783,
+      "heading": 71
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 367151850,
+    "name": "MARY ETHEL",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 34.62166667,
+      "longitude": -86.98333333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 613003597,
+    "name": "TRONDHEIM",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Cameroon",
+    "country": "Cameroon",
+    "location": {
+      "latitude": -33.9178,
+      "longitude": 18.4413,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 503749900,
+    "name": "PMG SWORD FISH",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -19.24562667,
+      "longitude": 146.8412983,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 367320320,
+    "name": "S/V JAZZ",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 47.68203,
+      "longitude": -122.4066767,
+      "heading": 4
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 256216000,
+    "name": "AZAMARA QUEST",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Malta",
+    "country": "Malta",
+    "location": {
+      "latitude": 37.73403167,
+      "longitude": 23.71857,
+      "heading": 334
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 207836930,
+    "name": "PATRIOT",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Bulgaria",
+    "country": "Bulgaria",
+    "location": {
+      "latitude": 40.821555,
+      "longitude": 28.701935,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 710002128,
+    "name": "PINGUIM",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -22.33286,
+      "longitude": -40.17711333,
+      "heading": 249
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 265530460,
+    "name": "UTO EXPRESS",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Sweden",
+    "country": "Sweden",
+    "location": {
+      "latitude": 59.35105167,
+      "longitude": 18.26492833,
+      "heading": 120
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413266950,
+    "name": "JIAN   HONG   67",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 28.41666667,
+      "longitude": 121.665,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 416000000,
+    "name": "SHENG CHI LI NO.16",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Taiwan",
+    "country": "Taiwan",
+    "location": {
+      "latitude": 24.38436333,
+      "longitude": 120.55088,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413552780,
+    "name": "SHUN AN 36",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 25.46672833,
+      "longitude": 119.8354883,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 720953000,
+    "name": "HB AQUILA",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Bolivia",
+    "country": "Bolivia",
+    "location": {
+      "latitude": -33.88812,
+      "longitude": -58.42346,
+      "heading": 3
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 413254970,
+    "name": "LIAN SHENG 869",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 21.105,
+      "longitude": 110.5116667,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 367165430,
+    "name": "BRUCE A. MCALLISTER",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 40.64,
+      "longitude": -74.16333333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 212232000,
+    "name": "FESCO DIOMID",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Cyprus",
+    "country": "Cyprus",
+    "location": {
+      "latitude": 43.09155667,
+      "longitude": 131.8699333,
+      "heading": 220
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 566000080,
+    "name": "SCDF RED SAILFISH",
+    "type_code": 51,
+    "type": "SAR",
+    "country_code": "Singapore",
+    "country": "Singapore",
+    "location": {
+      "latitude": 1.255885,
+      "longitude": 103.8387083,
+      "heading": 61
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 413268840,
+    "name": "MAO GANG SHANG HAI",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 34.74666667,
+      "longitude": 119.4383333,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 211671060,
+    "name": "LUCIA CARA",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 54.6665,
+      "longitude": 9.93847,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 367498080,
+    "name": "CHARLES B HOLMAN",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 37.0629,
+      "longitude": -88.5321,
+      "heading": 101
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 304948000,
+    "name": "BBC RIO",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Antigua and Barbuda",
+    "country": "Antigua and Barbuda",
+    "location": {
+      "latitude": 54.538995,
+      "longitude": 18.51818333,
+      "heading": 236
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 228209700,
+    "name": "F/V ARUNDEL",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "France",
+    "country": "France",
+    "location": {
+      "latitude": 46.48375833,
+      "longitude": -1.78578333,
+      "heading": 0
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 264900333,
+    "name": "BSV PORTUGALIA",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Romania",
+    "country": "Romania",
+    "location": {
+      "latitude": 44.15731667,
+      "longitude": 28.65686667,
+      "heading": 0
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 249335000,
+    "name": "NORTH OCEAN 102",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Malta",
+    "country": "Malta",
+    "location": {
+      "latitude": 49.47708167,
+      "longitude": 0.804305,
+      "heading": 116
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 994230043,
+    "name": "994230043         7V",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": 13.34732833,
+      "longitude": 177.8277317,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 413335990,
+    "name": "ZHI TAI TUO 1",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 31.68166667,
+      "longitude": 121.8533333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 735059797,
+    "name": "GRAND-QUEEN-BEATRIZ",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Ecuador",
+    "country": "Ecuador",
+    "location": {
+      "latitude": -0.74773667,
+      "longitude": -90.30788167,
+      "heading": 174
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 413060000,
+    "name": "XIN PU DONG",
+    "type_code": 71,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 42.27539167,
+      "longitude": 4.05835167,
+      "heading": 34
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 368013670,
+    "name": "LEWIS REED",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 30.75797667,
+      "longitude": -88.04950333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 258220500,
+    "name": "TIDEFJORD",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 62.37461833,
+      "longitude": 6.33334,
+      "heading": 282
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 368230960,
+    "name": "KAIA",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 59.09155833,
+      "longitude": -153.397235,
+      "heading": 152
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 601951000,
+    "name": "ITALENI",
+    "type_code": 33,
+    "type": "Dredging",
+    "country_code": "South Africa",
+    "country": "South Africa",
+    "location": {
+      "latitude": -33.02501,
+      "longitude": 27.90766333,
+      "heading": 298
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 477996217,
+    "name": "LEADER S30",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": 22.31685667,
+      "longitude": 114.1965367,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 257046940,
+    "name": "ULSVAAG 2",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 59.02381667,
+      "longitude": 10.18490667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 319630000,
+    "name": "ATTESSA IV",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Cayman Islands",
+    "country": "Cayman Islands",
+    "location": {
+      "latitude": 49.308985,
+      "longitude": -123.0820067,
+      "heading": 36
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 305948000,
+    "name": "TRIPLE S",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Antigua and Barbuda",
+    "country": "Antigua and Barbuda",
+    "location": {
+      "latitude": 33.60333333,
+      "longitude": -7.61166667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 636016698,
+    "name": "LIGURIAN SEA",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 36.30376,
+      "longitude": -4.91190333,
+      "heading": 300
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 730154277,
+    "name": "SAN ANDRES IV",
+    "type_code": 81,
+    "type": "Tanker",
+    "country_code": "Colombia",
+    "country": "Colombia",
+    "location": {
+      "latitude": -22.36952333,
+      "longitude": -41.75108833,
+      "heading": 79
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 525010229,
+    "name": "CB.EP ALFA SURABAYA",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Indonesia",
+    "country": "Indonesia",
+    "location": {
+      "latitude": -7.10126,
+      "longitude": 112.6708017,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 525201585,
+    "name": "BAHARI KUSUMA JAYA",
+    "type_code": 59,
+    "type": "Ships Not Party to Armed Conflict",
+    "country_code": "Indonesia",
+    "country": "Indonesia",
+    "location": {
+      "latitude": -4.133455,
+      "longitude": 115.6416167,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 518601000,
+    "name": "ULTIMATE LADY",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Cook Islands",
+    "country": "Cook Islands",
+    "location": {
+      "latitude": -17.58333333,
+      "longitude": -149.6166667,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 224231000,
+    "name": "VB SIROCO",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Spain",
+    "country": "Spain",
+    "location": {
+      "latitude": 36.13472833,
+      "longitude": -5.43063,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 257750000,
+    "name": "LIVE KNUTSEN",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": -21.825,
+      "longitude": -40.76833333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 372530000,
+    "name": "SAKHARA LOTUS",
+    "type_code": 82,
+    "type": "Tanker",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 45.12631667,
+      "longitude": -59.63255,
+      "heading": 23
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413379420,
+    "name": "DONG LEI 12",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 30.99666667,
+      "longitude": 122.2866667,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 244630064,
+    "name": "HA40 SIMONA",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 53.31888333,
+      "longitude": 5.33905833,
+      "heading": 290
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 466409000,
+    "name": "AL KHARSAAH",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "Qatar",
+    "country": "Qatar",
+    "location": {
+      "latitude": 25.90666667,
+      "longitude": 51.62666667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 273389600,
+    "name": "LEnullEFT 2063",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 71.65738833,
+      "longitude": 128.9368083,
+      "heading": 84
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 273811090,
+    "name": "AROMASHEV",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Russian Federation",
+    "country": "Russian Federation",
+    "location": {
+      "latitude": 42.81,
+      "longitude": 133.505,
+      "heading": 0
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 503053500,
+    "name": "NYEKI",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -20.86486667,
+      "longitude": 149.5931717,
+      "heading": 339
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 373239000,
+    "name": "MUTIARA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 37.42913333,
+      "longitude": 126.5666183,
+      "heading": 17
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 564164000,
+    "name": "BRITOIL 62",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Singapore",
+    "country": "Singapore",
+    "location": {
+      "latitude": 25.27409333,
+      "longitude": 55.25874,
+      "heading": 359
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 236538000,
+    "name": "SANCO SPIRIT",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Gibraltar",
+    "country": "Gibraltar",
+    "location": {
+      "latitude": 29.30807667,
+      "longitude": -94.815905,
+      "heading": 174
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 477174900,
+    "name": "MAERSK CHACHAI",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Hong Kong",
+    "country": "Hong Kong",
+    "location": {
+      "latitude": 1.257025,
+      "longitude": 103.45787,
+      "heading": 111
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 357576000,
+    "name": "JK GUNJANG",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 34.86539333,
+      "longitude": 127.7808883,
+      "heading": 127
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 431008309,
+    "name": "ESAN",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 42.34290833,
+      "longitude": 140.95629,
+      "heading": 195
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 257444020,
+    "name": "LISA",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 70.67051667,
+      "longitude": 23.672715,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 371321000,
+    "name": "SUPER EASTERN",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 18.52966667,
+      "longitude": 92.59983333,
+      "heading": 339
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 357715000,
+    "name": "ESTEEM SANGO",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": -24.15823167,
+      "longitude": -46.277675,
+      "heading": 66
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 219001604,
+    "name": "PETUA",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 56.12626,
+      "longitude": 12.31130167,
+      "heading": 166
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 574128152,
+    "name": "UNAVAILABLE",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Vietnam",
+    "country": "Vietnam",
+    "location": {
+      "latitude": 10.13,
+      "longitude": 113.8616667,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 319989000,
+    "name": "APOGEE",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Cayman Islands",
+    "country": "Cayman Islands",
+    "location": {
+      "latitude": 44.39458833,
+      "longitude": 8.93333667,
+      "heading": 195
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 413791238,
+    "name": "HAI AN JI 818",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.00375167,
+      "longitude": 120.7332833,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 636020589,
+    "name": "GIALOVA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 5.61388333,
+      "longitude": -0.01086667,
+      "heading": 245
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 414271000,
+    "name": "ZHUN XING 1",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 39.84251667,
+      "longitude": 119.7476,
+      "heading": 228
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 538008032,
+    "name": "SC MADISON",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 54.60319833,
+      "longitude": -1.15460833,
+      "heading": 316
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 224150720,
+    "name": "V.B. SUPLENTE",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Spain",
+    "country": "Spain",
+    "location": {
+      "latitude": 38.33770167,
+      "longitude": -0.482935,
+      "heading": 63
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413286580,
+    "name": "CHANG RONG LI HUA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 34.98666667,
+      "longitude": 122.8533333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 100610121,
+    "name": "NETFISHING      12V1",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": -10.24229,
+      "longitude": -144.97106,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 412549277,
+    "name": "LU RONG YUAN YU 833",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": -18.39611333,
+      "longitude": -78.73876667,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 265525900,
+    "name": "HOPPET AF BRANTEVIK",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "Sweden",
+    "country": "Sweden",
+    "location": {
+      "latitude": 55.5135,
+      "longitude": 14.3485,
+      "heading": 76
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 357353000,
+    "name": "ASIAN NAGA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 33.94493833,
+      "longitude": 130.9268733,
+      "heading": 282
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 413830143,
+    "name": "PENG YUAN 6688",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 32.0201,
+      "longitude": 120.8172333,
+      "heading": 167
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 226016410,
+    "name": "IMMACULATA",
+    "type_code": 99,
+    "type": "Other",
+    "country_code": "France",
+    "country": "France",
+    "location": {
+      "latitude": 49.46205,
+      "longitude": 0.13368833,
+      "heading": 282
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 249711000,
+    "name": "GRETA K",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Malta",
+    "country": "Malta",
+    "location": {
+      "latitude": 51.81501833,
+      "longitude": 3.22060167,
+      "heading": 337
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 710003613,
+    "name": "JORGE AMADO",
+    "type_code": 89,
+    "type": "Tanker",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -3.85833333,
+      "longitude": -62.06166667,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 574013753,
+    "name": "THANH CONG 89-BLC",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Vietnam",
+    "country": "Vietnam",
+    "location": {
+      "latitude": 20.92192833,
+      "longitude": 106.6151267,
+      "heading": 0
+    },
+    "status": "Aground",
+    "status_code": 6
+  },
+  {
+    "mmsi": 255803260,
+    "name": "MSC AGAMEMNON",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Madeira",
+    "country": "Madeira",
+    "location": {
+      "latitude": 29.80836667,
+      "longitude": 32.56613333,
+      "heading": 335
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 244020808,
+    "name": "LADY HARRIET",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 45.5,
+      "longitude": -8.22166667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 416006748,
+    "name": "YU FONG NO.89",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Taiwan",
+    "country": "Taiwan",
+    "location": {
+      "latitude": 24.57705167,
+      "longitude": 122.0581067,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 419001626,
+    "name": "AMARNATH",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "India",
+    "country": "India",
+    "location": {
+      "latitude": 20.56123333,
+      "longitude": 88.37016667,
+      "heading": 127
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 211575700,
+    "name": "ABBY-LEON",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 51.183165,
+      "longitude": 5.96878667,
+      "heading": 306
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 231356000,
+    "name": "HELGAFELL",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Faroe Islands",
+    "country": "Faroe Islands",
+    "location": {
+      "latitude": 61.98739667,
+      "longitude": -6.476755,
+      "heading": 191
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 413569000,
+    "name": "XIN YI HAI 3",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 38.46166667,
+      "longitude": 118.265,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 42147515,
+    "name": "XIN SHI JI 71-8  8V2",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": 5.080965,
+      "longitude": -157.00962,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 211320360,
+    "name": "AVONTUUR",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 52.84169,
+      "longitude": 5.70939333,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 616999031,
+    "name": "RIO",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Comoros",
+    "country": "Comoros",
+    "location": {
+      "latitude": 41.28833333,
+      "longitude": 29.02833333,
+      "heading": 0
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 375242000,
+    "name": "TECK",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Saint Vincent and the Grenadines",
+    "country": "Saint Vincent and the Grenadines",
+    "location": {
+      "latitude": 5.30249333,
+      "longitude": -4.02408333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 412331071,
+    "name": "LURONGYUANYU806",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": -35.16029,
+      "longitude": -55.38254667,
+      "heading": 68
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 366969670,
+    "name": "TOMMY E",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 29.6089,
+      "longitude": -95.01993333,
+      "heading": 268
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 538008170,
+    "name": "BRIGHT HERO",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 14.57719333,
+      "longitude": -17.35996,
+      "heading": 141
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 440731000,
+    "name": "315 O RYONGB\\",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "South Korea",
+    "country": "South Korea",
+    "location": {
+      "latitude": 3.27425,
+      "longitude": -172.9142167,
+      "heading": 267
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 367702560,
+    "name": "SAFETY VOYAGER",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 30.01166667,
+      "longitude": -90.83,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 701000714,
+    "name": "EL MARISCO I",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Argentina",
+    "country": "Argentina",
+    "location": {
+      "latitude": -41.83114,
+      "longitude": -60.25747,
+      "heading": 0
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 525016528,
+    "name": "LOGINDO SERVEWELL S",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Indonesia",
+    "country": "Indonesia",
+    "location": {
+      "latitude": 4.15166667,
+      "longitude": 106.18,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 352898685,
+    "name": "TAC DAYTONA",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 1.96743833,
+      "longitude": -25.281825,
+      "heading": 200
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 540014270,
+    "name": "VAHINI TWIN",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "New Caledonia",
+    "country": "New Caledonia",
+    "location": {
+      "latitude": -16.91639667,
+      "longitude": -150.86544,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 701000800,
+    "name": "VIEIRASA 16",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Argentina",
+    "country": "Argentina",
+    "location": {
+      "latitude": -41.857005,
+      "longitude": -61.43709833,
+      "heading": 223
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 538001927,
+    "name": "WELL-SAFE GUARDIAN",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 56.98833333,
+      "longitude": 1.31166667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 371319000,
+    "name": "HMM OSLO",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 51.35,
+      "longitude": 4.26166667,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 636019394,
+    "name": "ORANGE TRUTH",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 28.04333333,
+      "longitude": -115.18,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 354043000,
+    "name": "ONOZURU MARU",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 32.125,
+      "longitude": 134.3966667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 636017852,
+    "name": "CONTSHIP RAY",
+    "type_code": 71,
+    "type": "Cargo",
+    "country_code": "Liberia",
+    "country": "Liberia",
+    "location": {
+      "latitude": 39.396,
+      "longitude": -0.27983333,
+      "heading": 356
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 367477980,
+    "name": "OYSTER CREEK",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 36.79929,
+      "longitude": -76.29561833,
+      "heading": 22
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 405000343,
+    "name": "MEGHNA STAR",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Bangladesh",
+    "country": "Bangladesh",
+    "location": {
+      "latitude": 1.07909167,
+      "longitude": 103.894735,
+      "heading": 254
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 232527000,
+    "name": "PORTOSALVO",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 52.59221333,
+      "longitude": 1.72673333,
+      "heading": 341
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 257388000,
+    "name": "HUNTER",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 62.47,
+      "longitude": 6.12,
+      "heading": 244
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 760000250,
+    "name": "SVITZER CANETE",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Peru",
+    "country": "Peru",
+    "location": {
+      "latitude": -13.25833333,
+      "longitude": -76.31333333,
+      "heading": 0
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 503745700,
+    "name": "JETWAVE INCENTIVE",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -21.955,
+      "longitude": 114.14,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 247307130,
+    "name": "MARIO LC",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Italy",
+    "country": "Italy",
+    "location": {
+      "latitude": 42.75239167,
+      "longitude": 13.97216667,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 244810821,
+    "name": "SUDERMAR",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 52.88690333,
+      "longitude": 5.35954833,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 232004949,
+    "name": "SEAHORSE",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 56.45191,
+      "longitude": -5.43212667,
+      "heading": 76
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 503641000,
+    "name": "SL KOONGO",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -23.825245,
+      "longitude": 151.24461,
+      "heading": 76
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 994174875,
+    "name": "IMULA1396MTR B-7-99%",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": -1.57995167,
+      "longitude": 77.051855,
+      "heading": 174
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 413326510,
+    "name": "YAN GANG TUO 21",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 37.71341167,
+      "longitude": 121.06117,
+      "heading": 5
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 311000316,
+    "name": "AFRICAN PIPER",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Bahamas",
+    "country": "Bahamas",
+    "location": {
+      "latitude": 37.77976333,
+      "longitude": -38.784995,
+      "heading": 261
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 265026000,
+    "name": "ALVSBORG GG150",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Sweden",
+    "country": "Sweden",
+    "location": {
+      "latitude": 57.11833333,
+      "longitude": 8.59166667,
+      "heading": 0
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 431019593,
+    "name": "HARUSEIMARU",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 35.13922333,
+      "longitude": 139.5458183,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 368180640,
+    "name": "OLIVE PARKER",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 37.00833333,
+      "longitude": -89.17,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 244710544,
+    "name": "ADELINE",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Netherlands",
+    "country": "Netherlands",
+    "location": {
+      "latitude": 52.36810667,
+      "longitude": 4.92141,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 257108000,
+    "name": "TRINE CHARLOTTE",
+    "type_code": 75,
+    "type": "Cargo",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 66.82907833,
+      "longitude": 13.26632333,
+      "heading": 190
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 205506000,
+    "name": "EXPLORER",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Belgium",
+    "country": "Belgium",
+    "location": {
+      "latitude": 25.03117,
+      "longitude": 55.06759667,
+      "heading": 254
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 412549235,
+    "name": "CPMC 18",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 20.46833333,
+      "longitude": -17.285,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 701006300,
+    "name": "RASMUS EFFERSOE",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Argentina",
+    "country": "Argentina",
+    "location": {
+      "latitude": -38.485115,
+      "longitude": -57.81462833,
+      "heading": 40
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 367638030,
+    "name": "JUSTIN PAUL ECKSTEIN",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 30.975,
+      "longitude": -91.66333333,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 265754260,
+    "name": "STORFIXA LINJETT 40",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "Sweden",
+    "country": "Sweden",
+    "location": {
+      "latitude": 59.29836167,
+      "longitude": 18.21362667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 370583000,
+    "name": "NSU MILESTONE",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": -25.66148,
+      "longitude": -2.35798833,
+      "heading": 297
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 247217500,
+    "name": "GRANDE COLONIA",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Italy",
+    "country": "Italy",
+    "location": {
+      "latitude": 50.0028,
+      "longitude": -4.01199,
+      "heading": 267
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 235109157,
+    "name": "SCORPION",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "UK",
+    "country": "UK",
+    "location": {
+      "latitude": 43.54179833,
+      "longitude": 10.29709667,
+      "heading": 357
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 304617000,
+    "name": "BBC LOUISE",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Antigua and Barbuda",
+    "country": "Antigua and Barbuda",
+    "location": {
+      "latitude": 36.72333333,
+      "longitude": 13.00333333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 617010200,
+    "name": "NHO PADRE BENJAMIM",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "Cape Verde",
+    "country": "Cape Verde",
+    "location": {
+      "latitude": 16.74876667,
+      "longitude": -22.98254333,
+      "heading": 101
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 224774000,
+    "name": "ATERPE ALAI",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Spain",
+    "country": "Spain",
+    "location": {
+      "latitude": -3.66586,
+      "longitude": 55.33369,
+      "heading": 167
+    },
+    "status": "Underway Sailing",
+    "status_code": 8
+  },
+  {
+    "mmsi": 994007025,
+    "name": "FA-05             8V",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": null,
+    "country": null,
+    "location": {
+      "latitude": 24.98600167,
+      "longitude": 147.7237233,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 538009121,
+    "name": "AVRA.GR",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Marshall Islands",
+    "country": "Marshall Islands",
+    "location": {
+      "latitude": 27.436295,
+      "longitude": -16.41823833,
+      "heading": 190
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 503384300,
+    "name": "SL PLENTY",
+    "type_code": 100,
+    "type": "Unknown",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -33.96738833,
+      "longitude": 151.2194367,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 226007690,
+    "name": "ZEUS",
+    "type_code": 79,
+    "type": "Cargo",
+    "country_code": "France",
+    "country": "France",
+    "location": {
+      "latitude": 49.44012167,
+      "longitude": 1.08280333,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 710001361,
+    "name": "BONGO",
+    "type_code": 34,
+    "type": "Diving",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -21.96974667,
+      "longitude": -39.82239667,
+      "heading": 57
+    },
+    "status": "Restricted Manoeuvrability",
+    "status_code": 3
+  },
+  {
+    "mmsi": 219029498,
+    "name": "HUGIN USV",
+    "type_code": 59,
+    "type": "Ships Not Party to Armed Conflict",
+    "country_code": "Denmark",
+    "country": "Denmark",
+    "location": {
+      "latitude": 56.70173333,
+      "longitude": 8.222325,
+      "heading": 323
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 211765380,
+    "name": "HEITERKEIT",
+    "type_code": 69,
+    "type": "Passenger",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 52.53473333,
+      "longitude": 13.204875,
+      "heading": 0
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 431013064,
+    "name": "OLYMPIA DREAM SETO",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 34.590185,
+      "longitude": 134.0419217,
+      "heading": 145
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 351517000,
+    "name": "VALIANT",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 22.635,
+      "longitude": 69.005,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 367694000,
+    "name": "PACIFIC PRINCE",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 53.85880667,
+      "longitude": -166.5526133,
+      "heading": 48
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 710029480,
+    "name": "BARU SIRIUS",
+    "type_code": 10,
+    "type": "Reserved",
+    "country_code": "Brazil",
+    "country": "Brazil",
+    "location": {
+      "latitude": -23.74672,
+      "longitude": -44.94029,
+      "heading": 277
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 271044462,
+    "name": "T.PALAMAR 4",
+    "type_code": 53,
+    "type": "Port Tender",
+    "country_code": "Turkey",
+    "country": "Turkey",
+    "location": {
+      "latitude": 40.74264167,
+      "longitude": 29.76917167,
+      "heading": 0
+    },
+    "status": "Unknown",
+    "status_code": 16
+  },
+  {
+    "mmsi": 267210232,
+    "name": "SOLOMONIC",
+    "type_code": 80,
+    "type": "Tanker",
+    "country_code": "Slovakia",
+    "country": "Slovakia",
+    "location": {
+      "latitude": 45.42060167,
+      "longitude": 28.29385167,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 257563500,
+    "name": "SORBOEN",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Norway",
+    "country": "Norway",
+    "location": {
+      "latitude": 71.00480333,
+      "longitude": 23.89984833,
+      "heading": 272
+    },
+    "status": "Engaged In Fishing",
+    "status_code": 7
+  },
+  {
+    "mmsi": 367057620,
+    "name": "CAIRO",
+    "type_code": 57,
+    "type": "Spare",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 32.12333333,
+      "longitude": -91.11,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 224069860,
+    "name": "BETANIA",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "Spain",
+    "country": "Spain",
+    "location": {
+      "latitude": 30.47181,
+      "longitude": -13.316505,
+      "heading": 29
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 413288620,
+    "name": "ZHONG LIAN 29",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 37.36254,
+      "longitude": 122.7728283,
+      "heading": 170
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 264900215,
+    "name": "BSV ANGLIA",
+    "type_code": 52,
+    "type": "Tug",
+    "country_code": "Romania",
+    "country": "Romania",
+    "location": {
+      "latitude": 44.15731333,
+      "longitude": 28.65708833,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 351882000,
+    "name": "MICLYN VICTORY",
+    "type_code": 31,
+    "type": "Towing",
+    "country_code": "Panama",
+    "country": "Panama",
+    "location": {
+      "latitude": 25.26875667,
+      "longitude": 55.28583,
+      "heading": 35
+    },
+    "status": "Moored",
+    "status_code": 5
+  },
+  {
+    "mmsi": 412440835,
+    "name": "FUYUANYUYUN877",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": 43.4817,
+      "longitude": 157.4198067,
+      "heading": 221
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 413011000,
+    "name": "JING YUAN 903",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "China",
+    "country": "China",
+    "location": {
+      "latitude": -6.745,
+      "longitude": -130.6716667,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 211397410,
+    "name": "DIANA",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Germany",
+    "country": "Germany",
+    "location": {
+      "latitude": 54.09333167,
+      "longitude": 12.13771167,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 431010539,
+    "name": "AKEBONO MARU",
+    "type_code": 60,
+    "type": "Passenger",
+    "country_code": "Japan",
+    "country": "Japan",
+    "location": {
+      "latitude": 33.145,
+      "longitude": 131.84,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 533170328,
+    "name": "LAJU LAJU",
+    "type_code": 70,
+    "type": "Cargo",
+    "country_code": "Malaysia",
+    "country": "Malaysia",
+    "location": {
+      "latitude": 10.24179333,
+      "longitude": 123.9566517,
+      "heading": 203
+    },
+    "status": "At Anchor",
+    "status_code": 1
+  },
+  {
+    "mmsi": 503530000,
+    "name": "SPENCER GULF",
+    "type_code": 90,
+    "type": "Other",
+    "country_code": "Australia",
+    "country": "Australia",
+    "location": {
+      "latitude": -33.015,
+      "longitude": 137.59,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 366761830,
+    "name": "U.S. INTREPID",
+    "type_code": 30,
+    "type": "Fishing",
+    "country_code": "USA",
+    "country": "USA",
+    "location": {
+      "latitude": 55.36290167,
+      "longitude": -156.6963633,
+      "heading": 311
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  },
+  {
+    "mmsi": 775998185,
+    "name": "MULATA",
+    "type_code": 37,
+    "type": "Pleasure Craft",
+    "country_code": "Venezuela",
+    "country": "Venezuela",
+    "location": {
+      "latitude": 10.201635,
+      "longitude": -64.667105,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 316005118,
+    "name": "WINDTHRUSH NO.1",
+    "type_code": 36,
+    "type": "Sailing",
+    "country_code": "Canada",
+    "country": "Canada",
+    "location": {
+      "latitude": 43.62450333,
+      "longitude": -79.36812167,
+      "heading": 0
+    },
+    "status": "Not Defined",
+    "status_code": 15
+  },
+  {
+    "mmsi": 316001749,
+    "name": "SIYAY",
+    "type_code": 51,
+    "type": "SAR",
+    "country_code": "Canada",
+    "country": "Canada",
+    "location": {
+      "latitude": 49.18166667,
+      "longitude": -123.185,
+      "heading": 0
+    },
+    "status": "Under Way Using Engine",
+    "status_code": 0
+  }
+]
