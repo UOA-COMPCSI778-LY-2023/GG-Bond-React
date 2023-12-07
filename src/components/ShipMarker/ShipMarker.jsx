@@ -1,5 +1,5 @@
-import React from 'react';
-import { Marker, Popup } from 'react-leaflet';
+import React, { useState } from 'react'; // 导入 useState
+import { Marker, Popup, Polyline } from 'react-leaflet'; // 导入 Polyline
 import { FiNavigation2 } from "react-icons/fi";
 import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
@@ -31,16 +31,28 @@ const shipIcon = (heading, type) => {
 
 const ShipMarker = ({ boatData }) => {
   const { name, type, speed, location, status } = boatData;
-  
-  return (
-    <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}>
+  const [showTrack, setShowTrack] = useState(false);
+
+  const toggleTrack = () => {
+    setShowTrack(!showTrack);
+  };
+    // 模拟轨迹数据
+    const mockTrack = [
+      [37.7749, -122.4194], 
+      [34.0522, -118.2437], 
+      [25.7617, -80.1918],  
+      [40.7128, -74.0060], 
+    ];
+
+   return (
+    <Marker position={[boatData.location.latitude, boatData.location.longitude]} icon={shipIcon(boatData.location.heading, boatData.type)}>
       <Popup>
-
-        <ShipInfo ship={shipMockData}></ShipInfo>
-
+        <ShipInfo ship={boatData} toggleTrack={toggleTrack} />
+        {showTrack && <Polyline positions={mockTrack} color="red" />}
       </Popup>
     </Marker>
   );
 };
+
 
 export default ShipMarker;

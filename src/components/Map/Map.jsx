@@ -31,6 +31,8 @@ import MockData5000 from '../../MockData/MockData5000.json'
 import MockData10000 from '../../MockData/MockData10000.json'
 //100000 too many
 import MockData100000 from '../../MockData/MockData100000.json'
+//test
+import MockDataTest from '../../MockData/MockDataTest.json'
 import ShipMarker from '../ShipMarker/ShipMarker';
 //Mock
 
@@ -71,7 +73,7 @@ function Map() {
           </LayersControl>
           <MenuOptions></MenuOptions>
 
-          {MockData1000.map((boatData, index) => (
+          {MockDataTest.map((boatData, index) => (
             <ShipMarker key={index} boatData={boatData}/>
           ))}
           

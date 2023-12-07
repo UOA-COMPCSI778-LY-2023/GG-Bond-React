@@ -1,0 +1,35 @@
+[
+    {
+      "mmsi": 725000139,
+      "name": "MAnullTIALES",
+      "type_code": 90,
+      "type": "Other",
+      "country_code": "Chile",
+      "country": "Chile",
+      "location": {
+        "latitude": -52.403005,
+        "longitude": -69.07586,
+        "heading": 0
+      },
+      "status": "Underway Sailing",
+      "status_code": 8
+
+
+    },
+    {
+      "mmsi": 354899000,
+      "name": "PHOENIX LEADER",
+      "type_code": 70,
+      "type": "Cargo",
+      "country_code": "Panama",
+      "country": "Panama",
+      "location": {
+        "latitude": 46.24447667,
+        "longitude": -142.353075,
+        "heading": 84
+      },
+      "status": "Under Way Using Engine",
+      "status_code": 0
+
+    }
+    ]
