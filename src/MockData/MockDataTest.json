@@ -12,8 +12,8 @@
         "heading": 0
       },
       "status": "Underway Sailing",
-      "status_code": 8
-
+      "status_code": 8,
+      "image":"CELEBRITY_INFINITY.jpg"
 
     },
     {
@@ -29,7 +29,7 @@
         "heading": 84
       },
       "status": "Under Way Using Engine",
-      "status_code": 0
-
+      "status_code": 0,
+      "image":"CELEBRITY_INFINITY.jpg"
     }
     ]

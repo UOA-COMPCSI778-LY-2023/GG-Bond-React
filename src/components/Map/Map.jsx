@@ -7,9 +7,9 @@ import {
   TiledMapLayer,
   ImageMapLayer
 } from "react-esri-leaflet";
-import MenuOptions from '../MenuOptions/MenuOptions';
 
 // import './Map.css'
+import MenuOptions from '../MenuOptions/MenuOptions';
 import { Marker, Popup} from 'react-leaflet';
 import ShipInfo from '../ShipInfo/ShipInfo';
 import ReactDOMServer from 'react-dom/server';
