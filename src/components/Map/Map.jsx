@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { MapContainer, LayersControl} from 'react-leaflet';
 import {
   BasemapLayer,
@@ -26,8 +27,8 @@ const center = [-36.842, 174.760]
 // const baseUrl = "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles";
 
 
-
 function Map() {
+
     return (
       
       <div className="Map">
@@ -54,7 +55,7 @@ function Map() {
           <MenuOptions></MenuOptions>
 
           {mockBoatsData.map((boatData, index) => (
-            <ShipMarker key={index} boatData={boatData} />
+            <ShipMarker key={index} boatData={boatData}/>
           ))}
           
         </MapContainer>
