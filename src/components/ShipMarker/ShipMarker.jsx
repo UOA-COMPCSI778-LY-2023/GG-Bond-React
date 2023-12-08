@@ -5,6 +5,8 @@ import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
 import ShipInfo from '../ShipInfo/ShipInfo';
 import shipMockData from '../ShipInfo/ShipMockData';
+import ShipTrack from '../ShipTrack/ShipTrack';
+import MockTrack from '../ShipTrack/MockTrack';
 
 const shipTypeDic = {
     "Tank" : "red",
@@ -36,19 +38,12 @@ const ShipMarker = ({ boatData }) => {
   const toggleTrack = () => {
     setShowTrack(!showTrack);
   };
-    // 模拟轨迹数据
-    const mockTrack = [
-      [37.7749, -122.4194], 
-      [34.0522, -118.2437], 
-      [25.7617, -80.1918],  
-      [40.7128, -74.0060], 
-    ];
 
    return (
-    <Marker position={[boatData.location.latitude, boatData.location.longitude]} icon={shipIcon(boatData.location.heading, boatData.type)}>
+    <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}>
       <Popup>
-        <ShipInfo ship={boatData} toggleTrack={toggleTrack} />
-        {showTrack && <Polyline positions={mockTrack} color="red" />}
+        <ShipInfo ship={shipMockData} toggleTrack={toggleTrack} />
+        <ShipTrack track={MockTrack} showTrack={showTrack} />
       </Popup>
     </Marker>
   );
