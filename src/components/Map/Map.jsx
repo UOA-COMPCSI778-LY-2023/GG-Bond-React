@@ -1,37 +1,24 @@
-import { useState } from 'react';
-import { MapContainer, LayersControl} from 'react-leaflet';
-import {
-  BasemapLayer,
-  FeatureLayer,
-  DynamicMapLayer,
-  TiledMapLayer,
-  ImageMapLayer
-} from "react-esri-leaflet";
-import MenuOptions from '../MenuOptions/MenuOptions';
-
-// import './Map.css'
-import { Marker, Popup} from 'react-leaflet';
-import ShipInfo from '../ShipInfo/ShipInfo';
-import ReactDOMServer from 'react-dom/server';
-import shipMockData from '../ShipInfo/ShipMockData';
-// import { Circle, Rectangle } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import { MapContainer, LayersControl, useMapEvents, ScaleControl} from 'react-leaflet';
+import {BasemapLayer} from "react-esri-leaflet";
+import MenuOptions from '../MenuOptions/MenuOptions';
+import ShipMarker from '../ShipMarker/ShipMarker';
+// import GetMapDetail from '../GetMapDetail/GetMapDetail';
+import 'leaflet/dist/leaflet.css';
 
 //Mock
 // import mockBoatsData from '../../MockData/MockData';
 //Real Data
-//Data levle 500
-import MockData500 from '../../MockData/MockData500.json'
 //1000 
 import MockData1000 from '../../MockData/MockData1000.json'
+/*//Data levle 500
+import MockData500 from '../../MockData/MockData500.json'
 //5000
 import MockData5000 from '../../MockData/MockData5000.json'
 //10000 too many
 import MockData10000 from '../../MockData/MockData10000.json'
 //100000 too many
-import MockData100000 from '../../MockData/MockData100000.json'
-import ShipMarker from '../ShipMarker/ShipMarker';
+import MockData100000 from '../../MockData/MockData100000.json'*/
 //Mock
 
 const center = [-36.842, 174.760]
@@ -43,13 +30,28 @@ const corner1 = L.latLng(-90, -200);
 const corner2 = L.latLng(90, 200);
 const bounds = L.latLngBounds(corner1, corner2);
 
+function GetMapDetail() {
+  const map = useMapEvents({
+    zoomend: () => {
+      console.log("Current map zoom level：", map.getZoom());
+      
+    },
+    dragend: () => {
+      console.log("Current centre latitude and longitude：", map.getCenter());
+    },
+  })
+  return null
+}
 
 function Map() {
+
+
 
     return (
       
       <div className="Map">
         <MapContainer id='mapId' center={center} zoom={2} scrollWheelZoom={true} maxBoundsViscosity={1.0} maxBounds={bounds} minZoom={2}>
+          <GetMapDetail />
           <LayersControl position="topleft" collapsed={true}>
 
             <LayersControl.BaseLayer name="Light map" checked>
@@ -74,11 +76,12 @@ function Map() {
           {MockData1000.map((boatData, index) => (
             <ShipMarker key={index} boatData={boatData}/>
           ))}
-          
+          <ScaleControl position={"bottomleft"} />
         </MapContainer>
       </div>
     );
   }
   
   export default Map;
+
 
