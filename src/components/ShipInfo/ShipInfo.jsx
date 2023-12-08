@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Avatar, Card, Space, Button, Modal } from 'antd';
-import { Chart, registerables } from 'chart.js'; // 导入 Chart.js
+import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
@@ -8,6 +8,7 @@ const { Meta } = Card;
 
 const ShipInfo = ({ ship }) => {
     const [showChart, setShowChart] = useState(false);
+    const [chartData, setChartData] = useState({}); // 使用状态来存储图表数据
     const chartRef = useRef(null);
 
     useEffect(() => {
@@ -16,16 +17,7 @@ const ShipInfo = ({ ship }) => {
 
             const newChartInstance = new Chart(ctx, {
                 type: 'line',
-                data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                    datasets: [{
-                        label: 'Pollution Levels',
-                        data: [12, 19, 3, 5, 2, 3, 9],
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1,
-                        fill: false
-                    }]
-                },
+                data: chartData, // 使用状态中的数据
                 options: {}
             });
 
@@ -33,10 +25,24 @@ const ShipInfo = ({ ship }) => {
                 newChartInstance.destroy();
             };
         }
-    }, [showChart]);
+    }, [showChart, chartData]); // 在数据或显示状态改变时重新渲染图表
 
     const handleShowChart = () => {
-        setShowChart(!showChart);
+        // 根据船只的不同数据更新图表
+        // 这里可以根据船只的具体数据来更新图表
+        const newData = [8, 12, 6, 10, 7, 9, 11]; // 这是示例数据，你可以用实际的船只数据替换它
+        const newChartData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Pollution Levels',
+                data: newData, // 使用船只的数据
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false
+            }]
+        };
+        setChartData(newChartData);
+        setShowChart(true);
     };
 
     const handleCancel = () => {
@@ -73,3 +79,4 @@ const ShipInfo = ({ ship }) => {
 }
 
 export default ShipInfo;
+
