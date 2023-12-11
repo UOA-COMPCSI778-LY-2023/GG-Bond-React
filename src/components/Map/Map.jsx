@@ -53,7 +53,7 @@ function Map() {
       <div className="Map">
         <MapContainer id='mapId' center={center} zoom={2} scrollWheelZoom={true} maxBoundsViscosity={1.0} maxBounds={bounds} minZoom={2}>
           <GetMapDetail />
-          <LayersControl position="topleft" collapsed={true}>
+          <LayersControl position="bottomleft" collapsed={true}>
 
             <LayersControl.BaseLayer name="Light map" checked>
               <BasemapLayer name="Gray" />
