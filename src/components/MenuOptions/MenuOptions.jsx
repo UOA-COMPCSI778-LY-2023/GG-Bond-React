@@ -6,13 +6,15 @@ import { LiaDrawPolygonSolid } from "react-icons/lia";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
 import { IoIosColorFilter } from "react-icons/io";
 import Tooltip from '../Tooltip/Tooltip';
+import DrawTools from '../DrawTools/DrawTools';
 
 const MenuOptions = () => {
 
   const [dark, setDark] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [showFilterDropdown, setShowFilterDropdown] = useState(false);
-  const [selectedFilters, setSelectedFilters] = useState([])
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [showDrawTools, setShowDrawTools] = useState(false);
 
   const toggleDarkOrLightMode = () => {
     setDark(!dark);
@@ -34,6 +36,10 @@ const MenuOptions = () => {
     });
   };
 
+  const toggleDrawTools = () => {
+    setShowDrawTools(!showDrawTools);
+  };
+
   const menuOptionsStyle = {
     background: isActive ? 'white' : '#1c2330', // Change background color based on isActive
   };
@@ -47,7 +53,7 @@ const MenuOptions = () => {
         <span onClick={toggleDarkOrLightMode}>{dark ? <FaLightbulb /> : <FaRegLightbulb /> }</span>
           {/* <div>Toggle Dark Mode</div> */}
         </button>
-        <button style={buttonStyle}><span><Tooltip text = "Draft"><LiaDrawPolygonSolid /></Tooltip></span></button> {/*Draft */}
+        <button style={buttonStyle} onClick={toggleDrawTools}><span><Tooltip text = "Draft"><LiaDrawPolygonSolid /></Tooltip></span></button> {/*Draft */}
         <button style={buttonStyle}><span><Tooltip text = "Localization"><CiLocationArrow1 /></Tooltip></span></button> {/*Localization*/}
         <button style={buttonStyle}><span><Tooltip text = "Search"><IoIosSearch /></Tooltip></span></button>  {/*Search*/}
 
@@ -63,7 +69,7 @@ const MenuOptions = () => {
         </div>
       )}
         
-
+        {showDrawTools && <DrawTools onChange={(geojsonData) => console.log(geojsonData)} />}  
     </div>
   );
 };

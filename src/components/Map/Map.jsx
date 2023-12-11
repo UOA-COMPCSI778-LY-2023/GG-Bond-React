@@ -26,8 +26,8 @@ const center = [-36.842, 174.760]
 // const baseUrl = "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles";
 
 //map boundary limit
-const corner1 = L.latLng(-90, -200);
-const corner2 = L.latLng(90, 200);
+const corner1 = L.latLng(-90, -240);
+const corner2 = L.latLng(90, 240);
 const bounds = L.latLngBounds(corner1, corner2);
 
 function GetMapDetail() {
@@ -38,6 +38,7 @@ function GetMapDetail() {
     },
     dragend: () => {
       console.log("Current centre latitude and longitude：", map.getCenter());
+      console.log("Bound", map.getBounds());
     },
   })
   return null
@@ -67,7 +68,7 @@ function Map() {
             </LayersControl.BaseLayer>
 
             <LayersControl.BaseLayer name="Oceans">
-              <BasemapLayer name="Oceans" maxzoom={13} />
+              <BasemapLayer name="Oceans" maxZoom={13} /> {/*China maxZoom={10} */}
             </LayersControl.BaseLayer>
 
           </LayersControl>
