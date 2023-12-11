@@ -13,7 +13,6 @@ import MenuOptions from '../MenuOptions/MenuOptions';
 import { Marker, Popup} from 'react-leaflet';
 import ShipInfo from '../ShipInfo/ShipInfo';
 import ReactDOMServer from 'react-dom/server';
-import shipMockData from '../ShipInfo/ShipMockData';
 // import { Circle, Rectangle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -24,7 +23,7 @@ import L from 'leaflet';
 //Data levle 500
 import MockData500 from '../../MockData/MockData500.json'
 //1000 
-import MockData1000 from '../../MockData/MockData1000.json'
+import MockData1000 from '../../MockData/MockData1000new.json'
 //5000
 import MockData5000 from '../../MockData/MockData5000.json'
 //10000 too many

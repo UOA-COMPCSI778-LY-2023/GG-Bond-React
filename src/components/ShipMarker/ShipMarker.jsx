@@ -4,7 +4,6 @@ import { FiNavigation2 } from "react-icons/fi";
 import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
 import ShipInfo from '../ShipInfo/ShipInfo';
-import shipMockData from '../ShipInfo/ShipMockData';
 
 const shipTypeDic = {
     "Tank" : "red",
@@ -30,13 +29,14 @@ const shipIcon = (heading, type) => {
   };
 
 const ShipMarker = ({ boatData }) => {
-  const { name, type, speed, location, status } = boatData;
+  const { mmsi, name, type, speed, location, status } = boatData;
   
   return (
     <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}>
+      
       <Popup>
 
-        <ShipInfo ship={shipMockData}></ShipInfo>
+        <ShipInfo ship={boatData}></ShipInfo>
 
       </Popup>
     </Marker>
