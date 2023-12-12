@@ -53,6 +53,7 @@ function Map() {
       <div className="Map">
         <MapContainer id='mapId' center={center} zoom={2} scrollWheelZoom={true} maxBoundsViscosity={1.0} maxBounds={bounds} minZoom={2}>
           <GetMapDetail />
+          <ScaleControl position={"bottomleft"} />
           <LayersControl position="bottomleft" collapsed={true}>
 
             <LayersControl.BaseLayer name="Light map" checked>
@@ -77,7 +78,6 @@ function Map() {
           {MockData1000.map((boatData, index) => (
             <ShipMarker key={index} boatData={boatData}/>
           ))}
-          <ScaleControl position={"bottomleft"} />
         </MapContainer>
       </div>
     );

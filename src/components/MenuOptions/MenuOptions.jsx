@@ -54,6 +54,7 @@ const MenuOptions = () => {
   const buttonStyle = {
     color: isActive ? '#1c2330' : '#fff', // Change button color based on isActive
   };
+
   return (
     <div id="menuoptions" style={menuOptionsStyle}>
         <button className='menubutton' style={buttonStyle}> 
@@ -78,7 +79,7 @@ const MenuOptions = () => {
         
       {showDrawTools && <DrawTools onChange={(geojsonData) => console.log(geojsonData)} />}
       {showSearchLocation && <EsriLeafletGeoSearch
-        position="topright"
+        position="bottomright"
         useMapBounds={false}
         providers={{
           arcgisOnlineProvider: {
