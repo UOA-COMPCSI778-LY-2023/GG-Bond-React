@@ -2,6 +2,12 @@ import L from 'leaflet';
 import { MapContainer, LayersControl, useMapEvents, ScaleControl} from 'react-leaflet';
 import {BasemapLayer} from "react-esri-leaflet";
 import MenuOptions from '../MenuOptions/MenuOptions';
+
+// import './Map.css'
+import { Marker, Popup} from 'react-leaflet';
+import ShipInfo from '../ShipInfo/ShipInfo';
+import ReactDOMServer from 'react-dom/server';
+// import { Circle, Rectangle } from 'react-leaflet';
 import ShipMarker from '../ShipMarker/ShipMarker';
 // import GetMapDetail from '../GetMapDetail/GetMapDetail';
 import 'leaflet/dist/leaflet.css';
@@ -10,7 +16,7 @@ import 'leaflet/dist/leaflet.css';
 // import mockBoatsData from '../../MockData/MockData';
 //Real Data
 //1000 
-import MockData1000 from '../../MockData/MockData1000.json'
+import MockData1000 from '../../MockData/MockData1000new.json'
 /*//Data levle 500
 import MockData500 from '../../MockData/MockData500.json'
 //5000
@@ -45,6 +51,8 @@ function GetMapDetail() {
 }
 
 function Map() {
+  const [selectedBoat, setSelectedBoat]=useState();
+
 
 
 
@@ -76,8 +84,10 @@ function Map() {
           <MenuOptions></MenuOptions>
 
           {MockData1000.map((boatData, index) => (
-            <ShipMarker key={index} boatData={boatData}/>
+            <ShipMarker key={index} boatData={boatData} setSelectedBoat={setSelectedBoat}/>
           ))}
+          {selectedBoat &&  <ShipInfo ship={selectedBoat} setSelectedBoat={setSelectedBoat}></ShipInfo>}
+
         </MapContainer>
       </div>
     );
