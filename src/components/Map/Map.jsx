@@ -2,7 +2,6 @@ import { useState } from 'react';
 import L from 'leaflet';
 import { MapContainer, LayersControl, useMapEvents, ScaleControl} from 'react-leaflet';
 import {BasemapLayer} from "react-esri-leaflet";
-import MenuOptions from '../MenuOptions/MenuOptions';
 
 // import './Map.css'
 import MenuOptions from '../MenuOptions/MenuOptions';
