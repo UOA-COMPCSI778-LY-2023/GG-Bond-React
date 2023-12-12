@@ -1,4 +1,5 @@
 import L from 'leaflet';
+import React,{useState} from 'react';
 import { MapContainer, LayersControl, useMapEvents, ScaleControl} from 'react-leaflet';
 import {BasemapLayer} from "react-esri-leaflet";
 import MenuOptions from '../MenuOptions/MenuOptions';
@@ -7,9 +8,7 @@ import MenuOptions from '../MenuOptions/MenuOptions';
 import { Marker, Popup} from 'react-leaflet';
 import ShipInfo from '../ShipInfo/ShipInfo';
 import ReactDOMServer from 'react-dom/server';
-// import { Circle, Rectangle } from 'react-leaflet';
 import ShipMarker from '../ShipMarker/ShipMarker';
-// import GetMapDetail from '../GetMapDetail/GetMapDetail';
 import 'leaflet/dist/leaflet.css';
 
 //Mock
