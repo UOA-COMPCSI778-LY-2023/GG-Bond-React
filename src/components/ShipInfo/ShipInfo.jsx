@@ -1,18 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Avatar, Card, Space, Button,Tabs } from 'antd';
-import {SwapRightOutlined} from '@ant-design/icons';
+import {SwapRightOutlined,CloseOutlined} from '@ant-design/icons';
 import PollutionChart from '../PollutionChart/PollutionChart';
 import './shipInfo.css'
-import BasicInfoTab from './basicInfoTab';
-import DetailInfoTab from './detailInfoTab';
+import ShipInfoBody from './ShipInfoBody';
 import CountryFlag from 'react-country-flag';
+import Draggable from 'react-draggable';
 
 const { Meta } = Card;
 const { TabPane } = Tabs;
-const ShipInfo = ({ ship }) => {
+const ShipInfo = ({ ship,setSelectedBoat }) => {
     
     // const [ship, setShip] = useState();
     const [shipImage, serShipImage] = useState('defaultShip2.jpg');
+    const closeShipInfo=()=>{
+        setSelectedBoat(null);
+    }
     
     // useEffect(() => {
     //     console.log(ship.Avatarmmsi);
@@ -60,9 +63,11 @@ const ShipInfo = ({ ship }) => {
       const country = getCountry(ship.country_code);
 
     return (
-        <>
-            <Space direction="vertical" size={16}>
-                <Card style={{ width: 300}} bodyStyle={{padding: "10px"}}>
+        <>  
+        <Draggable>
+        <div  style={{"z-index":"9999","position": "absolute"}}>
+            <Space direction="vertical" size={16} style={{cursor:'auto'}}>
+                <Card  style={{ width: 300}} bodyStyle={{padding: "10px"}}>
                     <div >
                         <div className='ship-info-header'>
                             <img alt="shiptype" src={typePath} style={{width: '30px',  height: '30px', verticalAlign: 'middle'}}></img>
@@ -72,30 +77,28 @@ const ShipInfo = ({ ship }) => {
                                 <div className='ship-name'>{ship.name}</div>
                                 <div className='ship-type' >{ship.type}</div>
                             </div>
+                            <div style={{ position: 'absolute', top: 10, right: 10,cursor: 'pointer'}}>
+                                <CloseOutlined onClick={closeShipInfo}/>
+                            </div>
                         </div>
                         
-                        <img alt="ship image" src={shipImage} style={{ width: '100%', marginTop: 10 }} />
+                        <img  alt="ship image" src={shipImage} style={{ width: '100%', marginTop: 2 }} />
                         <div >
-                            <Tabs defaultActiveKey="1" style={{height:245}}>
-                                <TabPane tab="Basic Info" key="1" >
-                                    <BasicInfoTab ship={ship}></BasicInfoTab>
-                                </TabPane>
-                                <TabPane tab="Detail Info" key="2">
-                                <DetailInfoTab ship={ship} ></DetailInfoTab>
-                                </TabPane>
-                            </Tabs>
+                            <ShipInfoBody ship={ship} ></ShipInfoBody>
                         </div>
                         <div style={{ marginTop: 10 }}>
                             <Button  type="primary" style={{ width: 120, textAlign: 'center' }} icon={<SwapRightOutlined />}>Past Track</Button>
                             <Button type="primary" style={{ width: 140, marginLeft: 15, textAlign: 'center' }} onClick={handleShowChart}>Pollution Forecast</Button>
                         </div>
-
-
                     </div>
                     
                 </Card>
                 <PollutionChart showChart={showChart} handleCancel={handleCancel} mmsi={ship.mmsi} />
             </Space>
+            </div>
+        </Draggable>
+            
+            
         </>
     );
 }

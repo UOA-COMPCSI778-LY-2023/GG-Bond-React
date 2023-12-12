@@ -1,4 +1,6 @@
-import React from 'react';
+
+
+import React, {useState} from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import { FiNavigation2 } from "react-icons/fi";
 import L from 'leaflet';
@@ -28,18 +30,25 @@ const shipIcon = (heading, type) => {
     });
   };
 
-const ShipMarker = ({ boatData }) => {
-  const { mmsi, name, type, speed, location, status } = boatData;
+const ShipMarker = ({ boatData, setSelectedBoat }) => {
+  const { name, type, speed, location, status } = boatData;
+  const togglePopup = () => {
+    setSelectedBoat(boatData);
+  };
+  // console.log(showPopup)
   
   return (
-    <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}>
+    <>
+        <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}
+        eventHandlers= {{click: togglePopup}} >
+        </Marker>
+
+      {/* <div className="ship-info-card">
+        {showPopup && <ShipInfo ship={boatData}/>}
+      </div> */}
       
-      <Popup>
+    </>
 
-        <ShipInfo ship={boatData}></ShipInfo>
-
-      </Popup>
-    </Marker>
   );
 };
 
