@@ -1,15 +1,15 @@
+import { useState } from 'react';
 import L from 'leaflet';
+import React,{useState} from 'react';
 import { MapContainer, LayersControl, useMapEvents, ScaleControl} from 'react-leaflet';
 import {BasemapLayer} from "react-esri-leaflet";
-import MenuOptions from '../MenuOptions/MenuOptions';
 
 // import './Map.css'
+import MenuOptions from '../MenuOptions/MenuOptions';
 import { Marker, Popup} from 'react-leaflet';
 import ShipInfo from '../ShipInfo/ShipInfo';
 import ReactDOMServer from 'react-dom/server';
-// import { Circle, Rectangle } from 'react-leaflet';
 import ShipMarker from '../ShipMarker/ShipMarker';
-// import GetMapDetail from '../GetMapDetail/GetMapDetail';
 import 'leaflet/dist/leaflet.css';
 
 //Mock
@@ -24,7 +24,7 @@ import MockData5000 from '../../MockData/MockData5000.json'
 //10000 too many
 import MockData10000 from '../../MockData/MockData10000.json'
 //100000 too many
-import MockData100000 from '../../MockData/MockData100000.json'*/
+import MockData100000 from '../../MockData/MockData100000.json'
 //Mock
 
 const center = [-36.842, 174.760]

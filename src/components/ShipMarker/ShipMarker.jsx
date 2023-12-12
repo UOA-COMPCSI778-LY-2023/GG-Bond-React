@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
-import { Marker, Popup } from 'react-leaflet';
+import { Marker, Popup, Polyline } from 'react-leaflet';
 import { FiNavigation2 } from "react-icons/fi";
 import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
 import ShipInfo from '../ShipInfo/ShipInfo';
+import shipMockData from '../ShipInfo/ShipMockData';
+import ShipTrack from '../ShipTrack/ShipTrack';
+import MockTrack from '../ShipTrack/MockTrack';
+
 
 const shipTypeDic = {
     "Tank" : "red",
@@ -30,6 +34,10 @@ const shipIcon = (heading, type) => {
 
 const ShipMarker = ({ boatData, setSelectedBoat }) => {
   const { name, type, speed, location, status } = boatData;
+  const [showTrack, setShowTrack] = useState(false);
+  const toggleTrack = () => {
+    setShowTrack(!showTrack);
+  };
   const togglePopup = () => {
     setSelectedBoat(boatData);
   };
@@ -38,7 +46,11 @@ const ShipMarker = ({ boatData, setSelectedBoat }) => {
   return (
     <>
         <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}
-        eventHandlers= {{click: togglePopup}} >
+        eventHandlers= {{click: togglePopup}} > //逻辑需要修改 将Track逻辑及组件 写入 ShipInfo中, ShipMarker应该仅包含ShipInfo, ShipInfo应包含ShipTrack以及PollutionChart
+			{/*<Popup>
+			<ShipInfo ship={shipMockData} toggleTrack={toggleTrack} />
+			<ShipTrack track={MockTrack} showTrack={showTrack} />
+			</Popup>*/}
         </Marker>
 
       {/* <div className="ship-info-card">
@@ -46,8 +58,8 @@ const ShipMarker = ({ boatData, setSelectedBoat }) => {
       </div> */}
       
     </>
-
   );
 };
+
 
 export default ShipMarker;
