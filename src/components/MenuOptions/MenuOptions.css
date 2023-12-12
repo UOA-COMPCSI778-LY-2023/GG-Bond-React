@@ -68,4 +68,26 @@
   .filter-dropdown div:hover {
     background-color: #f0f0f0;
   }
+
+  .leaflet-touch .geocoder-control{
+    position: fixed;
+    top: 55px;
+    right: 50px;
+    max-width: 265px;
+    
+  }
   
+
+  .leaflet-touch .geocoder-control-input{
+    box-shadow: 0px 0px 4px 0px rgba(10, 32, 79, 0.4);
+    background: #1c2330;
+    border-radius: 17px;
+    color: white;
+    background-image: url("/src/img/locate-white.svg");
+  }
+
+  
+
+/* .tooltip-container:hover .tooltip-box{
+    z-index: 99;
+} */
