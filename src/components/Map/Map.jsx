@@ -75,10 +75,6 @@ function Map() {
           {MockData1000.map((boatData, index) => (
             <ShipMarker key={index} boatData={boatData} setSelectedBoat={setSelectedBoat}/>
           ))}
-
-          {/* {selectedBoat && <div style={{"z-index":"9999","position": "absolute"}}>
-            <ShipInfo ship={selectedBoat} setSelectedBoat={setSelectedBoat}></ShipInfo></ div>} */}
-          {/* {selectedBoat && console.log(selectedBoat)} */}
           {selectedBoat &&  <ShipInfo ship={selectedBoat} setSelectedBoat={setSelectedBoat}></ShipInfo>}
 
         </MapContainer>

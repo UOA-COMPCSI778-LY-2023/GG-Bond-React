@@ -62,6 +62,10 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
       };
       const country = getCountry(ship.country_code);
 
+    const calculatePosition=()=>{
+        
+    }
+
     return (
         <>  
         <Draggable>
