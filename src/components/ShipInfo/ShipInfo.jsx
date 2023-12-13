@@ -82,7 +82,7 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
 
     return (
         <>  
-        <Draggable>
+        <Draggable defaultPosition={{ x: 50, y: 8 }}>
         <div  style={{"z-index":"9999","position": "absolute"}}>
             <Space direction="vertical" size={16} style={{cursor:'auto'}}>
                 <Card  style={{ width: 300}} bodyStyle={{padding: "10px"}}>
@@ -99,7 +99,6 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
                                 <CloseOutlined onClick={closeShipInfo}/>
                             </div>
                         </div>
-                        
                         <img  alt="ship image" src={shipImage} style={{ width: '100%', marginTop: 2 }} />
                         <div >
                             <ShipInfoBody ship={ship} ></ShipInfoBody>
