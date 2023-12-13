@@ -4,7 +4,7 @@ import { FiNavigation2 } from "react-icons/fi";
 import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
 import ShipInfo from '../ShipInfo/ShipInfo';
-import shipMockData from '../ShipInfo/ShipMockData';
+// import shipMockData from '../ShipInfo/ShipMockData';
 import ShipTrack from '../ShipTrack/ShipTrack';
 import MockTrack from '../ShipTrack/MockTrack';
 
@@ -46,7 +46,9 @@ const ShipMarker = ({ boatData, setSelectedBoat }) => {
   return (
     <>
         <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}
-        eventHandlers= {{click: togglePopup}} > //逻辑需要修改 将Track逻辑及组件 写入 ShipInfo中, ShipMarker应该仅包含ShipInfo, ShipInfo应包含ShipTrack以及PollutionChart
+        eventHandlers= {{click: togglePopup}} > 
+        
+        {/* 逻辑需要修改 将Track逻辑及组件 写入 ShipInfo中, ShipMarker应该仅包含ShipInfo, ShipInfo应包含ShipTrack以及PollutionChart */}
 			{/*<Popup>
 			<ShipInfo ship={shipMockData} toggleTrack={toggleTrack} />
 			<ShipTrack track={MockTrack} showTrack={showTrack} />

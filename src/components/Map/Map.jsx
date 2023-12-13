@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import L from 'leaflet';
 import React,{useState} from 'react';
 import { MapContainer, LayersControl, useMapEvents, ScaleControl} from 'react-leaflet';
@@ -17,7 +16,7 @@ import 'leaflet/dist/leaflet.css';
 //Real Data
 //1000 
 import MockData1000 from '../../MockData/MockData1000new.json'
-/*//Data levle 500
+//Data levle 500
 import MockData500 from '../../MockData/MockData500.json'
 //5000
 import MockData5000 from '../../MockData/MockData5000.json'

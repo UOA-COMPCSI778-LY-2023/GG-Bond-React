@@ -109,7 +109,7 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
                     </div>
                     
                 </Card>
-                {showChart && <PollutionChart showChart={showChart} handleCancel={handleCancel} mmsi={ship.mmsi} />}
+                {/* {showChart && <PollutionChart showChart={showChart} handleCancel={handleCancel} mmsi={ship.mmsi} />} */}
 				<TrackPopup
 					visible={showTrackPopup}
 					onClose={() => {
