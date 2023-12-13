@@ -8,6 +8,8 @@ import './shipInfo.css'
 import ShipInfoBody from './ShipInfoBody';
 import CountryFlag from 'react-country-flag';
 import Draggable from 'react-draggable';
+import ShipTrack from '../ShipTrack/ShipTrack';
+import MockTrack from '../ShipTrack/MockTrack';
 
 const { Meta } = Card;
 const { TabPane } = Tabs;
@@ -30,6 +32,8 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
     //     };
     //     fetchShipDetail();  
     // },[ship.mmsi]);
+
+
 	
     //Show Chart
     const [showChart, setShowChart] = useState(false);
@@ -109,7 +113,6 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
                     </div>
                     
                 </Card>
-                {/* {showChart && <PollutionChart showChart={showChart} handleCancel={handleCancel} mmsi={ship.mmsi} />} */}
 				<TrackPopup
 					visible={showTrackPopup}
 					onClose={() => {
