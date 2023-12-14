@@ -64,19 +64,43 @@ const MenuOptions = () => {
         <button style={buttonStyle} onClick={toggleDrawTools}><span><Tooltip text = "Draft"><LiaDrawPolygonSolid /></Tooltip></span></button> {/*Draft */}
         <button style={buttonStyle} onClick={toggleSearchLocation}><span><Tooltip text = "Localization"><CiLocationArrow1 /></Tooltip></span></button> {/*Localization*/}
         <button style={buttonStyle}><span><Tooltip text = "Search"><IoIosSearch /></Tooltip></span></button>  {/*Search*/}
-
+        
+{/* filter */}
         <button style={buttonStyle} onClick={toggleFilterDropdown}>
         <span><Tooltip text="Filter"><IoIosColorFilter /></Tooltip></span>
       </button>
       {showFilterDropdown && (
         <div className="filter-dropdown">
-          <div onClick={() => handleFilterSelect('cargo')}>Cargo</div>
-          <div onClick={() => handleFilterSelect('tanker')}>Tanker</div>
-          <div onClick={() => handleFilterSelect('passenger')}>Passenger</div>
-          {/* Add more ship types as needed */}
+          {/* 为每种 filter 类型添加 checkbox */}
+          <label>
+            <input
+              type="checkbox"
+              checked={selectedFilters.includes('cargo')}
+              onChange={() => handleFilterSelect('cargo')}
+            />
+            Cargo
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={selectedFilters.includes('tanker')}
+              onChange={() => handleFilterSelect('tanker')}
+            />
+            Tanker
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={selectedFilters.includes('passenger')}
+              onChange={() => handleFilterSelect('passenger')}
+            />
+            Passenger
+          </label>
+          {/* 可根据需要添加更多 filter 类型 */}
         </div>
       )}
-        
+{/* filter */}    
+
       {showDrawTools && <DrawTools onChange={(geojsonData) => console.log(geojsonData)} />}
       {showSearchLocation && <EsriLeafletGeoSearch
         position="bottomright"
