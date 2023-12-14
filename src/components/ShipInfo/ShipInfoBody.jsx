@@ -1,6 +1,6 @@
 
 import './shipInfo.css'
-const ShipInfoBody=({ship})=>{
+const ShipInfoBody=({shipData})=>{
     return(
     <>
         <div className='detail-info-container' style={{marginTop:2}}>
@@ -9,24 +9,25 @@ const ShipInfoBody=({ship})=>{
                 <div className='info-column1' style={{width:'50%'}}>
                     <div className="detail-info-item">MMSI:
                         <strong style={{marginLeft:5}}>
-                            {ship.mmsi}
+                            {shipData.mmsi}
                         </strong>
                     </div>
                     <div className="detail-info-item" >IMO:
                         <strong style={{marginLeft:5}}>
-                            {ship.imo}
+                            {shipData.imo!=='nan'?String(Math.trunc(shipData.imo)):'Not Known'}
                         </strong>
                     </div>
                     <div className="detail-info-item">Callsign:
                         <strong style={{marginLeft:5}}>
-                            {ship.callsign}
+                            {shipData.imo!=='nan'?shipData.callsign:'Not Known'}  
+                            {/* {shipData.callsign} */}
                         </strong>
                     </div>
-                    <div className='detail-info-item'>Source: 
+                    {/* <div className='detail-info-item'>Source: 
                         <strong style={{marginLeft: 5}}>
                             {ship.source}
                         </strong>
-                    </ div>
+                    </ div> */}
                     
                 </div>
 
@@ -34,22 +35,22 @@ const ShipInfoBody=({ship})=>{
                 <div className='info-column2'  style={{width:'50%'}}>
                     <div className="detail-info-item">Length(m):
                         <strong style={{marginLeft:5}}>
-                        {ship.length}
+                        {shipData.length}
                         </strong>
                     </div>
                     <div className="detail-info-item">Width(m):
                         <strong style={{marginLeft:5}}>
-                            {ship.width}
+                            {shipData.width}
                         </strong>
                     </div>
-                    <div className="detail-info-item">Draught:
+                    {/* <div className="detail-info-item">Draught:
                         <strong style={{marginLeft:5}}>
                             {ship.draught}
                         </strong>
-                    </div>
+                    </div> */}
                     <div className="detail-info-item">Vessel Class:
                         <strong style={{marginLeft:5}}>
-                            {ship.vessel_class}
+                            {shipData.vesselClass}
                         </strong>
                     </div>
                 </div>
@@ -58,15 +59,15 @@ const ShipInfoBody=({ship})=>{
             <div >
                 <div className="detail-info-item" style={{marginTop:"-1px"}}>Country:
                         <strong style={{marginLeft:5}}>
-                            {ship.country}
+                            {shipData.country}
                         </strong>
                 </div>
-                <div className="detail-info-item" >Navifagiton Status:
+                {/* <div className="detail-info-item" >Navifagiton Status:
                     <strong style={{marginLeft: 5}}>
                         {ship.status}
                     </strong>
-                </div>
-                <div className="detail-info-item"  >Main Vessel Type:
+                </div> */}
+                {/* <div className="detail-info-item"  >Main Vessel Type:
                     <strong style={{marginLeft:5}}>
                         {ship.vessel_type_main}
                     </strong>
@@ -75,13 +76,13 @@ const ShipInfoBody=({ship})=>{
                     <strong style={{marginLeft:5}}>
                         {ship.vessel_type_sub}
                     </strong>
-                </div>
-                <div className='detail-info-item'>Received Time: 
+                </div> */}
+                {/* <div className='detail-info-item'>Received Time: 
                     <strong style={{marginLeft: 5}}>
                         {ship.time}
                     </strong>
                 </div>
-                
+                 */}
                 
 
             </div>

@@ -13,14 +13,57 @@ import MockTrack from '../ShipTrack/MockTrack';
 
 const { Meta } = Card;
 const { TabPane } = Tabs;
-const ShipInfo = ({ ship,setSelectedBoat }) => {
-    
-    // const [ship, setShip] = useState();
-    const [shipImage, serShipImage] = useState('defaultShip2.jpg');
+
+const ShipInfo = ({ship,setSelectedBoat }) => {
+
+    const mmsi = ship.mmsi;
+    const [shipData, setShip] = useState({"mmsi":mmsi});
+    console.log(ship)
+    // get detail ship info
+    useEffect(() => {
+        const url = `http://13.236.117.100:8888//rest/v1/ship/${mmsi}`
+
+        const fetchShipDetail = async ()=>{
+            const response = await fetch(url);
+            const responseData = await response.json();
+            const shipData = responseData.data;
+            setShip(shipData);
+            console.log(shipData);
+        };
+        fetchShipDetail();  
+    },[mmsi]);
+
     const closeShipInfo=()=>{
         setSelectedBoat(null);
     }
-    
+    console.log("tt");
+    console.log(shipData);
+    //  get ship type picture
+    const getTypePath = (vesselType) => {
+        vesselType = (vesselType === 'Pleasure Craft') ? 'Pleasure' : vesselType;
+         
+       if (['Cargo','Craft','Fishing','Navigation_Aids','Passenger','Pleasure','Tanker','Tug'].includes(vesselType)){
+         return `ShipIcons/${vesselType}.png`;
+       }
+       else{
+         return 'ShipIcons/Unspecified.png';
+       }        
+    };
+    const typePath = getTypePath(ship.type);
+
+    // get ship country picture
+    const getCountry = (shipCountryCode) => {
+        if (['NAN','nan'].includes(shipCountryCode)){
+          return null;
+        }
+        else{
+          return shipCountryCode;
+        }        
+    };
+    const country = getCountry(shipData.alpha2);
+
+    // get ship country picture
+    const [shipImage, setShipImage] = useState('defaultShip2.jpg');
     // useEffect(() => {
     //     console.log(ship.Avatarmmsi);
     //     const url = `/MockData/MockSingleShipData${ship.mmsi}.json` //api request
@@ -33,18 +76,10 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
     //     fetchShipDetail();  
     // },[ship.mmsi]);
 
-
-	
     //Show Chart
     const [showChart, setShowChart] = useState(false);
 	const [showTrackPopup, setShowTrackPopup] = useState(false);
 	const [isAnimating, setIsAnimating] = useState(false);
-	
-	const handleTrackButtonClick = () => {
-    setShowTrackPopup(!showTrackPopup);
-    // 不立即开始动画，只显示 TrackPopup
-	};
-	
     const handleShowChart = () => {
         setShowChart(true);
     };
@@ -52,30 +87,14 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
     const handleCancel = () => {
         setShowChart(false);
     };
+
+	// show track
+	const handleTrackButtonClick = () => {
+    setShowTrackPopup(!showTrackPopup);
+    // 不立即开始动画，只显示 TrackPopup
+	};
+	
     
-    const getTypePath = (vesselType) => {
-       vesselType = (vesselType === 'Pleasure Craft') ? 'Pleasure' : vesselType;
-        
-      if (['Cargo','Craft','Fishing','Navigation_Aids','Passenger','Pleasure','Tanker','Tug'].includes(vesselType)){
-        return `ShipIcons/${vesselType}.png`;
-      }
-      else{
-        return 'ShipIcons/Unspecified.png';
-      }        
-    };
-
-    const typePath = getTypePath(ship.type);
-
-    const getCountry = (shipCountryCode) => {
-        if (['US','CN','AU'].includes(shipCountryCode)){
-          return shipCountryCode;
-        }
-        else{
-          return null;
-        }        
-      };
-      const country = getCountry(ship.country_code);
-
     const calculatePosition=()=>{
         
     }
@@ -92,8 +111,8 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
                             {country !== null ? (<CountryFlag countryCode={country} svg style={{width: '2.2em',  height: '2.2em', marginLeft:5 }}/>) : (
                                 <img src="defaultCountryImage.png" alt="defaul-country" style={{width: '30.8px', height: '30.8px',marginLeft:5 }}/>)}
                             <div className='name-with-type' >
-                                <div className='ship-name'>{ship.name}</div>
-                                <div className='ship-type' >{ship.type}</div>
+                                <div className='ship-name'>{shipData.vesselName}</div>
+                                <div className='ship-type' >{shipData.vesselType}</div>
                             </div>
                             <div style={{ position: 'absolute', top: 10, right: 10,cursor: 'pointer'}}>
                                 <CloseOutlined onClick={closeShipInfo}/>
@@ -101,7 +120,7 @@ const ShipInfo = ({ ship,setSelectedBoat }) => {
                         </div>
                         <img  alt="ship image" src={shipImage} style={{ width: '100%', marginTop: 2 }} />
                         <div >
-                            <ShipInfoBody ship={ship} ></ShipInfoBody>
+                            <ShipInfoBody shipData={shipData} ></ShipInfoBody>
                         </div>
                         <div style={{ marginTop: 10 }}>
 
