@@ -10,6 +10,7 @@ import CountryFlag from 'react-country-flag';
 import Draggable from 'react-draggable';
 import ShipTrack from '../ShipTrack/ShipTrack';
 import MockTrack from '../ShipTrack/MockTrack';
+import useShipData from '../../hooks/useShipData';
 
 const { Meta } = Card;
 const { TabPane } = Tabs;
@@ -17,27 +18,10 @@ const { TabPane } = Tabs;
 const ShipInfo = ({ship,setSelectedBoat }) => {
 
     const mmsi = ship.mmsi;
-    const [shipData, setShip] = useState({"mmsi":mmsi});
-    console.log(ship)
-    // get detail ship info
-    useEffect(() => {
-        const url = `http://13.236.117.100:8888//rest/v1/ship/${mmsi}`
-
-        const fetchShipDetail = async ()=>{
-            const response = await fetch(url);
-            const responseData = await response.json();
-            const shipData = responseData.data;
-            setShip(shipData);
-            console.log(shipData);
-        };
-        fetchShipDetail();  
-    },[mmsi]);
-
+    const shipData = useShipData(mmsi);
     const closeShipInfo=()=>{
         setSelectedBoat(null);
     }
-    console.log("tt");
-    console.log(shipData);
     //  get ship type picture
     const getTypePath = (vesselType) => {
         vesselType = (vesselType === 'Pleasure Craft') ? 'Pleasure' : vesselType;
@@ -64,17 +48,7 @@ const ShipInfo = ({ship,setSelectedBoat }) => {
 
     // get ship country picture
     const [shipImage, setShipImage] = useState('defaultShip2.jpg');
-    // useEffect(() => {
-    //     console.log(ship.Avatarmmsi);
-    //     const url = `/MockData/MockSingleShipData${ship.mmsi}.json` //api request
-    //     console.log(url);
 
-    //     const fetchShipDetail = async ()=>{
-    //        const response = await fetch(url);
-    //        setShip(response);
-    //     };
-    //     fetchShipDetail();  
-    // },[ship.mmsi]);
 
     //Show Chart
     const [showChart, setShowChart] = useState(false);

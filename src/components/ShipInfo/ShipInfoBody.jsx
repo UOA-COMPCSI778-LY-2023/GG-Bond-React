@@ -19,7 +19,7 @@ const ShipInfoBody=({shipData})=>{
                     </div>
                     <div className="detail-info-item">Callsign:
                         <strong style={{marginLeft:5}}>
-                            {shipData.imo!=='nan'?shipData.callsign:'Not Known'}  
+                            {shipData.callsign!=='nan'?shipData.callsign:'Not Known'}  
                             {/* {shipData.callsign} */}
                         </strong>
                     </div>
@@ -59,7 +59,7 @@ const ShipInfoBody=({shipData})=>{
             <div >
                 <div className="detail-info-item" style={{marginTop:"-1px"}}>Country:
                         <strong style={{marginLeft:5}}>
-                            {shipData.country}
+                            {shipData.flagCountry}
                         </strong>
                 </div>
                 {/* <div className="detail-info-item" >Navifagiton Status:
