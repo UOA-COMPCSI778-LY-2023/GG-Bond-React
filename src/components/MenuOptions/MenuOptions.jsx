@@ -9,6 +9,29 @@ import Tooltip from '../Tooltip/Tooltip';
 import DrawTools from '../DrawTools/DrawTools';
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
+import ShipTypeFilter from '../ShipTypeFilter/ShipTypeFilter';
+
+
+const shipTypes = [
+  { type: 'Tank', color: 'Red' },
+  { type: 'Cargo', color: 'LightGreen' },
+  { type: 'Fishing', color: 'YellowBrown' },
+  { type: 'Tug', color: 'Blue' },
+  { type: 'Sailboat', color: 'Navy' },
+  { type: 'Cruise', color: 'Purple' },
+  { type: 'Container', color: 'Orange' },
+  { type: 'Bulk Carrier', color: 'Maroon' },
+  { type: 'Naval', color: 'Gray' },
+  { type: 'Patrol', color: 'Olive' },
+  { type: 'Research', color: 'Lime' },
+  { type: 'Yacht', color: 'Teal' },
+  { type: 'Oil Tanker', color: 'Black' },
+  { type: 'Ferry', color: 'RoyalBlue' },
+  { type: 'Submarine', color: 'Aqua' },
+  // Add additional ship types as necessary
+];
+
+
 
 const MenuOptions = () => {
 
@@ -66,38 +89,16 @@ const MenuOptions = () => {
         <button style={buttonStyle}><span><Tooltip text = "Search"><IoIosSearch /></Tooltip></span></button>  {/*Search*/}
         
 {/* filter */}
-        <button style={buttonStyle} onClick={toggleFilterDropdown}>
+<button style={buttonStyle} onClick={toggleFilterDropdown}>
         <span><Tooltip text="Filter"><IoIosColorFilter /></Tooltip></span>
       </button>
+
       {showFilterDropdown && (
-        <div className="filter-dropdown">
-          {/* 为每种 filter 类型添加 checkbox */}
-          <label>
-            <input
-              type="checkbox"
-              checked={selectedFilters.includes('cargo')}
-              onChange={() => handleFilterSelect('cargo')}
-            />
-            Cargo
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={selectedFilters.includes('tanker')}
-              onChange={() => handleFilterSelect('tanker')}
-            />
-            Tanker
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={selectedFilters.includes('passenger')}
-              onChange={() => handleFilterSelect('passenger')}
-            />
-            Passenger
-          </label>
-          {/* 可根据需要添加更多 filter 类型 */}
-        </div>
+        <ShipTypeFilter
+          selectedFilters={selectedFilters}
+          handleFilterSelect={handleFilterSelect}
+          shipTypes={shipTypes}
+        />
       )}
 {/* filter */}    
 

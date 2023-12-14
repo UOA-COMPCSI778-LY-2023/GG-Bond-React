@@ -1,0 +1,26 @@
+.ship-type-filter-dropdown {
+    position: absolute;
+    left: 200px;
+    top: 120%; /* 使下拉表出现在 MenuOptions 下方 */
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+    width: max-content;
+    padding: 10px;
+}
+  
+  .ship-type-filter-item {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+  }
+  
+  .ship-type-filter-checkbox {
+    margin-right: 10px;
+  }
+  
+  .ship-type-filter-text {
+    vertical-align: middle;
+  }
+  
