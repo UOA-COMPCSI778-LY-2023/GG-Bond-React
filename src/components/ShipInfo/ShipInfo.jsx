@@ -11,6 +11,7 @@ import Draggable from 'react-draggable';
 import ShipTrack from '../ShipTrack/ShipTrack';
 import MockTrack from '../ShipTrack/MockTrack';
 import useShipData from '../../hooks/useShipData';
+import useShipImage from '../../hooks/useShipImage';
 
 const { Meta } = Card;
 const { TabPane } = Tabs;
@@ -47,8 +48,7 @@ const ShipInfo = ({ship,setSelectedBoat }) => {
     const country = getCountry(shipData.alpha2);
 
     // get ship country picture
-    const [shipImage, setShipImage] = useState('defaultShip2.jpg');
-
+    const shipImage = useShipImage(mmsi)
 
     //Show Chart
     const [showChart, setShowChart] = useState(false);
@@ -67,11 +67,6 @@ const ShipInfo = ({ship,setSelectedBoat }) => {
     setShowTrackPopup(!showTrackPopup);
     // 不立即开始动画，只显示 TrackPopup
 	};
-	
-    
-    const calculatePosition=()=>{
-        
-    }
 
     return (
         <>  
