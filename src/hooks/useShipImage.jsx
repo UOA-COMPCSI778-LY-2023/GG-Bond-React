@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const useShipImage = (mmsi) => {
     const [shipImage, setShipImage] = useState('defaultShip2.jpg');
     useEffect(() => {
-        const shiIdUrl = `http://127.0.0.1:8080/get/shipID?mmsi=${mmsi}`;
+        const shiIdUrl = `http://13.236.117.100:8080/get/shipID?mmsi=${mmsi}`;
     
         const fetchShipPicture = async () => {
             try {
@@ -16,7 +16,7 @@ const useShipImage = (mmsi) => {
                     const shipId = responseData.vessel_id;
                     console.log(shipId)
                     if (shipId) {
-                        const imageUrl = `http://127.0.0.1:8080/get/shipPicture?ship_id=${shipId}`;
+                        const imageUrl = `http://13.236.117.100:8080/get/shipPicture?ship_id=${shipId}`;
                         // Check if the image URL returns a 404 status
                         const imageResponse = await fetch(imageUrl, {
                             method: "GET",
