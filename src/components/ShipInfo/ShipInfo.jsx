@@ -1,16 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Avatar, Card, Space, Button, Tabs } from "antd";
 import { SwapRightOutlined, CloseOutlined } from "@ant-design/icons";
-import PollutionChart from "../PollutionChart/PollutionChart";
 import DraggableModal from "../drag info/DraggableModal";
 import TrackPopup from "../TrackPopup/TrackPopup";
 import "./shipInfo.css";
 import ShipInfoBody from "./ShipInfoBody";
 import CountryFlag from "react-country-flag";
 import Draggable from "react-draggable";
-import ShipTrack from "../ShipTrack/ShipTrack";
-import MockTrack from "../ShipTrack/MockTrack";
 import useShipData from "../../hooks/useShipData";
+import useShipImage from "../../hooks/useShipImage";
 
 const { Meta } = Card;
 const { TabPane } = Tabs;
