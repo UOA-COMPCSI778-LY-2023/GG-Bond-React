@@ -1,0 +1,27 @@
+.targetShip {
+    animation: rotateAndScale 5s infinite linear;
+    transform-origin: center center;
+    fill: orangered;
+    stroke: orangered;
+    transform: scale(2.5);
+    transition: transform 0.5s ease, fill 0.5s ease, stroke 0.5s ease;
+  }
+  
+  @keyframes rotateAndScale {
+    0% {
+      transform: rotate(0deg) scale(2.5);
+    }
+    25% {
+      transform: rotate(90deg) scale(2.75);
+    }
+    50% {
+      transform: rotate(180deg) scale(3);
+    }
+    75% {
+      transform: rotate(270deg) scale(2.75);
+    }
+    100% {
+      transform: rotate(360deg) scale(2.5);
+    }
+  }
+  
