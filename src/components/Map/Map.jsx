@@ -10,6 +10,7 @@ import ShipInfo from '../ShipInfo/ShipInfo';
 import ReactDOMServer from 'react-dom/server';
 import ShipMarker from '../ShipMarker/ShipMarker';
 import 'leaflet/dist/leaflet.css';
+import SearchShip from '../SearchShip/SearchShip';
 
 //Mock
 // import mockBoatsData from '../../MockData/MockData';
@@ -81,12 +82,12 @@ function Map() {
 
           </LayersControl>
           <MenuOptions></MenuOptions>
+          <SearchShip />
 
           {MockData1000.map((boatData, index) => (
-            <ShipMarker key={index} boatData={boatData} setSelectedBoat={setSelectedBoat}/>
+            <ShipMarker key={index} boatData={boatData} setSelectedBoat={setSelectedBoat} isSelected={selectedBoat === boatData}/>
           ))}
           {selectedBoat &&  <ShipInfo ship={selectedBoat} setSelectedBoat={setSelectedBoat}></ShipInfo>}
-
         </MapContainer>
       </div>
     );
