@@ -25,6 +25,10 @@ const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
       setShowTrack(false);
       setShowHideButtonText('Show');
     }
+    else {
+      setShowTrack(true);
+      setShowHideButtonText('Hide');
+    }
   }, [visible]);
 
   const handleStartPause = () => {
