@@ -64,7 +64,7 @@ function Map() {
       {mousePosition && (
         <div style={{
           position: 'absolute',
-          bottom: '10px',
+          bottom: '20px',
           right: '10px',
           backgroundColor: 'rgba(255, 255, 255, 0.8)',
           padding: '8px 10px',
