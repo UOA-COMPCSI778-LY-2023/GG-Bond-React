@@ -62,13 +62,13 @@ function Map() {
         {selectedBoat && <ShipInfo ship={selectedBoat} setSelectedBoat={setSelectedBoat} />}
       </MapContainer>
       {mousePosition && (
-        <div style={{ 
-          position: 'absolute', 
-          bottom: '10px', 
-          right: '10px', 
-          backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+        <div style={{
+          position: 'absolute',
+          bottom: '10px',
+          right: '10px',
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
           padding: '8px 10px',
-          zIndex: 1000, 
+          zIndex: 1000,
           borderRadius: '8px',
           boxShadow: '0 0 5px rgba(0,0,0,0.2)',
           fontSize: '14px',
@@ -76,7 +76,7 @@ function Map() {
           color: '#333',
           textAlign: 'center'
         }}>
-          Lat: {mousePosition.lat.toFixed(4)}<br/>
+          Lat: {mousePosition.lat.toFixed(4)}<br />
           Lng: {mousePosition.lng.toFixed(4)}
         </div>
       )}
