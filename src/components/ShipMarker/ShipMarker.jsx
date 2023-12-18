@@ -1,48 +1,68 @@
-import React, {useState} from 'react';
-import { Marker, Popup, Polyline } from 'react-leaflet';
+import React, { useState } from "react";
+import { Marker, Popup, Polyline } from "react-leaflet";
 import { FiNavigation2 } from "react-icons/fi";
-import L from 'leaflet';
-import ReactDOMServer from 'react-dom/server';
-
+import { PiCircleDashedThin } from "react-icons/pi";
+import L from "leaflet";
+import ReactDOMServer from "react-dom/server";
+import "../ShipMarker/ShipMarker.css";
 
 const shipTypeDic = {
-    "Tank" : "red",
-    "Cargo" : "lightgreen",
-    "Fishing" : "burlywood",
-    "Craft" : "yellow",
-    "Pleasure" : "purple",
-    "Tugs" : "lightblue",
-    "Passenger" : "blue",
-    "Navigation Aids" : "pink",
-    "Unspecified" : "lightgray"
-}
-
-const shipIcon = (heading, type) => {
-    const color = shipTypeDic[type] || 'gray';
-  
-    return L.divIcon({
-      className: 'custom-icon',
-      html: ReactDOMServer.renderToString(
-        <FiNavigation2 style={{strokeColor: "black", fill: color, transform: `rotate(${heading}deg) scale(1.5)` }} />
-      ),
-    });
-  };
-
-const ShipMarker = ({ boatData, setSelectedBoat }) => {
-  const { name, type, speed, location, status } = boatData;
-  const togglePopup = () => {
-    setSelectedBoat(boatData);
-  };
-  
-  return (
-    <>
-        <Marker position={[location.latitude, location.longitude]} icon={shipIcon(location.heading, type)}
-        eventHandlers= {{click: togglePopup}} > 
-        </Marker>
-
-    </>
-  );
+    3: "red", //Tank
+    1: "lightgreen", //Cargo
+    2: "burlywood", //Fishing
+    6: "yellow", //Sailing
+    4: "purple", //Pleasure
+    5: "lightblue", //Tugs
+    7: "blue", //Passenger
+    // 8: "pink", //Military & Law Enforcement
+    9: "lightgray", //Other
 };
 
+const shipIcon = (heading, type) => {
+    const color = shipTypeDic[type] || "gray";
+
+    return L.divIcon({
+        className: "ships-icon",
+        html: ReactDOMServer.renderToString(
+            <FiNavigation2
+                className="ships"
+                style={{
+                    strokeColor: "black",
+                    fill: color,
+                    transform: `rotate(${heading}deg) scale(1.5)`,
+                }}
+            />
+        ),
+    });
+};
+
+const targetIcon = () => {
+    return L.divIcon({
+        className: "target-icon",
+        html: ReactDOMServer.renderToString(
+            <PiCircleDashedThin className="targetShip" />
+        ),
+    });
+};
+
+const ShipMarker = ({ boatData, setSelectedBoat, isSelected }) => {
+    const { co, he, la, lo, mm, ut, vt } = boatData;
+    const togglePopup = () => {
+        setSelectedBoat(boatData);
+    };
+
+    return (
+        <>
+            <Marker
+                position={[la, lo]}
+                icon={shipIcon(he, vt)}
+                eventHandlers={{ click: togglePopup }}
+            ></Marker>
+            {isSelected && (
+                <Marker position={[la, lo]} icon={targetIcon()}></Marker>
+            )}
+        </>
+    );
+};
 
 export default ShipMarker;
