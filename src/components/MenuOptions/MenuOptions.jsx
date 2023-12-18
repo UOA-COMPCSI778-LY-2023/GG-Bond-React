@@ -13,6 +13,7 @@ import ShipTypeFilter from '../ShipTypeFilter/ShipTypeFilter';
 
 
 const shipTypes = [
+  { type: 'ALL', color: 'Black' },
   { type: 'Tank', color: 'Red' },
   { type: 'Cargo', color: 'LightGreen' },
   { type: 'Fishing', color: 'YellowBrown' },
@@ -31,6 +32,15 @@ const shipTypes = [
   // Add additional ship types as necessary
 ];
  
+const countryTypes = [
+  { type: 'ALL', color: 'Black' },
+  { type: 'CN', color: 'Red' },
+  { type: 'NZ', color: 'LightGreen' },
+  { type: 'USA', color: 'YellowBrown' },
+
+
+  // Add additional ship types as necessary
+];
 
 
 const MenuOptions = () => {
@@ -39,6 +49,7 @@ const MenuOptions = () => {
   const [isActive, setIsActive] = useState(false);
   const [showFilterDropdown, setShowFilterDropdown] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedCountries, setSelectedCountries] = useState([]);
   const [showDrawTools, setShowDrawTools] = useState(false);
   const [showSearchLocation, setShowSearchLocation] = useState(false);
 
@@ -58,6 +69,16 @@ const MenuOptions = () => {
         return prevFilters.filter(f => f !== filterType);
       } else {
         return [...prevFilters, filterType];
+      }
+    });
+  };
+
+  const handleCountrySelect = (countryType) => {
+    setSelectedCountries(prevCountries => {
+      if (prevCountries.includes(countryType)) {
+        return prevCountries.filter(country => country !== countryType);
+      } else {
+        return [...prevCountries, countryType];
       }
     });
   };
@@ -94,11 +115,14 @@ const MenuOptions = () => {
       </button>
 
       {showFilterDropdown && (
-        <ShipTypeFilter
-          selectedFilters={selectedFilters}
-          handleFilterSelect={handleFilterSelect}
-          shipTypes={shipTypes}
-        />
+         <ShipTypeFilter
+         selectedFilters={selectedFilters}
+         handleFilterSelect={handleFilterSelect}
+         shipTypes={shipTypes}
+         selectedCountries={selectedCountries}
+         handleCountrySelect={handleCountrySelect}
+         countryTypes={countryTypes}
+       />
       )}
 {/* filter */}    
 

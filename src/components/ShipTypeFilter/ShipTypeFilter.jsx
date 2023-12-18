@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ShipTypeFilter.css';
 
-const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes }) => {
+const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countryTypes, selectedCountries, handleCountrySelect }) => {
   const [isShipTypeOpen, setIsShipTypeOpen] = useState(false);
   const [isCountryOpen, setIsCountryOpen] = useState(false);
 
@@ -15,17 +15,17 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes }) => {
     if (isShipTypeOpen) setIsShipTypeOpen(false);
   };
 
-  const handleCountrySelect = (countryCode) => {
-    let updatedFilters;
-    if (selectedFilters.includes(countryCode)) {
-      // 如果已经选中，移除该国家
-      updatedFilters = selectedFilters.filter(filter => filter !== countryCode);
+  const handleCountrySelectInternal = (countryCode) => {
+    let updatedCountries;
+    if (selectedCountries.includes(countryCode)) {
+      updatedCountries = selectedCountries.filter(country => country !== countryCode);
     } else {
-      // 如果未选中，添加该国家
-      updatedFilters = [...selectedFilters, countryCode];
+      updatedCountries = [...selectedCountries, countryCode];
     }
-    handleFilterSelect(updatedFilters); // 更新选中的筛选器
+    handleCountrySelect(updatedCountries); // 更新选中的国家类型
   };
+
+
 
   return (
     <div className="filter-dropdown">
@@ -56,15 +56,17 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes }) => {
       </div>
 
       <div className={`country-filter-dropdown ${isCountryOpen ? 'show' : ''}`}>
-        {['CN', 'NZ', 'USA'].map(country => (
-          <label key={country} className="country-filter-item">
+        {countryTypes.map(country => (
+          <label key={country.type} className="country-filter-item">
             <input
               type="checkbox"
               className="country-filter-checkbox"
-              checked={selectedFilters.includes(country)}
-              onChange={() => handleCountrySelect(country)}
+              checked={selectedCountries.includes(country.type)}
+              onChange={() => handleCountrySelect(country.type)} 
             />
-            <span className="country-filter-text">{country}</span>
+            <span className="country-filter-text" style={{ color: country.color }}>
+              {country.type}
+            </span>
           </label>
         ))}
       </div>
