@@ -30,7 +30,7 @@ const shipTypes = [
   { type: 'Submarine', color: 'Aqua' },
   // Add additional ship types as necessary
 ];
-
+ 
 
 
 const MenuOptions = () => {
