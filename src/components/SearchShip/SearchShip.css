@@ -1,0 +1,7 @@
+.shipSearcher{
+    position: fixed;
+    top: 17px;
+    width: 265px;
+    z-index: 600;
+    right: 350px;
+}
