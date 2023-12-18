@@ -10,7 +10,6 @@ import {
     useMap
 } from "react-leaflet";
 import { BasemapLayer } from "react-esri-leaflet";
-// import useGetShipBasicData from "../../hooks/useGetShipsBasicData";
 
 // import './Map.css'
 import MenuOptions from "../MenuOptions/MenuOptions";
@@ -47,16 +46,16 @@ const bounds = L.latLngBounds(corner1, corner2);
 
 function Map() {
     const [selectedBoat, setSelectedBoat] = useState();
-    const [mousePosition, setMousePosition] = useState(null); // Added for mouse position tracking
-    const [shipsBasicData, setShipsBasicData] = useState([]);
-    const [latLngNE, setlatLngNE] = useState({ lat: 90, lng: 240 });
-    const [latLngSW, setlatLngSW] = useState({ lat: -90, lng: -240 });
 
-    // Existing data fetch logic
-    const fetchData = async () => {
+    const [mousePosition, setMousePosition] = useState(null); // Added for mouse position tracking
+
+    const [shipsBasicData, setShipsBasicData] = useState([]);
+
+    const getShipBasicData = async (latLngNE, latLngSW) => {
+
         const type = "0";
         const source = 0;
-        const limit = 500;
+        const limit = 800;
         console.log(latLngNE, latLngSW);
         const url = `http://13.236.117.100:8888/rest/v1/ship/list/${latLngSW.lng}/${latLngSW.lat}/${latLngNE.lng}/${latLngNE.lat}/${type}/${source}/${limit}`;
 
@@ -74,25 +73,30 @@ function Map() {
     };
 
     useEffect(() => {
-        fetchData();
+        const latLngNE = { lat: 90, lng: 240 };
+        const latLngSW = { lat: -90, lng: -240 };
+        getShipBasicData(latLngNE, latLngSW);
     }, []);
 
     function GetMapDetail() {
-      const map = useMapEvents({
-          mousemove: (e) => {
-              setMousePosition(e.latlng); // Track mouse position
-          },
-          zoomend: () => {
-            setlatLngNE(map.getBounds()._northEast);
-            setlatLngSW(map.getBounds()._southWest);
-            fetchData();
-        },
-        dragend: () => {
-            setlatLngNE(map.getBounds()._northEast);
-            setlatLngSW(map.getBounds()._southWest);
-            fetchData();
-        },
-      });
+
+        const map = useMapEvents({
+            mousemove: (e) => {
+                setMousePosition(e.latlng); // Track mouse position
+            },
+            zoomend: () => {
+                getShipBasicData(
+                    map.getBounds()._northEast,
+                    map.getBounds()._southWest
+                );
+            },
+            moveend: () => {
+                getShipBasicData(
+                    map.getBounds()._northEast,
+                    map.getBounds()._southWest
+                );
+            },
+        });
 
       return null;
   }
