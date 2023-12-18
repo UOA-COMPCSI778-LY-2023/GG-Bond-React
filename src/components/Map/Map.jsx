@@ -1,5 +1,6 @@
 import L from "leaflet";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
     MapContainer,
     LayersControl,
@@ -7,6 +8,7 @@ import {
     ScaleControl,
 } from "react-leaflet";
 import { BasemapLayer } from "react-esri-leaflet";
+// import useGetShipBasicData from "../../hooks/useGetShipsBasicData";
 
 // import './Map.css'
 import MenuOptions from "../MenuOptions/MenuOptions";
@@ -17,20 +19,20 @@ import ShipMarker from "../ShipMarker/ShipMarker";
 import "leaflet/dist/leaflet.css";
 import SearchShip from "../SearchShip/SearchShip";
 
-//Mock
-// import mockBoatsData from '../../MockData/MockData';
-//Real Data
-//1000
-import MockData1000 from "../../MockData/MockData1000new.json";
-//Data levle 500
-import MockData500 from "../../MockData/MockData500.json";
-//5000
-import MockData5000 from "../../MockData/MockData5000.json";
-//10000 too many
-import MockData10000 from "../../MockData/MockData10000.json";
-//100000 too many
-import MockData100000 from "../../MockData/MockData100000.json";
-//Mock
+// //Mock
+// // import mockBoatsData from '../../MockData/MockData';
+// //Real Data
+// //1000
+// import MockData1000 from "../../MockData/MockData1000new.json";
+// //Data levle 500
+// import MockData500 from "../../MockData/MockData500.json";
+// //5000
+// import MockData5000 from "../../MockData/MockData5000.json";
+// //10000 too many
+// import MockData10000 from "../../MockData/MockData10000.json";
+// //100000 too many
+// import MockData100000 from "../../MockData/MockData100000.json";
+// //Mock
 
 const center = [-36.842, 174.76];
 // const apiKey = "AAPK4f354998bf5a4659b9d666b2069641897bTjGcAqQx-CfCSZNh9ToN7ANpoJDprU4gf08kNagIOaR_eSX7gjFQaqM9EzJmu-";
@@ -41,24 +43,52 @@ const corner1 = L.latLng(-90, -240);
 const corner2 = L.latLng(90, 240);
 const bounds = L.latLngBounds(corner1, corner2);
 
-function GetMapDetail() {
-    const map = useMapEvents({
-        zoomend: () => {
-            console.log("Current map zoom level：", map.getZoom());
-        },
-        dragend: () => {
-            console.log(
-                "Current centre latitude and longitude：",
-                map.getCenter()
-            );
-            console.log("Bound", map.getBounds());
-        },
-    });
-    return null;
-}
-
 function Map() {
     const [selectedBoat, setSelectedBoat] = useState();
+    const [latLngNE, setlatLngNE] = useState({ lat: 90, lng: 240 });
+    const [latLngSW, setlatLngSW] = useState({ lat: -90, lng: -240 });
+    const [shipsBasicData, setShipsBasicData] = useState([]);
+
+    const fetchData = async () => {
+        const type = "0";
+        const source = 0;
+        const limit = 500;
+        console.log(latLngNE, latLngSW);
+        const url = `http://13.236.117.100:8888/rest/v1/ship/list/${latLngSW.lng}/${latLngSW.lat}/${latLngNE.lng}/${latLngNE.lat}/${type}/${source}/${limit}`;
+
+        try {
+            const response = await axios.get(url);
+
+            if (response.status !== 200) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            setShipsBasicData(response.data.data);
+            console.log(response.data.data);
+        } catch (error) {
+            console.error("Error fetching ship details:", error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    function GetMapDetail() {
+        const map = useMapEvents({
+            zoomend: () => {
+                setlatLngNE(map.getBounds()._northEast);
+                setlatLngSW(map.getBounds()._southWest);
+                fetchData();
+            },
+            dragend: () => {
+                setlatLngNE(map.getBounds()._northEast);
+                setlatLngSW(map.getBounds()._southWest);
+                fetchData();
+            },
+        });
+
+        return null;
+    }
 
     return (
         <div className="Map">
@@ -94,7 +124,7 @@ function Map() {
                 <MenuOptions></MenuOptions>
                 <SearchShip />
 
-                {MockData1000.map((boatData, index) => (
+                {shipsBasicData.map((boatData, index) => (
                     <ShipMarker
                         key={index}
                         boatData={boatData}

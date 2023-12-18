@@ -7,14 +7,16 @@ const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 function SearchShip() {
     return (
-        <Search
-            placeholder="input search text"
-            allowClear
-            enterButton
-            size="large"
-            onSearch={onSearch}
-            className="shipSearcher"
-        />
+        <div className="searchbar">
+            <Search
+                placeholder="input search text"
+                allowClear
+                enterButton
+                size="large"
+                onSearch={onSearch}
+                className="shipSearcher"
+            />
+        </div>
     );
 }
 

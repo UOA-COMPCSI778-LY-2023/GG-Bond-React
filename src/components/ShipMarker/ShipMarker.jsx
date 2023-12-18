@@ -7,15 +7,15 @@ import ReactDOMServer from "react-dom/server";
 import "../ShipMarker/ShipMarker.css";
 
 const shipTypeDic = {
-    Tank: "red",
-    Cargo: "lightgreen",
-    Fishing: "burlywood",
-    Craft: "yellow",
-    Pleasure: "purple",
-    Tugs: "lightblue",
-    Passenger: "blue",
-    "Navigation Aids": "pink",
-    Unspecified: "lightgray",
+    3: "red", //Tank
+    1: "lightgreen", //Cargo
+    2: "burlywood", //Fishing
+    6: "yellow", //Sailing
+    4: "purple", //Pleasure
+    5: "lightblue", //Tugs
+    7: "blue", //Passenger
+    // 8: "pink", //Military & Law Enforcement
+    9: "lightgray", //Other
 };
 
 const shipIcon = (heading, type) => {
@@ -46,7 +46,7 @@ const targetIcon = () => {
 };
 
 const ShipMarker = ({ boatData, setSelectedBoat, isSelected }) => {
-    const { name, type, speed, location, status } = boatData;
+    const { co, he, la, lo, mm, ut, vt } = boatData;
     const togglePopup = () => {
         setSelectedBoat(boatData);
     };
@@ -54,15 +54,12 @@ const ShipMarker = ({ boatData, setSelectedBoat, isSelected }) => {
     return (
         <>
             <Marker
-                position={[location.latitude, location.longitude]}
-                icon={shipIcon(location.heading, type)}
+                position={[la, lo]}
+                icon={shipIcon(he, vt)}
                 eventHandlers={{ click: togglePopup }}
             ></Marker>
             {isSelected && (
-                <Marker
-                    position={[location.latitude, location.longitude]}
-                    icon={targetIcon()}
-                ></Marker>
+                <Marker position={[la, lo]} icon={targetIcon()}></Marker>
             )}
         </>
     );

@@ -11,7 +11,7 @@ import useShipData from "../../hooks/useShipData";
 import useShipImage from "../../hooks/useShipImage";
 
 const ShipInfo = ({ ship, setSelectedBoat }) => {
-    const mmsi = ship.mmsi;
+    const mmsi = ship.mm;
     const shipData = useShipData(mmsi);
     const closeShipInfo = () => {
         setSelectedBoat(null);
