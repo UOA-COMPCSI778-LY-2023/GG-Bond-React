@@ -13,7 +13,7 @@ import ShipTypeFilter from '../ShipTypeFilter/ShipTypeFilter';
 
 
 const shipTypes = [
-  { type: 'ALL', color: 'Black' },
+  // { type: 'ALL', color: 'Black' },
   { type: 'Tank', color: 'Red' },
   { type: 'Cargo', color: 'LightGreen' },
   { type: 'Fishing', color: 'YellowBrown' },
@@ -33,7 +33,7 @@ const shipTypes = [
 ];
  
 const countryTypes = [
-  { type: 'ALL', color: 'Black' },
+  // { type: 'ALL', color: 'Black' },
   { type: 'CN', color: 'Red' },
   { type: 'NZ', color: 'LightGreen' },
   { type: 'USA', color: 'YellowBrown' },
