@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card, Space, Button, Tabs } from "antd";
+import React, { useState, useEffect } from "react";
+import { Card, Space, Button, Tabs, Spin, ConfigProvider } from "antd";
 import { SwapRightOutlined, CloseOutlined } from "@ant-design/icons";
 import DraggableModal from "../drag info/DraggableModal";
 import TrackPopup from "../TrackPopup/TrackPopup";
@@ -11,185 +11,209 @@ import useShipData from "../../hooks/useShipData";
 import useShipImage from "../../hooks/useShipImage";
 
 const ShipInfo = ({ ship, setSelectedBoat }) => {
-    const mmsi = ship.mm;
-    const shipData = useShipData(mmsi);
-    const closeShipInfo = () => {
-        setSelectedBoat(null);
-    };
-    //  get ship type picture
-    const getTypePath = (vesselType) => {
-        vesselType = vesselType === "Pleasure Craft" ? "Pleasure" : vesselType;
+  const mmsi = ship.mm;
+  const shipData = useShipData(mmsi);
+  const closeShipInfo = () => {
+    setSelectedBoat(null);
+  };
+  //  get ship type picture
+  const getTypePath = (vesselType) => {
+    vesselType = vesselType === "Pleasure Craft" ? "Pleasure" : vesselType;
+    if (
+      [
+        "Cargo",
+        "Craft",
+        "Fishing",
+        "Navigation_Aids",
+        "Passenger",
+        "Pleasure",
+        "Tanker",
+        "Tug",
+      ].includes(vesselType)
+    ) {
+      return `ShipIcons/${vesselType}.png`;
+    } else {
+      return "ShipIcons/Unspecified.png";
+    }
+  };
+  const typePath = getTypePath(shipData.vesselType);
 
-        if (
-            [
-                "Cargo",
-                "Craft",
-                "Fishing",
-                "Navigation_Aids",
-                "Passenger",
-                "Pleasure",
-                "Tanker",
-                "Tug",
-            ].includes(vesselType)
-        ) {
-            return `ShipIcons/${vesselType}.png`;
-        } else {
-            return "ShipIcons/Unspecified.png";
+  // get ship country picture
+  const getCountry = (shipCountryCode) => {
+    if (["NAN", "nan"].includes(shipCountryCode)) {
+      return null;
+    } else {
+      return shipCountryCode;
+    }
+  };
+  const country = getCountry(shipData.alpha2);
+  // get ship country picture
+  // let loading = true;
+  // const shipImage = useShipImage(mmsi);  // getimage
+  // loading = false
+  const [shipImage, setShipImage] = useState("defaultShip2.jpg")
+
+  const [loading, setLoading] = useState(false)
+
+
+  const fetchImage = async () => {
+    setLoading(true);
+    const shiIdUrl = `http://13.236.117.100:8080/get/shipID?mmsi=${mmsi}`;
+    try {
+      const response = await fetch(shiIdUrl, {
+        method: "GET",
+      });
+      if (response.ok) {
+        const responseData = await response.json();
+        const shipId = responseData.vessel_id;
+        console.log(shipId)
+        if (shipId) {
+          const imageUrl = `http://13.236.117.100:8080/get/shipPicture?ship_id=${shipId}`;
+          // Check if the image URL returns a 404 status
+          const imageResponse = await fetch(imageUrl, {
+            method: "GET",
+          });
+          if (response.ok) {
+            const responseData = await imageResponse.json();
+            const shipImage = responseData.ship_image;
+            console.log(shipImage)
+            if (shipImage) {
+              setShipImage(shipImage);
+            } else {
+              setShipImage('defaultShip2.jpg');
+            }
+          }
         }
-    };
-    const typePath = getTypePath(ship.type);
+      }
+    } catch (error) {
+      console.error('Error fetching ship picture:', error);
+      setShipImage('defaultShip2.jpg'); // Set default image in case of any error
+    }
+    setLoading(false);
+  };
 
-    // get ship country picture
-    const getCountry = (shipCountryCode) => {
-        if (["NAN", "nan"].includes(shipCountryCode)) {
-            return null;
-        } else {
-            return shipCountryCode;
-        }
-    };
-    const country = getCountry(shipData.alpha2);
-    // get ship country picture
-    const shipImage = useShipImage(mmsi);
-    //Show Chart
-    const [showChart, setShowChart] = useState(false);
-    const [showTrackPopup, setShowTrackPopup] = useState(false);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const handleShowChart = () => {
-        setShowChart(true);
-    };
+  useEffect(() => {
+    fetchImage();
+  }, [mmsi]);
 
-    const handleCancel = () => {
-        setShowChart(false);
-    };
 
-    // show track
-    const handleTrackButtonClick = () => {
-        setShowTrackPopup(!showTrackPopup);
-        // 不立即开始动画，只显示 TrackPopup
-    };
+  ///2222
 
-    const calculatePosition = () => {};
+  //Show Chart
+  const [showChart, setShowChart] = useState(false);
+  const [showTrackPopup, setShowTrackPopup] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const handleShowChart = () => {
+    setShowChart(true);
+  };
 
-    return (
-        <>
-            <Draggable
-                onDrag={(e) => e.stopPropagation()}
-                defaultPosition={{ x: 50, y: 8 }}
+  const handleCancel = () => {
+    setShowChart(false);
+  };
+
+  // show track
+  const handleTrackButtonClick = () => {
+    setShowTrackPopup(!showTrackPopup);
+    // 不立即开始动画，只显示 TrackPopup
+  };
+
+  const calculatePosition = () => { };
+  return (
+    <>
+      <Draggable
+        onDrag={(e) => e.stopPropagation()}
+        defaultPosition={{ x: 50, y: 8 }}
+      >
+        <div className="card-space" >
+          <Space
+            direction="vertical"
+            size={16}
+            style={{ cursor: "auto" }}
+          >
+            <Card className="info-card"
+              bodyStyle={{ padding: "10px" }}
             >
-                <div style={{ "z-index": "9999", position: "absolute" }}>
-                    <Space
-                        direction="vertical"
-                        size={16}
-                        style={{ cursor: "auto" }}
-                    >
-                        <Card
-                            style={{ width: 300 }}
-                            bodyStyle={{ padding: "10px" }}
-                        >
-                            <div>
-                                <div className="ship-info-header">
-                                    <img
-                                        alt="shiptype"
-                                        src={typePath}
-                                        style={{
-                                            width: "30px",
-                                            height: "30px",
-                                            verticalAlign: "middle",
-                                        }}
-                                    ></img>
-                                    {country !== null ? (
-                                        <CountryFlag
-                                            countryCode={country}
-                                            svg
-                                            style={{
-                                                width: "2.2em",
-                                                height: "2.2em",
-                                                marginLeft: 5,
-                                            }}
-                                        />
-                                    ) : (
-                                        <img
-                                            src="defaultCountryImage.png"
-                                            alt="defaul-country"
-                                            style={{
-                                                width: "30.8px",
-                                                height: "30.8px",
-                                                marginLeft: 5,
-                                            }}
-                                        />
-                                    )}
-                                    <div className="name-with-type">
-                                        <div className="ship-name">
-                                            {shipData.vesselName}
-                                        </div>
-                                        <div className="ship-type">
-                                            {shipData.vesselType}
-                                        </div>
-                                    </div>
-                                    <div
-                                        style={{
-                                            position: "absolute",
-                                            top: 10,
-                                            right: 10,
-                                            cursor: "pointer",
-                                        }}
-                                    >
-                                        <CloseOutlined
-                                            onClick={closeShipInfo}
-                                        />
-                                    </div>
-                                </div>
-                                <img
-                                    alt="ship image"
-                                    src={shipImage}
-                                    style={{ width: "100%", marginTop: 2 }}
-                                />
-                                <div>
-                                    <ShipInfoBody
-                                        shipData={shipData}
-                                    ></ShipInfoBody>
-                                </div>
-                                <div style={{ marginTop: 10 }}>
-                                    <Button
-                                        type="primary"
-                                        onClick={handleTrackButtonClick}
-                                        style={{
-                                            width: 120,
-                                            textAlign: "center",
-                                        }}
-                                        icon={<SwapRightOutlined />}
-                                    >
-                                        Past Track
-                                    </Button>
-                                    <Button
-                                        type="primary"
-                                        style={{
-                                            width: 140,
-                                            marginLeft: 15,
-                                            textAlign: "center",
-                                        }}
-                                        onClick={handleShowChart}
-                                    >
-                                        Pollution Forecast
-                                    </Button>
-                                </div>
-                            </div>
-                        </Card>
-                        <TrackPopup
-                            visible={showTrackPopup}
-                            onClose={() => {
-                                setShowTrackPopup(false);
-                                setIsAnimating(false);
-                            }}
-                            isAnimating={isAnimating}
-                            setIsAnimating={setIsAnimating}
-                        />
-                    </Space>
+              <div>
+                <div className="ship-info-header">
+                  <img className="ship-type-image"
+                    alt="shiptype"
+                    src={typePath}></img>
+                  {country !== null ? (
+                    <CountryFlag className="country-flag"
+                      countryCode={country}
+                      svg
+                      style={{
+                        width: "2.2em",
+                        height: "2.2em",
+                      }}
+                    />
+                  ) : (
+                    <img className="country-flag-img"
+                      src="defaultCountryImage.png"
+                      alt="defaul-country"
+                    />
+                  )}
+                  <div className="name-with-type">
+                    <div className="ship-name">
+                      {shipData.vesselName}
+                    </div>
+                    <div className="ship-type">
+                      {shipData.vesselType}
+                    </div>
+                  </div>
+                  <div className="close-icon">
+                    <CloseOutlined
+                      onClick={closeShipInfo}
+                    />
+                  </div>
                 </div>
-            </Draggable>
-            <DraggableModal visible={showChart} onCancel={handleCancel} />
-        </>
-    );
+                {loading ? <ConfigProvider theme={{ token: { colorPrimary: "black" } }}>
+                <div className="spin-box">
+                  <Spin size="large" />
+                </div>
+                  </ConfigProvider> : <img
+                  alt="ship image"
+                  src={shipImage}
+                  style={{ width: "100%", marginTop: 2 }}
+                />}
+                <div>
+                  <ShipInfoBody
+                    shipData={shipData}
+                  ></ShipInfoBody>
+                </div>
+                <div style={{ marginTop: 10 }}>
+                  <Button className="past-track-button"
+                    type="primary"
+                    onClick={handleTrackButtonClick}
+                    icon={<SwapRightOutlined />}
+                  >
+                    Past Track
+                  </Button>
+                  <Button
+                    className="pollution-button"
+                    type="primary"
+                    onClick={handleShowChart}
+                  >
+                    Pollution Forecast
+                  </Button>
+                </div>
+              </div>
+            </Card>
+            <TrackPopup
+              visible={showTrackPopup}
+              onClose={() => {
+                setShowTrackPopup(false);
+                setIsAnimating(false);
+              }}
+              isAnimating={isAnimating}
+              setIsAnimating={setIsAnimating}
+            />
+          </Space>
+        </div>
+      </Draggable>
+      <DraggableModal visible={showChart} onCancel={handleCancel} />
+    </>
+  );
 };
 
 export default ShipInfo;
