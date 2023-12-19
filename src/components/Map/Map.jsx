@@ -18,6 +18,9 @@ const bounds = L.latLngBounds(corner1, corner2);
 
 function Map() {
     const [selectedBoat, setSelectedBoat] = useState();
+
+    const [mousePosition, setMousePosition] = useState(null); // Added for mouse position tracking
+
     const [shipsBasicData, setShipsBasicData] = useState([]);
 
     const navigate = useNavigate();
@@ -126,13 +129,38 @@ function Map() {
                         />
                     );
                 })}
+
                 {selectedBoat && (
                     <ShipInfo
                         ship={selectedBoat}
                         setSelectedBoat={setSelectedBoat}
-                    ></ShipInfo>
+                    />
                 )}
             </MapContainer>
+
+            {/* Displaying mouse position */}
+            {mousePosition && (
+                <div
+                    style={{
+                        position: "absolute",
+                        bottom: "20px",
+                        right: "10px",
+                        backgroundColor: "rgba(255, 255, 255, 0.8)",
+                        padding: "8px 10px",
+                        zIndex: 1000,
+                        borderRadius: "8px",
+                        boxShadow: "0 0 5px rgba(0,0,0,0.2)",
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        color: "#333",
+                        textAlign: "center",
+                    }}
+                >
+                    Lat: {mousePosition.lat.toFixed(4)}
+                    <br />
+                    Lng: {mousePosition.lng.toFixed(4)}
+                </div>
+            )}
         </div>
     );
 }
