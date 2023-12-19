@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 
 
 const useShipImage = (mmsi) => {
-    const [shipImage, setShipImage] = useState('defaultShip2.jpg');
+    // const [shipImage, setShipImage] = useState('defaultShip2.jpg');
+    const [shipImage, setShipImage] = useState(null);
+
     useEffect(() => {
         const shiIdUrl = `http://13.236.117.100:8080/get/shipID?mmsi=${mmsi}`;
     
@@ -27,6 +29,8 @@ const useShipImage = (mmsi) => {
                             console.log(shipImage)
                             if (shipImage){
                                 setShipImage(shipImage);
+                            }else{
+                                setShipImage('defaultShip2.jpg');
                             }
                         }
                     } 

@@ -21,7 +21,6 @@ const useShipData = (mmsi) => {
                 console.error("Error fetching ship details:", error);
             }
         };
-
         fetchShipDetail();
     }, [mmsi]);
 
