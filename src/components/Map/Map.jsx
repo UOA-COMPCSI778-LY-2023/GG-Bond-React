@@ -1,42 +1,16 @@
 import L from "leaflet";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-    MapContainer,
-    LayersControl,
-    useMapEvents,
-    ScaleControl,
-} from "react-leaflet";
-import { BasemapLayer } from "react-esri-leaflet";
-
-// import './Map.css'
+import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
 import MenuOptions from "../MenuOptions/MenuOptions";
-import { Marker, Popup } from "react-leaflet";
 import ShipInfo from "../ShipInfo/ShipInfo";
-import ReactDOMServer from "react-dom/server";
 import ShipMarker from "../ShipMarker/ShipMarker";
 import "leaflet/dist/leaflet.css";
 import SearchShip from "../SearchShip/SearchShip";
-
-// //Mock
-// // import mockBoatsData from '../../MockData/MockData';
-// //Real Data
-// //1000
-// import MockData1000 from "../../MockData/MockData1000new.json";
-// //Data levle 500
-// import MockData500 from "../../MockData/MockData500.json";
-// //5000
-// import MockData5000 from "../../MockData/MockData5000.json";
-// //10000 too many
-// import MockData10000 from "../../MockData/MockData10000.json";
-// //100000 too many
-// import MockData100000 from "../../MockData/MockData100000.json";
-// //Mock
+import MapLayers from "../MapLayers/MapLayers";
+// import './Map.css'
 
 const center = [-36.842, 174.76];
-// const apiKey = "AAPK4f354998bf5a4659b9d666b2069641897bTjGcAqQx-CfCSZNh9ToN7ANpoJDprU4gf08kNagIOaR_eSX7gjFQaqM9EzJmu-";
-// const baseUrl = "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles";
-
 //map boundary limit
 const corner1 = L.latLng(-90, -240);
 const corner2 = L.latLng(90, 240);
@@ -49,8 +23,7 @@ function Map() {
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
         const source = 0;
-        const limit = 800;
-        console.log(latLngNE, latLngSW);
+        const limit = 500;
         const url = `http://13.236.117.100:8888/rest/v1/ship/list/${latLngSW.lng}/${latLngSW.lat}/${latLngNE.lng}/${latLngNE.lat}/${type}/${source}/${limit}`;
 
         try {
@@ -60,7 +33,6 @@ function Map() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             setShipsBasicData(response.data.data);
-            console.log(response.data.data);
         } catch (error) {
             console.error("Error fetching ship details:", error.message);
         }
@@ -91,6 +63,32 @@ function Map() {
         return null;
     }
 
+    //Help function to check boat
+    function deepEqual(obj1, obj2) {
+        if (obj1 === obj2) return true;
+        if (
+            typeof obj1 !== "object" ||
+            obj1 === null ||
+            typeof obj2 !== "object" ||
+            obj2 === null
+        ) {
+            return false;
+        }
+
+        const keys1 = Object.keys(obj1);
+        const keys2 = Object.keys(obj2);
+
+        if (keys1.length !== keys2.length) return false;
+
+        for (const key of keys1) {
+            if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     return (
         <div className="Map">
             <MapContainer
@@ -104,35 +102,20 @@ function Map() {
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
-                <LayersControl position="bottomleft" collapsed={true}>
-                    <LayersControl.BaseLayer name="Light map" checked>
-                        <BasemapLayer name="Gray" />
-                    </LayersControl.BaseLayer>
-
-                    <LayersControl.BaseLayer name="Dark map">
-                        <BasemapLayer name="DarkGray" />
-                    </LayersControl.BaseLayer>
-
-                    <LayersControl.BaseLayer name="Satellite">
-                        <BasemapLayer name="Imagery" />
-                    </LayersControl.BaseLayer>
-
-                    <LayersControl.BaseLayer name="Oceans">
-                        <BasemapLayer name="Oceans" maxZoom={13} />{" "}
-                        {/*China maxZoom={10} */}
-                    </LayersControl.BaseLayer>
-                </LayersControl>
-                <MenuOptions></MenuOptions>
+                <MapLayers />
+                <MenuOptions />
                 <SearchShip />
 
-                {shipsBasicData.map((boatData, index) => (
-                    <ShipMarker
-                        key={index}
-                        boatData={boatData}
-                        setSelectedBoat={setSelectedBoat}
-                        isSelected={selectedBoat === boatData}
-                    />
-                ))}
+                {shipsBasicData.map((boatData, index) => {
+                    return (
+                        <ShipMarker
+                            key={index}
+                            boatData={boatData}
+                            setSelectedBoat={setSelectedBoat}
+                            isSelected={deepEqual(boatData, selectedBoat)}
+                        />
+                    );
+                })}
                 {selectedBoat && (
                     <ShipInfo
                         ship={selectedBoat}
