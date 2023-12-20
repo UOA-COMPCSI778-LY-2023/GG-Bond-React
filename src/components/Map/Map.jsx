@@ -1,6 +1,5 @@
 import L from "leaflet";
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
 import MenuOptions from "../MenuOptions/MenuOptions";
@@ -8,9 +7,9 @@ import ShipInfo from "../ShipInfo/ShipInfo";
 import ShipMarker from "../ShipMarker/ShipMarker";
 import "leaflet/dist/leaflet.css";
 import MapLayers from "../MapLayers/MapLayers";
+import leafletHashPlus from "leaflet-hash-plus";
 // import './Map.css'
 
-const center = [-36.842, 174.76];
 //map boundary limit
 const corner1 = L.latLng(-90, -240);
 const corner2 = L.latLng(90, 240);
@@ -18,21 +17,9 @@ const bounds = L.latLngBounds(corner1, corner2);
 
 function Map() {
     const [selectedBoat, setSelectedBoat] = useState();
-
-    const [mousePosition, setMousePosition] = useState(null); // Added for mouse position tracking
-
+    // const [mousePosition, setMousePosition] = useState(null); // Added for mouse position tracking
     const [shipsBasicData, setShipsBasicData] = useState([]);
-
-    const navigate = useNavigate();
-    const params = useParams();
-    const { lat, lng, zoom } = params;
-    const latitude = parseFloat(lat) || center[0];
-    const longitude = parseFloat(lng) || center[1];
-    const zoomLevel = parseInt(zoom) || 2;
-
-    useEffect(() => {
-        navigate(`/${latitude}/${longitude}/${zoomLevel}`, { replace: true });
-    }, [latitude, longitude, zoomLevel, navigate]);
+    const [map, setMap] = useState(null);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
@@ -53,25 +40,30 @@ function Map() {
     };
 
     useEffect(() => {
-        const latLngNE = { lat: 90, lng: 240 };
-        const latLngSW = { lat: -90, lng: -240 };
-        getShipBasicData(latLngNE, latLngSW);
-    }, []);
+        if (map) {
+            const latLngNE = map.getBounds()._northEast;
+            const latLngSW = map.getBounds()._southWest;
+            getShipBasicData(latLngNE, latLngSW);
+
+            // Initialize Leaflet Hash Plus when the component mounts
+            new L.Hash(map);
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [map]);
+
+    const handleMoveEnd = useCallback(() => {
+        if (map) {
+            getShipBasicData(
+                map.getBounds()._northEast,
+                map.getBounds()._southWest
+            );
+        }
+    }, [map]);
 
     function GetMapDetail() {
-        const map = useMapEvents({
-            moveend: () => {
-                const center = map.getCenter();
-                const zoom = map.getZoom();
-
-                getShipBasicData(
-                    map.getBounds()._northEast,
-                    map.getBounds()._southWest
-                );
-
-                const newUrl = `/${center.lat}/${center.lng}/${zoom}`;
-                navigate(newUrl, { replace: true });
-            },
+        useMapEvents({
+            moveend: handleMoveEnd,
         });
 
         return null;
@@ -107,12 +99,13 @@ function Map() {
         <div className="Map">
             <MapContainer
                 id="mapId"
-                center={[latitude, longitude]}
-                zoom={zoomLevel}
+                center={[-36.842, 174.76]}
+                zoom={2}
                 scrollWheelZoom={true}
                 maxBoundsViscosity={1.0}
                 maxBounds={bounds}
                 minZoom={2}
+                ref={setMap}
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
@@ -138,7 +131,7 @@ function Map() {
                 )}
             </MapContainer>
 
-            {/* Displaying mouse position */}
+            {/* Displaying mouse position
             {mousePosition && (
                 <div
                     style={{
@@ -160,7 +153,7 @@ function Map() {
                     <br />
                     Lng: {mousePosition.lng.toFixed(4)}
                 </div>
-            )}
+            )} */}
         </div>
     );
 }
