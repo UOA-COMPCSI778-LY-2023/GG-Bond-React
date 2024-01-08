@@ -18,7 +18,7 @@ const shipTypeDic = {
     9: "lightgray", //Other
 };
 
-const shipIcon = (heading, type) => {
+export const shipIcon = (heading, type) => {
     const color = shipTypeDic[type] || "gray";
 
     return L.divIcon({

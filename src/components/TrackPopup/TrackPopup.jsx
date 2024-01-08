@@ -8,6 +8,7 @@ const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrack, setShowTrack] = useState(false);
   const [showHideButtonText, setShowHideButtonText] = useState('Show');
+  
 
   useEffect(() => {
     let interval;
@@ -40,7 +41,7 @@ const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
     setShowHideButtonText(showTrack ? 'Show' : 'Hide');
   };
 
-  const progressPercent = (currentIndex / (timestamps.length - 1)) * 100;
+  const progressPercent = ((currentIndex / (timestamps.length - 1)) * 100).toFixed(2); // Limit to two decimal places
   const currentTime = timestamps[currentIndex];
 
   return (
@@ -64,7 +65,7 @@ const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
       <ShipTrack track={mockTrack} showTrack={showTrack} currentIndex={currentIndex} />
       <Button onClick={handleStartPause}>{isAnimating ? 'Pause' : 'Start'}</Button>
       <Button onClick={handleShowHide}>{showHideButtonText}</Button>
-      <Progress percent={progressPercent} />
+      <Progress percent={parseFloat(progressPercent)} /> {/* Parse back to float */}
       <div>Current Time: {currentTime}</div>
     </Modal>
   );
