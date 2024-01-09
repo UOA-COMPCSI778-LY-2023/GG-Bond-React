@@ -68,7 +68,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
         // 不立即开始动画，只显示 TrackPopup
     };
 
-    const calculatePosition = () => {};
+    const calculatePosition = () => { };
 
     return (
         <>
@@ -175,15 +175,17 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                 </div>
                             </div>
                         </Card>
-                        <TrackPopup
-                            visible={showTrackPopup}
-                            onClose={() => {
-                                setShowTrackPopup(false);
-                                setIsAnimating(false);
-                            }}
-                            isAnimating={isAnimating}
-                            setIsAnimating={setIsAnimating}
-                        />
+                        {showTrackPopup && (
+                            <TrackPopup
+                                visible={showTrackPopup}
+                                onClose={() => {
+                                    setShowTrackPopup(false);
+                                    setIsAnimating(false);
+                                }}
+                                isAnimating={isAnimating}
+                                setIsAnimating={setIsAnimating}
+                            />
+                        )}
                     </Space>
                 </div>
             </Draggable>

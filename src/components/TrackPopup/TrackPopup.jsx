@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button, Progress } from 'antd';
+import { Button, Progress } from 'antd';
 import ShipTrack from '../ShipTrack/ShipTrack';
 import mockTrack from '../ShipTrack/MockTrack';
 import timestamps from '../ShipTrack/timestamps';
 
-const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
+const TrackPopup = ({ isAnimating, setIsAnimating }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showTrack, setShowTrack] = useState(false);
-  const [showHideButtonText, setShowHideButtonText] = useState('Show');
-  
+  const [showTrack, setShowTrack] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+  const [showHideButtonText, setShowHideButtonText] = useState('Hide');
 
   useEffect(() => {
     let interval;
@@ -20,18 +20,6 @@ const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
     return () => clearInterval(interval);
   }, [isAnimating, mockTrack]);
 
-  useEffect(() => {
-    if (!visible) {
-      setIsAnimating(false);
-      setShowTrack(false);
-      setShowHideButtonText('Show');
-    }
-    else {
-      setShowTrack(true);
-      setShowHideButtonText('Hide');
-    }
-  }, [visible]);
-
   const handleStartPause = () => {
     setIsAnimating(!isAnimating);
   };
@@ -41,33 +29,38 @@ const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
     setShowHideButtonText(showTrack ? 'Show' : 'Hide');
   };
 
+  const handleClose = () => {
+    setIsAnimating(false);
+    setShowTrack(false);
+    setIsVisible(false);
+  };
+
   const progressPercent = ((currentIndex / (timestamps.length - 1)) * 100).toFixed(2); // Limit to two decimal places
   const currentTime = timestamps[currentIndex];
 
+  if (!isVisible) return null;
+
   return (
-    <Modal
-      title="Track Control"
-      visible={visible}
-      onCancel={() => {
-        setIsAnimating(false);
-        setShowTrack(false);
-        setShowHideButtonText('Show');
-        onClose();
-      }}
-      footer={null}
-      mask={false}
-      style={{
-        top: '80%', // 将 Modal 定位到屏幕下方中间
-        margin: 'auto',
-        // 你可以在这里添加其他样式，比如最大宽度或内边距等
-      }}
-    >
+    <div style={{
+      position: 'fixed',
+      bottom: '-520px',
+      left: '900px',
+      transform: 'translateX(-50%)',
+      width: '200%',
+      padding: '15px',
+      backgroundColor: '#fff',
+      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+      borderRadius: '4px 4px 0 0',
+      zIndex: 1000,
+      borderTop: '1px solid #e8e8e8'
+  }}>
       <ShipTrack track={mockTrack} showTrack={showTrack} currentIndex={currentIndex} />
       <Button onClick={handleStartPause}>{isAnimating ? 'Pause' : 'Start'}</Button>
       <Button onClick={handleShowHide}>{showHideButtonText}</Button>
-      <Progress percent={parseFloat(progressPercent)} /> {/* Parse back to float */}
+      <Progress percent={parseFloat(progressPercent)} />
       <div>Current Time: {currentTime}</div>
-    </Modal>
+      <Button onClick={handleClose}>Close</Button>
+    </div>
   );
 };
 
