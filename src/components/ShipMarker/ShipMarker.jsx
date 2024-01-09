@@ -7,17 +7,17 @@ import ReactDOMServer from "react-dom/server";
 import "../ShipMarker/ShipMarker.css";
 
 const shipTypeDic = {
-    3: "red", //Tank
-    1: "lightgreen", //Cargo
-    2: "burlywood", //Fishing
-    6: "yellow", //Sailing
-    4: "purple", //Pleasure craft
-    5: "lightblue", //Tug & Towing
-    7: "blue", //Passenger
-    8: "lightslategray", //Law Enforcement
-    9: "darkblue", //Military
-    10: "brown", //Dredging
-    11: "lightgray", //Other
+    3: "rgba(255, 0, 0, 0.7)", //Tank
+    1: "rgba(144, 238, 144, 0.7)", //Cargo
+    2: "rgba(222, 184, 135, 0.7)", //Fishing
+    6: "rgba(255, 255, 0, 0.7)", //Sailing
+    4: "rgba(128, 0, 128, 0.7)", //Pleasure craft
+    5: "rgba(173, 216, 230, 0.7)", //Tug & Towing
+    7: "rgba(0, 0, 255, 0.7)", //Passenger
+    8: "rgba(119, 136, 153, 0.7)", //Law Enforcement
+    9: "rgba(0, 0, 139, 0.7)", //Military
+    10: "rgba(165, 42, 42, 0.7)", //Dredging
+    11: "rgba(169, 169, 169, 0.7)", //Other
 };
 
 const shipIcon = (heading, type) => {
@@ -29,7 +29,8 @@ const shipIcon = (heading, type) => {
             <FiNavigation2
                 className="ships"
                 style={{
-                    strokeColor: "black",
+                    stroke: "black",
+                    strokeWidth: 0.5,
                     fill: color,
                     transform: `rotate(${heading}deg) scale(1.5)`,
                 }}
