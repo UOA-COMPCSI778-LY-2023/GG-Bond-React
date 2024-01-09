@@ -6,13 +6,50 @@ import { FiNavigation2 } from "react-icons/fi";
 import ReactDOMServer from "react-dom/server";
 
 const ShipTrack = ({ track, showTrack, currentIndex }) => {
-  const [displayedTrack, setDisplayedTrack] = useState([]);
+  const [markerPosition, setMarkerPosition] = useState(null);
+  const [visibleSegmentCount, setVisibleSegmentCount] = useState(0);
 
   useEffect(() => {
     if (currentIndex < track.length) {
-      setDisplayedTrack(track.slice(0, currentIndex + 1));
+      updateMarkerPosition(currentIndex);
     }
   }, [currentIndex, track]);
+
+  useEffect(() => {
+    const interval = 50; // Interval for line drawing animation
+    let currentSegment = 0;
+
+    const animateLineDrawing = () => {
+      if (currentSegment <= currentIndex) {
+        setVisibleSegmentCount(currentSegment);
+        currentSegment++;
+        setTimeout(animateLineDrawing, interval);
+      }
+    };
+
+    animateLineDrawing();
+  }, [currentIndex]);
+
+  const updateMarkerPosition = (index) => {
+    let nextIndex = index + 1 < track.length ? index + 1 : index;
+    let progress = 0;
+    const interval = 20; // Adjust this for faster or slower animation
+    const step = 0.01; // Adjust this for smoother animation steps
+
+    const animate = () => {
+      if (progress < 1) {
+        progress += step;
+        const lat = track[index][0] + (track[nextIndex][0] - track[index][0]) * progress;
+        const lng = track[index][1] + (track[nextIndex][1] - track[index][1]) * progress;
+        setMarkerPosition([lat, lng]);
+        setTimeout(animate, interval);
+      } else {
+        setMarkerPosition(track[nextIndex]);
+      }
+    };
+
+    animate();
+  };
 
   if (!showTrack) {
     return null;
@@ -46,9 +83,9 @@ const ShipTrack = ({ track, showTrack, currentIndex }) => {
   };
 
   const renderTrackSegments = () => {
-    const segmentLength = displayedTrack.length - 1;
-    return displayedTrack.slice(0, -1).map((position, index) => {
-      const color = getGradientColor(index, segmentLength);
+    return track.slice(0, visibleSegmentCount).map((position, index) => {
+      if (index === track.length - 1) return null;
+      const color = getGradientColor(index, track.length - 1);
       const glowStyle = {
         color: color,
         weight: 5,
@@ -67,7 +104,7 @@ const ShipTrack = ({ track, showTrack, currentIndex }) => {
       return (
         <Polyline
           key={index}
-          positions={[position, displayedTrack[index + 1]]}
+          positions={[position, track[index + 1]]}
           {...glowStyle}
         />
       );
@@ -77,9 +114,12 @@ const ShipTrack = ({ track, showTrack, currentIndex }) => {
   return (
     <>
       {renderTrackSegments()}
-      <Marker 
-      position={track[currentIndex]}
-      icon={warshipIcon()}  />
+      {markerPosition && (
+        <Marker 
+          position={markerPosition}
+          icon={warshipIcon()} 
+        />
+      )}
     </>
   );
 };
