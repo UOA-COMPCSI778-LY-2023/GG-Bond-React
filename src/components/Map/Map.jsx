@@ -8,6 +8,7 @@ import ShipMarker from "../ShipMarker/ShipMarker";
 import "leaflet/dist/leaflet.css";
 import MapLayers from "../MapLayers/MapLayers";
 import leafletHashPlus from "leaflet-hash-plus";
+import "leaflet.heat";
 // import './Map.css'
 
 //map boundary limit
@@ -19,6 +20,7 @@ function Map() {
     const [selectedBoat, setSelectedBoat] = useState();
     // const [mousePosition, setMousePosition] = useState(null); // Added for mouse position tracking
     const [shipsBasicData, setShipsBasicData] = useState([]);
+    const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
@@ -34,6 +36,12 @@ function Map() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             setShipsBasicData(response.data.data);
+            const heatdata = response.data.data.map((item) => [
+                item.la,
+                item.lo,
+                Math.random() * (10000 - 1000) + 1000,
+            ]);
+            setHeatData(heatdata);
         } catch (error) {
             console.error("Error fetching ship details:", error.message);
         }
@@ -109,7 +117,7 @@ function Map() {
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
-                <MapLayers />
+                <MapLayers heatData={heatData} />
                 <MenuOptions />
 
                 {shipsBasicData.map((boatData, index) => {
