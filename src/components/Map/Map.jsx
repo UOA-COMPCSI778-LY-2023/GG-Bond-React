@@ -108,7 +108,7 @@ function Map() {
             <MapContainer
                 id="mapId"
                 center={[-36.842, 174.76]}
-                zoom={2}
+                zoom={14}
                 scrollWheelZoom={true}
                 maxBoundsViscosity={1.0}
                 maxBounds={bounds}
