@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Marker, Popup, Polyline } from "react-leaflet";
+import { Marker, Popup, Polyline, useMap, Pane } from "react-leaflet";
 import { FiNavigation2 } from "react-icons/fi";
 import { PiCircleDashedThin } from "react-icons/pi";
 import L from "leaflet";
 import ReactDOMServer from "react-dom/server";
 import "../ShipMarker/ShipMarker.css";
+import WarningAnimation from "./WarningAnimation";
 
 const shipTypeDic = {
     3: "rgba(255, 0, 0, 0.7)", //Tank
@@ -20,21 +21,32 @@ const shipTypeDic = {
     11: "rgba(169, 169, 169, 0.7)", //Other
 };
 
-const shipIcon = (heading, type) => {
+const shipIcon = (heading, type, mm) => {
     const color = shipTypeDic[type] || "gray";
 
     return L.divIcon({
         className: "ships-icon",
         html: ReactDOMServer.renderToString(
-            <FiNavigation2
-                className="ships"
-                style={{
-                    stroke: "black",
-                    strokeWidth: 0.5,
-                    fill: color,
-                    transform: `rotate(${heading}deg) scale(1.5)`,
-                }}
-            />
+            <div style={{ position: "relative" }}>
+                <FiNavigation2
+                    className="ships"
+                    style={{
+                        stroke: "black",
+                        strokeWidth: 0.5,
+                        fill: color,
+                        transform: `rotate(${heading}deg) scale(1.5)`,
+                        position: "absolute",
+                    }}
+                />
+                {mm % 39 == 0 && (
+                    <WarningAnimation
+                        className="warningIcon"
+                        style={{
+                            position: "absolute",
+                        }}
+                    ></WarningAnimation>
+                )}
+            </div>
         ),
     });
 };
@@ -58,7 +70,7 @@ const ShipMarker = ({ boatData, setSelectedBoat, isSelected }) => {
         <>
             <Marker
                 position={[la, lo]}
-                icon={shipIcon(he, vt)}
+                icon={shipIcon(he, vt, mm)}
                 eventHandlers={{ click: togglePopup }}
             ></Marker>
             {isSelected && (

@@ -1,0 +1,44 @@
+.container {
+  margin: 0 auto;
+  width: 12px;
+  height: 12px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10%;
+  z-index: 100;
+}
+.circle {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border: 0 solid transparent;
+  border-radius: 50%;
+}
+.circle:before,
+.circle:after {
+  content: "";
+  border: 2px solid #dddcdc;
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  animation: anim 2s linear infinite;
+  opacity: 0;
+}
+
+.circle:after {
+  animation-delay: 1s;
+}
+
+@keyframes anim {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
