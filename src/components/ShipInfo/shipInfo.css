@@ -68,11 +68,15 @@
   .past-track-button{
     width: 120;
     text-align: center;
+    background-color: #1c2330;
+    opacity: 0.9
   }
   .pollution-button{
     width: 140px;
     margin-left: 15px;
     text-align: center;
+    background-color: #1c2330;
+    opacity: 0.9
   }
   .spin-box {
     display: flex;
