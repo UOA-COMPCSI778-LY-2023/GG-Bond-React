@@ -1,0 +1,88 @@
+/* 第一层下拉菜单样式 */
+.filter-parent {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #ffffff; /* 更改背景色为白色 */
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  margin: 5px 0;
+  text-align: left;
+  position: relative;
+  transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 添加悬停效果 */
+.filter-parent:hover {
+  background-color: #f5f5f5; /* 悬停时的背景色 */
+}
+
+/* 添加点击效果 */
+.filter-parent.active {
+  background-color: #e0e0e0; /* 点击时的背景色 */
+}
+
+/* 第一层下拉菜单三角形图标样式 */
+.triangle {
+  float: right;
+  margin-left: 5px;
+  transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 添加点击效果 */
+.filter-parent.active .triangle {
+  transform: rotate(180deg); /* 点击时旋转180度 */
+}
+
+/* 第一层下拉菜单样式 */
+.filter-dropdown {
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  margin-top: 55%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  z-index: 1;
+  padding: 10px;
+}
+
+/* 第二层下拉菜单样式 */
+.ship-type-filter-dropdown, .country-filter-dropdown {
+  position: absolute;
+  top: calc(100% + 5px); /* 稍微加一些间距 */
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  width: 200px; /* 您可以根据需要调整宽度 */
+  z-index: 2;
+  padding: 10px;
+  display: none; /* 默认不显示 */
+  transition: all 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 下拉菜单中的选项样式 */
+.ship-type-filter-item, .country-filter-item {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+
+.ship-type-filter-item:hover, .country-filter-item:hover {
+  background-color: #f5f5f5;
+}
+
+.ship-type-filter-checkbox, .country-filter-checkbox {
+  margin-right: 10px;
+}
+
+.ship-type-filter-text, .country-filter-text {
+  font-size: 14px;
+  color: #333;
+}
+
+/* 显示下拉菜单时的样式 */
+.show {
+  display: block;
+}

@@ -12,11 +12,13 @@ const shipTypeDic = {
     1: "lightgreen", //Cargo
     2: "burlywood", //Fishing
     6: "yellow", //Sailing
-    4: "purple", //Pleasure
-    5: "lightblue", //Tugs
+    4: "purple", //Pleasure craft
+    5: "lightblue", //Tug & Towing
     7: "blue", //Passenger
-    // 8: "pink", //Military & Law Enforcement
-    9: "lightgray", //Other
+    8: "lightslategray", //Law Enforcement
+    9: "darkblue", //Military
+    10: "brown", //Dredging
+    11: "lightgray", //Other
 };
 
 const shipIcon = (heading, type, mm) => {
