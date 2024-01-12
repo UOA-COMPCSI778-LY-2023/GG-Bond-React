@@ -25,8 +25,8 @@
   position: absolute;
   animation: anim 2s linear infinite;
   opacity: 0;
-  left:-2px;
-  top:-2px
+  left: -2px;
+  top: -2px;
 }
 
 .circle:after {
