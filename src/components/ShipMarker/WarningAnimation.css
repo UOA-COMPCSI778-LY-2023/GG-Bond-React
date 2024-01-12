@@ -1,7 +1,7 @@
 .container {
   margin: 0 auto;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -10,8 +10,8 @@
 }
 .circle {
   position: relative;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border: 0 solid transparent;
   border-radius: 50%;
 }
@@ -25,6 +25,8 @@
   position: absolute;
   animation: anim 2s linear infinite;
   opacity: 0;
+  left: -2px;
+  top: -2px;
 }
 
 .circle:after {
