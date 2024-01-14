@@ -7,12 +7,36 @@ import ReactDOMServer from "react-dom/server";
 
 const ShipTrack = ({ track, showTrack, currentIndex }) => {
   const [displayedTrack, setDisplayedTrack] = useState([]);
+  const [markerPosition, setMarkerPosition] = useState(null); // 新状态用于跟踪标记的实时位置
 
   useEffect(() => {
     if (currentIndex < track.length) {
       setDisplayedTrack(track.slice(0, currentIndex + 1));
+      animateMarkerPosition(currentIndex);
     }
   }, [currentIndex, track]);
+
+  // 动画函数用于平滑移动标记
+  const animateMarkerPosition = (index) => {
+    let nextIndex = index < track.length - 1 ? index + 1 : index;
+    let progress = 0;
+    const interval = 20; // 控制动画速度
+    const step = 0.01; // 控制动画步长
+
+    const animate = () => {
+      if (progress < 1) {
+        progress += step;
+        const lat = track[index][0] + (track[nextIndex][0] - track[index][0]) * progress;
+        const lng = track[index][1] + (track[nextIndex][1] - track[index][1]) * progress;
+        setMarkerPosition([lat, lng]);
+        setTimeout(animate, interval);
+      } else {
+        setMarkerPosition(track[nextIndex]);
+      }
+    };
+
+    animate();
+  };
 
   if (!showTrack) {
     return null;
@@ -22,13 +46,7 @@ const ShipTrack = ({ track, showTrack, currentIndex }) => {
     return L.divIcon({
       className: 'custom-icon',
       html: ReactDOMServer.renderToString(
-      <FiNavigation2
-        style={{
-          strokeColor: "black",
-          fill: 'blue',
-
-      }}
-      />)
+      <FiNavigation2 style={{ strokeColor: "black", fill: 'blue' }} />)
     });
   };
 
@@ -77,9 +95,12 @@ const ShipTrack = ({ track, showTrack, currentIndex }) => {
   return (
     <>
       {renderTrackSegments()}
-      <Marker 
-      position={track[currentIndex]}
-      icon={warshipIcon()}  />
+      {markerPosition && (
+        <Marker 
+          position={markerPosition}
+          icon={warshipIcon()}
+        />
+      )}
     </>
   );
 };

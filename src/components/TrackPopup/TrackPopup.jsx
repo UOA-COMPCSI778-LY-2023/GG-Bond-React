@@ -36,6 +36,7 @@ const TrackPopup = ({ isAnimating, setIsAnimating }) => {
     setIsVisible(false);
   };
 
+
   const progressPercent = ((currentIndex / (timestamps.length - 1)) * 100).toFixed(2); // Limit to two decimal places
   const currentTime = timestamps[currentIndex];
 
@@ -43,48 +44,53 @@ const TrackPopup = ({ isAnimating, setIsAnimating }) => {
 
   return (
     <div style={{
-        position: 'fixed',
-        bottom: '-520px',
-        left: '900px',
-        transform: 'translateX(-50%)',
-        width: '180%',
-        padding: '15px',
-        backgroundColor: '#f7f7f7',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-        borderRadius: '8px 8px 0 0',
-        zIndex: 1000,
-        borderTop: '1px solid #e0e0e0'
+      position: 'fixed',
+      bottom: '-520px',
+      left: '900px',
+      transform: 'translateX(-50%)',
+      width: '180%',
+      padding: '15px',
+      backgroundColor: '#f7f7f7',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+      borderRadius: '8px 8px 0 0',
+      zIndex: 1000,
+      borderTop: '1px solid #e0e0e0'
     }}>
-      <ShipTrack track={mockTrack} showTrack={showTrack} currentIndex={currentIndex} />
+      <ShipTrack
+        track={mockTrack}
+        showTrack={showTrack}
+        currentIndex={currentIndex}
+        isAnimating={isAnimating} // 将 isAnimating 状态传递给 ShipTrack
+      />
 
       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', marginTop: '10px' }}>
-        <Button 
-          onClick={handleStartPause} 
-          icon={isAnimating ? <PauseCircleOutlined /> : <PlayCircleOutlined />} 
+        <Button
+          onClick={handleStartPause}
+          icon={isAnimating ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
           style={{ fontSize: '18px', padding: '6px 20px', border: 'none' }} // No border
         >
           {isAnimating ? 'Pause' : 'Start'}
         </Button>
 
-        <Button 
-          onClick={handleShowHide} 
-          icon={showTrack ? <EyeInvisibleOutlined /> : <EyeOutlined />} 
+        <Button
+          onClick={handleShowHide}
+          icon={showTrack ? <EyeInvisibleOutlined /> : <EyeOutlined />}
           style={{ fontSize: '18px', padding: '6px 20px', border: 'none' }} // No border
         >
           {showTrack ? 'Hide Track' : 'Show Track'}
         </Button>
 
-        <Button 
-          onClick={handleClose} 
+        <Button
+          onClick={handleClose}
           type="default"
-          icon={<CloseOutlined />} 
+          icon={<CloseOutlined />}
           style={{ fontSize: '18px', padding: '6px 20px', border: 'none' }} // No border
         />
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
-        <Progress 
-          percent={parseFloat(progressPercent)} 
+        <Progress
+          percent={parseFloat(progressPercent)}
           style={{ width: '90%' }}
           strokeColor={{
             '0%': '#108ee9',
