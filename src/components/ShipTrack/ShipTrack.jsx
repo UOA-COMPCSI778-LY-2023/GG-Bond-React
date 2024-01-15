@@ -5,21 +5,22 @@ import L from 'leaflet';
 import { FiNavigation2 } from "react-icons/fi";
 import ReactDOMServer from "react-dom/server";
 
-  const warshipIcon = () => {
-    return L.divIcon({
-      className: 'custom-icon',
-      html: ReactDOMServer.renderToString(<FiNavigation2 style={{ strokeColor: "black", fill: 'blue' }} />)
-    });
-  };
+const warshipIcon = () => {
+  return L.divIcon({
+    className: 'custom-icon',
+    html: ReactDOMServer.renderToString(<FiNavigation2 style={{ stroke: "black", fill: 'blue' }} />)
+  });
+};
 
-  const ShipTrack = ({ track, showTrack, currentIndex }) => {
-    const [markerPosition, setMarkerPosition] = useState(null);
-  
-    useEffect(() => {
-      if (currentIndex < track.length) {
-        animateMarkerPosition(currentIndex);
-      }
-    }, [currentIndex, track]);
+const ShipTrack = ({ track, showTrack, currentIndex, isAnimating }) => {
+  const [markerPosition, setMarkerPosition] = useState(null);
+
+  useEffect(() => {
+    if (isAnimating && currentIndex < track.length) {
+      animateMarkerPosition(currentIndex);
+    }
+  }, [currentIndex, track, isAnimating]);
+
   
     // 动画标记的移动
     const animateMarkerPosition = (index) => {

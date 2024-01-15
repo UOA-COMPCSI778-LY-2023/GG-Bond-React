@@ -9,7 +9,6 @@ const TrackPopup = ({ isAnimating, setIsAnimating }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrack, setShowTrack] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
-  const [showHideButtonText, setShowHideButtonText] = useState('Hide');
 
   useEffect(() => {
     let interval;
@@ -27,17 +26,16 @@ const TrackPopup = ({ isAnimating, setIsAnimating }) => {
 
   const handleShowHide = () => {
     setShowTrack(!showTrack);
-    setShowHideButtonText(showTrack ? 'Show' : 'Hide');
   };
 
   const handleClose = () => {
     setIsAnimating(false);
     setShowTrack(false);
     setIsVisible(false);
+    setCurrentIndex(0); // Reset currentIndex
   };
 
-
-  const progressPercent = ((currentIndex / (timestamps.length - 1)) * 100).toFixed(2); // Limit to two decimal places
+  const progressPercent = ((currentIndex / (timestamps.length - 1)) * 100).toFixed(2);
   const currentTime = timestamps[currentIndex];
 
   if (!isVisible) return null;
@@ -60,7 +58,7 @@ const TrackPopup = ({ isAnimating, setIsAnimating }) => {
         track={mockTrack}
         showTrack={showTrack}
         currentIndex={currentIndex}
-        isAnimating={isAnimating} // 将 isAnimating 状态传递给 ShipTrack
+        isAnimating={isAnimating}
       />
 
       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', marginTop: '10px' }}>

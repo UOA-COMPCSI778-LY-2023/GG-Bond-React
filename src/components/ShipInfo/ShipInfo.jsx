@@ -65,8 +65,8 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
     // show track
     const handleTrackButtonClick = () => {
         setShowTrackPopup(!showTrackPopup);
-        // 不立即开始动画，只显示 TrackPopup
-    };
+        setIsAnimating(false); // Ensure animation doesn't start automatically
+      };
 
     const calculatePosition = () => { };
 
