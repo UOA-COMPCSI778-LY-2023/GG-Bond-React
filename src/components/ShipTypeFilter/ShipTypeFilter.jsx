@@ -2,17 +2,10 @@ import React, { useState } from 'react';
 import './ShipTypeFilter.css';
 
 const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countryTypes, selectedCountries, handleCountrySelect }) => {
-  const [isShipTypeOpen, setIsShipTypeOpen] = useState(false);
   const [isCountryOpen, setIsCountryOpen] = useState(false);
-
-  const toggleShipTypeDropdown = () => {
-    setIsShipTypeOpen(!isShipTypeOpen);
-    if (isCountryOpen) setIsCountryOpen(false);
-  };
 
   const toggleCountryDropdown = () => {
     setIsCountryOpen(!isCountryOpen);
-    if (isShipTypeOpen) setIsShipTypeOpen(false);
   };
 
   const handleCountrySelectInternal = (countryCode) => {
@@ -25,30 +18,26 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
     handleCountrySelect(updatedCountries); // 更新选中的国家类型
   };
 
-
-
   return (
     <div className="filter-dropdown">
-      <div className="filter-parent" onClick={toggleShipTypeDropdown}>
+      <div className="filter-parent">
         ShipTypes
         <span className="triangle">&#9660;</span>
       </div>
 
-      <div className={`ship-type-filter-dropdown ${isShipTypeOpen ? 'show' : ''}`}>
-        {shipTypes.map(ship => (
-          <label key={ship.type} className="ship-type-filter-item">
-            <input
-              type="checkbox"
-              className="ship-type-filter-checkbox"
-              checked={selectedFilters.includes(ship.type)}
-              onChange={() => handleFilterSelect(ship.type)}
-            />
-            <span className="ship-type-filter-text" style={{ color: ship.color }}>
-              {ship.type}
-            </span>
-          </label>
-        ))}
-      </div>
+      {shipTypes.map(ship => (
+        <label key={ship.type} className="ship-type-filter-item">
+          <input
+            type="checkbox"
+            className="ship-type-filter-checkbox"
+            checked={selectedFilters.includes(ship.type)}
+            onChange={() => handleFilterSelect(ship.type)}
+          />
+          <span className="ship-type-filter-text" style={{ color: ship.color }}>
+            {ship.type}
+          </span>
+        </label>
+      ))}
 
       <div className="filter-parent" onClick={toggleCountryDropdown}>
         Countries
