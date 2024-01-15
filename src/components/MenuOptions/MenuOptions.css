@@ -11,7 +11,6 @@
     left: 80%;
     /* box-shadow: 0px 0px 4px 0px rgba(10, 32, 79, 0.4); 
     background: #1c2330;*/
-    
 }
 
 
@@ -22,8 +21,13 @@
     cursor: pointer;
     background-color: transparent;
     color: #fff;
-    border: none;
+    
     outline: none;
+}
+
+
+.ant-float-btn-default .ant-float-btn-body{
+  border: 2px solid rgba(0,0,0,0.2);
 }
 
 #menuoptions button:hover{
@@ -72,19 +76,26 @@
 
   .leaflet-touch .geocoder-control{
     position: fixed;
-    top: 55px;
-    right: 50px;
-    max-width: 265px;
-    
+    top: 0px;
+    right: 0px;
+    max-width: 280px;
+    z-index: 100;
   }
-  
+
+  .leaflet-touch .leaflet-draw{
+    position: fixed;
+    top: 40px;
+    right: 0px;
+    max-width: 265px;
+    z-index: -100;
+  }
 
   .leaflet-touch .geocoder-control-input{
-    box-shadow: 0px 0px 4px 0px rgba(10, 32, 79, 0.4);
+    /* box-shadow: 0px 0px 4px 0px rgba(10, 32, 79, 0.4);
     background: #1c2330;
     border-radius: 17px;
     color: white;
-    background-image: url("/src/img/locate-white.svg");
+    background-image: url("/src/img/locate-white.svg"); */
   }
 
   

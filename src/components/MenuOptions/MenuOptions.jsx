@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
@@ -6,6 +6,8 @@ import DrawTools from "../DrawTools/DrawTools";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
 import ShipTypeFilter from "../ShipTypeFilter/ShipTypeFilter";
+import L from "leaflet";
+
 
 import { FloatButton } from "antd";
 import {
@@ -15,6 +17,9 @@ import {
     FilterOutlined,
     EnvironmentOutlined,
 } from "@ant-design/icons";
+
+
+
 
 const shipTypes = [
     // { type: 'ALL', color: 'Black' },
@@ -86,13 +91,22 @@ const MenuOptions = () => {
         });
     };
 
-    const toggleDrawTools = () => {
+    const toggleDrawTools = (e) => {
         setShowDrawTools(!showDrawTools);
+        e.stopPropagation()
     };
 
     const toggleSearchLocation = () => {
         setShowSearchLocation(!showSearchLocation);
     };
+
+    useEffect(() => {      
+        const el = document.getElementById('menuoptions');
+        L.DomEvent.on(el, 'dblclick', 
+            L.DomEvent.stopPropagation
+        );
+    }, []);
+
 
     // const menuOptionsStyle = {
     //     background: isActive ? "white" : "#1c2330", // Change background color based on isActive
@@ -117,6 +131,11 @@ const MenuOptions = () => {
                 />
                 <FloatButton
                     onClick={toggleDrawTools}
+                    onDoubleClick={(e) => {
+                        // console.log(e);
+                        // e.preventDefault();
+                        // e.stopPropagation();
+                    }}
                     icon={<LiaDrawPolygonSolid />}
                     tooltip={<div>Draft</div>}
                 />
@@ -127,6 +146,7 @@ const MenuOptions = () => {
                 />
                 <FloatButton
                     icon={<SearchOutlined />}
+                    onClick={(e) => console.log("name:"+e.target.tagName)}
                     tooltip={<div>Search</div>}
                 />
                 <FloatButton
@@ -197,7 +217,7 @@ const MenuOptions = () => {
             )}
             {showSearchLocation && (
                 <EsriLeafletGeoSearch
-                    position="bottomright"
+                    position="topright"
                     useMapBounds={false}
                     providers={{
                         arcgisOnlineProvider: {
