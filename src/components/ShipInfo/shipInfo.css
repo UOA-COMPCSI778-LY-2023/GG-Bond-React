@@ -27,14 +27,6 @@
     padding: '0';
   }
 
-
-  .ship-info-card {
-    position: absolute;
-    top: 17px;
-    right: 60px;
-    z-index: 9999;
-}
-
   .card-space{
     z-index: 9999;
     position: absolute;

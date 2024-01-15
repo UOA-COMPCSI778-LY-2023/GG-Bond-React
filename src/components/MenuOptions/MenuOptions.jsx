@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
+import DownloadShipsInfo from "../DownloadShipsInfo/DownloadShipsInfo";
 import DrawTools from "../DrawTools/DrawTools";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
@@ -53,6 +54,7 @@ const MenuOptions = () => {
     const [selectedCountries, setSelectedCountries] = useState([]);
     const [showDrawTools, setShowDrawTools] = useState(false);
     const [showSearchLocation, setShowSearchLocation] = useState(false);
+    const [showDownloadPanel, setShowDownloadPanel] = useState(false);
 
     const toggleDarkOrLightMode = () => {
         setDark(!dark);
@@ -94,6 +96,10 @@ const MenuOptions = () => {
         setShowSearchLocation(!showSearchLocation);
     };
 
+    const toggleDownloadPanel = () => {
+        setShowDownloadPanel(!showDownloadPanel);
+    };
+
     // const menuOptionsStyle = {
     //     background: isActive ? "white" : "#1c2330", // Change background color based on isActive
     // };
@@ -110,35 +116,42 @@ const MenuOptions = () => {
                 shape="square"
                 trigger="hover"
                 icon={<ToolOutlined />}
+                onClick={(e) => e.setDefaultPrevented(true)}
             >
                 <FloatButton
                     onClick={toggleDarkOrLightMode}
                     icon={dark ? <FaLightbulb /> : <FaRegLightbulb />}
+                    className="menubtn"
                 />
                 <FloatButton
                     onClick={toggleDrawTools}
                     icon={<LiaDrawPolygonSolid />}
                     tooltip={<div>Draft</div>}
+                    className="menubtn"
                 />
                 <FloatButton
                     onClick={toggleSearchLocation}
                     icon={<EnvironmentOutlined />}
                     tooltip={<div>Localization</div>}
+                    className="menubtn"
                 />
                 <FloatButton
                     icon={<SearchOutlined />}
                     tooltip={<div>Search</div>}
+                    className="menubtn"
                 />
                 <FloatButton
                     onClick={toggleFilterDropdown}
                     icon={<FilterOutlined />}
                     tooltip={<div>Filter</div>}
+                    className="menubtn"
                 />
 
                 <FloatButton
-                    onClick={() => console.log("onClick")}
+                    onClick={toggleDownloadPanel}
                     tooltip={<div>Download</div>}
                     icon={<DownloadOutlined />}
+                    className="menubtn"
                 />
             </FloatButton.Group>
             {/* <button className="menubutton" style={buttonStyle}>
@@ -207,6 +220,11 @@ const MenuOptions = () => {
                         },
                     }}
                     expanded={true}
+                />
+            )}
+            {showDownloadPanel && (
+                <DownloadShipsInfo
+                    setShowDownloadPanel={setShowDownloadPanel}
                 />
             )}
         </div>
