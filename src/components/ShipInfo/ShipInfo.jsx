@@ -9,6 +9,7 @@ import CountryFlag from "react-country-flag";
 import Draggable from "react-draggable";
 import useShipData from "../../hooks/useShipData";
 import useShipImage from "../../hooks/useShipImage";
+import L from "leaflet";
 
 const ShipInfo = ({ ship, setSelectedBoat }) => {
   const mmsi = ship.mm;
@@ -117,14 +118,20 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
     // 不立即开始动画，只显示 TrackPopup
   };
 
-  const calculatePosition = () => { };
+  useEffect(() => {      
+    const el = document.getElementById('ship-dragble-card');
+    L.DomEvent.on(el, 'dblclick', 
+        L.DomEvent.stopPropagation
+    );
+  }, []);
+
   return (
     <>
-      <Draggable
+      <Draggable 
         onDrag={(e) => e.stopPropagation()}
         defaultPosition={{ x: 50, y: 8 }}
       >
-        <div className="card-space" >
+        <div className="card-space" id="ship-dragble-card">
           <Space
             direction="vertical"
             size={16}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
@@ -7,6 +7,7 @@ import DrawTools from "../DrawTools/DrawTools";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
 import ShipTypeFilter from "../ShipTypeFilter/ShipTypeFilter";
+import L from "leaflet";
 
 import { FloatButton } from "antd";
 import {
@@ -88,8 +89,9 @@ const MenuOptions = () => {
         });
     };
 
-    const toggleDrawTools = () => {
+    const toggleDrawTools = (e) => {
         setShowDrawTools(!showDrawTools);
+        e.stopPropagation();
     };
 
     const toggleSearchLocation = () => {
@@ -99,6 +101,11 @@ const MenuOptions = () => {
     const toggleDownloadPanel = () => {
         setShowDownloadPanel(!showDownloadPanel);
     };
+
+    useEffect(() => {
+        const el = document.getElementById("menuoptions");
+        L.DomEvent.on(el, "dblclick", L.DomEvent.stopPropagation);
+    }, []);
 
     // const menuOptionsStyle = {
     //     background: isActive ? "white" : "#1c2330", // Change background color based on isActive
@@ -125,6 +132,11 @@ const MenuOptions = () => {
                 />
                 <FloatButton
                     onClick={toggleDrawTools}
+                    onDoubleClick={(e) => {
+                        // console.log(e);
+                        // e.preventDefault();
+                        // e.stopPropagation();
+                    }}
                     icon={<LiaDrawPolygonSolid />}
                     tooltip={<div>Draft</div>}
                     className="menubtn"
@@ -137,6 +149,7 @@ const MenuOptions = () => {
                 />
                 <FloatButton
                     icon={<SearchOutlined />}
+                    onClick={(e) => console.log("name:" + e.target.tagName)}
                     tooltip={<div>Search</div>}
                     className="menubtn"
                 />
@@ -154,44 +167,7 @@ const MenuOptions = () => {
                     className="menubtn"
                 />
             </FloatButton.Group>
-            {/* <button className="menubutton" style={buttonStyle}>
-                <span onClick={toggleDarkOrLightMode}>
-                    {dark ? <FaLightbulb /> : <FaRegLightbulb />}
-                </span>
-                {/* <div>Toggle Dark Mode</div> *
-            </button>
-            <button style={buttonStyle} onClick={toggleDrawTools}>
-                <span>
-                    <Tooltip text="Draft">
-                        <LiaDrawPolygonSolid />
-                    </Tooltip>
-                </span>
-            </button>{" "}
-            {/*Draft *
-            <button style={buttonStyle} onClick={toggleSearchLocation}>
-                <span>
-                    <Tooltip text="Localization">
-                        <CiLocationArrow1 />
-                    </Tooltip>
-                </span>
-            </button>{" "}
-            {/*Localization*
-            <button style={buttonStyle}>
-                <span>
-                    <Tooltip text="Search">
-                        <IoIosSearch />
-                    </Tooltip>
-                </span>
-            </button>{" "}
-            {/*Search*
-            {/* filter *
-            <button style={buttonStyle} onClick={toggleFilterDropdown}>
-                <span>
-                    <Tooltip text="Filter">
-                        <IoIosColorFilter />
-                    </Tooltip>
-                </span>
-            </button> */}
+
             {showFilterDropdown && (
                 <ShipTypeFilter
                     selectedFilters={selectedFilters}
@@ -210,7 +186,7 @@ const MenuOptions = () => {
             )}
             {showSearchLocation && (
                 <EsriLeafletGeoSearch
-                    position="bottomright"
+                    position="topright"
                     useMapBounds={false}
                     providers={{
                         arcgisOnlineProvider: {

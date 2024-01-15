@@ -113,6 +113,8 @@ function Map() {
                 maxBounds={bounds}
                 minZoom={2}
                 ref={setMap}
+                
+                
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
