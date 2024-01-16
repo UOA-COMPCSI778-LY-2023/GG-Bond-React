@@ -123,7 +123,6 @@ const MenuOptions = () => {
                 shape="square"
                 trigger="hover"
                 icon={<ToolOutlined />}
-                onClick={(e) => e.setDefaultPrevented(true)}
             >
                 <FloatButton
                     onClick={toggleDarkOrLightMode}

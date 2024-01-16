@@ -1,56 +1,24 @@
 #menuoptions {
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    z-index: 600;
-    width: 800px;
-    height: 80px;
-    left: 50%;
-    /* box-shadow: 0px 0px 4px 0px rgba(10, 32, 79, 0.4); 
-    background: #1c2330;*/
+  /* display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 800px;
+  height: 80px;
+  left: 50%;  */
+  position: relative;
+  z-index: 600;
 }
 
 
 .menubtn{
-    /* border-radius: 50%; */
-    /* height: 30px; */
-    /* width: 30px; */
     cursor: pointer;
     background-color: transparent;
     color: #fff;
-    
     outline: none;
 }
 
-
-.ant-float-btn-default .ant-float-btn-body{
-  border: 2px solid rgba(0,0,0,0.2);
-}
-
-#menuoptions button:hover{
+.menubtn button:hover{
     background-color: lightgrey;
-}
-
-#menuoptions button span{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#menuoptions button span svg{
-    height: 20px;
-    width: 20px;
-}
-
-.menubutton div{
-    display: none;
-    border: 1px solid red;
-    margin-top: 10px;
-}
-
-.menubutton:hover div{
-    display: block;
 }
 
 .filter-dropdown {
@@ -87,20 +55,6 @@
     max-width: 265px;
     z-index: -100;
   }
-
-  .leaflet-touch .geocoder-control-input{
-    /* box-shadow: 0px 0px 4px 0px rgba(10, 32, 79, 0.4);
-    background: #1c2330;
-    border-radius: 17px;
-    color: white;
-    background-image: url("/src/img/locate-white.svg"); */
-  }
-
-  
-
-/* .tooltip-container:hover .tooltip-box{
-    z-index: 99;
-} */
 
 .functionpanel{
   right:10px;

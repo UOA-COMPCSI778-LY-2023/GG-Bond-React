@@ -1,0 +1,9 @@
+
+.download-ship-type {
+    display: flex;
+    flex-direction: column;
+}
+
+.ant-checkbox-group {
+    justify-content: space-between;
+}
