@@ -38,7 +38,7 @@ function Map() {
             const heatdata = response.data.data.map((item) => [
                 item.la,
                 item.lo,
-                Math.random() * (10000 - 1000) + 1000,
+                item.lv,
             ]);
             setHeatData(heatdata);
         } catch (error) {
@@ -113,8 +113,6 @@ function Map() {
                 maxBounds={bounds}
                 minZoom={2}
                 ref={setMap}
-                
-                
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
