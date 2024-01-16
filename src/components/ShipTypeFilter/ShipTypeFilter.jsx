@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiNavigation2 } from "react-icons/fi"; // Import FiNavigation2
 import './ShipTypeFilter.css';
 
 const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countryTypes, selectedCountries, handleCountrySelect }) => {
@@ -33,6 +34,7 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
             checked={selectedFilters.includes(ship.type)}
             onChange={() => handleFilterSelect(ship.type)}
           />
+          <FiNavigation2 style={{ color: ship.color, marginRight: '8px' }} /> {/* FiNavigation2 icon placed after checkbox */}
           <span className="ship-type-filter-text" style={{ color: ship.color }}>
             {ship.type}
           </span>
@@ -51,7 +53,7 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
               type="checkbox"
               className="country-filter-checkbox"
               checked={selectedCountries.includes(country.type)}
-              onChange={() => handleCountrySelect(country.type)} 
+              onChange={() => handleCountrySelectInternal(country.type)} 
             />
             <span className="country-filter-text" style={{ color: country.color }}>
               {country.type}
