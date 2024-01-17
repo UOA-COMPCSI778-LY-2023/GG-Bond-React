@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
+import Tooltip from "antd";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
 import DownloadShipsInfo from "../DownloadShipsInfo/DownloadShipsInfo";
 import DrawTools from "../DrawTools/DrawTools";
@@ -53,8 +54,8 @@ const MenuOptions = () => {
     const [showFilterDropdown, setShowFilterDropdown] = useState(false);
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [selectedCountries, setSelectedCountries] = useState([]);
-    const [showDrawTools, setShowDrawTools] = useState(false);
-    const [showSearchLocation, setShowSearchLocation] = useState(false);
+    const [showDrawTools, setShowDrawTools] = useState(true);
+    const [showSearchLocation, setShowSearchLocation] = useState(true);
     const [showDownloadPanel, setShowDownloadPanel] = useState(false);
 
     const toggleDarkOrLightMode = () => {
@@ -195,6 +196,7 @@ const MenuOptions = () => {
                         },
                     }}
                     expanded={true}
+                    title=""
                 />
             )}
             {showDownloadPanel && (

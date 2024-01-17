@@ -60,3 +60,12 @@
   right:10px;
   bottom: 20px;
 }
+
+.geocoder-control-input {
+  background-image: url("/public/Location.png");
+}
+
+.geocoder-control-input-disabled {
+  background-color: #f4f4f4;
+  background-image: url("/public/Location.png");
+}

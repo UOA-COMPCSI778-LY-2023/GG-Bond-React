@@ -9,6 +9,7 @@ import "leaflet/dist/leaflet.css";
 import MapLayers from "../MapLayers/MapLayers";
 import leafletHashPlus from "leaflet-hash-plus"; // Don't DELETE this line
 import "leaflet.heat";
+import "./Map.css";
 
 //map boundary limit
 const corner1 = L.latLng(-90, -240);
