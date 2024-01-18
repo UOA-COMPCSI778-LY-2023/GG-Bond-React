@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Space, Button, Tabs } from "antd";
 import { SwapRightOutlined, CloseOutlined } from "@ant-design/icons";
-import DraggableModal from "../drag info/DraggableModal";
+import DraggableModal from "../DraggableModal/DraggableModal";
 import TrackPopup from "../TrackPopup/TrackPopup";
 import "./shipInfo.css";
 import ShipInfoBody from "./ShipInfoBody";

@@ -9,13 +9,11 @@ import {
 import { BasemapLayer } from "react-esri-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import "./MarineTrafficStyle.css";
 
 import MenuOptions from "../MenuOptions/MenuOptions";
 import ShipInfo from "../ShipInfo/ShipInfo";
 import ShipMarker from "../ShipMarker/ShipMarker";
-import SearchBox from './SearchBox';
-import SearchResults from './SearchResults';
+import SearchShip from "../SearchShip/SearchShip";
 
 const center = [-36.842, 174.76];
 const corner1 = L.latLng(-90, -240);
@@ -37,11 +35,7 @@ function GetMapDetail() {
 
 function Map() {
   const [selectedBoat, setSelectedBoat] = useState(null);
-  const [mousePosition, setMousePosition] = useState(null);
   const [shipsBasicData, setShipsBasicData] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [selectedShip, setSelectedShip] = useState(null);
-  const [error, setError] = useState("");
 
   const getShipBasicData = async () => {
     const latLngNE = { lat: 90, lng: 240 };
@@ -58,45 +52,17 @@ function Map() {
       setShipsBasicData(response.data.data);
     } catch (error) {
       console.error("Error fetching ship details:", error.message);
-      setError("Error fetching ship details: " + error.message);
     }
   };
 
-  // Map.jsx
-// ...
-
-// Map 组件中的 getShipsBySearch 函数
-
-const getShipsBySearch = async (searchTerm) => {
-    console.log('Searching for:', searchTerm);
-    
-
-    const staticData = [
-      { mmsi: '123456789', vesselName: 'Static Ship 1' },
-      { mmsi: '987654321', vesselName: 'Static Ship 2' }
-    ];
-  
-    setSearchResults(staticData); 
-    setError(""); 
-  };
-  
-  
-  
-  
-  
-
-  const onSelectShip = (ship) => {
-    setSelectedShip(ship);
-    // 这里可以添加逻辑来移动地图到选定船只的位置
-  };
 
   useEffect(() => {
     getShipBasicData();
   }, []);
+
   return (
     <div className="Map">
-      {error && <div className="error-message">{error}</div>}
-      <SearchBox onSearch={getShipsBySearch} />
+      
       <MapContainer
         id="mapId"
         center={center}
@@ -130,26 +96,7 @@ const getShipsBySearch = async (searchTerm) => {
           />
         )}
       </MapContainer>
-      <SearchResults results={searchResults} />
-      {mousePosition && (
-        <div style={{
-            position: 'absolute',
-            bottom: '20px',
-            right: '10px',
-            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-            padding: '8px 10px',
-            zIndex: 1000,
-            borderRadius: '8px',
-            boxShadow: '0 0 5px rgba(0,0,0,0.2)',
-            fontSize: '14px',
-            fontWeight: 'bold',
-            color: '#333',
-            textAlign: 'center'
-        }}>
-            Lat: {mousePosition.lat.toFixed(4)}<br />
-            Lng: {mousePosition.lng.toFixed(4)}
-        </div>
-      )}
+      <SearchShip setSelectedBoat={setSelectedBoat}/>
     </div>
   );
 }
