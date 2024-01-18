@@ -47,6 +47,7 @@ function DrawTools({ onChange }) {
                 console.log("_onCreated: marker created", e);
             } else {
                 console.log("_onCreated: something else created:", type, e);
+                console.log("lat: ", e.layer._latlngs);
             }
 
             _onChange();
@@ -102,6 +103,19 @@ function DrawTools({ onChange }) {
                 onDeleteStop={_onDeleteStop}
                 draw={{
                     rectangle: false,
+                    polyline: {
+                        showLength: true,
+                        metric: false,
+                        feet: false,
+                        nautic: true,
+                    },
+                    polygon: {
+                        showArea: true,
+                        showLength: true,
+                        metric: false,
+                        feet: false,
+                        nautic: true,
+                    },
                 }}
                 ref={(e) => (_editableFG.current = e)}
             />
