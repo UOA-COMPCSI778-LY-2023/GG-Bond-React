@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card, Space, Button, Tabs } from "antd";
+import React, { useState, useEffect } from "react";
+import { Card, Space, Button, Spin, ConfigProvider } from "antd";
 import { SwapRightOutlined, CloseOutlined } from "@ant-design/icons";
 import DraggableModal from "../DraggableModal/DraggableModal";
 import TrackPopup from "../TrackPopup/TrackPopup";
@@ -8,7 +8,7 @@ import ShipInfoBody from "./ShipInfoBody";
 import CountryFlag from "react-country-flag";
 import Draggable from "react-draggable";
 import useShipData from "../../hooks/useShipData";
-import useShipImage from "../../hooks/useShipImage";
+import L from "leaflet";
 
 const ShipInfo = ({ ship, setSelectedBoat }) => {
     const mmsi = ship.mm;
@@ -19,7 +19,6 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
     //  get ship type picture
     const getTypePath = (vesselType) => {
         vesselType = vesselType === "Pleasure Craft" ? "Pleasure" : vesselType;
-
         if (
             [
                 "Cargo",
@@ -37,7 +36,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
             return "ShipIcons/Unspecified.png";
         }
     };
-    const typePath = getTypePath(ship.type);
+    const typePath = getTypePath(shipData.vesselType);
 
     // get ship country picture
     const getCountry = (shipCountryCode) => {
@@ -49,7 +48,55 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
     };
     const country = getCountry(shipData.alpha2);
     // get ship country picture
-    const shipImage = useShipImage(mmsi);
+    // let loading = true;
+    // const shipImage = useShipImage(mmsi);  // getimage
+    // loading = false
+    const [shipImage, setShipImage] = useState("defaultShip2.jpg");
+
+    const [loading, setLoading] = useState(false);
+
+    const fetchImage = async () => {
+        setLoading(true);
+        const shiIdUrl = `http://13.236.117.100:8080/get/shipID?mmsi=${mmsi}`;
+        try {
+            const response = await fetch(shiIdUrl, {
+                method: "GET",
+            });
+            if (response.ok) {
+                const responseData = await response.json();
+                const shipId = responseData.vessel_id;
+                console.log(shipId);
+                if (shipId) {
+                    const imageUrl = `http://13.236.117.100:8080/get/shipPicture?ship_id=${shipId}`;
+                    // Check if the image URL returns a 404 status
+                    const imageResponse = await fetch(imageUrl, {
+                        method: "GET",
+                    });
+                    if (response.ok) {
+                        const responseData = await imageResponse.json();
+                        const shipImage = responseData.ship_image;
+                        console.log(shipImage);
+                        if (shipImage) {
+                            setShipImage(shipImage);
+                        } else {
+                            setShipImage("defaultShip2.jpg");
+                        }
+                    }
+                }
+            }
+        } catch (error) {
+            console.error("Error fetching ship picture:", error);
+            setShipImage("defaultShip2.jpg"); // Set default image in case of any error
+        }
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        fetchImage();
+    }, [mmsi]);
+
+    ///2222
+
     //Show Chart
     const [showChart, setShowChart] = useState(false);
     const [showTrackPopup, setShowTrackPopup] = useState(false);
@@ -68,7 +115,10 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
         // 不立即开始动画，只显示 TrackPopup
     };
 
-    const calculatePosition = () => {};
+    useEffect(() => {
+        const el = document.getElementById("ship-dragble-card");
+        L.DomEvent.on(el, "dblclick", L.DomEvent.stopPropagation);
+    }, []);
 
     return (
         <>
@@ -76,46 +126,38 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                 onDrag={(e) => e.stopPropagation()}
                 defaultPosition={{ x: 50, y: 8 }}
             >
-                <div style={{ "z-index": "9999", position: "absolute" }}>
+                <div className="card-space" id="ship-dragble-card">
                     <Space
                         direction="vertical"
                         size={16}
                         style={{ cursor: "auto" }}
                     >
                         <Card
-                            style={{ width: 300 }}
+                            className="info-card"
                             bodyStyle={{ padding: "10px" }}
                         >
                             <div>
                                 <div className="ship-info-header">
                                     <img
+                                        className="ship-type-image"
                                         alt="shiptype"
                                         src={typePath}
-                                        style={{
-                                            width: "30px",
-                                            height: "30px",
-                                            verticalAlign: "middle",
-                                        }}
                                     ></img>
                                     {country !== null ? (
                                         <CountryFlag
+                                            className="country-flag"
                                             countryCode={country}
                                             svg
                                             style={{
                                                 width: "2.2em",
                                                 height: "2.2em",
-                                                marginLeft: 5,
                                             }}
                                         />
                                     ) : (
                                         <img
+                                            className="country-flag-img"
                                             src="defaultCountryImage.png"
                                             alt="defaul-country"
-                                            style={{
-                                                width: "30.8px",
-                                                height: "30.8px",
-                                                marginLeft: 5,
-                                            }}
                                         />
                                     )}
                                     <div className="name-with-type">
@@ -126,24 +168,29 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                             {shipData.vesselType}
                                         </div>
                                     </div>
-                                    <div
-                                        style={{
-                                            position: "absolute",
-                                            top: 10,
-                                            right: 10,
-                                            cursor: "pointer",
-                                        }}
-                                    >
+                                    <div className="close-icon">
                                         <CloseOutlined
                                             onClick={closeShipInfo}
                                         />
                                     </div>
                                 </div>
-                                <img
-                                    alt="ship image"
-                                    src={shipImage}
-                                    style={{ width: "100%", marginTop: 2 }}
-                                />
+                                {loading ? (
+                                    <ConfigProvider
+                                        theme={{
+                                            token: { colorPrimary: "black" },
+                                        }}
+                                    >
+                                        <div className="spin-box">
+                                            <Spin size="large" />
+                                        </div>
+                                    </ConfigProvider>
+                                ) : (
+                                    <img
+                                        alt="ship image"
+                                        src={shipImage}
+                                        style={{ width: "100%", marginTop: 2 }}
+                                    />
+                                )}
                                 <div>
                                     <ShipInfoBody
                                         shipData={shipData}
@@ -151,23 +198,16 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                 </div>
                                 <div style={{ marginTop: 10 }}>
                                     <Button
+                                        className="past-track-button"
                                         type="primary"
                                         onClick={handleTrackButtonClick}
-                                        style={{
-                                            width: 120,
-                                            textAlign: "center",
-                                        }}
                                         icon={<SwapRightOutlined />}
                                     >
                                         Past Track
                                     </Button>
                                     <Button
+                                        className="pollution-button"
                                         type="primary"
-                                        style={{
-                                            width: 140,
-                                            marginLeft: 15,
-                                            textAlign: "center",
-                                        }}
                                         onClick={handleShowChart}
                                     >
                                         Pollution Forecast

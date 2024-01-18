@@ -1,0 +1,43 @@
+.downloadcard{
+    width: 460px;
+}
+.downloadinfo-card{
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    height: 40px;
+    margin: 0;
+}
+
+h4{
+    margin: 0;
+    height: 30px;
+    margin-top: 4px;
+}
+
+h5{
+    padding: 2px 0;
+    margin: 4px 0;
+}
+
+.ant-divider{
+    margin: 4px 0;
+}
+
+
+.download-info-body {
+    display: flex;
+    margin: 4px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+
+

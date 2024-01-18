@@ -2,7 +2,7 @@
 
 ### Installation of dependencies
 ```
-npm i
+npm i -f
 ```
 
 ### Run pj
