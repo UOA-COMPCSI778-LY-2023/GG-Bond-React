@@ -1,12 +1,12 @@
 import React from "react";
 import BackgroundVideo from "../components/BackgroundVideo/BackgroundVideo";
-import LoginCard from "../components/LoginCard/LoginCard";
+import LoginForm from "../components/LoginForm/LoginForm";
 
 export default function LoginPage() {
     return (
         <>
             <BackgroundVideo></BackgroundVideo>
-            <LoginCard></LoginCard>
+            <LoginForm></LoginForm>
         </>
     );
 }

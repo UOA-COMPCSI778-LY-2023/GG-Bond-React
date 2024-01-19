@@ -14,20 +14,18 @@ const BackgroundVideo=()=>{
     }
     const randomVideo = getTypePath();
     return(
-        <>
-            <div className="video-container">
-                <video
-                    className="video-element"
-                    controls={false}
-                    autoPlay
-                    muted
-                    loop
-                    style={{ width: "100%", height: "100%" }}>
-                    {/* <source src="BackgroundVideos/Video1.mp4" type="video/mp4" /> */}
-                    <source src={randomVideo} type="video/mp4" />
-                </video>
-            </div>           
-        </>
+        <div className="video-container">
+            <video
+                className="video-element"
+                controls={false}
+                autoPlay
+                muted
+                loop
+                style={{ width: "100%", height: "100%" }}>
+                {/* <source src="BackgroundVideos/Video1.mp4" type="video/mp4" /> */}
+                <source src={randomVideo} type="video/mp4" />
+            </video>
+        </div>           
     );
 }
 export default BackgroundVideo;
