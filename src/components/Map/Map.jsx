@@ -22,6 +22,7 @@ function Map() {
     const [shipsBasicData, setShipsBasicData] = useState([]);
     const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
+    const [selectedLayer, setSelectedLayer] = useState("Light map");
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
@@ -117,7 +118,7 @@ function Map() {
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
-                <MapLayers heatData={heatData} />
+                <MapLayers heatData={heatData} setSelectedLayer={setSelectedLayer} />
                 <MenuOptions />
 
                 {shipsBasicData.map((boatData, index) => {
@@ -127,6 +128,7 @@ function Map() {
                             boatData={boatData}
                             setSelectedBoat={setSelectedBoat}
                             isSelected={deepEqual(boatData, selectedBoat)}
+                            selectedLayer={selectedLayer}
                         />
                     );
                 })}
