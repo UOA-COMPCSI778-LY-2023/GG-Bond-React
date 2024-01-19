@@ -1,0 +1,24 @@
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  /* set size of video */
+  .video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+  
+  /* hide scroll bar */
+  .video-element::-webkit-media-controls {
+    display: none;
+  }
+  
+  .video-element::-webkit-media-controls-panel {
+    display: none !important;
+  }
