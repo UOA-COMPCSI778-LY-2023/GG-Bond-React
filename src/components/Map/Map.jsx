@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import L from "leaflet";
 import axios from "axios";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
+// import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 import MenuOptions from "../MenuOptions/MenuOptions";
 import ShipInfo from "../ShipInfo/ShipInfo";
 import ShipMarker from "../ShipMarker/ShipMarker";
@@ -11,6 +13,7 @@ import MapLayers from "../MapLayers/MapLayers";
 import leafletHashPlus from "leaflet-hash-plus"; // Don't DELETE this line
 import "leaflet.heat";
 import "./Map.css";
+
 
 //map boundary limit
 const corner1 = L.latLng(-90, -240);
@@ -23,6 +26,14 @@ function Map() {
     const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
     const [selectedLayer, setSelectedLayer] = useState("Light map");
+
+    // const navigate = useNavigate();
+    // useEffect(() => {
+    //     const loggedIn = Cookies.get('loggedIn');
+    //     if (!loggedIn) {
+    //         navigate('/login'); 
+    //     }
+    // }, [navigate]);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
