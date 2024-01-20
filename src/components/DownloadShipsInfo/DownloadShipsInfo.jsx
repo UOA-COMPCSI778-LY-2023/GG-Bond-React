@@ -9,7 +9,7 @@ import ShipTypeCheckboxes from "../ShipTypeCheckboxes/ShipTypeCheckboxes";
 import DownloadTimePicker from "../DownloadTimePicker/DownloadTimePicker";
 import "./DownloadShipsInfo.css";
 
-const DownloadShipsInfo = ({ setShowDownloadPanel }) => {
+const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
     const [checkedList, setCheckedList] = useState([]);
     const [selectedTimeRange, setSelectedTimeRange] = useState([]);
 
@@ -41,6 +41,7 @@ const DownloadShipsInfo = ({ setShowDownloadPanel }) => {
 
             console.log(response.data.data);
             console.log(checkedList);
+            console.log(shapesContainer);
             console.log("Selected Time Range:", selectedTimeRange);
 
             message.success("Download started!");

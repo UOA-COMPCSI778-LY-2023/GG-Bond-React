@@ -57,6 +57,10 @@ const MenuOptions = () => {
     const [showDrawTools, setShowDrawTools] = useState(true);
     const [showSearchLocation, setShowSearchLocation] = useState(true);
     const [showDownloadPanel, setShowDownloadPanel] = useState(false);
+    const [shapesContainer, setShapeContainer] = useState({
+        polygon: {},
+        circle: {},
+    });
 
     const toggleDarkOrLightMode = () => {
         setDark(!dark);
@@ -100,6 +104,7 @@ const MenuOptions = () => {
     };
 
     const toggleDownloadPanel = () => {
+        console.log(shapesContainer);
         setShowDownloadPanel(!showDownloadPanel);
     };
 
@@ -182,6 +187,7 @@ const MenuOptions = () => {
             {showDrawTools && (
                 <DrawTools
                     onChange={(geojsonData) => console.log(geojsonData)}
+                    setShapeContainer={setShapeContainer}
                 />
             )}
             {showSearchLocation && (
@@ -202,6 +208,7 @@ const MenuOptions = () => {
             {showDownloadPanel && (
                 <DownloadShipsInfo
                     setShowDownloadPanel={setShowDownloadPanel}
+                    shapesContainer={shapesContainer}
                 />
             )}
         </div>

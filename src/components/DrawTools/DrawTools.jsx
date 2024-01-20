@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import L from "leaflet";
 import { FeatureGroup } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
@@ -14,7 +14,7 @@ L.Icon.Default.mergeOptions({
         "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/marker-shadow.png",
 });
 
-function DrawTools({ onChange }) {
+function DrawTools({ onChange, setShapeContainer }) {
     const _editableFG = React.useRef(null);
 
     const _onChange = React.useCallback(() => {
@@ -28,11 +28,23 @@ function DrawTools({ onChange }) {
 
     const _onEdited = React.useCallback(
         (e) => {
-            let numEdited = 0;
-            e.layers.eachLayer((layer) => {
-                numEdited += 1;
+            let layer = e.layers._layers;
+            const shapeIds = Object.keys(layer);
+
+            setShapeContainer((prevShapes) => {
+                const newShapes = { ...prevShapes };
+
+                shapeIds.forEach((shapeId) => {
+                    if (newShapes["polygon"].hasOwnProperty(shapeId)) {
+                        const latlngs = layer[shapeId]._latlngs;
+                        newShapes["polygon"][shapeId] = latlngs;
+                    } else if (newShapes["circle"].hasOwnProperty(shapeId)) {
+                        // newShapes["circle"][shapeId] = latlngs;
+                    }
+                });
+
+                return newShapes;
             });
-            console.log(`_onEdited: edited ${numEdited} layers`, e);
 
             _onChange();
         },
@@ -41,13 +53,38 @@ function DrawTools({ onChange }) {
 
     const _onCreated = React.useCallback(
         (e) => {
-            let type = e.layerType;
+            let type = e.layerType; // polyline; polygon; circle; marker; circlemarker;
             let layer = e.layer;
             if (type === "marker") {
                 console.log("_onCreated: marker created", e);
             } else {
-                console.log("_onCreated: something else created:", type, e);
-                console.log("lat: ", e.layer._latlngs);
+                const shapeId = layer._leaflet_id;
+                const latlngs = layer._latlngs || layer._latlng;
+                console.log(layer);
+                if (type === "polygon") {
+                    setShapeContainer((prevShapes) => {
+                        const newShapes = {
+                            ...prevShapes,
+                            [type]: {
+                                ...prevShapes[type],
+                                [shapeId]: latlngs,
+                            },
+                        };
+                        return newShapes;
+                    });
+                } else if (type === "circle") {
+                    const radius = layer._radius;
+                    setShapeContainer((prevShapes) => {
+                        const newShapes = {
+                            ...prevShapes,
+                            [type]: {
+                                ...prevShapes[type],
+                                [shapeId]: [radius, latlngs],
+                            },
+                        };
+                        return newShapes;
+                    });
+                }
             }
 
             _onChange();
@@ -56,37 +93,44 @@ function DrawTools({ onChange }) {
     );
 
     const _onDeleted = (e) => {
-        let numDeleted = 0;
-        e.layers.eachLayer((layer) => {
-            numDeleted += 1;
+        let layer = e.layers._layers;
+        const shapeIds = Object.keys(layer);
+
+        setShapeContainer((prevShapes) => {
+            const newShapes = { ...prevShapes };
+
+            shapeIds.forEach((shapeId) => {
+                delete newShapes[shapeId];
+            });
+
+            return newShapes;
         });
-        console.log(`onDeleted: removed ${numDeleted} layers`, e);
 
         _onChange();
     };
 
     const _onMounted = (drawControl) => {
-        console.log("_onMounted", drawControl);
+        // console.log("_onMounted", drawControl);
     };
 
     const _onEditStart = (e) => {
-        console.log("_onEditStart", e);
+        // console.log("_onEditStart", e);
     };
 
     const _onEditStop = (e) => {
-        console.log("_onEditStop", e);
+        // console.log("_onEditStop", e);
     };
 
     const _onDeleteStart = (e) => {
-        console.log("_onDeleteStart", e);
+        // console.log("_onDeleteStart", e);
     };
 
     const _onDeleteStop = (e) => {
-        console.log("_onDeleteStop", e);
+        // console.log("_onDeleteStop", e);
     };
 
     const _onDrawStart = (e) => {
-        console.log("_onDrawStart", e);
+        // console.log("_onDrawStart", e);
     };
 
     return (
@@ -110,7 +154,6 @@ function DrawTools({ onChange }) {
                         nautic: true,
                     },
                     polygon: {
-                        showArea: true,
                         showLength: true,
                         metric: false,
                         feet: false,
