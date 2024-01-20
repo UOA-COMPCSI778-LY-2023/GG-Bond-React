@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import L from "leaflet";
 import axios from "axios";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
-import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 import MenuOptions from "../MenuOptions/MenuOptions";
 import ShipInfo from "../ShipInfo/ShipInfo";
 import ShipMarker from "../ShipMarker/ShipMarker";
@@ -13,7 +13,6 @@ import MapLayers from "../MapLayers/MapLayers";
 import leafletHashPlus from "leaflet-hash-plus"; // Don't DELETE this line
 import "leaflet.heat";
 import "./Map.css";
-
 
 //map boundary limit
 const corner1 = L.latLng(-90, -240);
@@ -27,13 +26,18 @@ function Map() {
     const [map, setMap] = useState(null);
     const [selectedLayer, setSelectedLayer] = useState("Light map");
 
-    const [cookies] = useCookies(['loggedIn']);
+    const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
     useEffect(() => {
         if (!cookies.loggedIn) {
-            navigate('/login'); // 重定向到登录页面
+            navigate("/login"); // Redirect to login page
+        } else {
+            // Initialise Leaflet Hash Plus after successful login
+            if (map) {
+                new L.Hash(map);
+            }
         }
-    }, [cookies, navigate]);
+    }, [cookies, navigate, map]);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
@@ -64,9 +68,6 @@ function Map() {
             const latLngNE = map.getBounds()._northEast;
             const latLngSW = map.getBounds()._southWest;
             getShipBasicData(latLngNE, latLngSW);
-
-            // Initialize Leaflet Hash Plus when the component mounts
-            new L.Hash(map);
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -129,7 +130,10 @@ function Map() {
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
-                <MapLayers heatData={heatData} setSelectedLayer={setSelectedLayer} />
+                <MapLayers
+                    heatData={heatData}
+                    setSelectedLayer={setSelectedLayer}
+                />
                 <MenuOptions />
 
                 {shipsBasicData.map((boatData, index) => {
