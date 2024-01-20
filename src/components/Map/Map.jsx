@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import L from "leaflet";
 import axios from "axios";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
-// import Cookies from 'js-cookie';
+import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import MenuOptions from "../MenuOptions/MenuOptions";
 import ShipInfo from "../ShipInfo/ShipInfo";
@@ -27,13 +27,13 @@ function Map() {
     const [map, setMap] = useState(null);
     const [selectedLayer, setSelectedLayer] = useState("Light map");
 
-    // const navigate = useNavigate();
-    // useEffect(() => {
-    //     const loggedIn = Cookies.get('loggedIn');
-    //     if (!loggedIn) {
-    //         navigate('/login'); 
-    //     }
-    // }, [navigate]);
+    const [cookies] = useCookies(['loggedIn']);
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!cookies.loggedIn) {
+            navigate('/login'); // 重定向到登录页面
+        }
+    }, [cookies, navigate]);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";

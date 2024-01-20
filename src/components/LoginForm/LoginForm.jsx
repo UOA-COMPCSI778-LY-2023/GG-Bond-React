@@ -3,7 +3,7 @@ import { Button, Card, Checkbox, Form, Input, Alert } from 'antd';
 import "./LoginForm.css"
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Cookies from 'js-cookie';
+import { useCookies } from 'react-cookie';
 
 
 const LoginForm=()=>{
@@ -11,13 +11,14 @@ const LoginForm=()=>{
     const hardcodedPassword = '123';
     const [ifCorrect, setIfCorrect] = useState(true);
     const navigate  = useNavigate();
+    const [cookies, setCookie] = useCookies(['loggedIn']);
 
 
     const handleSubmit = (values) => {
         if (values.username === hardcodedUsername && values.password === hardcodedPassword) {
             setIfCorrect(true);
             navigate ('/')   // jump to the map page if successful
-            // Cookies.set('loggedIn', 'true', { expires: 7 }); // 设置一个有效期为7天的 cookie
+            setCookie('loggedIn', 'true', { path: '/',maxAge: 900});
         } else {
             setIfCorrect(false);
         }
