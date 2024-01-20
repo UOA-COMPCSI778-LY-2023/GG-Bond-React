@@ -1,11 +1,19 @@
-import { LayersControl } from "react-leaflet";
+import { LayersControl,useMapEvents } from "react-leaflet";
 import { BasemapLayer } from "react-esri-leaflet";
 import { HeatmapLayer } from "react-leaflet-heatmap-layer-v3";
 
 // const apiKey = "AAPK4f354998bf5a4659b9d666b2069641897bTjGcAqQx-CfCSZNh9ToN7ANpoJDprU4gf08kNagIOaR_eSX7gjFQaqM9EzJmu-";
 // const baseUrl = "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles";
 
-const MapLayers = ({ heatData }) => {
+
+
+const MapLayers = ({ heatData,setSelectedLayer}) => {
+    useMapEvents({
+        baselayerchange: (event) => {
+            setSelectedLayer(event.name);
+        },
+    });
+
     return (
         <LayersControl position="bottomleft" collapsed={true}>
             <LayersControl.BaseLayer name="Light map" checked>
