@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 
 const LoginForm = () => {
     const hardcodedUsername = "admin";
-    const hardcodedPassword = "123";
+    const hardcodedPassword = "Admin123";
     const [ifCorrect, setIfCorrect] = useState(true);
     const navigate = useNavigate();
     const [cookies, setCookie] = useCookies(["loggedIn"]);
