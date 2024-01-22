@@ -28,15 +28,25 @@ function Map() {
 
     const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
+
     useEffect(() => {
+        let hashInstance;
         if (!cookies.loggedIn) {
             navigate("/login"); // Redirect to login page
         } else {
-            // Initialise Leaflet Hash Plus after successful login
             if (map) {
-                new L.Hash(map);
+                // Initialise Leaflet Hash Plus after successful login and map is available
+                hashInstance = new L.Hash(map);
+            } else {
+                console.log("Map is not initialized");
             }
         }
+
+        return () => {
+            if (hashInstance && hashInstance.stopListening) {
+                hashInstance.stopListening();
+            }
+        };
     }, [cookies, navigate, map]);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {

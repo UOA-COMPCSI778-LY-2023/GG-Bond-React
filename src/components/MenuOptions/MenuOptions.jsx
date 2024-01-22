@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
-import Tooltip from "antd";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
 import DownloadShipsInfo from "../DownloadShipsInfo/DownloadShipsInfo";
 import DrawTools from "../DrawTools/DrawTools";
@@ -10,7 +9,6 @@ import "./MenuOptions.css";
 import ShipTypeFilter from "../ShipTypeFilter/ShipTypeFilter";
 import L from "leaflet";
 import { useCookies } from "react-cookie";
-
 
 import { FloatButton } from "antd";
 import {
@@ -23,8 +21,8 @@ import {
 } from "@ant-design/icons";
 
 const IconFont = createFromIconfontCN({
-    scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
-  });
+    scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js",
+});
 
 const shipTypes = [
     // { type: 'ALL', color: 'Black' },
@@ -116,9 +114,9 @@ const MenuOptions = () => {
     };
     const [cookies, setCookie, removeCookie] = useCookies(["loggedIn"]);
 
-    const toggleLogOut = () =>{
+    const toggleLogOut = () => {
         removeCookie("loggedIn");
-    }
+    };
 
     useEffect(() => {
         const el = document.getElementById("menuoptions");
@@ -183,7 +181,7 @@ const MenuOptions = () => {
                     icon={<DownloadOutlined />}
                     className="menubtn"
                 />
-                
+
                 <FloatButton
                     onClick={toggleLogOut}
                     tooltip={<div>LogOut</div>}
