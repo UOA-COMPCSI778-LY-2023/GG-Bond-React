@@ -10,7 +10,7 @@ import ShipMarker from "../ShipMarker/ShipMarker";
 import SearchShip from "../SearchShip/SearchShip";
 import "leaflet/dist/leaflet.css";
 import MapLayers from "../MapLayers/MapLayers";
-import leafletHashPlus from "leaflet-hash-plus"; // Don't DELETE this line
+import "leaflet-hash-plus";
 import "leaflet.heat";
 import "./Map.css";
 
