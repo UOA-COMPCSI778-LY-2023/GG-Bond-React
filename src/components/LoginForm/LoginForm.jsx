@@ -11,7 +11,6 @@ const LoginForm = () => {
     const [ifCorrect, setIfCorrect] = useState(true);
     const navigate = useNavigate();
     const [cookies, setCookie] = useCookies(["loggedIn"]);
-
     const handleSubmit = (values) => {
         if (
             values.username === hardcodedUsername &&

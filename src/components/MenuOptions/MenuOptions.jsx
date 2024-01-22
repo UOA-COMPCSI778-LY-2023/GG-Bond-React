@@ -9,6 +9,8 @@ import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
 import ShipTypeFilter from "../ShipTypeFilter/ShipTypeFilter";
 import L from "leaflet";
+import { useCookies } from "react-cookie";
+
 
 import { FloatButton } from "antd";
 import {
@@ -16,8 +18,13 @@ import {
     DownloadOutlined,
     SearchOutlined,
     FilterOutlined,
+    createFromIconfontCN,
     EnvironmentOutlined,
 } from "@ant-design/icons";
+
+const IconFont = createFromIconfontCN({
+    scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+  });
 
 const shipTypes = [
     // { type: 'ALL', color: 'Black' },
@@ -107,6 +114,11 @@ const MenuOptions = () => {
         console.log(shapesContainer);
         setShowDownloadPanel(!showDownloadPanel);
     };
+    const [cookies, setCookie, removeCookie] = useCookies(["loggedIn"]);
+
+    const toggleLogOut = () =>{
+        removeCookie("loggedIn");
+    }
 
     useEffect(() => {
         const el = document.getElementById("menuoptions");
@@ -169,6 +181,13 @@ const MenuOptions = () => {
                     onClick={toggleDownloadPanel}
                     tooltip={<div>Download</div>}
                     icon={<DownloadOutlined />}
+                    className="menubtn"
+                />
+                
+                <FloatButton
+                    onClick={toggleLogOut}
+                    tooltip={<div>LogOut</div>}
+                    icon={<IconFont type="icon-tuichu" />}
                     className="menubtn"
                 />
             </FloatButton.Group>
