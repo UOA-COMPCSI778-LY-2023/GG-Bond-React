@@ -47,8 +47,8 @@ const LoginForm = () => {
         >
             <Card
                 className="login-card"
-                title="Login"
-                extra={<a href="#">Register</a>}
+                title="EcoMaritimeTracker"
+                // extra={<a href="#">Register</a>}
                 style={{ width: 300, opacity: 0.95 }}
             >
                 {!ifCorrect && (
@@ -103,9 +103,9 @@ const LoginForm = () => {
                         >
                             <Checkbox>Remember me</Checkbox>
                         </Form.Item>
-                        <a className="login-form-forgot" href="">
+                        {/* <a className="login-form-forgot" href="">
                             Forgot password
-                        </a>
+                        </a> */}
                     </Form.Item>
 
                     <Form.Item className="item-submit">

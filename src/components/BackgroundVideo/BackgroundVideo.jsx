@@ -1,9 +1,16 @@
 import "./BackgroundVideo.css"
 
 const videoFiles = [
-    "BackgroundVideos/Video1.mp4",
-    "BackgroundVideos/Video2.mp4",
-    "BackgroundVideos/Video3.mp4",
+    "BackgroundVideos/Video4.mp4",
+    "BackgroundVideos/Video5.mp4",
+    "BackgroundVideos/Video6.mp4",
+    "BackgroundVideos/Video7.mp4",
+    "BackgroundVideos/Video8.mp4",
+    "BackgroundVideos/Video9.mp4",
+    "BackgroundVideos/Video10.mp4",
+    "BackgroundVideos/Video11.mp4",
+    "BackgroundVideos/Video12.mp4",
+    "BackgroundVideos/Video13.mp4",
   ];
 
 const BackgroundVideo=()=>{
