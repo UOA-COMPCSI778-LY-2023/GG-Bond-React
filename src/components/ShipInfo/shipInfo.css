@@ -1,6 +1,5 @@
   .detail-info-item {
     /* flex: 1;  */
-    
     padding: 1px;
     border: 1px solid #ddd;
     font-family: Helvetica, Arial, sans-serif;
@@ -27,12 +26,54 @@
     padding: '0';
   }
 
-
-  .ship-info-card {
-    position: absolute;
-    top: 17px;
-    right: 60px;
+  .card-space{
     z-index: 9999;
+    position: absolute;
 }
+  .ship-type-image{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+  }
+  .country-flag{
+    width: 2.2em;
+    height: 2.2em;
+    margin-left: 5px;
+  }
+  .country-flag-img{
+    width: 30.8px;
+    height: 30.8px;
+    margin-left: 5px;
+  }
+  .close-icon{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 
+  .info-card{
+    width: 300px;
+  }
+
+  .past-track-button{
+    width: 120;
+    text-align: center;
+    background-color: #1c2330;
+    opacity: 0.9
+  }
+  .pollution-button{
+    width: 140px;
+    margin-left: 15px;
+    text-align: center;
+    background-color: #1c2330;
+    opacity: 0.9
+  }
+  .spin-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 278px;
+    height: 185px;
+  }
 

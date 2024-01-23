@@ -1,13 +1,17 @@
-import './App.css';
-import Map from './components/Map/Map';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import MapPage from "./pages/MapPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
-  return (
-    <div className="App">
-      {/* <Gmap></Gmap> */}
-      <Map />
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MapPage />} />
+                <Route path="login" element={<LoginPage />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

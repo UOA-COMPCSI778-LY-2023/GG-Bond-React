@@ -1,43 +1,18 @@
-
+import React, { useState, useEffect, useCallback } from "react";
 import L from "leaflet";
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-    MapContainer,
-    LayersControl,
-    useMapEvents,
-    ScaleControl,
-    useMap
-} from "react-leaflet";
-import { BasemapLayer } from "react-esri-leaflet";
-
-// import './Map.css'
+import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 import MenuOptions from "../MenuOptions/MenuOptions";
-import { Marker, Popup } from "react-leaflet";
 import ShipInfo from "../ShipInfo/ShipInfo";
-import ReactDOMServer from "react-dom/server";
 import ShipMarker from "../ShipMarker/ShipMarker";
-import "leaflet/dist/leaflet.css";
 import SearchShip from "../SearchShip/SearchShip";
-
-// //Mock
-// // import mockBoatsData from '../../MockData/MockData';
-// //Real Data
-// //1000
-// import MockData1000 from "../../MockData/MockData1000new.json";
-// //Data levle 500
-// import MockData500 from "../../MockData/MockData500.json";
-// //5000
-// import MockData5000 from "../../MockData/MockData5000.json";
-// //10000 too many
-// import MockData10000 from "../../MockData/MockData10000.json";
-// //100000 too many
-// import MockData100000 from "../../MockData/MockData100000.json";
-// //Mock
-
-const center = [-36.842, 174.76];
-// const apiKey = "AAPK4f354998bf5a4659b9d666b2069641897bTjGcAqQx-CfCSZNh9ToN7ANpoJDprU4gf08kNagIOaR_eSX7gjFQaqM9EzJmu-";
-// const baseUrl = "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles";
+import "leaflet/dist/leaflet.css";
+import MapLayers from "../MapLayers/MapLayers";
+import "leaflet-hash-plus";
+import "leaflet.heat";
+import "./Map.css";
 
 //map boundary limit
 const corner1 = L.latLng(-90, -240);
@@ -46,17 +21,38 @@ const bounds = L.latLngBounds(corner1, corner2);
 
 function Map() {
     const [selectedBoat, setSelectedBoat] = useState();
-
-    const [mousePosition, setMousePosition] = useState(null); // Added for mouse position tracking
-
     const [shipsBasicData, setShipsBasicData] = useState([]);
+    const [heatData, setHeatData] = useState([]);
+    const [map, setMap] = useState(null);
+    const [selectedLayer, setSelectedLayer] = useState("Light map");
+
+    const [cookies] = useCookies(["loggedIn"]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        let hashInstance;
+        if (!cookies.loggedIn) {
+            navigate("/login"); // Redirect to login page
+        } else {
+            if (map) {
+                // Initialise Leaflet Hash Plus after successful login and map is available
+                hashInstance = new L.Hash(map);
+            } else {
+                console.log("Map is not initialized");
+            }
+        }
+
+        return () => {
+            if (hashInstance && hashInstance.stopListening) {
+                hashInstance.stopListening();
+            }
+        };
+    }, [cookies, navigate, map]);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
-
         const type = "0";
         const source = 0;
-        const limit = 800;
-        console.log(latLngNE, latLngSW);
+        const limit = 500;
         const url = `http://13.236.117.100:8888/rest/v1/ship/list/${latLngSW.lng}/${latLngSW.lat}/${latLngNE.lng}/${latLngNE.lat}/${type}/${source}/${limit}`;
 
         try {
@@ -66,85 +62,101 @@ function Map() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             setShipsBasicData(response.data.data);
-            console.log(response.data.data);
+            const heatdata = response.data.data.map((item) => [
+                item.la,
+                item.lo,
+                item.lv,
+            ]);
+            setHeatData(heatdata);
         } catch (error) {
             console.error("Error fetching ship details:", error.message);
         }
     };
 
     useEffect(() => {
-        const latLngNE = { lat: 90, lng: 240 };
-        const latLngSW = { lat: -90, lng: -240 };
-        getShipBasicData(latLngNE, latLngSW);
-    }, []);
+        if (map) {
+            const latLngNE = map.getBounds()._northEast;
+            const latLngSW = map.getBounds()._southWest;
+            getShipBasicData(latLngNE, latLngSW);
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [map]);
+
+    const handleMoveEnd = useCallback(() => {
+        if (map) {
+            getShipBasicData(
+                map.getBounds()._northEast,
+                map.getBounds()._southWest
+            );
+        }
+    }, [map]);
 
     function GetMapDetail() {
-
-        const map = useMapEvents({
-            mousemove: (e) => {
-                setMousePosition(e.latlng); // Track mouse position
-            },
-            zoomend: () => {
-                getShipBasicData(
-                    map.getBounds()._northEast,
-                    map.getBounds()._southWest
-                );
-            },
-            moveend: () => {
-                getShipBasicData(
-                    map.getBounds()._northEast,
-                    map.getBounds()._southWest
-                );
-            },
+        useMapEvents({
+            moveend: handleMoveEnd,
         });
 
-      return null;
-  }
+        return null;
+    }
+
+    //Help function to check boat
+    function deepEqual(obj1, obj2) {
+        if (obj1 === obj2) return true;
+        if (
+            typeof obj1 !== "object" ||
+            obj1 === null ||
+            typeof obj2 !== "object" ||
+            obj2 === null
+        ) {
+            return false;
+        }
+
+        const keys1 = Object.keys(obj1);
+        const keys2 = Object.keys(obj2);
+
+        if (keys1.length !== keys2.length) return false;
+
+        for (const key of keys1) {
+            if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     return (
         <div className="Map">
             <MapContainer
                 id="mapId"
-                center={center}
-                zoom={2}
+                center={[-36.842, 174.76]}
+                zoom={14}
                 scrollWheelZoom={true}
                 maxBoundsViscosity={1.0}
                 maxBounds={bounds}
                 minZoom={2}
+                ref={setMap}
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
-                <LayersControl position="bottomleft" collapsed={true}>
-                  <LayersControl.BaseLayer name="Light map" checked>
-                        <BasemapLayer name="Gray" />
-                    </LayersControl.BaseLayer>
-
-                    <LayersControl.BaseLayer name="Dark map">
-                        <BasemapLayer name="DarkGray" />
-                    </LayersControl.BaseLayer>
-
-                    <LayersControl.BaseLayer name="Satellite">
-                        <BasemapLayer name="Imagery" />
-                    </LayersControl.BaseLayer>
-
-                    <LayersControl.BaseLayer name="Oceans">
-                        <BasemapLayer name="Oceans" maxZoom={13} />{" "}
-                        {/*China maxZoom={10} */}
-                    </LayersControl.BaseLayer>
-                </LayersControl>
+                <MapLayers
+                    heatData={heatData}
+                    setSelectedLayer={setSelectedLayer}
+                />
                 <MenuOptions />
-                <SearchShip />
 
-
-                {/* Displaying ships using fetched data */}
-                {shipsBasicData.map((boatData, index) => (
-                    <ShipMarker
-                        key={index}
-                        boatData={boatData}
-                        setSelectedBoat={setSelectedBoat}
-                        isSelected={selectedBoat === boatData}
-                    />
-                ))}
+                {shipsBasicData.map((boatData, index) => {
+                    return (
+                        <ShipMarker
+                            key={index}
+                            boatData={boatData}
+                            setSelectedBoat={setSelectedBoat}
+                            isSelected={deepEqual(boatData, selectedBoat)}
+                            selectedLayer={selectedLayer}
+                        />
+                    );
+                })}
 
                 {selectedBoat && (
                     <ShipInfo
@@ -153,27 +165,7 @@ function Map() {
                     />
                 )}
             </MapContainer>
-
-            {/* Displaying mouse position */}
-            {mousePosition && (
-                <div style={{
-                    position: 'absolute',
-                    bottom: '20px',
-                    right: '10px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                    padding: '8px 10px',
-                    zIndex: 1000,
-                    borderRadius: '8px',
-                    boxShadow: '0 0 5px rgba(0,0,0,0.2)',
-                    fontSize: '14px',
-                    fontWeight: 'bold',
-                    color: '#333',
-                    textAlign: 'center'
-                }}>
-                    Lat: {mousePosition.lat.toFixed(4)}<br />
-                    Lng: {mousePosition.lng.toFixed(4)}
-                </div>
-            )}
+            <SearchShip setSelectedBoat={setSelectedBoat} />
         </div>
     );
 }
