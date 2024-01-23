@@ -16,7 +16,7 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
     } else {
       updatedCountries = [...selectedCountries, countryCode];
     }
-    handleCountrySelect(updatedCountries); // 更新选中的国家类型
+    handleCountrySelect(updatedCountries); // 更新选中的国家类
   };
 
   return (
