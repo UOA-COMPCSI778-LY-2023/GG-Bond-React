@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import L from "leaflet";
 import { FeatureGroup } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
@@ -33,13 +33,15 @@ function DrawTools({ onChange, setShapeContainer }) {
 
             setShapeContainer((prevShapes) => {
                 const newShapes = { ...prevShapes };
-
                 shapeIds.forEach((shapeId) => {
                     if (newShapes["polygon"].hasOwnProperty(shapeId)) {
                         const latlngs = layer[shapeId]._latlngs;
                         newShapes["polygon"][shapeId] = latlngs;
                     } else if (newShapes["circle"].hasOwnProperty(shapeId)) {
-                        // newShapes["circle"][shapeId] = latlngs;
+                        const latlng = layer[shapeId]._latlng;
+                        const radius = layer[shapeId]._radius;
+                        newShapes["circle"][shapeId][1] = latlng;
+                        newShapes["circle"][shapeId][0] = radius;
                     }
                 });
 
@@ -60,7 +62,6 @@ function DrawTools({ onChange, setShapeContainer }) {
             } else {
                 const shapeId = layer._leaflet_id;
                 const latlngs = layer._latlngs || layer._latlng;
-                console.log(layer);
                 if (type === "polygon") {
                     setShapeContainer((prevShapes) => {
                         const newShapes = {
@@ -100,7 +101,11 @@ function DrawTools({ onChange, setShapeContainer }) {
             const newShapes = { ...prevShapes };
 
             shapeIds.forEach((shapeId) => {
-                delete newShapes[shapeId];
+                if (newShapes["polygon"].hasOwnProperty(shapeId)) {
+                    delete newShapes["polygon"][shapeId];
+                } else if (newShapes["circle"].hasOwnProperty(shapeId)) {
+                    delete newShapes["circle"][shapeId];
+                }
             });
 
             return newShapes;
@@ -158,6 +163,12 @@ function DrawTools({ onChange, setShapeContainer }) {
                         metric: false,
                         feet: false,
                         nautic: true,
+                        allowIntersection: false,
+                    },
+                    toolbar: {
+                        buttons: {
+                            polygon: "Draw an awesome polygon",
+                        },
                     },
                 }}
                 ref={(e) => (_editableFG.current = e)}

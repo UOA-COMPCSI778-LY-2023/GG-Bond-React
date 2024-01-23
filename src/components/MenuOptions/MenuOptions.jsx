@@ -53,8 +53,6 @@ const countryTypes = [
 ];
 
 const MenuOptions = () => {
-    const [dark, setDark] = useState(false);
-    const [isActive, setIsActive] = useState(false);
     const [showFilterDropdown, setShowFilterDropdown] = useState(false);
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [selectedCountries, setSelectedCountries] = useState([]);
@@ -65,11 +63,6 @@ const MenuOptions = () => {
         polygon: {},
         circle: {},
     });
-
-    const toggleDarkOrLightMode = () => {
-        setDark(!dark);
-        setIsActive(!isActive);
-    };
 
     const toggleFilterDropdown = () => {
         setShowFilterDropdown(!showFilterDropdown);
