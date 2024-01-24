@@ -30,7 +30,7 @@ const MapLayers = ({ heatData, setSelectedLayer }) => {
                 <BasemapLayer name="Oceans" maxZoom={13} />
                 {/*China maxZoom={10} */}
             </LayersControl.BaseLayer>
-            <LayersControl.Overlay name="HeatMap">
+            <LayersControl.Overlay name="HeatMap" checked>
                 <HeatmapLayer
                     points={heatData}
                     longitudeExtractor={(m) => m[1]}
