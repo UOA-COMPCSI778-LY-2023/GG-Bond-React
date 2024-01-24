@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
+import { FiNavigation2 } from "react-icons/fi"; // Import FiNavigation2
 import './ShipTypeFilter.css';
 
 const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countryTypes, selectedCountries, handleCountrySelect }) => {
-  const [isShipTypeOpen, setIsShipTypeOpen] = useState(false);
   const [isCountryOpen, setIsCountryOpen] = useState(false);
-
-  const toggleShipTypeDropdown = () => {
-    setIsShipTypeOpen(!isShipTypeOpen);
-    if (isCountryOpen) setIsCountryOpen(false);
-  };
 
   const toggleCountryDropdown = () => {
     setIsCountryOpen(!isCountryOpen);
-    if (isShipTypeOpen) setIsShipTypeOpen(false);
   };
 
   const handleCountrySelectInternal = (countryCode) => {
@@ -22,33 +16,30 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
     } else {
       updatedCountries = [...selectedCountries, countryCode];
     }
-    handleCountrySelect(updatedCountries); // 更新选中的国家类型
+    handleCountrySelect(updatedCountries); // 更新选中的国家类
   };
-
-
 
   return (
     <div className="filter-dropdown">
-      <div className="filter-parent" onClick={toggleShipTypeDropdown}>
+      <div className="filter-parent">
         ShipTypes
         <span className="triangle">&#9660;</span>
       </div>
 
-      <div className={`ship-type-filter-dropdown ${isShipTypeOpen ? 'show' : ''}`}>
-        {shipTypes.map(ship => (
-          <label key={ship.type} className="ship-type-filter-item">
-            <input
-              type="checkbox"
-              className="ship-type-filter-checkbox"
-              checked={selectedFilters.includes(ship.type)}
-              onChange={() => handleFilterSelect(ship.type)}
-            />
-            <span className="ship-type-filter-text" style={{ color: ship.color }}>
-              {ship.type}
-            </span>
-          </label>
-        ))}
-      </div>
+      {shipTypes.map(ship => (
+        <label key={ship.type} className="ship-type-filter-item">
+          <input
+            type="checkbox"
+            className="ship-type-filter-checkbox"
+            checked={selectedFilters.includes(ship.type)}
+            onChange={() => handleFilterSelect(ship.type)}
+          />
+          <FiNavigation2 style={{ color: ship.color, marginRight: '8px' }} /> {/* FiNavigation2 icon placed after checkbox */}
+          <span className="ship-type-filter-text" style={{ color: ship.color }}>
+            {ship.type}
+          </span>
+        </label>
+      ))}
 
       <div className="filter-parent" onClick={toggleCountryDropdown}>
         Countries
@@ -62,7 +53,7 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
               type="checkbox"
               className="country-filter-checkbox"
               checked={selectedCountries.includes(country.type)}
-              onChange={() => handleCountrySelect(country.type)} 
+              onChange={() => handleCountrySelectInternal(country.type)} 
             />
             <span className="country-filter-text" style={{ color: country.color }}>
               {country.type}

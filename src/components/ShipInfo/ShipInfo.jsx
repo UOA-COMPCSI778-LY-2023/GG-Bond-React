@@ -112,7 +112,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
     // show track
     const handleTrackButtonClick = () => {
         setShowTrackPopup(!showTrackPopup);
-        // 不立即开始动画，只显示 TrackPopup
+        setIsAnimating(false); // Ensure animation doesn't start automatically
     };
 
     useEffect(() => {
@@ -215,15 +215,17 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                 </div>
                             </div>
                         </Card>
-                        <TrackPopup
-                            visible={showTrackPopup}
-                            onClose={() => {
-                                setShowTrackPopup(false);
-                                setIsAnimating(false);
-                            }}
-                            isAnimating={isAnimating}
-                            setIsAnimating={setIsAnimating}
-                        />
+                        {showTrackPopup && (
+                            <TrackPopup
+                                visible={showTrackPopup}
+                                onClose={() => {
+                                    setShowTrackPopup(false);
+                                    setIsAnimating(false);
+                                }}
+                                isAnimating={isAnimating}
+                                setIsAnimating={setIsAnimating}
+                            />
+                        )}
                     </Space>
                 </div>
             </Draggable>

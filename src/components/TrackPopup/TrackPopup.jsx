@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button, Progress } from 'antd';
+import { Button, Progress } from 'antd';
+import { CloseOutlined, PlayCircleOutlined, PauseCircleOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 import ShipTrack from '../ShipTrack/ShipTrack';
 import mockTrack from '../ShipTrack/MockTrack';
 import timestamps from '../ShipTrack/timestamps';
 
-const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
+const TrackPopup = ({ isAnimating, setIsAnimating }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showTrack, setShowTrack] = useState(false);
-  const [showHideButtonText, setShowHideButtonText] = useState('Show');
+  const [showTrack, setShowTrack] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     let interval;
@@ -19,55 +20,91 @@ const TrackPopup = ({ visible, onClose, isAnimating, setIsAnimating }) => {
     return () => clearInterval(interval);
   }, [isAnimating, mockTrack]);
 
-  useEffect(() => {
-    if (!visible) {
-      setIsAnimating(false);
-      setShowTrack(false);
-      setShowHideButtonText('Show');
-    }
-    else {
-      setShowTrack(true);
-      setShowHideButtonText('Hide');
-    }
-  }, [visible]);
-
   const handleStartPause = () => {
     setIsAnimating(!isAnimating);
   };
 
   const handleShowHide = () => {
     setShowTrack(!showTrack);
-    setShowHideButtonText(showTrack ? 'Show' : 'Hide');
   };
 
-  const progressPercent = (currentIndex / (timestamps.length - 1)) * 100;
+  const handleClose = () => {
+    setIsAnimating(false);
+    setShowTrack(false);
+    setIsVisible(false);
+    setCurrentIndex(0); // Reset currentIndex
+  };
+
+  const progressPercent = ((currentIndex / (timestamps.length - 1)) * 100).toFixed(2);
   const currentTime = timestamps[currentIndex];
 
+  if (!isVisible) return null;
+
   return (
-    <Modal
-      title="Track Control"
-      visible={visible}
-      onCancel={() => {
-        setIsAnimating(false);
-        setShowTrack(false);
-        setShowHideButtonText('Show');
-        onClose();
-      }}
-      footer={null}
-      mask={false}
-      style={{
-        top: '80%', // 将 Modal 定位到屏幕下方中间
-        margin: 'auto',
-        // 你可以在这里添加其他样式，比如最大宽度或内边距等
-      }}
-    >
-      <ShipTrack track={mockTrack} showTrack={showTrack} currentIndex={currentIndex} />
-      <Button onClick={handleStartPause}>{isAnimating ? 'Pause' : 'Start'}</Button>
-      <Button onClick={handleShowHide}>{showHideButtonText}</Button>
-      <Progress percent={progressPercent} />
-      <div>Current Time: {currentTime}</div>
-    </Modal>
+    <div style={{
+      position: 'fixed',
+      bottom: '-520px',
+      left: '900px',
+      transform: 'translateX(-50%)',
+      width: '180%',
+      padding: '15px',
+      backgroundColor: '#f7f7f7',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+      borderRadius: '8px 8px 0 0',
+      zIndex: 1000,
+      borderTop: '1px solid #e0e0e0'
+    }}>
+      <ShipTrack
+        track={mockTrack}
+        showTrack={showTrack}
+        currentIndex={currentIndex}
+        isAnimating={isAnimating}
+      />
+
+      <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', marginTop: '10px' }}>
+        <Button
+          onClick={handleStartPause}
+          icon={isAnimating ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
+          style={{ fontSize: '18px', padding: '6px 20px', border: 'none' }} // No border
+        >
+          {isAnimating ? 'Pause' : 'Start'}
+        </Button>
+
+        <Button
+          onClick={handleShowHide}
+          icon={showTrack ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+          style={{ fontSize: '18px', padding: '6px 20px', border: 'none' }} // No border
+        >
+          {showTrack ? 'Hide Track' : 'Show Track'}
+        </Button>
+
+        <Button
+          onClick={handleClose}
+          type="default"
+          icon={<CloseOutlined />}
+          style={{ fontSize: '18px', padding: '6px 20px', border: 'none' }} // No border
+        />
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+        <Progress
+          percent={parseFloat(progressPercent)}
+          style={{ width: '90%' }}
+          strokeColor={{
+            '0%': '#108ee9',
+            '100%': '#87d068',
+          }}
+          showInfo={false} // Hide default percentage text
+        />
+        <div style={{ marginLeft: '10px', fontSize: '18px', color: '#595959' }}>
+          {progressPercent}%
+        </div>
+      </div>
+
+      <div style={{ marginTop: '15px', fontSize: '18px', textAlign: 'center', color: '#595959' }}>Current Time: {currentTime}</div>
+    </div>
   );
 };
+
 
 export default TrackPopup;

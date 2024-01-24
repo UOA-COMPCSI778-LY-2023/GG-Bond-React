@@ -2,13 +2,15 @@ import React, { useState, useEffect, useCallback } from "react";
 import L from "leaflet";
 import axios from "axios";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 import MenuOptions from "../MenuOptions/MenuOptions";
 import ShipInfo from "../ShipInfo/ShipInfo";
 import ShipMarker from "../ShipMarker/ShipMarker";
 import SearchShip from "../SearchShip/SearchShip";
 import "leaflet/dist/leaflet.css";
 import MapLayers from "../MapLayers/MapLayers";
-import leafletHashPlus from "leaflet-hash-plus"; // Don't DELETE this line
+import "leaflet-hash-plus";
 import "leaflet.heat";
 import "./Map.css";
 
@@ -22,6 +24,30 @@ function Map() {
     const [shipsBasicData, setShipsBasicData] = useState([]);
     const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
+    const [selectedLayer, setSelectedLayer] = useState("Light map");
+
+    const [cookies] = useCookies(["loggedIn"]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        let hashInstance;
+        if (!cookies.loggedIn) {
+            navigate("/login"); // Redirect to login page
+        } else {
+            if (map) {
+                // Initialise Leaflet Hash Plus after successful login and map is available
+                hashInstance = new L.Hash(map);
+            } else {
+                console.log("Map is not initialized");
+            }
+        }
+
+        return () => {
+            if (hashInstance && hashInstance.stopListening) {
+                hashInstance.stopListening();
+            }
+        };
+    }, [cookies, navigate, map]);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
@@ -52,9 +78,6 @@ function Map() {
             const latLngNE = map.getBounds()._northEast;
             const latLngSW = map.getBounds()._southWest;
             getShipBasicData(latLngNE, latLngSW);
-
-            // Initialize Leaflet Hash Plus when the component mounts
-            new L.Hash(map);
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -117,7 +140,10 @@ function Map() {
             >
                 <GetMapDetail />
                 <ScaleControl position={"bottomleft"} />
-                <MapLayers heatData={heatData} />
+                <MapLayers
+                    heatData={heatData}
+                    setSelectedLayer={setSelectedLayer}
+                />
                 <MenuOptions />
 
                 {shipsBasicData.map((boatData, index) => {
@@ -127,6 +153,7 @@ function Map() {
                             boatData={boatData}
                             setSelectedBoat={setSelectedBoat}
                             isSelected={deepEqual(boatData, selectedBoat)}
+                            selectedLayer={selectedLayer}
                         />
                     );
                 })}

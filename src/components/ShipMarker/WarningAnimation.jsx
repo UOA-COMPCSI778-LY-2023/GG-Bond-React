@@ -1,10 +1,10 @@
 
  import "../ShipMarker/WarningAnimation.css";
 
-const WarningAnimation = () => {
+const WarningAnimation = ({colorType}) => {
     return(
         <div class="container">
-        <div class="circle"></div>
+        <div class={`circle-${colorType}`}></div>
         </div>
     )
 }

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
-import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
-import Tooltip from "antd";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
 import DownloadShipsInfo from "../DownloadShipsInfo/DownloadShipsInfo";
 import DrawTools from "../DrawTools/DrawTools";
@@ -9,6 +7,7 @@ import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
 import ShipTypeFilter from "../ShipTypeFilter/ShipTypeFilter";
 import L from "leaflet";
+import { useCookies } from "react-cookie";
 
 import { FloatButton } from "antd";
 import {
@@ -16,8 +15,13 @@ import {
     DownloadOutlined,
     SearchOutlined,
     FilterOutlined,
+    createFromIconfontCN,
     EnvironmentOutlined,
 } from "@ant-design/icons";
+
+const IconFont = createFromIconfontCN({
+    scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js",
+});
 
 const shipTypes = [
     // { type: 'ALL', color: 'Black' },
@@ -49,19 +53,16 @@ const countryTypes = [
 ];
 
 const MenuOptions = () => {
-    const [dark, setDark] = useState(false);
-    const [isActive, setIsActive] = useState(false);
     const [showFilterDropdown, setShowFilterDropdown] = useState(false);
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [selectedCountries, setSelectedCountries] = useState([]);
     const [showDrawTools, setShowDrawTools] = useState(true);
     const [showSearchLocation, setShowSearchLocation] = useState(true);
     const [showDownloadPanel, setShowDownloadPanel] = useState(false);
-
-    const toggleDarkOrLightMode = () => {
-        setDark(!dark);
-        setIsActive(!isActive);
-    };
+    const [shapesContainer, setShapeContainer] = useState({
+        polygon: {},
+        circle: {},
+    });
 
     const toggleFilterDropdown = () => {
         setShowFilterDropdown(!showFilterDropdown);
@@ -100,21 +101,19 @@ const MenuOptions = () => {
     };
 
     const toggleDownloadPanel = () => {
+        console.log(shapesContainer);
         setShowDownloadPanel(!showDownloadPanel);
+    };
+    const [cookies, setCookie, removeCookie] = useCookies(["loggedIn"]);
+
+    const toggleLogOut = () => {
+        removeCookie("loggedIn");
     };
 
     useEffect(() => {
         const el = document.getElementById("menuoptions");
         L.DomEvent.on(el, "dblclick", L.DomEvent.stopPropagation);
     }, []);
-
-    // const menuOptionsStyle = {
-    //     background: isActive ? "white" : "#1c2330", // Change background color based on isActive
-    // };
-
-    // const buttonStyle = {
-    //     color: isActive ? "#1c2330" : "#fff", // Change button color based on isActive
-    // };
 
     return (
         <div id="menuoptions">
@@ -126,17 +125,7 @@ const MenuOptions = () => {
                 icon={<ToolOutlined />}
             >
                 <FloatButton
-                    onClick={toggleDarkOrLightMode}
-                    icon={dark ? <FaLightbulb /> : <FaRegLightbulb />}
-                    className="menubtn"
-                />
-                <FloatButton
                     onClick={toggleDrawTools}
-                    onDoubleClick={(e) => {
-                        // console.log(e);
-                        // e.preventDefault();
-                        // e.stopPropagation();
-                    }}
                     icon={<LiaDrawPolygonSolid />}
                     tooltip={<div>Draft</div>}
                     className="menubtn"
@@ -166,6 +155,13 @@ const MenuOptions = () => {
                     icon={<DownloadOutlined />}
                     className="menubtn"
                 />
+
+                <FloatButton
+                    onClick={toggleLogOut}
+                    tooltip={<div>LogOut</div>}
+                    icon={<IconFont type="icon-tuichu" />}
+                    className="menubtn"
+                />
             </FloatButton.Group>
 
             {showFilterDropdown && (
@@ -182,6 +178,7 @@ const MenuOptions = () => {
             {showDrawTools && (
                 <DrawTools
                     onChange={(geojsonData) => console.log(geojsonData)}
+                    setShapeContainer={setShapeContainer}
                 />
             )}
             {showSearchLocation && (
@@ -202,6 +199,7 @@ const MenuOptions = () => {
             {showDownloadPanel && (
                 <DownloadShipsInfo
                     setShowDownloadPanel={setShowDownloadPanel}
+                    shapesContainer={shapesContainer}
                 />
             )}
         </div>
