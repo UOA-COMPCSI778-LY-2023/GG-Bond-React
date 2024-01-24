@@ -31,7 +31,7 @@ function SearchBox({ onSearch }) {
             <form onSubmit={handleSearch} className="search-box">
             <input
   type="text"
-  placeholder="Search ships by mmsi"
+  placeholder="Search ships by mmsi/vessal name"
   value={searchTerm}
   className="search-input"
   onChange={(e) => setSearchTerm(e.target.value)}
@@ -40,7 +40,7 @@ function SearchBox({ onSearch }) {
     backgroundColor: 'rgba(128, 128, 128, 0.5)',
     border: 'none',
     borderRadius: '20px',
-    width: '200px',
+    width: '700px',
     padding: '1px', // 减少垂直内边距，使搜索框变扁
     fontSize: '14px',}} // 内联样式
 />
