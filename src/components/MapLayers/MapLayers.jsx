@@ -14,7 +14,7 @@ const MapLayers = ({ heatData, setSelectedLayer }) => {
 
     return (
         <LayersControl position="bottomleft" collapsed={true}>
-            <LayersControl.BaseLayer name="Light map" checked>
+            <LayersControl.BaseLayer name="Light map">
                 <BasemapLayer name="Gray" />
             </LayersControl.BaseLayer>
 
@@ -22,7 +22,7 @@ const MapLayers = ({ heatData, setSelectedLayer }) => {
                 <BasemapLayer name="DarkGray" />
             </LayersControl.BaseLayer>
 
-            <LayersControl.BaseLayer name="Satellite">
+            <LayersControl.BaseLayer name="Satellite" checked>
                 <BasemapLayer name="Imagery" />
             </LayersControl.BaseLayer>
 
