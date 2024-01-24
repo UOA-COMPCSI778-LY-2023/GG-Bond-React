@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+
 import L from "leaflet";
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
@@ -18,21 +18,6 @@ const corner1 = L.latLng(-90, -240);
 const corner2 = L.latLng(90, 240);
 const bounds = L.latLngBounds(corner1, corner2);
 
-function GetMapDetail() {
-    const map = useMapEvents({
-        zoomend: () => {
-            console.log("Current map zoom level：", map.getZoom());
-        },
-        dragend: () => {
-            console.log(
-                "Current centre latitude and longitude：",
-                map.getCenter()
-            );
-            console.log("Bound", map.getBounds());
-        },
-    });
-    return null;
-}
 
 function Map() {
     const [selectedBoat, setSelectedBoat] = useState();
