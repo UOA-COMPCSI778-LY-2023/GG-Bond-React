@@ -2,10 +2,10 @@
 
 ### Installation of dependencies
 ```
-npm i -f
+npm i
 ```
 
-### Run pj
+### Run project
 ```
 npm run start
 ```

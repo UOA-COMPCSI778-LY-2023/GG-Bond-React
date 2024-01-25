@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
-import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
 import DownloadShipsInfo from "../DownloadShipsInfo/DownloadShipsInfo";
 import DrawTools from "../DrawTools/DrawTools";
@@ -54,8 +53,6 @@ const countryTypes = [
 ];
 
 const MenuOptions = () => {
-    const [dark, setDark] = useState(false);
-    const [isActive, setIsActive] = useState(false);
     const [showFilterDropdown, setShowFilterDropdown] = useState(false);
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [selectedCountries, setSelectedCountries] = useState([]);
@@ -66,11 +63,6 @@ const MenuOptions = () => {
         polygon: {},
         circle: {},
     });
-
-    const toggleDarkOrLightMode = () => {
-        setDark(!dark);
-        setIsActive(!isActive);
-    };
 
     const toggleFilterDropdown = () => {
         setShowFilterDropdown(!showFilterDropdown);
@@ -123,14 +115,6 @@ const MenuOptions = () => {
         L.DomEvent.on(el, "dblclick", L.DomEvent.stopPropagation);
     }, []);
 
-    // const menuOptionsStyle = {
-    //     background: isActive ? "white" : "#1c2330", // Change background color based on isActive
-    // };
-
-    // const buttonStyle = {
-    //     color: isActive ? "#1c2330" : "#fff", // Change button color based on isActive
-    // };
-
     return (
         <div id="menuoptions">
             {/* style={menuOptionsStyle} */}
@@ -141,17 +125,7 @@ const MenuOptions = () => {
                 icon={<ToolOutlined />}
             >
                 <FloatButton
-                    onClick={toggleDarkOrLightMode}
-                    icon={dark ? <FaLightbulb /> : <FaRegLightbulb />}
-                    className="menubtn"
-                />
-                <FloatButton
                     onClick={toggleDrawTools}
-                    onDoubleClick={(e) => {
-                        // console.log(e);
-                        // e.preventDefault();
-                        // e.stopPropagation();
-                    }}
                     icon={<LiaDrawPolygonSolid />}
                     tooltip={<div>Draft</div>}
                     className="menubtn"

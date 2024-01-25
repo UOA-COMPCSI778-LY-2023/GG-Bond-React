@@ -30,8 +30,8 @@ const shipIcon = (heading, type, mm, colorType) => {
                 <FiNavigation2
                     className="ships"
                     style={{
-                        stroke: colorType==="dark" ? "grey":"black",
-                        opacity: colorType==="dark" ? 1:0.7,
+                        stroke: colorType === "dark" ? "grey" : "black",
+                        opacity: colorType === "dark" ? 1 : 0.7,
                         strokeWidth: 0.5,
                         fill: color,
                         transform: `rotate(${heading}deg) scale(1.5)`,
@@ -61,8 +61,16 @@ const targetIcon = () => {
     });
 };
 
-const ShipMarker = ({ boatData, setSelectedBoat, isSelected,selectedLayer }) => {
-    const colorType = selectedLayer === 'Satellite' || selectedLayer === 'Dark map' ? 'dark' : 'light';
+const ShipMarker = ({
+    boatData,
+    setSelectedBoat,
+    isSelected,
+    selectedLayer,
+}) => {
+    const colorType =
+        selectedLayer === "Satellite" || selectedLayer === "Dark map"
+            ? "dark"
+            : "light";
     const { co, he, la, lo, mm, ut, vt } = boatData;
     const togglePopup = () => {
         setSelectedBoat(boatData);
@@ -71,7 +79,7 @@ const ShipMarker = ({ boatData, setSelectedBoat, isSelected,selectedLayer }) => 
         <>
             <Marker
                 position={[la, lo]}
-                icon={shipIcon(he, vt, mm,colorType)}
+                icon={shipIcon(he, vt, mm, colorType)}
                 eventHandlers={{ click: togglePopup }}
             ></Marker>
             {isSelected && (

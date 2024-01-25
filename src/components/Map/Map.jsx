@@ -10,7 +10,7 @@ import ShipMarker from "../ShipMarker/ShipMarker";
 import SearchShip from "../SearchShip/SearchShip";
 import "leaflet/dist/leaflet.css";
 import MapLayers from "../MapLayers/MapLayers";
-import leafletHashPlus from "leaflet-hash-plus"; // Don't DELETE this line
+import "leaflet-hash-plus";
 import "leaflet.heat";
 import "./Map.css";
 
@@ -130,8 +130,8 @@ function Map() {
         <div className="Map">
             <MapContainer
                 id="mapId"
-                center={[-36.842, 174.76]}
-                zoom={14}
+                center={[-40.797, 174.990]}
+                zoom={6}
                 scrollWheelZoom={true}
                 maxBoundsViscosity={1.0}
                 maxBounds={bounds}
