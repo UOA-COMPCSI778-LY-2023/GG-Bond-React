@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 import './MarineTrafficStyle.css';
+import { Input, Button, message } from 'antd';
+
+const { Search } = Input;
 
 function SearchBox({ onSearch }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
 
-    const handleSearch = async (e) => {
-        e.preventDefault();
+    const handleSearch = async (value) => {
         if (isLoading) return;
-        if (!searchTerm) {
-            setError('Please enter a valid MMSI.');
+    
+        // 当输入为空时，不进行搜索并清除当前搜索结果
+        if (!value) {
+            message.error('Please enter a valid MMSI.');
+            setSearchTerm(''); // 清除当前的搜索词
+            onSearch(null);    // 调用 onSearch 函数并传入 null 来清除搜索结果
             return;
         }
-
+    
         setIsLoading(true);
-        setError('');
-
+    
         try {
-            await onSearch(searchTerm); // 确保这里正确地传递了搜索词
+            await onSearch(value);
         } catch (error) {
-            setError('Error occurred while searching.');
+            message.error('Error occurred while searching.');
         } finally {
             setIsLoading(false);
         }
@@ -28,28 +32,15 @@ function SearchBox({ onSearch }) {
 
     return (
         <div className="search-box-container">
-            <form onSubmit={handleSearch} className="search-box">
-            <input
-  type="text"
-  placeholder="Search ships by mmsi/vessal name"
-  value={searchTerm}
-  className="search-input"
-  onChange={(e) => setSearchTerm(e.target.value)}
-  disabled={isLoading}
-  style={{
-    backgroundColor: 'rgba(128, 128, 128, 0.5)',
-    border: 'none',
-    borderRadius: '20px',
-    width: '700px',
-    padding: '1px', // 减少垂直内边距，使搜索框变扁
-    fontSize: '14px',}} // 内联样式
-/>
-
-                <button type="submit" className="search-button" disabled={isLoading}>
-                    {isLoading ? 'Searching...' : 'Search'}
-                </button>
-            </form>
-            {error && <div className="error-message">{error}</div>}
+            <Search
+                placeholder="Search ships by mmsi/vessel name"
+                allowClear
+                onSearch={handleSearch}
+                enterButton="Search"
+                loading={isLoading}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
         </div>
     );
 }
