@@ -18,14 +18,18 @@ const LoginForm = () => {
         ) {
             setIfCorrect(true);
             navigate("/"); // jump to the map page if successful
-            setCookie("loggedIn", "true", { path: "/", maxAge: 900 });
+            if (values.remember===false){
+                setCookie("loggedIn", "true", { path: "/"});
+            }else{
+                setCookie("loggedIn", "true", { path: "/", maxAge: 2592000});
+            }
+            
         } else {
             setIfCorrect(false);
         }
     };
 
     const onFinish = (values) => {
-        console.log("Received values of form: ", values);
         handleSubmit(values);
     };
     const tabList = [
