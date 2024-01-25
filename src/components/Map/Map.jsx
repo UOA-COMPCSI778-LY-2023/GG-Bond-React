@@ -154,6 +154,7 @@ function Map() {
                             setSelectedBoat={setSelectedBoat}
                             isSelected={deepEqual(boatData, selectedBoat)}
                             selectedLayer={selectedLayer}
+                            heatData={heatData}
                         />
                     );
                 })}
