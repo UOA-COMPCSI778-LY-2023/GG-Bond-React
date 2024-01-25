@@ -72,6 +72,15 @@ function Map() {
             console.error("Error fetching ship details:", error.message);
         }
     };
+    useEffect(() => {
+        if (map) {
+            const latLngNE = map.getBounds()._northEast;
+            const latLngSW = map.getBounds()._southWest;
+            getShipBasicData(latLngNE, latLngSW);
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [map]);
 
     const handleMoveEnd = useCallback(() => {
         if (map) {
