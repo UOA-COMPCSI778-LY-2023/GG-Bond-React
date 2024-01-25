@@ -73,16 +73,6 @@ function Map() {
         }
     };
 
-    useEffect(() => {
-        if (map) {
-            const latLngNE = map.getBounds()._northEast;
-            const latLngSW = map.getBounds()._southWest;
-            getShipBasicData(latLngNE, latLngSW);
-        }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [map]);
-
     const handleMoveEnd = useCallback(() => {
         if (map) {
             getShipBasicData(
@@ -130,7 +120,7 @@ function Map() {
         <div className="Map">
             <MapContainer
                 id="mapId"
-                center={[-40.797, 174.990]}
+                center={[-40.797, 174.99]}
                 zoom={6}
                 scrollWheelZoom={true}
                 maxBoundsViscosity={1.0}

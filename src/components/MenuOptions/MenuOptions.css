@@ -12,7 +12,7 @@
 
 .menubtn{
     cursor: pointer;
-    background-color: transparent;
+    background-color: lightgrey;
     color: #fff;
     outline: none;
 }

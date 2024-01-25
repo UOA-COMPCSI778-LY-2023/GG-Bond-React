@@ -206,4 +206,4 @@ const MenuOptions = () => {
     );
 };
 
-export default MenuOptions;
+export default React.memo(MenuOptions);
