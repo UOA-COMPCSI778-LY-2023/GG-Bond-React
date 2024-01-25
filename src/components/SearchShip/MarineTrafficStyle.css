@@ -6,7 +6,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  width: 49%;
+  width: 35%;
   padding: 10px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -99,12 +99,12 @@
   align-items: stretch;
   padding: 5px;
   position: fixed;
-  top: 20px;
+  top: 45px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(48%);
+  width: calc(35%);
   z-index: 999;
-  background-color: rgb(164, 155, 155);
+  background-color: rgb(238, 233, 233);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   max-height: 300px;
   overflow-y: auto;
@@ -123,4 +123,12 @@
   width: 24px; /* 或其他适合您设计的大小 */
   margin-left: auto; /* 将图标推到最右边 */
   /* 如果需要，可以添加其他样式 */
+}
+.custom-search-input {
+  background-color: rgba(128, 128, 128, 0.5);
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  padding: 1px;
+  font-size: 14px;
 }
