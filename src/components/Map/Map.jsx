@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import L from "leaflet";
 import axios from "axios";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
@@ -25,7 +25,7 @@ function Map() {
     const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
     const [selectedLayer, setSelectedLayer] = useState("Light map");
-
+    const [tourOpen, setTourOpen] = useState(false);
     const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
 
@@ -143,7 +143,7 @@ function Map() {
                     heatData={heatData}
                     setSelectedLayer={setSelectedLayer}
                 />
-                <MenuOptions />
+                <MenuOptions tourOpen={tourOpen} setTourOpen={setTourOpen} />
 
                 {shipsBasicData.map((boatData, index) => {
                     return (
