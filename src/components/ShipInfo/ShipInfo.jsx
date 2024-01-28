@@ -236,7 +236,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                     </Space>
                 </div>
             </Draggable>
-            <DraggableModal visible={showChart} onCancel={handleCancel} />
+            <DraggableModal visible={showChart} onCancel={handleCancel} mmsi={mmsi} />
         </>
     );
 };
