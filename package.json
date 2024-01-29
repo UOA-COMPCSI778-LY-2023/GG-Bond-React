@@ -13,6 +13,7 @@
     "axios": "^1.6.2",
     "chart.js": "^4.4.1",
     "chartjs-plugin-draggable": "^0.1.6",
+    "echarts": "^5.4.3",
     "esri-leaflet": "^3.0.12",
     "esri-leaflet-geocoder": "^3.1.4",
     "file-saver": "^2.0.5",
