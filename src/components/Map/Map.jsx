@@ -164,7 +164,7 @@ function Map() {
 
                 {
                     shipsBasicData
-                        .filter(boatData => selectedVt.size === 0 || selectedVt.has(boatData.vt))
+                        .filter(boatData => selectedVt.size > 0 && selectedVt.has(boatData.vt))
                         .map((boatData, index) => (
                             <ShipMarker
                                 key={index}
@@ -183,9 +183,9 @@ function Map() {
                         setSelectedBoat={setSelectedBoat}
                     />
                 )}
-            <VtSelect onVtSelect={handleVtSelect} />
+                <VtSelect onVtSelect={handleVtSelect} />
             </MapContainer>
-           
+
 
             <SearchShip setSelectedBoat={setSelectedBoat} />
         </div>
