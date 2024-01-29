@@ -13,6 +13,8 @@ import MapLayers from "../MapLayers/MapLayers";
 import "leaflet-hash-plus";
 import "leaflet.heat";
 import "./Map.css";
+import VtSelect from "../ShipMarker/VtSelect";
+
 
 //map boundary limit
 const corner1 = L.latLng(-90, -240);
@@ -25,6 +27,7 @@ function Map() {
     const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
     const [selectedLayer, setSelectedLayer] = useState("Light map");
+    const [selectedVt, setSelectedVt] = useState(new Set()); // 使用 Set 来存储选中的 vt 值
 
     const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
@@ -48,6 +51,19 @@ function Map() {
             }
         };
     }, [cookies, navigate, map]);
+
+    const handleVtSelect = (vt) => {
+        setSelectedVt(prevSelectedVt => {
+            const newSelectedVt = new Set(prevSelectedVt);
+            if (newSelectedVt.has(vt)) {
+                newSelectedVt.delete(vt);
+            } else {
+                newSelectedVt.add(vt);
+            }
+            return newSelectedVt;
+        });
+    };
+
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
@@ -146,17 +162,20 @@ function Map() {
                 />
                 <MenuOptions />
 
-                {shipsBasicData.map((boatData, index) => {
-                    return (
-                        <ShipMarker
-                            key={index}
-                            boatData={boatData}
-                            setSelectedBoat={setSelectedBoat}
-                            isSelected={deepEqual(boatData, selectedBoat)}
-                            selectedLayer={selectedLayer}
-                        />
-                    );
-                })}
+                {
+                    shipsBasicData
+                        .filter(boatData => selectedVt.size === 0 || selectedVt.has(boatData.vt))
+                        .map((boatData, index) => (
+                            <ShipMarker
+                                key={index}
+                                boatData={boatData}
+                                setSelectedBoat={setSelectedBoat}
+                                isSelected={deepEqual(boatData, selectedBoat)}
+                                selectedLayer={selectedLayer}
+                            />
+                        ))
+                }
+
 
                 {selectedBoat && (
                     <ShipInfo
@@ -164,7 +183,10 @@ function Map() {
                         setSelectedBoat={setSelectedBoat}
                     />
                 )}
+            <VtSelect onVtSelect={handleVtSelect} />
             </MapContainer>
+           
+
             <SearchShip setSelectedBoat={setSelectedBoat} />
         </div>
     );
