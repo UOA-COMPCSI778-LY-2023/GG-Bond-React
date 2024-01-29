@@ -1,3 +1,5 @@
+import React from 'react';
+import { FiNavigation2 } from "react-icons/fi";
 const VtSelect = ({ onVtSelect }) => {
     const shipTypes = [
         { vt: 1, name: "Cargo", color: "rgba(144, 238, 144)" },
@@ -32,9 +34,11 @@ const VtSelect = ({ onVtSelect }) => {
         borderRadius: '5px',
         cursor: 'pointer',
         backgroundColor: '#fff',
-        fontFamily: '"Arial", sans-serif',
-        fontSize: '14px',
-        color: '#333',
+        fontFamily: '"Helvetica", "Arial", sans-serif', // 更换字体
+        fontSize: '14px', // 增大字体大小
+        fontWeight: 'bold', // 字体加粗
+        color: 'black',
+        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)', // 添加文本阴影
         transition: 'background-color 0.3s, box-shadow 0.3s'
     };
 
@@ -48,7 +52,7 @@ const VtSelect = ({ onVtSelect }) => {
             {shipTypes.map(({ vt, name, color }) => (
                 <label
                     key={vt}
-                    style={{ ...labelStyle, color: color }}
+                    style={labelStyle}
                     onMouseEnter={e => {
                         e.target.style.backgroundColor = hoverStyle.backgroundColor;
                         e.target.style.boxShadow = hoverStyle.boxShadow;
@@ -62,6 +66,16 @@ const VtSelect = ({ onVtSelect }) => {
                         type="checkbox"
                         onChange={() => onVtSelect(vt)}
                         style={{ marginRight: '5px' }}
+                    />
+                    <FiNavigation2
+                        style={{
+                            stroke: "rgba(0, 0, 0, 0.5)", // 更淡的黑色边框
+                            strokeWidth: '0.5', // 较薄的边框
+                            fill: color,
+                            marginRight: '8px',
+                            verticalAlign: 'middle',
+                            fontSize: '20px'
+                        }}
                     />
                     {name}
                 </label>
