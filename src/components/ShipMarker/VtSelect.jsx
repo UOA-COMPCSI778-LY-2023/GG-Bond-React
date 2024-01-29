@@ -1,5 +1,17 @@
 const VtSelect = ({ onVtSelect }) => {
-    const vtValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    const shipTypes = [
+        { vt: 1, name: "Cargo", color: "rgba(144, 238, 144)" },
+        { vt: 2, name: "Fishing", color: "rgba(222, 184, 135)" },
+        { vt: 3, name: "Tank", color: "rgba(255, 0, 0)" },
+        { vt: 4, name: "Pleasure craft", color: "rgba(230, 161, 223)" },
+        { vt: 5, name: "Tug & Towing", color: "rgba(173, 216, 230)" },
+        { vt: 6, name: "Sailing", color: "rgba(255, 255, 0)" },
+        { vt: 7, name: "Passenger", color: "rgba(245, 99, 66)" },
+        { vt: 8, name: "Law Enforcement", color: "rgba(119, 136, 153)" },
+        { vt: 9, name: "Military", color: "rgba(0, 0, 139)" },
+        { vt: 10, name: "Dredging", color: "rgba(165, 42, 42)" },
+        { vt: 11, name: "Other", color: "rgba(169, 169, 169)" },
+    ];
 
     const containerStyle = {
         position: 'absolute',
@@ -12,7 +24,7 @@ const VtSelect = ({ onVtSelect }) => {
         zIndex: 1000,
         maxWidth: '300px'
     };
-    
+
     const labelStyle = {
         display: 'block',
         margin: '10px 0',
@@ -25,18 +37,18 @@ const VtSelect = ({ onVtSelect }) => {
         color: '#333',
         transition: 'background-color 0.3s, box-shadow 0.3s'
     };
-    
+
     const hoverStyle = {
         backgroundColor: '#e8e8e8',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' // 轻微的阴影效果
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
     };
-    
+
     return (
         <div style={containerStyle}>
-            {vtValues.map(vt => (
+            {shipTypes.map(({ vt, name, color }) => (
                 <label
                     key={vt}
-                    style={labelStyle}
+                    style={{ ...labelStyle, color: color }}
                     onMouseEnter={e => {
                         e.target.style.backgroundColor = hoverStyle.backgroundColor;
                         e.target.style.boxShadow = hoverStyle.boxShadow;
@@ -51,13 +63,11 @@ const VtSelect = ({ onVtSelect }) => {
                         onChange={() => onVtSelect(vt)}
                         style={{ marginRight: '5px' }}
                     />
-                    VT: {vt}
+                    {name}
                 </label>
             ))}
         </div>
     );
-    
-    
 };
 
 export default VtSelect;
