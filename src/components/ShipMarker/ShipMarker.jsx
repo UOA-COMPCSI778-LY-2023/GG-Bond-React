@@ -8,12 +8,12 @@ import "../ShipMarker/ShipMarker.css";
 import WarningAnimation from "./WarningAnimation";
 
 const shipTypeDic = {
-    3: "rgba(255, 0, 0)", //Tank
     1: "rgba(144, 238, 144)", //Cargo
     2: "rgba(222, 184, 135)", //Fishing
-    6: "rgba(255, 255, 0)", //Sailing
+    3: "rgba(255, 0, 0)", //Tank
     4: "rgba(230, 161, 223)", //Pleasure craft
     5: "rgba(173, 216, 230)", //Tug & Towing
+    6: "rgba(255, 255, 0)", //Sailing
     7: "rgba(245, 99, 66)", //Passenger
     8: "rgba(119, 136, 153)", //Law Enforcement
     9: "rgba(0, 0, 139)", //Military
@@ -72,9 +72,12 @@ const ShipMarker = ({
             ? "dark"
             : "light";
     const { co, he, la, lo, mm, ut, vt } = boatData;
+
     const togglePopup = () => {
+        console.log("Clicked Marker's vt value:", vt); // Log the vt value
         setSelectedBoat(boatData);
     };
+
     return (
         <>
             <Marker

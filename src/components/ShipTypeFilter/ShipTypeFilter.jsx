@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
-import { FiNavigation2 } from "react-icons/fi"; // Import FiNavigation2
+import { FiNavigation2 } from "react-icons/fi";
 import './ShipTypeFilter.css';
 
-const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countryTypes, selectedCountries, handleCountrySelect }) => {
+const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, countryTypes, selectedCountries, handleCountrySelect }) => {
   const [isCountryOpen, setIsCountryOpen] = useState(false);
+
+  const shipTypes = [
+    { vt: 1, name: "Cargo", color: "rgba(144, 238, 144)" },
+    { vt: 2, name: "Fishing", color: "rgba(222, 184, 135)" },
+    { vt: 3, name: "Tank", color: "rgba(255, 0, 0)" },
+    { vt: 4, name: "Pleasure craft", color: "rgba(230, 161, 223)" },
+    { vt: 5, name: "Tug & Towing", color: "rgba(173, 216, 230)" },
+    { vt: 6, name: "Sailing", color: "rgba(255, 255, 0)" },
+    { vt: 7, name: "Passenger", color: "rgba(245, 99, 66)" },
+    { vt: 8, name: "Law Enforcement", color: "rgba(119, 136, 153)" },
+    { vt: 9, name: "Military", color: "rgba(0, 0, 139)" },
+    { vt: 10, name: "Dredging", color: "rgba(165, 42, 42)" },
+    { vt: 11, name: "Other", color: "rgba(169, 169, 169)" }
+  ];
 
   const toggleCountryDropdown = () => {
     setIsCountryOpen(!isCountryOpen);
@@ -16,7 +30,7 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
     } else {
       updatedCountries = [...selectedCountries, countryCode];
     }
-    handleCountrySelect(updatedCountries); // 更新选中的国家类
+    handleCountrySelect(updatedCountries);
   };
 
   return (
@@ -26,17 +40,17 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
         <span className="triangle">&#9660;</span>
       </div>
 
-      {shipTypes.map(ship => (
-        <label key={ship.type} className="ship-type-filter-item">
+      {Object.entries(shipTypes).map(([type, { name, color }]) => (
+        <label key={type} className="ship-type-filter-item">
           <input
             type="checkbox"
             className="ship-type-filter-checkbox"
-            checked={selectedFilters.includes(ship.type)}
-            onChange={() => handleFilterSelect(ship.type)}
+            checked={selectedFilters.includes(type)}
+            onChange={() => handleFilterSelect(type)}
           />
-          <FiNavigation2 style={{ color: ship.color, marginRight: '8px' }} /> {/* FiNavigation2 icon placed after checkbox */}
-          <span className="ship-type-filter-text" style={{ color: ship.color }}>
-            {ship.type}
+          <FiNavigation2 style={{ color: color, marginRight: '8px' }} />
+          <span className="ship-type-filter-text" style={{ color: color }}>
+            {name}
           </span>
         </label>
       ))}
@@ -53,7 +67,7 @@ const ShipTypeFilter = ({ selectedFilters, handleFilterSelect, shipTypes, countr
               type="checkbox"
               className="country-filter-checkbox"
               checked={selectedCountries.includes(country.type)}
-              onChange={() => handleCountrySelectInternal(country.type)} 
+              onChange={() => handleCountrySelectInternal(country.type)}
             />
             <span className="country-filter-text" style={{ color: country.color }}>
               {country.type}
