@@ -3,11 +3,14 @@ const VtSelect = ({ onVtSelect }) => {
 
     // 定义一些基本样式
     const containerStyle = {
+        position: 'absolute',
+        top: '10px', // 根据需要调整位置
+        left: '10px', // 根据需要调整位置
         padding: '10px',
         border: '1px solid #ddd',
         borderRadius: '5px',
         backgroundColor: '#f7f7f7',
-        margin: '10px 0',
+        zIndex: 1000, // 确保在地图之上
         maxWidth: '300px'
     };
 
