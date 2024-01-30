@@ -57,10 +57,24 @@ function Map() {
     const interval = 60; // Fixed interval value
     const mmsi = selectedBoat ? selectedBoat.mm : null;
 
-    const { historicalTrackData} = useHistoryTrack(interval, mmsi);
+    const { historicalTrackData } = useHistoryTrack(interval, mmsi);
     console.log("Selected Boat MMSI:", mmsi);
     console.log("Selected Boat interval:", interval);
     console.log("historicalTrackData", historicalTrackData);
+
+    let transformedTrackData = [];
+    if (historicalTrackData && historicalTrackData.data) {
+        transformedTrackData = historicalTrackData.data.map(item => {
+            return {
+                position: [parseFloat(item.latitude), parseFloat(item.longitude)],
+                pollution: 20 // Assign a default pollution value or modify as required
+            };
+        });
+    }
+
+    console.log("Transformed Track Data:", transformedTrackData);
+
+
 
     const handleVtSelect = (vt) => {
         setSelectedVt(prevSelectedVt => {
