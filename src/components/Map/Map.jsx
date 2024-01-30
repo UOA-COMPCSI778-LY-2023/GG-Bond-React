@@ -15,6 +15,7 @@ import "leaflet.heat";
 import "./Map.css";
 import VtSelect from "../ShipMarker/VtSelect";
 import useHistoryTrack from "../../hooks/useHistoryTrack";
+import TrackPopup from "../TrackPopup/TrackPopup";
 
 
 
@@ -30,7 +31,7 @@ function Map() {
     const [map, setMap] = useState(null);
     const [selectedLayer, setSelectedLayer] = useState("Light map");
     const [selectedVt, setSelectedVt] = useState(new Set()); // 使用 Set 来存储选中的 vt 值
-
+    const [isAnimating, setIsAnimating] = useState(false);
     const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
 
@@ -191,6 +192,13 @@ function Map() {
                     setSelectedLayer={setSelectedLayer}
                 />
                 <MenuOptions />
+
+                <TrackPopup
+                    isAnimating={isAnimating}
+                    setIsAnimating={setIsAnimating}
+                    trackData={transformedTrackData}
+                    realtimestamps={realtimestamps}
+                />
 
                 {
                     shipsBasicData

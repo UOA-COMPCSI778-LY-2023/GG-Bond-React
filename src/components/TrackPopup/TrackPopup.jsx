@@ -2,23 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { Button, Progress } from 'antd';
 import { CloseOutlined, PlayCircleOutlined, PauseCircleOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 import ShipTrack from '../ShipTrack/ShipTrack';
-import mockTrack from '../ShipTrack/MockTrack';
-import timestamps from '../ShipTrack/timestamps';
 
-const TrackPopup = ({ isAnimating, setIsAnimating }) => {
+
+const TrackPopup = ({ isAnimating, setIsAnimating, trackData, realtimestamps }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrack, setShowTrack] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     let interval;
-    if (isAnimating && mockTrack && mockTrack.length > 0) {
+    if (isAnimating && Array.isArray(trackData) && trackData.length > 0) {
       interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % mockTrack.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % trackData.length);
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [isAnimating, mockTrack]);
+  }, [isAnimating, trackData]);
+
+  const progressPercent = trackData && realtimestamps
+    ? ((currentIndex / (realtimestamps.length - 1)) * 100).toFixed(2)
+    : 0;
+  const currentTime = realtimestamps && realtimestamps[currentIndex];
+
 
   const handleStartPause = () => {
     setIsAnimating(!isAnimating);
@@ -34,9 +39,6 @@ const TrackPopup = ({ isAnimating, setIsAnimating }) => {
     setIsVisible(false);
     setCurrentIndex(0); // Reset currentIndex
   };
-
-  const progressPercent = ((currentIndex / (timestamps.length - 1)) * 100).toFixed(2);
-  const currentTime = timestamps[currentIndex];
 
   if (!isVisible) return null;
 
@@ -54,12 +56,15 @@ const TrackPopup = ({ isAnimating, setIsAnimating }) => {
       zIndex: 1000,
       borderTop: '1px solid #e0e0e0'
     }}>
-      <ShipTrack
-        track={mockTrack}
-        showTrack={showTrack}
-        currentIndex={currentIndex}
-        isAnimating={isAnimating}
-      />
+      {trackData && Array.isArray(trackData) && (
+        <ShipTrack
+          track={trackData}
+          showTrack={showTrack}
+          currentIndex={currentIndex}
+          isAnimating={isAnimating}
+        />
+      )}
+
 
       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', marginTop: '10px' }}>
         <Button
