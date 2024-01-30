@@ -74,6 +74,12 @@ function Map() {
 
     console.log("Transformed Track Data:", transformedTrackData);
 
+    let timestamps = [];
+    if (historicalTrackData && historicalTrackData.data) {
+        timestamps = historicalTrackData.data.map(item => item.dtStaticUtc);
+    }
+
+    console.log("Extracted Timestamps:", timestamps);
 
 
     const handleVtSelect = (vt) => {
