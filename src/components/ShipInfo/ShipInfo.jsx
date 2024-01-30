@@ -183,7 +183,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                     >
                                         <Progress
                                             type="circle"
-                                            percent={(ship.lv / 30) * 100}
+                                            percent={(shipData.lv / 30) * 100}
                                             size={[28]}
                                             strokeColor={{
                                                 "0%": "#93CB96",
@@ -191,7 +191,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                                 "100%": "#F44336",
                                             }}
                                             format={() =>
-                                                `${Math.ceil(ship.lv)}`
+                                                `${Math.ceil(shipData.lv)}`
                                             }
                                         />
                                     </div>
