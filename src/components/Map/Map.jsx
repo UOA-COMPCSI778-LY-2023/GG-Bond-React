@@ -78,8 +78,6 @@ function Map() {
             const latLngSW = map.getBounds()._southWest;
             getShipBasicData(latLngNE, latLngSW);
         }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [map]);
 
     const handleMoveEnd = useCallback(() => {

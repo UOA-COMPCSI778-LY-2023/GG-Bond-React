@@ -20,6 +20,16 @@ const UserTour = ({
             setShowSearchLocation(true);
             setShowDrawTools(true);
         }
+        searchShipRef.current = document.querySelector(".search-box-container");
+        searchLocationRef.current = document.querySelector(".geocoder-control");
+        drawToolsRef.current = document.querySelector(".leaflet-draw");
+        filterRef.current = document.querySelector(".filterBtn");
+        downloadRef.current = document.querySelector(".downloadBtn");
+        tourRef.current = document.querySelector(".tourBtn");
+        logoutRef.current = document.querySelector(".logoutBtn");
+        mapLayersControlRef.current = document.querySelector(
+            ".leaflet-control-layers"
+        );
         const mapLayersControl = mapLayersControlRef.current;
         if (mapLayersControl) {
             if (tourOpen) {
@@ -33,21 +43,6 @@ const UserTour = ({
                 );
             }
         }
-        searchLocationRef.current = document.querySelector(".geocoder-control");
-        drawToolsRef.current = document.querySelector(".leaflet-draw");
-    }, [tourOpen]);
-
-    useEffect(() => {
-        searchShipRef.current = document.querySelector(".search-box-container");
-        searchLocationRef.current = document.querySelector(".geocoder-control");
-        drawToolsRef.current = document.querySelector(".leaflet-draw");
-        filterRef.current = document.querySelector(".filterBtn");
-        downloadRef.current = document.querySelector(".downloadBtn");
-        tourRef.current = document.querySelector(".tourBtn");
-        logoutRef.current = document.querySelector(".logoutBtn");
-        mapLayersControlRef.current = document.querySelector(
-            ".leaflet-control-layers"
-        );
     }, [tourOpen]);
 
     const steps = [
