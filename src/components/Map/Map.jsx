@@ -14,6 +14,8 @@ import "leaflet-hash-plus";
 import "leaflet.heat";
 import "./Map.css";
 import VtSelect from "../ShipMarker/VtSelect";
+import useHistoryTrack from "../../hooks/useHistoryTrack";
+
 
 
 //map boundary limit
@@ -51,6 +53,14 @@ function Map() {
             }
         };
     }, [cookies, navigate, map]);
+
+    const interval = 60; // Fixed interval value
+    const mmsi = selectedBoat ? selectedBoat.mm : null;
+
+    const { historicalTrackData} = useHistoryTrack(interval, mmsi);
+    console.log("Selected Boat MMSI:", mmsi);
+    console.log("Selected Boat interval:", interval);
+    console.log("historicalTrackData", historicalTrackData);
 
     const handleVtSelect = (vt) => {
         setSelectedVt(prevSelectedVt => {
