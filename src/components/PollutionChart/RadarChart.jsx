@@ -9,7 +9,7 @@ const RadarChart = ({mmsi}) => {
 
     useEffect(() => {
         const fetchTotalPollution = async () => {
-            const url = `http://127.0.0.1:8080/get/total_pollution?mmsi=${mmsi}`;
+            const url = `http://3.104.55.204:8080/get/total_pollution?mmsi=${mmsi}`;
             try {
                 const response = await fetch(url);
                 if (response.ok) {
