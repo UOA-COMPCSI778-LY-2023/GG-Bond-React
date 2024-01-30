@@ -4,7 +4,7 @@ import { Modal } from "antd";
 import Draggable from "react-draggable"; // 引入拖动库
 import ChartComponent from "../PollutionChart/PollutionChart";
 
-const DraggableModal = ({ visible, onCancel }) => {
+const DraggableModal = ({ visible, onCancel, mmsi }) => {
     return (
         <Modal
             title="Pollution Forecast"
@@ -16,7 +16,7 @@ const DraggableModal = ({ visible, onCancel }) => {
                 <Draggable handle=".ant-modal-header">{modal}</Draggable>
             )}
         >
-            <ChartComponent />
+            <ChartComponent mmsi={mmsi} />
         </Modal>
     );
 };
