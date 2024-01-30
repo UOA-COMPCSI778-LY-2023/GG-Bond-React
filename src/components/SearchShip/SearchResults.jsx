@@ -1,7 +1,9 @@
 import React from 'react';
 import { List } from 'antd';
 import locationIcon from './location.png';
+import TypeCodeArrow from './TypeCodeArrow';
 
+// 添加用于生成国旗表情符号的函数
 function getFlagEmoji(countryCode) {
     const codePoints = countryCode.toUpperCase().split('').map(char =>
         127397 + char.charCodeAt());
@@ -9,21 +11,30 @@ function getFlagEmoji(countryCode) {
 }
 
 function SearchResults({ results, onSelectShip }) {
-    // 当结果为空时，不渲染内容
     if (!results || results.length === 0) {
         return null;
     }
 
-    const renderItem = (item) => (
-        <List.Item onClick={() => onSelectShip(item)} className="music-style-list-item">
-            <div className="music-style-list-item-content">
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <p><strong>MMSI:</strong> {item.mmsi}</p>
-                    <p><strong>Name:</strong> {item.vesselName}</p>
-                    <p><strong>Country:</strong> {getFlagEmoji(item.alpha2)} {item.flagCountry}</p>
-                    <p><strong>Type:</strong> {item.vesselType}</p>
-                    <img src={locationIcon} alt="localization" className="icon-location" />
+    const renderItem = (item, index) => (
+        <List.Item
+            onClick={() => onSelectShip(item)}
+            className="music-style-list-item"
+            style={{ marginBottom: '0px' }}
+        >
+            <div className="music-style-list-item-content" style={{ width:'400px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <TypeCodeArrow typeCode={item.typeCode} />
+                <div style={{ flex: 1 }}>
+                <p style={{ marginBottom: '0px', textAlign: 'left', fontSize: '18px' }}>
+                       Name:<span style={{ marginRight: '15px' }}>{item.vesselName}</span>
+                      MMSI:{item.mmsi}
+                </p>
+
+
+                    <p style={{ marginTop: '-5px', textAlign: 'left' }}>
+                        {item.vesselType}  【{getFlagEmoji(item.alpha2)}】
+                    </p>
                 </div>
+                <img src={locationIcon} alt="localization" className="icon-location" style={{ width: '20px', height: '20px' }} />
             </div>
         </List.Item>
     );
@@ -32,12 +43,15 @@ function SearchResults({ results, onSelectShip }) {
         <div className="search-results-container">
             <List
                 itemLayout="vertical"
-                size="large"
+                size
+                ="large"
                 dataSource={results}
                 renderItem={renderItem}
-            />
-        </div>
-    );
-}
+                />
+                </div>
+                );
+                }
 
 export default SearchResults;
+                
+                

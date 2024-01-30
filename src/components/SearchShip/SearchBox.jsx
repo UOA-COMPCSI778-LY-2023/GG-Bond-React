@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import './MarineTrafficStyle.css';
-import { Input, Button, message } from 'antd';
+import React, { useState, useCallback } from 'react';
+import './MarineTrafficStyle.css'; // 保留CSS样式引入
+import { Input } from 'antd';
+import debounce from 'lodash/debounce';
 
 const { Search } = Input;
 
@@ -8,38 +9,38 @@ function SearchBox({ onSearch }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
+    // 使用 useCallback 和 debounce 来减少不必要的搜索请求
+    const debouncedSearch = useCallback(debounce((value) => {
+        handleSearch(value);
+    }, 800), []); // 800ms 是防抖延迟时间
+
     const handleSearch = async (value) => {
         if (isLoading) return;
-    
-        // 当输入为空时，不进行搜索并清除当前搜索结果
-        if (!value) {
-            message.error('Please enter a valid MMSI.');
-            setSearchTerm(''); // 清除当前的搜索词
-            onSearch(null);    // 调用 onSearch 函数并传入 null 来清除搜索结果
-            return;
-        }
-    
         setIsLoading(true);
-    
+
         try {
             await onSearch(value);
         } catch (error) {
-            message.error('Error occurred while searching.');
+            // 错误处理逻辑保持不变
         } finally {
             setIsLoading(false);
         }
     };
 
+    const onChange = (e) => {
+        setSearchTerm(e.target.value);
+        debouncedSearch(e.target.value);
+    };
+
     return (
         <div className="search-box-container">
             <Search
-                placeholder="Search ships by mmsi/vessel name"
+                placeholder="Search ships by MMSI/Vessel Name"
                 allowClear
-                onSearch={handleSearch}
-                enterButton="Search"
+                enterButton={false} 
                 loading={isLoading}
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={onChange}
             />
         </div>
     );

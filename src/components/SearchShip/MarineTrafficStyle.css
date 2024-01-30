@@ -7,12 +7,12 @@
   transform: translateX(-50%);
   z-index: 1000;
   width: 35%;
-  padding: 10px;
+  
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: none;
   border-radius: 20px;
   backdrop-filter: blur(5px);
-  border: 1px solid #e0e0e0;
+  border: none;
   overflow: hidden;
 }
 
@@ -95,14 +95,14 @@
 .search-results-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: stretch;
   padding: 5px;
   position: fixed;
-  top: 45px;
+  top: 23px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(35%);
+  width: calc(33%);
   z-index: 999;
   background-color: rgb(238, 233, 233);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -117,11 +117,13 @@
   top: 50%; /* 垂直居中 */
   transform: translateY(-50%); /* 确保图标精确居中 */
   font-size: 16px; /* 设置图标大小 */
+  
 }
 .icon-location {
   height: 24px; /* 或其他适合您设计的大小 */
   width: 24px; /* 或其他适合您设计的大小 */
   margin-left: auto; /* 将图标推到最右边 */
+  align-items: flex-end; 
   /* 如果需要，可以添加其他样式 */
 }
 .custom-search-input {
@@ -131,4 +133,8 @@
   width: 100%;
   padding: 1px;
   font-size: 14px;
+}
+
+.css-dev-only-do-not-override-1qhpsh8.ant-list-lg .ant-list-item {
+  padding: 0 !important; /* 修改这里的数值 */
 }
