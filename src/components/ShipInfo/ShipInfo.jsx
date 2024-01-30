@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Space, Button, Spin, ConfigProvider } from "antd";
+import { Card, Space, Button, Spin, ConfigProvider, Progress } from "antd";
 import { SwapRightOutlined, CloseOutlined } from "@ant-design/icons";
 import DraggableModal from "../DraggableModal/DraggableModal";
 import TrackPopup from "../TrackPopup/TrackPopup";
@@ -120,6 +120,11 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
         L.DomEvent.on(el, "dblclick", L.DomEvent.stopPropagation);
     }, []);
 
+    useEffect(() => {
+        const el = document.getElementById("ship-info-body");
+        L.DomEvent.on(el, "mousedown", L.DomEvent.stopPropagation);
+    }, []);
+
     return (
         <>
             <Draggable
@@ -168,6 +173,28 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                             {shipData.vesselType}
                                         </div>
                                     </div>
+                                    <div
+                                        className="pollution-level"
+                                        style={{
+                                            position: "absolute",
+                                            top: 14,
+                                            right: 35,
+                                        }}
+                                    >
+                                        <Progress
+                                            type="circle"
+                                            percent={(ship.lv / 30) * 100}
+                                            size={[28]}
+                                            strokeColor={{
+                                                "0%": "#93CB96",
+                                                "50%": "#F6ED9F",
+                                                "100%": "#F44336",
+                                            }}
+                                            format={() =>
+                                                `${Math.ceil(ship.lv)}`
+                                            }
+                                        />
+                                    </div>
                                     <div className="close-icon">
                                         <CloseOutlined
                                             onClick={closeShipInfo}
@@ -191,7 +218,10 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                         style={{ width: "100%", marginTop: 2 }}
                                     />
                                 )}
-                                <div>
+                                <div
+                                    className="ship-info-body"
+                                    id="ship-info-body"
+                                >
                                     <ShipInfoBody
                                         shipData={shipData}
                                     ></ShipInfoBody>

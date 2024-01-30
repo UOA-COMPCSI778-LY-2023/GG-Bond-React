@@ -21,7 +21,7 @@ const shipTypeDic = {
     11: "rgba(169, 169, 169)", //Other
 };
 
-const shipIcon = (heading, type, mm, colorType) => {
+const shipIcon = (heading, type, mm, colorType, lv) => {
     const color = shipTypeDic[type] || "gray";
     return L.divIcon({
         className: "ships-icon",
@@ -38,7 +38,7 @@ const shipIcon = (heading, type, mm, colorType) => {
                         position: "absolute",
                     }}
                 />
-                {mm % 39 == 0 && (
+                {lv > 10 && (
                     <WarningAnimation
                         className="warningIcon"
                         style={{
@@ -71,7 +71,8 @@ const ShipMarker = ({
         selectedLayer === "Satellite" || selectedLayer === "Dark map"
             ? "dark"
             : "light";
-    const { co, he, la, lo, mm, ut, vt } = boatData;
+    const { co, he, la, lo, mm, ut, vt,lv } = boatData;
+
     const togglePopup = () => {
         setSelectedBoat(boatData);
     };
@@ -79,7 +80,7 @@ const ShipMarker = ({
         <>
             <Marker
                 position={[la, lo]}
-                icon={shipIcon(he, vt, mm, colorType)}
+                icon={shipIcon(he, vt, mm, colorType,lv)}
                 eventHandlers={{ click: togglePopup }}
             ></Marker>
             {isSelected && (

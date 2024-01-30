@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import L from "leaflet";
 import axios from "axios";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
@@ -25,7 +25,7 @@ function Map() {
     const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
     const [selectedLayer, setSelectedLayer] = useState("Light map");
-
+    const [tourOpen, setTourOpen] = useState(false);
     const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
 
@@ -72,15 +72,12 @@ function Map() {
             console.error("Error fetching ship details:", error.message);
         }
     };
-
     useEffect(() => {
         if (map) {
             const latLngNE = map.getBounds()._northEast;
             const latLngSW = map.getBounds()._southWest;
             getShipBasicData(latLngNE, latLngSW);
         }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [map]);
 
     const handleMoveEnd = useCallback(() => {
@@ -130,8 +127,8 @@ function Map() {
         <div className="Map">
             <MapContainer
                 id="mapId"
-                center={[-36.842, 174.76]}
-                zoom={14}
+                center={[-40.797, 174.99]}
+                zoom={6}
                 scrollWheelZoom={true}
                 maxBoundsViscosity={1.0}
                 maxBounds={bounds}
@@ -144,7 +141,7 @@ function Map() {
                     heatData={heatData}
                     setSelectedLayer={setSelectedLayer}
                 />
-                <MenuOptions />
+                <MenuOptions tourOpen={tourOpen} setTourOpen={setTourOpen} />
 
                 {shipsBasicData.map((boatData, index) => {
                     return (
@@ -154,6 +151,7 @@ function Map() {
                             setSelectedBoat={setSelectedBoat}
                             isSelected={deepEqual(boatData, selectedBoat)}
                             selectedLayer={selectedLayer}
+                            heatData={heatData}
                         />
                     );
                 })}
