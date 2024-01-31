@@ -37,8 +37,22 @@ const ChartComponent = ({mmsi}) => {
             options: {
                 scales: {
                     y: {
-                        // min: 0,
-                        // max: 100
+                        title: {
+                            display: true,
+                            text: 'Fuel Consumption (kg)', // Replace 'units' with your actual unit of measure
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time',
+                            font: {
+                                size: 12
+                            }
+                        }
                     }
                 },
                 plugins: {

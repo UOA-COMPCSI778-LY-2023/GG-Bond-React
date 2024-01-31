@@ -68,11 +68,11 @@ const RadarChart = ({mmsi}) => {
                         }
                     },
                     indicator: [
-                        { name: 'Speed'},
-                        { name: 'Length'},
-                        { name: 'Width'},
-                        { name: 'CO2'},
-                        { name: 'Fuel Consumption'}
+                        { name: 'Speed (knot)'},
+                        { name: 'Length (meter)'},
+                        { name: 'Width (meter)'},
+                        { name: 'CO2 (kg)'},
+                        { name: 'Fuel Consumption (kg)'}
                     ],
                     name: {
                         textStyle: {
