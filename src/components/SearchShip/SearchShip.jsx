@@ -37,12 +37,13 @@ function SearchShip({ setSelectedBoat, map }) {
         */
         const { mmsi: mm, ...rest } = ship;
         const newShip = { mm, ...rest };
+        console.log(newShip);
         setSelectedBoat(newShip);
-        map.setView([50.5, 30.5], map.getZoom()); //Max level: 13
+        map.setView([newShip.latitude, newShip.longitude], 13); //Max level: 13
     };
 
     return (
-        <div>
+        <div className="search-ship">
             <SearchBox onSearch={getShipsBySearch} />
             <SearchResults
                 results={searchResults}
