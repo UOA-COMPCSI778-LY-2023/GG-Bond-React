@@ -63,24 +63,6 @@ function Map() {
     console.log("Selected Boat interval:", interval);
     console.log("historicalTrackData", historicalTrackData);
 
-    let transformedTrackData = [];
-    if (historicalTrackData && historicalTrackData.data) {
-        transformedTrackData = historicalTrackData.data.map(item => {
-            return {
-                position: [parseFloat(item.latitude), parseFloat(item.longitude)],
-                pollution: 20 // Assign a default pollution value or modify as required
-            };
-        });
-    }
-
-    console.log("Transformed Track Data:", transformedTrackData);
-
-    let realtimestamps = [];
-    if (historicalTrackData && historicalTrackData.data) {
-        realtimestamps = historicalTrackData.data.map(item => item.dtStaticUtc);
-    }
-
-    console.log("Extracted Timestamps:", realtimestamps);
 
 
     const handleVtSelect = (vt) => {
@@ -95,6 +77,23 @@ function Map() {
         });
     };
 
+    // 在Map组件的顶部添加useState
+    const [transformedTrackData, setTransformedTrackData] = useState([]);
+    const [realtimestamps, setRealtimestamps] = useState([]);
+
+    // 更新历史轨迹数据的逻辑
+    useEffect(() => {
+        if (historicalTrackData && historicalTrackData.data) {
+            const newTransformedTrackData = historicalTrackData.data.map(item => ({
+                position: [parseFloat(item.latitude), parseFloat(item.longitude)],
+                pollution: 20 // 或任何适合的值
+            }));
+            const newRealtimestamps = historicalTrackData.data.map(item => item.dtStaticUtc);
+
+            setTransformedTrackData(newTransformedTrackData);
+            setRealtimestamps(newRealtimestamps);
+        }
+    }, [historicalTrackData]);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
@@ -196,7 +195,7 @@ function Map() {
                 <TrackPopup
                     isAnimating={isAnimating}
                     setIsAnimating={setIsAnimating}
-                    trackData={transformedTrackData}
+                    transformedTrackData={transformedTrackData}
                     realtimestamps={realtimestamps}
                 />
 

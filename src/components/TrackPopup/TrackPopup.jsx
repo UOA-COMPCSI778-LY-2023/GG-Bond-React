@@ -4,22 +4,23 @@ import { CloseOutlined, PlayCircleOutlined, PauseCircleOutlined, EyeOutlined, Ey
 import ShipTrack from '../ShipTrack/ShipTrack';
 
 
-const TrackPopup = ({ isAnimating, setIsAnimating, trackData, realtimestamps }) => {
+const TrackPopup = ({ isAnimating, setIsAnimating, transformedTrackData, realtimestamps }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrack, setShowTrack] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     let interval;
-    if (isAnimating && Array.isArray(trackData) && trackData.length > 0) {
+    console.log('www',transformedTrackData);
+    if (isAnimating && Array.isArray(transformedTrackData) && transformedTrackData.length > 0) {
       interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % trackData.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % transformedTrackData.length);
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [isAnimating, trackData]);
+  }, [isAnimating, transformedTrackData]);
 
-  const progressPercent = trackData && realtimestamps
+  const progressPercent = transformedTrackData && realtimestamps
     ? ((currentIndex / (realtimestamps.length - 1)) * 100).toFixed(2)
     : 0;
   const currentTime = realtimestamps && realtimestamps[currentIndex];
@@ -56,9 +57,9 @@ const TrackPopup = ({ isAnimating, setIsAnimating, trackData, realtimestamps }) 
       zIndex: 1000,
       borderTop: '1px solid #e0e0e0'
     }}>
-      {trackData && Array.isArray(trackData) && (
+      {transformedTrackData && realtimestamps && Array.isArray(transformedTrackData) && (
         <ShipTrack
-          track={trackData}
+        track={transformedTrackData}
           showTrack={showTrack}
           currentIndex={currentIndex}
           isAnimating={isAnimating}
