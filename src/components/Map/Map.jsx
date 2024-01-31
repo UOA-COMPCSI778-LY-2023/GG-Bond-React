@@ -163,7 +163,7 @@ function Map() {
                     />
                 )}
             </MapContainer>
-            <SearchShip setSelectedBoat={setSelectedBoat} />
+            <SearchShip setSelectedBoat={setSelectedBoat} map={map} />
         </div>
     );
 }

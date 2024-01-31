@@ -1,7 +1,7 @@
 import React from "react";
-import { List } from "antd";
-import locationIcon from "./location.png";
+import { List, Col, Row } from "antd";
 import TypeCodeArrow from "./TypeCodeArrow";
+import CountryFlag from "react-country-flag";
 
 // 添加用于生成国旗表情符号的函数
 function getFlagEmoji(countryCode) {
@@ -26,42 +26,39 @@ function SearchResults({ results, onSelectShip }) {
             className="music-style-list-item"
             style={{ marginBottom: "0px" }}
         >
-            <div
-                className="music-style-list-item-content"
-                style={{
-                    width: "400px",
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                }}
-            >
-                <TypeCodeArrow typeCode={item.typeCode} />
-                <div style={{ flex: 1 }}>
-                    <p
-                        style={{
-                            marginBottom: "0px",
-                            textAlign: "left",
-                            fontSize: "18px",
-                        }}
-                    >
-                        Name:
-                        <span style={{ marginRight: "15px" }}>
-                            {item.vesselName}
-                        </span>
-                        MMSI:{item.mmsi}
-                    </p>
-
-                    <p style={{ marginTop: "-5px", textAlign: "left" }}>
-                        {item.vesselType} 【{getFlagEmoji(item.alpha2)}】
-                    </p>
-                </div>
-                <img
-                    src={locationIcon}
-                    alt="localization"
-                    className="icon-location"
-                    style={{ width: "20px", height: "20px" }}
-                />
-            </div>
+            <Row gutter={24} justify="space-around" align="middle">
+                <Col span={1}>
+                    <TypeCodeArrow typeCode={item.typeCode} />
+                </Col>
+                <Col span={8}>
+                    <p>Name: {item.vesselName}</p>
+                </Col>
+                <Col span={8}>
+                    <p> MMSI:{item.mmsi}</p>
+                </Col>
+                <Col span={4}>
+                    <p>{item.vesselType}</p>
+                </Col>
+                <Col span={2}>
+                    {item.alpha2 !== null ? (
+                        <CountryFlag
+                            className="country-flag"
+                            countryCode={item.alpha2}
+                            svg
+                            style={{
+                                width: "2.2em",
+                                height: "2.2em",
+                            }}
+                        />
+                    ) : (
+                        <img
+                            className="country-flag-img"
+                            src="defaultCountryImage.png"
+                            alt="defaul-country"
+                        />
+                    )}
+                </Col>
+            </Row>
         </List.Item>
     );
 
