@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios"; // 引入axios进行API调用
+import axios from "axios";
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
 
-function SearchShip({ setSelectedBoat }) {
+function SearchShip({ setSelectedBoat, map }) {
     const [searchResults, setSearchResults] = useState([]);
-    const [error, setError] = useState("");
 
     const getShipsBySearch = async (searchTerm) => {
         try {
@@ -19,10 +18,7 @@ function SearchShip({ setSelectedBoat }) {
             } else {
                 setSearchResults([]);
             }
-            setError("");
         } catch (err) {
-            console.error("Error fetching data:", err);
-            setError("Failed to fetch data");
             setSearchResults([]);
         }
     };
@@ -42,11 +38,11 @@ function SearchShip({ setSelectedBoat }) {
         const { mmsi: mm, ...rest } = ship;
         const newShip = { mm, ...rest };
         setSelectedBoat(newShip);
+        map.setView([50.5, 30.5], map.getZoom()); //Max level: 13
     };
 
     return (
         <div>
-            {error && <div className="error-message">{error}</div>}
             <SearchBox onSearch={getShipsBySearch} />
             <SearchResults
                 results={searchResults}
