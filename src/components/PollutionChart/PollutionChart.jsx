@@ -27,7 +27,7 @@ const ChartComponent = ({mmsi}) => {
                     borderWidth: 1,
                     fill: false
                 }, {
-                    label: 'Averge CO2 Consumption ',
+                    label: 'Averge CO2 Pollution ',
                     data: fuelPollutionAvg,
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 1,
@@ -39,7 +39,7 @@ const ChartComponent = ({mmsi}) => {
                     y: {
                         title: {
                             display: true,
-                            text: 'Fuel Consumption (kg)', // Replace 'units' with your actual unit of measure
+                            text: 'CO2 Pollution (kg)', // Replace 'units' with your actual unit of measure
                             font: {
                                 size: 12
                             }
