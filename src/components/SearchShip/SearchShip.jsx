@@ -12,7 +12,6 @@ function SearchShip({ setSelectedBoat, map }) {
                 `http://13.236.117.100:8888/rest/v1/ship/search/${searchTerm}/20`
             );
             if (response.status === 200 && response.data.isok === true) {
-                // start storing response data
                 const shipData = response.data.data;
                 setSearchResults(shipData);
             } else {
@@ -39,7 +38,7 @@ function SearchShip({ setSelectedBoat, map }) {
         const newShip = { mm, ...rest };
         console.log(newShip);
         setSelectedBoat(newShip);
-        map.setView([newShip.latitude, newShip.longitude], 13); //Max level: 13
+        map.setView([newShip.latitude, newShip.longitude], 13); //Maxinum Zoom level: 13
     };
 
     return (

@@ -13,9 +13,20 @@ function TypeCodeArrow({ typeCode }) {
         11: "rgba(169, 169, 169)", // Other
     };
 
-    const color = colorMap[typeCode] || 'grey'; // 默认颜色为灰色
+    const color = colorMap[typeCode] || "grey";
 
-    return <div style={{ alignSelf: 'center', color: color, marginRight: '10px', fontSize: '24px' }}>➤</div>;
+    return (
+        <div
+            style={{
+                alignSelf: "center",
+                color: color,
+                marginRight: "10px",
+                fontSize: "24px",
+            }}
+        >
+            ➤
+        </div>
+    );
 }
 
 export default TypeCodeArrow;

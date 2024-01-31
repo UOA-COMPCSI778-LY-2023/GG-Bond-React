@@ -3,18 +3,6 @@ import { List, Col, Row } from "antd";
 import TypeCodeArrow from "./TypeCodeArrow";
 import CountryFlag from "react-country-flag";
 
-// 添加用于生成国旗表情符号的函数
-function getFlagEmoji(countryCode) {
-    if (countryCode) {
-        const codePoints = countryCode
-            .toUpperCase()
-            .split("")
-            .map((char) => 127397 + char.charCodeAt());
-        return String.fromCodePoint(...codePoints);
-    }
-    return null;
-}
-
 function SearchResults({ results, onSelectShip }) {
     if (!results || results.length === 0) {
         return null;

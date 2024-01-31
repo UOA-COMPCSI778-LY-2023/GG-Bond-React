@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Marker, Popup, Polyline, useMap, Pane } from "react-leaflet";
+import React from "react";
+import { Marker } from "react-leaflet";
 import { FiNavigation2 } from "react-icons/fi";
 import { PiCircleDashedThin } from "react-icons/pi";
 import L from "leaflet";
@@ -71,7 +71,7 @@ const ShipMarker = ({
         selectedLayer === "Satellite" || selectedLayer === "Dark map"
             ? "dark"
             : "light";
-    const { co, he, la, lo, mm, ut, vt,lv,at } = boatData;
+    const { he, la, lo, mm, vt, at } = boatData;
 
     const togglePopup = () => {
         setSelectedBoat(boatData);
@@ -80,7 +80,7 @@ const ShipMarker = ({
         <>
             <Marker
                 position={[la, lo]}
-                icon={shipIcon(he, vt, mm, colorType,at)}
+                icon={shipIcon(he, vt, mm, colorType, at)}
                 eventHandlers={{ click: togglePopup }}
             ></Marker>
             {isSelected && (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import L from "leaflet";
 import axios from "axios";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
@@ -99,7 +99,19 @@ function Map() {
 
     //Help function to check boat
     function deepEqual(obj1, obj2) {
-        if (obj1 === obj2) return true;
+        if (
+            obj1 === null ||
+            obj2 === null ||
+            typeof obj1 === "undefined" ||
+            typeof obj2 === "undefined"
+        ) {
+            return false;
+        }
+
+        if (obj1.mm !== undefined && obj2.mm !== undefined) {
+            if (obj1.mm === obj2.mm) return true;
+        }
+
         if (
             typeof obj1 !== "object" ||
             obj1 === null ||

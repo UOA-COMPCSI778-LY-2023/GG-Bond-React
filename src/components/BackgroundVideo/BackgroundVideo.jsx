@@ -1,4 +1,4 @@
-import "./BackgroundVideo.css"
+import "./BackgroundVideo.css";
 
 const videoFiles = [
     "BackgroundVideos/Video4.mp4",
@@ -11,16 +11,16 @@ const videoFiles = [
     "BackgroundVideos/Video11.mp4",
     "BackgroundVideos/Video12.mp4",
     "BackgroundVideos/Video13.mp4",
-  ];
+];
 
-const BackgroundVideo=()=>{
+const BackgroundVideo = () => {
     const getTypePath = () => {
         const randomIndex = Math.floor(Math.random() * videoFiles.length);
         const selectedVideo = videoFiles[randomIndex];
         return selectedVideo;
-    }
+    };
     const randomVideo = getTypePath();
-    return(
+    return (
         <div className="video-container">
             <video
                 className="video-element"
@@ -28,11 +28,11 @@ const BackgroundVideo=()=>{
                 autoPlay
                 muted
                 loop
-                style={{ width: "100%", height: "100%" }}>
-                {/* <source src="BackgroundVideos/Video1.mp4" type="video/mp4" /> */}
+                style={{ width: "100%", height: "100%" }}
+            >
                 <source src={randomVideo} type="video/mp4" />
             </video>
-        </div>           
+        </div>
     );
-}
+};
 export default BackgroundVideo;
