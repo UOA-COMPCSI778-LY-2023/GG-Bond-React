@@ -1,21 +1,19 @@
 import { useState, useEffect } from "react";
+import { getShipDetail } from "../utils/api";
 
 const useShipData = (mmsi) => {
     const [shipData, setShipData] = useState({ mmsi: mmsi });
 
     useEffect(() => {
         const fetchShipDetail = async () => {
-            const url = `http://13.236.117.100:8888/rest/v1/ship/${mmsi}`;
-
             try {
-                const response = await fetch(url);
+                const response = await getShipDetail(mmsi);
 
-                if (!response.ok) {
+                if (response.status !== 200) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-
-                const responseData = await response.json();
-                const shipData = responseData.data;
+                const shipData = response.data.data;
+                console.log(shipData);
                 setShipData(shipData);
             } catch (error) {
                 console.error("Error fetching ship details:", error);

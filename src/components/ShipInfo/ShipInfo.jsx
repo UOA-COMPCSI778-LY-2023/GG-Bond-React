@@ -3,12 +3,13 @@ import { Card, Space, Button, Spin, ConfigProvider, Progress } from "antd";
 import { SwapRightOutlined, CloseOutlined } from "@ant-design/icons";
 import DraggableModal from "../DraggableModal/DraggableModal";
 import TrackPopup from "../TrackPopup/TrackPopup";
-import "./shipInfo.css";
 import ShipInfoBody from "./ShipInfoBody";
 import CountryFlag from "react-country-flag";
 import Draggable from "react-draggable";
 import useShipData from "../../hooks/useShipData";
 import L from "leaflet";
+import { getShipID, getShipPicture } from "../../utils/api";
+import "./shipInfo.css";
 
 const ShipInfo = ({ ship, setSelectedBoat }) => {
     const mmsi = ship.mm;
@@ -57,25 +58,16 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
 
     const fetchImage = async () => {
         setLoading(true);
-        const shiIdUrl = `http://13.236.117.100:8080/get/shipID?mmsi=${mmsi}`;
         try {
-            const response = await fetch(shiIdUrl, {
-                method: "GET",
-            });
-            if (response.ok) {
-                const responseData = await response.json();
+            const response = await getShipID(mmsi);
+            if (response.status === 200) {
+                const responseData = await response.data;
                 const shipId = responseData.vessel_id;
-                console.log(shipId);
                 if (shipId) {
-                    const imageUrl = `http://13.236.117.100:8080/get/shipPicture?ship_id=${shipId}`;
-                    // Check if the image URL returns a 404 status
-                    const imageResponse = await fetch(imageUrl, {
-                        method: "GET",
-                    });
-                    if (response.ok) {
-                        const responseData = await imageResponse.json();
+                    const imageResponse = await getShipPicture(shipId);
+                    if (response.status === 200) {
+                        const responseData = await imageResponse.data;
                         const shipImage = responseData.ship_image;
-                        console.log(shipImage);
                         if (shipImage) {
                             setShipImage(shipImage);
                         } else {
@@ -259,7 +251,11 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                     </Space>
                 </div>
             </Draggable>
-            <DraggableModal visible={showChart} onCancel={handleCancel} mmsi={mmsi} />
+            <DraggableModal
+                visible={showChart}
+                onCancel={handleCancel}
+                mmsi={mmsi}
+            />
         </>
     );
 };

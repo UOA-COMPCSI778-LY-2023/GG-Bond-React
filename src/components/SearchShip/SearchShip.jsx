@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { getShipsBySearch } from "../../utils/api";
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
 
 function SearchShip({ setSelectedBoat, map }) {
     const [searchResults, setSearchResults] = useState([]);
 
-    const getShipsBySearch = async (searchTerm) => {
+    const fetchShipsBySearch = async (searchTerm) => {
         try {
-            const response = await axios.get(
-                `http://13.236.117.100:8888/rest/v1/ship/search/${searchTerm}/20`
-            );
+            const response = await getShipsBySearch(searchTerm);
             if (response.status === 200 && response.data.isok === true) {
                 const shipData = response.data.data;
                 setSearchResults(shipData);
@@ -43,7 +41,7 @@ function SearchShip({ setSelectedBoat, map }) {
 
     return (
         <div className="search-ship">
-            <SearchBox onSearch={getShipsBySearch} />
+            <SearchBox onSearch={fetchShipsBySearch} />
             <SearchResults
                 results={searchResults}
                 onSelectShip={onSelectShip}

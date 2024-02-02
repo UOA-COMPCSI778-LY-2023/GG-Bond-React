@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Chart, registerables } from "chart.js";
-import "./PollutionChart.css";
+import { getPollutionData } from "../../utils/api";
 import RadarChart from "./RadarChart";
+import "./PollutionChart.css";
 
 Chart.register(...registerables);
 
@@ -133,14 +134,15 @@ const ChartComponent = ({ mmsi }) => {
 
     useEffect(() => {
         const fetchPollution = async () => {
-            const url = `http://3.104.55.204:8080/get/pollution?mmsi=${mmsi}`;
             try {
-                const response = await fetch(url);
-                if (response.ok) {
-                    const responseData = await response.json();
-                    setFuelPollution(responseData.pollution_fuel);
-                    setFuelPollutionAvg(responseData.pollution_fuel_avg);
+                const response = await getPollutionData(mmsi);
+
+                if (response.status !== 200) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
+
+                setFuelPollution(response.data.pollution_fuel);
+                setFuelPollutionAvg(response.data.pollution_fuel_avg);
             } catch (error) {
                 console.error("Error fetching ship pollution:", error);
             }

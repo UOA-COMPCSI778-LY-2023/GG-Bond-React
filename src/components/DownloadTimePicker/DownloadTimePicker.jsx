@@ -31,9 +31,14 @@ const disabledRangeTime = (_, type) => {
     };
 };
 
+function extractNumbers(str) {
+    return str.replace(/[^0-9]/g, "");
+}
+
 const DownloadTimePicker = ({ setSelectedTimeRange }) => {
     const handleTimeRangeChange = (dayjs, dateString) => {
-        setSelectedTimeRange(dateString);
+        const numericStrings = dateString.map(extractNumbers);
+        setSelectedTimeRange(numericStrings);
     };
     return (
         <div className="timescale-box">

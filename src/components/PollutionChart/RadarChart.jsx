@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as echarts from "echarts";
+import { getTotalPollution } from "../../utils/api";
 
 const RadarChart = ({ mmsi }) => {
     const chartRef = useRef(null);
@@ -8,13 +9,14 @@ const RadarChart = ({ mmsi }) => {
 
     useEffect(() => {
         const fetchTotalPollution = async () => {
-            const url = `http://3.104.55.204:8080/get/total_pollution?mmsi=${mmsi}`;
             try {
-                const response = await fetch(url);
-                if (response.ok) {
-                    const responseData = await response.json();
-                    setRadarData(responseData);
+                const response = await getTotalPollution(mmsi);
+
+                if (response.status !== 200) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
+
+                setRadarData(response.data);
             } catch (error) {
                 console.error("Error fetching ship pollution:", error);
             }

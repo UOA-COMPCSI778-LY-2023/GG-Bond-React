@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import L from "leaflet";
-import axios from "axios";
+import { getDownloadFile } from "../../utils/api";
 import { saveAs } from "file-saver";
 import { Card, Space, Button, Divider, message } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
@@ -13,6 +13,42 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
     const [checkedList, setCheckedList] = useState([]);
     const [selectedTimeRange, setSelectedTimeRange] = useState([]);
 
+    function checkedListToString() {
+        if (checkedList.length === 11) {
+            return "0";
+        }
+        return checkedList.join(",");
+    }
+
+    function convertCirclesToString() {
+        let circles = shapesContainer.circle;
+        if (!circles || Object.keys(circles).length === 0) {
+            return "none";
+        }
+
+        const circleStrings = Object.entries(circles).map(
+            ([_, [radius, { lat, lng }]]) => `${lng},${lat},${radius}`
+        );
+
+        return circleStrings.join("|");
+    }
+
+    function convertPolygonsToString() {
+        let polygons = shapesContainer.polygon;
+        if (!polygons || Object.keys(polygons).length === 0) {
+            return "none";
+        }
+
+        const polygonStrings = Object.values(polygons).map((polygon) =>
+            polygon
+                .map((points) =>
+                    points.map((point) => `${point.lng},${point.lat}`).join(";")
+                )
+                .join("|")
+        );
+        return polygonStrings.join("|");
+    }
+
     React.useEffect(() => {
         const cardDiv = document.getElementById("downloadcard");
         L.DomEvent.on(cardDiv, "dblclick", L.DomEvent.stopPropagation);
@@ -23,11 +59,17 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
     };
 
     const handleDownload = async () => {
-        const mmsi = 512006414;
-        const url = `http://13.236.117.100:8888/rest/v1/ship/${mmsi}`;
-
+        let typeStr = checkedListToString();
+        let polygonStr = convertPolygonsToString();
+        let circleStr = convertCirclesToString();
         try {
-            const response = await axios.get(url);
+            const response = await getDownloadFile(
+                selectedTimeRange[0],
+                selectedTimeRange[1],
+                typeStr,
+                circleStr,
+                polygonStr
+            );
 
             if (response.status !== 200) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -40,9 +82,6 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
             saveAs(jsonBlob, "ship_data.json");
 
             console.log(response.data.data);
-            console.log(checkedList);
-            console.log(shapesContainer);
-            console.log("Selected Time Range:", selectedTimeRange);
 
             message.success("Download started!");
         } catch (error) {

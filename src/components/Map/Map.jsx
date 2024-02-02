@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import L from "leaflet";
-import axios from "axios";
+import { getShipBasicData } from "../../utils/api";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
@@ -49,14 +49,18 @@ function Map() {
         };
     }, [cookies, navigate, map]);
 
-    const getShipBasicData = async (latLngNE, latLngSW) => {
+    const fetchShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
         const source = 0;
         const limit = 500;
-        const url = `http://13.236.117.100:8888/rest/v1/ship/list/${latLngSW.lng}/${latLngSW.lat}/${latLngNE.lng}/${latLngNE.lat}/${type}/${source}/${limit}`;
-
         try {
-            const response = await axios.get(url);
+            const response = await getShipBasicData(
+                latLngNE,
+                latLngSW,
+                type,
+                source,
+                limit
+            );
 
             if (response.status !== 200) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -72,17 +76,18 @@ function Map() {
             console.error("Error fetching ship details:", error.message);
         }
     };
+
     useEffect(() => {
         if (map) {
             const latLngNE = map.getBounds()._northEast;
             const latLngSW = map.getBounds()._southWest;
-            getShipBasicData(latLngNE, latLngSW);
+            fetchShipBasicData(latLngNE, latLngSW);
         }
     }, [map]);
 
     const handleMoveEnd = useCallback(() => {
         if (map) {
-            getShipBasicData(
+            fetchShipBasicData(
                 map.getBounds()._northEast,
                 map.getBounds()._southWest
             );
