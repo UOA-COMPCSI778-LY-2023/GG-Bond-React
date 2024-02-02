@@ -2,11 +2,33 @@ import React, { useState, useEffect } from 'react';
 import { Button, Progress } from 'antd';
 import { CloseOutlined, PlayCircleOutlined, PauseCircleOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 import ShipTrack from '../ShipTrack/ShipTrack';
+import useHistoryTrack from "../../hooks/useHistoryTrack";
 
-
-const TrackPopup = ({ isAnimating, setIsAnimating, transformedTrackData, realtimestamps }) => {
+const TrackPopup = ({ isAnimating, setIsAnimating, mmsi }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrack, setShowTrack] = useState(true);
+
+  console.log("mmsi is ",mmsi);
+  // 使用useHistoryTrack获取历史轨迹数据
+  const { historicalTrackData } = useHistoryTrack(0, mmsi); // 使用固定的间隔和mmsi
+
+  // 定义状态来存储转换后的轨迹数据和时间戳
+  const [transformedTrackData, setTransformedTrackData] = useState([]);
+  const [realtimestamps, setRealtimestamps] = useState([]);
+  useEffect(() => {
+    console.log("Historical Track Data:", historicalTrackData);
+    if (historicalTrackData && historicalTrackData.data) {
+      const newTransformedTrackData = historicalTrackData.data.map(item => ({
+        position: [parseFloat(item.latitude), parseFloat(item.longitude)],
+        pollution: 10 // 举例，根据需要调整
+      }));
+      const newRealtimestamps = historicalTrackData.data.map(item => item.dtStaticUtc);
+
+      setTransformedTrackData(newTransformedTrackData);
+      setRealtimestamps(newRealtimestamps);
+    }
+  }, [historicalTrackData]);
+  
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

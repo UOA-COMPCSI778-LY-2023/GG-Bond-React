@@ -14,7 +14,6 @@ import "leaflet-hash-plus";
 import "leaflet.heat";
 import "./Map.css";
 import VtSelect from "../ShipMarker/VtSelect";
-import useHistoryTrack from "../../hooks/useHistoryTrack";
 import TrackPopup from "../TrackPopup/TrackPopup";
 
 
@@ -34,7 +33,6 @@ function Map() {
     const [isAnimating, setIsAnimating] = useState(false);
     const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
-
     useEffect(() => {
         let hashInstance;
         if (!cookies.loggedIn) {
@@ -55,15 +53,6 @@ function Map() {
         };
     }, [cookies, navigate, map]);
 
-    const interval = 60; // Fixed interval value
-    const mmsi = selectedBoat ? selectedBoat.mm : null;
-
-    const { historicalTrackData } = useHistoryTrack(interval, mmsi);
-    console.log("Selected Boat MMSI:", mmsi);
-    console.log("Selected Boat interval:", interval);
-    console.log("historicalTrackData", historicalTrackData);
-
-
 
     const handleVtSelect = (vt) => {
         setSelectedVt(prevSelectedVt => {
@@ -77,23 +66,7 @@ function Map() {
         });
     };
 
-    // 在Map组件的顶部添加useState
-    const [transformedTrackData, setTransformedTrackData] = useState([]);
-    const [realtimestamps, setRealtimestamps] = useState([]);
-
     // 更新历史轨迹数据的逻辑
-    useEffect(() => {
-        if (historicalTrackData && historicalTrackData.data) {
-            const newTransformedTrackData = historicalTrackData.data.map(item => ({
-                position: [parseFloat(item.latitude), parseFloat(item.longitude)],
-                pollution: 20 // 或任何适合的值
-            }));
-            const newRealtimestamps = historicalTrackData.data.map(item => item.dtStaticUtc);
-
-            setTransformedTrackData(newTransformedTrackData);
-            setRealtimestamps(newRealtimestamps);
-        }
-    }, [historicalTrackData]);
 
     const getShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
@@ -192,12 +165,8 @@ function Map() {
                 />
                 <MenuOptions />
 
-                <TrackPopup
-                    isAnimating={isAnimating}
-                    setIsAnimating={setIsAnimating}
-                    transformedTrackData={transformedTrackData}
-                    realtimestamps={realtimestamps}
-                />
+
+
 
                 {
                     shipsBasicData

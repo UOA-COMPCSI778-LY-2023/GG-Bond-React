@@ -224,6 +224,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                 }}
                                 isAnimating={isAnimating}
                                 setIsAnimating={setIsAnimating}
+                                mmsi={ship.mm}
                             />
                         )}
                     </Space>

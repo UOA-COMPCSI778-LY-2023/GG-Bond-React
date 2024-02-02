@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Polyline, Marker } from 'react-leaflet';
-import '../ShipTrack/ShipTrack.css';
 import L from 'leaflet';
 import { FiNavigation2 } from "react-icons/fi";
 import ReactDOMServer from "react-dom/server";
@@ -12,44 +11,17 @@ const warshipIcon = () => {
   });
 };
 
-const ShipTrack = ({ track, showTrack, currentIndex, isAnimating }) => {
+const ShipTrack = ({ track, showTrack, currentIndex }) => {
   const [markerPosition, setMarkerPosition] = useState(null);
 
   useEffect(() => {
-    if (isAnimating && track && track.length > 0) {
-      animateMarkerPosition(currentIndex);
+    console.log("current index",currentIndex);
+    // 直接根据currentIndex设置标记的位置，而不是使用动画
+    if (showTrack && track && track.length > 0 && currentIndex < track.length) {
+      const newPosition = track[currentIndex].position;
+      setMarkerPosition(newPosition);
     }
-  }, [currentIndex, track, isAnimating]);
-
-
-  // 动画标记的移动
-  const animateMarkerPosition = (index) => {
-    if (index < track.length - 1) {
-      const start = track[index].position;
-      const end = track[index + 1].position;
-      const duration = 1000; // 动画持续时间，单位为毫秒
-      const stepTime = 20; // 每一步的时间间隔，单位为毫秒
-      let elapsedTime = 0;
-
-      const animateStep = () => {
-        elapsedTime += stepTime;
-        const t = elapsedTime / duration;
-        if (t < 1) {
-          const lat = start[0] + (end[0] - start[0]) * t;
-          const lng = start[1] + (end[1] - start[1]) * t;
-          setMarkerPosition([lat, lng]);
-          setTimeout(animateStep, stepTime);
-        } else {
-          setMarkerPosition(end);
-          if (index + 1 < track.length) {
-            animateMarkerPosition(index + 1);
-          }
-        }
-      };
-
-      animateStep();
-    }
-  };
+  }, [currentIndex, track, showTrack]); // 监听currentIndex, track, 和 showTrack的变化
 
   const getPollutionColor = (pollution) => {
     const percent = pollution / 100; // 将污染值转换为百分比
@@ -59,13 +31,13 @@ const ShipTrack = ({ track, showTrack, currentIndex, isAnimating }) => {
   };
 
   const renderTrackSegments = () => {
-    if (!Array.isArray(track) || track.length === 0) {
-      return null; // Return null or some fallback UI if track is not available
+    if (!showTrack || !Array.isArray(track) || track.length === 0) {
+      return null;
     }
 
     return track.slice(0, -1).map((data, index) => {
       const nextData = track[index + 1];
-      const color = getPollutionColor((data.pollution + nextData.pollution) / 2); // 计算两点间污染值的平均数
+      const color = getPollutionColor((data.pollution + nextData.pollution) / 2);
       const glowStyle = {
         color: color,
         weight: 5,
@@ -98,6 +70,5 @@ const ShipTrack = ({ track, showTrack, currentIndex, isAnimating }) => {
     </>
   );
 };
-
 
 export default ShipTrack;
