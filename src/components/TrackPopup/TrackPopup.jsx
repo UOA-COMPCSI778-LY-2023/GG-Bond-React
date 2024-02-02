@@ -8,7 +8,7 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrack, setShowTrack] = useState(true);
 
-  console.log("mmsi is ",mmsi);
+  console.log("mmsi is ", mmsi);
   // 使用useHistoryTrack获取历史轨迹数据
   const { historicalTrackData } = useHistoryTrack(0, mmsi); // 使用固定的间隔和mmsi
 
@@ -20,7 +20,7 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi }) => {
     if (historicalTrackData && historicalTrackData.data) {
       const newTransformedTrackData = historicalTrackData.data.map(item => ({
         position: [parseFloat(item.latitude), parseFloat(item.longitude)],
-        pollution: 10 // 举例，根据需要调整
+        pollution: parseFloat(item.lv)// 举例，根据需要调整
       }));
       const newRealtimestamps = historicalTrackData.data.map(item => item.dtStaticUtc);
 
@@ -28,12 +28,12 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi }) => {
       setRealtimestamps(newRealtimestamps);
     }
   }, [historicalTrackData]);
-  
+console.log("data total",transformedTrackData);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     let interval;
-    console.log('www',transformedTrackData);
+    console.log('www', transformedTrackData);
     if (isAnimating && Array.isArray(transformedTrackData) && transformedTrackData.length > 0) {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % transformedTrackData.length);
@@ -81,7 +81,7 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi }) => {
     }}>
       {transformedTrackData && realtimestamps && Array.isArray(transformedTrackData) && (
         <ShipTrack
-        track={transformedTrackData}
+          track={transformedTrackData}
           showTrack={showTrack}
           currentIndex={currentIndex}
           isAnimating={isAnimating}

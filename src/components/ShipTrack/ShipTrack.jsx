@@ -24,11 +24,21 @@ const ShipTrack = ({ track, showTrack, currentIndex }) => {
   }, [currentIndex, track, showTrack]); // 监听currentIndex, track, 和 showTrack的变化
 
   const getPollutionColor = (pollution) => {
-    const percent = pollution / 100; // 将污染值转换为百分比
+    // 确保污染值在0到15的范围内
+    const normalizedPollution = Math.min(Math.max(pollution, 0), 15);
+    // 计算污染值对应的颜色比例
+    const percent = normalizedPollution / 15;
+  
+    // 根据污染比例计算红色和绿色通道的值，以实现从绿色到红色的渐变
+    // 红色值随污染值线性增加
     const red = Math.floor(255 * percent);
+    // 绿色值随污染值线性减少
     const green = Math.floor(255 * (1 - percent));
-    return `rgb(${red}, ${green}, 0)`; // 绿色到红色的渐变
+  
+    // 返回根据污染等级计算出的颜色
+    return `rgb(${red}, ${green}, 0)`;
   };
+  
 
   const renderTrackSegments = () => {
     if (!showTrack || !Array.isArray(track) || track.length === 0) {
