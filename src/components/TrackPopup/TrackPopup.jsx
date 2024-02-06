@@ -20,7 +20,8 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi }) => {
     if (historicalTrackData && historicalTrackData.data) {
       const newTransformedTrackData = historicalTrackData.data.map(item => ({
         position: [parseFloat(item.latitude), parseFloat(item.longitude)],
-        pollution: parseFloat(item.lv)// 举例，根据需要调整
+        pollution: parseFloat(item.lv),
+        heading: parseFloat(item.heading)
       }));
       const newRealtimestamps = historicalTrackData.data.map(item => item.dtStaticUtc);
 
@@ -85,6 +86,7 @@ console.log("data total",transformedTrackData);
           showTrack={showTrack}
           currentIndex={currentIndex}
           isAnimating={isAnimating}
+          heading={transformedTrackData[currentIndex]?.heading}
         />
       )}
 

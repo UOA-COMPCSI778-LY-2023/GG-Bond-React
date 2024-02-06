@@ -4,10 +4,11 @@ import L from 'leaflet';
 import { FiNavigation2 } from "react-icons/fi";
 import ReactDOMServer from "react-dom/server";
 
-const warshipIcon = () => {
+const warshipIcon = (heading) => {
   return L.divIcon({
     className: 'custom-icon',
-    html: ReactDOMServer.renderToString(<FiNavigation2 style={{ stroke: "black", fill: 'blue' }} />)
+    html: ReactDOMServer.renderToString(<FiNavigation2 style={{ stroke: "black", fill: 'blue', transform: `rotate(${heading}deg)` }} />),
+    iconAnchor: [12.5, 12.5] // 这个值可能需要根据你的图标大小进行调整
   });
 };
 
@@ -74,7 +75,7 @@ const ShipTrack = ({ track, showTrack, currentIndex }) => {
       {markerPosition && (
         <Marker
           position={markerPosition}
-          icon={warshipIcon()}
+          icon={warshipIcon(track[currentIndex].heading)}
         />
       )}
     </>
