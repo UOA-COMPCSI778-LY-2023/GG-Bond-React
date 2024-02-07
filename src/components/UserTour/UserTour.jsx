@@ -9,6 +9,7 @@ const UserTour = ({
     const drawToolsRef = useRef(null);
     const searchLocationRef = useRef(null);
     const filterRef = useRef(null);
+    const dashboardRef = useRef(null);
     const downloadRef = useRef(null);
     const searchShipRef = useRef(null);
     const tourRef = useRef(null);
@@ -24,6 +25,7 @@ const UserTour = ({
         searchLocationRef.current = document.querySelector(".geocoder-control");
         drawToolsRef.current = document.querySelector(".leaflet-draw");
         filterRef.current = document.querySelector(".filterBtn");
+        dashboardRef.current = document.querySelector(".dashboardBtn");
         downloadRef.current = document.querySelector(".downloadBtn");
         tourRef.current = document.querySelector(".tourBtn");
         logoutRef.current = document.querySelector(".logoutBtn");
@@ -37,7 +39,6 @@ const UserTour = ({
                     "leaflet-control-layers-expanded"
                 );
             } else {
-                // 恢复到默认状态
                 mapLayersControl.classList.remove(
                     "leaflet-control-layers-expanded"
                 );
@@ -68,6 +69,12 @@ const UserTour = ({
             description:
                 "Here you can filter the vessels (type, country, signal reception).",
             target: () => filterRef.current,
+        },
+        {
+            title: "DashBoard",
+            description:
+                "Here you can view the Dashboard about our Machine Learning.",
+            target: () => dashboardRef.current,
         },
         {
             title: "Download",

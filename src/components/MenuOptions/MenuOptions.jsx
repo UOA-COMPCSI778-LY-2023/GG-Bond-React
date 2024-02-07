@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import L from "leaflet";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
@@ -8,8 +8,8 @@ import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
 import ShipTypeFilter from "../ShipTypeFilter/ShipTypeFilter";
 import UserTour from "../UserTour/UserTour";
+import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-
 import { FloatButton } from "antd";
 import {
     ToolOutlined,
@@ -19,6 +19,7 @@ import {
     createFromIconfontCN,
     EnvironmentOutlined,
     QuestionCircleOutlined,
+    BarChartOutlined,
 } from "@ant-design/icons";
 
 const IconFont = createFromIconfontCN({
@@ -65,6 +66,7 @@ const MenuOptions = ({ tourOpen, setTourOpen }) => {
         polygon: {},
         circle: {},
     });
+    const navigate = useNavigate();
 
     const toggleFilterDropdown = () => {
         setShowFilterDropdown(!showFilterDropdown);
@@ -106,6 +108,11 @@ const MenuOptions = ({ tourOpen, setTourOpen }) => {
         console.log(shapesContainer);
         setShowDownloadPanel(!showDownloadPanel);
     };
+
+    const toggleDashboard = () => {
+        navigate("/dashboard");
+    };
+
     const [cookies, setCookie, removeCookie] = useCookies(["loggedIn"]);
 
     const toggleLogOut = () => {
@@ -150,6 +157,13 @@ const MenuOptions = ({ tourOpen, setTourOpen }) => {
                     icon={<FilterOutlined />}
                     tooltip={<div>Filter</div>}
                     className="menubtn filterBtn"
+                />
+
+                <FloatButton
+                    onClick={toggleDashboard}
+                    tooltip={<div>Dashboard</div>}
+                    icon={<BarChartOutlined />}
+                    className="menubtn dashboardBtn"
                 />
 
                 <FloatButton
