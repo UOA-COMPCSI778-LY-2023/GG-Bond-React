@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 
 const LoginForm = () => {
     const hardcodedUsername = "admin";
-    const hardcodedPassword = "123";
+    const hardcodedPassword = "Admin123";
     const [ifCorrect, setIfCorrect] = useState(true);
     const navigate = useNavigate();
     const [cookies, setCookie] = useCookies(["loggedIn"]);
@@ -18,38 +18,32 @@ const LoginForm = () => {
         ) {
             setIfCorrect(true);
             navigate("/"); // jump to the map page if successful
-            setCookie("loggedIn", "true", { path: "/", maxAge: 900 });
+            if (values.remember === false) {
+                setCookie("loggedIn", "true", { path: "/" });
+            } else {
+                setCookie("loggedIn", "true", { path: "/", maxAge: 2592000 });
+            }
         } else {
             setIfCorrect(false);
         }
     };
 
     const onFinish = (values) => {
-        console.log("Received values of form: ", values);
         handleSubmit(values);
     };
-
-    useEffect(() => {
-        if (cookies.loggedIn) {
-            navigate("/"); // Redirect to login page
-        }
-    }, []);
-
-    return (
-        <div
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100vh",
-            }}
-        >
-            <Card
-                className="login-card"
-                title="EcoMaritimeTracker"
-                // extra={<a href="#">Register</a>}
-                style={{ width: 300, opacity: 0.95 }}
-            >
+    const tabList = [
+        {
+            key: "tab1",
+            tab: "Login",
+        },
+        {
+            key: "tab2",
+            tab: "Register",
+        },
+    ];
+    const contentList = {
+        tab1: (
+            <p>
                 {!ifCorrect && (
                     <Alert message="Login incorrect" type="error" showIcon />
                 )}
@@ -102,9 +96,6 @@ const LoginForm = () => {
                         >
                             <Checkbox>Remember me</Checkbox>
                         </Form.Item>
-                        {/* <a className="login-form-forgot" href="">
-                            Forgot password
-                        </a> */}
                     </Form.Item>
 
                     <Form.Item className="item-submit">
@@ -116,9 +107,47 @@ const LoginForm = () => {
                         >
                             Log in
                         </Button>
-                        {/* Or <a href="">register now!</a> */}
                     </Form.Item>
                 </Form>
+            </p>
+        ),
+        tab2: (
+            <p>
+                <p>
+                    <img src="/comingsoon.jpg" width="250" />
+                </p>
+                <p>Coming Soon!</p>
+            </p>
+        ),
+    };
+    const [activeTabKey1, setActiveTabKey1] = useState("tab1");
+    const onTab1Change = (key) => {
+        setActiveTabKey1(key);
+    };
+    useEffect(() => {
+        if (cookies.loggedIn) {
+            navigate("/"); // Redirect to login page
+        }
+    }, []);
+
+    return (
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh",
+            }}
+        >
+            <Card
+                className="login-card"
+                title="Ecological Maritime Tracker"
+                style={{ width: 300, opacity: 0.95 }}
+                tabList={tabList}
+                activeTabKey={activeTabKey1}
+                onTabChange={onTab1Change}
+            >
+                {contentList[activeTabKey1]}
             </Card>
         </div>
     );

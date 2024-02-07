@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Marker, Popup, Polyline, useMap, Pane } from "react-leaflet";
+import React from "react";
+import { Marker } from "react-leaflet";
 import { FiNavigation2 } from "react-icons/fi";
 import { PiCircleDashedThin } from "react-icons/pi";
 import L from "leaflet";
@@ -21,7 +21,7 @@ const shipTypeDic = {
     11: "rgba(169, 169, 169)", //Other
 };
 
-const shipIcon = (heading, type, mm, colorType) => {
+const shipIcon = (heading, type, mm, colorType, at) => {
     const color = shipTypeDic[type] || "gray";
     return L.divIcon({
         className: "ships-icon",
@@ -38,7 +38,7 @@ const shipIcon = (heading, type, mm, colorType) => {
                         position: "absolute",
                     }}
                 />
-                {mm % 39 == 0 && (
+                {at > 0 && (
                     <WarningAnimation
                         className="warningIcon"
                         style={{
@@ -71,7 +71,7 @@ const ShipMarker = ({
         selectedLayer === "Satellite" || selectedLayer === "Dark map"
             ? "dark"
             : "light";
-    const { co, he, la, lo, mm, ut, vt } = boatData;
+    const { he, la, lo, mm, vt, at } = boatData;
 
     const togglePopup = () => {
         console.log("Clicked Marker's vt value:", vt); // Log the vt value
@@ -82,7 +82,7 @@ const ShipMarker = ({
         <>
             <Marker
                 position={[la, lo]}
-                icon={shipIcon(he, vt, mm, colorType)}
+                icon={shipIcon(he, vt, mm, colorType, at)}
                 eventHandlers={{ click: togglePopup }}
             ></Marker>
             {isSelected && (

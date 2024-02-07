@@ -1,41 +1,53 @@
-import React, {useState} from 'react';
-import SearchBox from './SearchBox';
-import SearchResults from './SearchResults';
+import React, { useState } from "react";
+import { getShipsBySearch } from "../../utils/api";
+import SearchBox from "./SearchBox";
+import SearchResults from "./SearchResults";
 
-
-
-
-
-function SearchShip({setSelectedBoat}) {
+function SearchShip({ setSelectedBoat, map }) {
     const [searchResults, setSearchResults] = useState([]);
-    const [error, setError] = useState("");
 
-    const getShipsBySearch = async (searchTerm) => {
-        console.log('Searching for:', searchTerm);
-        
-    
-        const staticData = [
-          { mmsi: '123456789', vesselName: 'Static Ship 1' },
-          { mmsi: '987654321', vesselName: 'Static Ship 2' }
-        ];
-      
-        setSearchResults(staticData); 
-        setError(""); 
-      };
+    const fetchShipsBySearch = async (searchTerm) => {
+        try {
+            const response = await getShipsBySearch(searchTerm);
+            if (response.status === 200 && response.data.isok === true) {
+                const shipData = response.data.data;
+                setSearchResults(shipData);
+            } else {
+                setSearchResults([]);
+            }
+        } catch (err) {
+            setSearchResults([]);
+        }
+    };
 
-      const onSelectShip = (ship) => {
-        setSelectedBoat(ship);
+    const onSelectShip = (ship) => {
+        /*
+        {
+            "mmsi": "229541000",
+            "vesselName": "VALIANT",
+            "vesselType": "Cargo",
+            "flagCountry": "Malta",
+            "alpha2": "MT",
+            "typeCode": 1
+        }
+        null
+        */
+        const { mmsi: mm, ...rest } = ship;
+        const newShip = { mm, ...rest };
+        console.log(newShip);
+        setSelectedBoat(newShip);
+        map.setView([newShip.latitude, newShip.longitude], 13); //Maxinum Zoom level: 13
+    };
 
-        // 这里可以添加逻辑来移动地图到选定船只的位置
-      };
-
-  return (
-    <div >
-      {error && <div className="error-message">{error}</div>}
-      <SearchBox onSearch={getShipsBySearch} />
-    {/* <SearchResults results={searchResults} onSelectShip={onSelectShip}/> */}
-    </div>
-  );
+    return (
+        <div className="search-ship">
+            <SearchBox onSearch={fetchShipsBySearch} />
+            <SearchResults
+                results={searchResults}
+                onSelectShip={onSelectShip}
+            />
+        </div>
+    );
 }
 
 export default SearchShip;

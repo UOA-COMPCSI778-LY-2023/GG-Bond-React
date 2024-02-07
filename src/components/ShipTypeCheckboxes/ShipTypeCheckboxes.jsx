@@ -1,42 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import { Checkbox, Col, Row } from "antd";
 import "./ShipTypeCheckboxes.css";
 
 const shipTypes = [
-    // { type: 'ALL', color: 'Black' },
-    { type: "Tank", color: "Red" },
-    { type: "Cargo", color: "LightGreen" },
-    { type: "Fishing", color: "YellowBrown" },
-    { type: "Tug", color: "Blue" },
-    { type: "Sailboat", color: "Navy" },
-    { type: "Cruise", color: "Purple" },
-    { type: "Container", color: "Orange" },
-    { type: "Naval", color: "Gray" },
-    { type: "Patrol", color: "Olive" },
-    { type: "Research", color: "Lime" },
-    { type: "Yacht", color: "Teal" },
-    { type: "Oil Tanker", color: "Black" },
-    { type: "Ferry", color: "RoyalBlue" },
-    { type: "Submarine", color: "Aqua" },
-    // Add additional ship types as necessary
+    { type: "Cargo", index: 1 },
+    { type: "Fishing", index: 2 },
+    { type: "Tank", index: 3 },
+    { type: "Pleasure Craft", index: 4 },
+    { type: "Tug & Towing", index: 5 },
+    { type: "Sailing", index: 6 },
+    { type: "Passenger", index: 7 },
+    { type: "Law Enforcement", index: 8 },
+    { type: "Military", index: 9 },
+    { type: "Dredging", index: 10 },
+    { type: "Other", index: 11 },
 ];
 
 const shipOptions = shipTypes.map((ship) => ship.type);
 
 const ShipTypeCheckboxes = ({ checkedList, setCheckedList }) => {
-    const checkAll = shipOptions.length === checkedList.length;
+    const checkAll = shipTypes.length === checkedList.length;
     const indeterminate =
-        checkedList.length > 0 && checkedList.length < shipOptions.length;
+        checkedList.length > 0 && checkedList.length < shipTypes.length;
+
     const onChange = (list) => {
         setCheckedList(list);
     };
+
     const onCheckAllChange = (e) => {
-        setCheckedList(e.target.checked ? shipOptions : []);
+        setCheckedList(
+            e.target.checked ? shipTypes.map((_, index) => index + 1) : []
+        );
     };
 
     const checkboxCols = shipOptions.map((option, index) => (
         <Col key={index} span={6}>
-            <Checkbox value={option}>{option}</Checkbox>
+            <Checkbox value={index + 1}>{option}</Checkbox>
         </Col>
     ));
 

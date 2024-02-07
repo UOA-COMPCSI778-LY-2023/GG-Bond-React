@@ -2,68 +2,175 @@
 
 .search-box-container {
   position: fixed;
-  top: 0;
+  top: 5px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  width: auto; /* 根据内容自动调整宽度 */
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  background-color: rgba(128, 128, 128, 0.5); /* 半透明的灰色背景 */
-  backdrop-filter: blur(10px); /* 虚化效果 */
+  width: 35%;
+  background-color: #fff;
+  box-shadow: none;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  border: none;
+  overflow: hidden;
 }
-
 
 .search-input {
-  flex-grow: 1;
+  width: 100%;
   padding: 8px 16px;
-  margin-right: 8px; /* 在搜索框和容器右侧保持一些间隙 */
-  border: none; /* 去除输入框的边框 */
-  border-radius: 20px; /* 圆角 */
-  outline: none; /* 去除聚焦时的轮廓 */
-  color: #333; /* 输入文本的颜色 */
-  background-color: transparent; /* 使输入框背景透明 */
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  color: #333;
+  background-color: #f9f9f9;
+  font-size: 16px;
 }
 
-/* 隐藏 Search 按钮 */
 .search-button {
-  display: none; /* 不显示搜索按钮 */
+  display: none;
 }
 
-/* 下拉列表样式 */
 .dropdown {
   position: absolute;
-  background-color: #f6f6f6;
-  min-width: 90%; /* 下拉列表的宽度相对于搜索框的宽度 */
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 4px;
-  top: 100%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  z-index: 1001;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 0 0 20px 20px;
 }
 
 .dropdown-item {
+  width: 100%;
   padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border-bottom: 1px solid #ddd; /* 每个项目之间的分隔线 */
+  margin: 10px;
+  border: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 14px;
+  display: flex; /* 启用flex布局 */
+  justify-content: Start; /* 元素均匀分布 */
+  align-items: center; /* 垂直居中对齐 */
+  transition: background-color 0.3s, box-shadow 0.3s;
+  position: relative;
 }
 
-.dropdown-item:last-child {
-  border-bottom: none; /* 最后一个项目不需要分隔线 */
+.dropdown-item p {
+  margin-right: 10px; /* 在元素之间添加间隔 */
+  /* ...其他样式（如需要）... */
+}
+
+.dropdown-item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 左对齐 */
+}
+
+.dropdown-item-info:last-child {
+  align-items: flex-end; /* 右对齐 */
 }
 
 .dropdown-item:hover {
-  background-color: #ddd;
+  background-color: #eaeaea;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 错误信息样式 */
+
 .error-message {
   color: red;
-  background-color: #ffc0cb; /* 浅粉色背景 */
+  background-color: #ffc0cb;
   padding: 10px;
-  margin-top:
-10px; /* 在搜索框下方留出间隙 */
-border-radius: 5px;
-text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* 更新search-results-container的样式 */
+.search-results-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 5px;
+  position: fixed;
+  top: 41px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(33%);
+  z-index: 999;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px #4096ff;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 8px;
+  width: 34%;
+}
+
+.search-results-container > * {
+  flex: 1;
+}
+
+.search-results-container::-webkit-scrollbar {
+  display: none;
+}
+
+.icon-address {
+  position: absolute; /* 设置图标为绝对定位 */
+  right: 16px; /* 固定在距离右侧16px的位置 */
+  top: 50%; /* 垂直居中 */
+  transform: translateY(-50%); /* 确保图标精确居中 */
+  font-size: 16px; /* 设置图标大小 */
+  
+}
+.icon-location {
+  height: 24px; /* 或其他适合您设计的大小 */
+  width: 24px; /* 或其他适合您设计的大小 */
+  margin-left: auto; /* 将图标推到最右边 */
+  align-items: flex-end; 
+  /* 如果需要，可以添加其他样式 */
+}
+.custom-search-input {
+  background-color: rgba(128, 128, 128, 0.5);
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  padding: 1px;
+  font-size: 14px;
+}
+
+.css-dev-only-do-not-override-1qhpsh8.ant-list-lg .ant-list-item {
+  padding: 0 !important; /* 修改这里的数值 */
+}
+
+.ant-list{
+  width: 90%;
+}
+
+.ant-list-items{
+  width: 100%;
+  
+}
+
+.ant-list-item:hover{
+  background-color: #ffffffdf;
+  border-radius: 8px;
+}
+
+.search-ship .ant-row{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0 2px;
+}
+
+.ant-input-affix-wrapper{
+  margin-left: -2px;
+}
+
+.ant-input-group-addon .ant-btn{
+  margin-right: -2px;
 }

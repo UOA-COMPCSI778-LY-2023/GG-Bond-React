@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import L from "leaflet";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
 import DownloadShipsInfo from "../DownloadShipsInfo/DownloadShipsInfo";
@@ -6,9 +7,9 @@ import DrawTools from "../DrawTools/DrawTools";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
 import ShipTypeFilter from "../ShipTypeFilter/ShipTypeFilter";
-import L from "leaflet";
+import UserTour from "../UserTour/UserTour";
+import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-
 import { FloatButton } from "antd";
 import {
     ToolOutlined,
@@ -17,6 +18,8 @@ import {
     FilterOutlined,
     createFromIconfontCN,
     EnvironmentOutlined,
+    QuestionCircleOutlined,
+    BarChartOutlined,
 } from "@ant-design/icons";
 
 const IconFont = createFromIconfontCN({
@@ -52,9 +55,7 @@ const countryTypes = [
     // Add additional ship types as necessary
 ];
 
-const MenuOptions = () => {
-    const [dark, setDark] = useState(false);
-    const [isActive, setIsActive] = useState(false);
+const MenuOptions = ({ tourOpen, setTourOpen }) => {
     const [showFilterDropdown, setShowFilterDropdown] = useState(false);
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [selectedCountries, setSelectedCountries] = useState([]);
@@ -65,11 +66,7 @@ const MenuOptions = () => {
         polygon: {},
         circle: {},
     });
-
-    const toggleDarkOrLightMode = () => {
-        setDark(!dark);
-        setIsActive(!isActive);
-    };
+    const navigate = useNavigate();
 
     const toggleFilterDropdown = () => {
         setShowFilterDropdown(!showFilterDropdown);
@@ -111,6 +108,11 @@ const MenuOptions = () => {
         console.log(shapesContainer);
         setShowDownloadPanel(!showDownloadPanel);
     };
+
+    const toggleDashboard = () => {
+        navigate("/dashboard");
+    };
+
     const [cookies, setCookie, removeCookie] = useCookies(["loggedIn"]);
 
     const toggleLogOut = () => {
@@ -130,6 +132,7 @@ const MenuOptions = () => {
                 shape="square"
                 trigger="hover"
                 icon={<ToolOutlined />}
+                open={tourOpen ? true : undefined}
             >
                 <FloatButton
                     onClick={toggleDrawTools}
@@ -153,21 +156,35 @@ const MenuOptions = () => {
                     onClick={toggleFilterDropdown}
                     icon={<FilterOutlined />}
                     tooltip={<div>Filter</div>}
-                    className="menubtn"
+                    className="menubtn filterBtn"
+                />
+
+                <FloatButton
+                    onClick={toggleDashboard}
+                    tooltip={<div>Dashboard</div>}
+                    icon={<BarChartOutlined />}
+                    className="menubtn dashboardBtn"
                 />
 
                 <FloatButton
                     onClick={toggleDownloadPanel}
                     tooltip={<div>Download</div>}
                     icon={<DownloadOutlined />}
-                    className="menubtn"
+                    className="menubtn downloadBtn"
+                />
+
+                <FloatButton
+                    onClick={() => setTourOpen(true)}
+                    tooltip={<div>Tour</div>}
+                    icon={<QuestionCircleOutlined />}
+                    className="menubtn tourBtn"
                 />
 
                 <FloatButton
                     onClick={toggleLogOut}
-                    tooltip={<div>LogOut</div>}
+                    tooltip={<div>Log Out</div>}
                     icon={<IconFont type="icon-tuichu" />}
-                    className="menubtn"
+                    className="menubtn logoutBtn"
                 />
             </FloatButton.Group>
 
@@ -201,6 +218,8 @@ const MenuOptions = () => {
                     }}
                     expanded={true}
                     title=""
+                    collapseAfterResult={false}
+                    id="geo-search"
                 />
             )}
             {showDownloadPanel && (
@@ -209,8 +228,14 @@ const MenuOptions = () => {
                     shapesContainer={shapesContainer}
                 />
             )}
+            <UserTour
+                setTourOpen={setTourOpen}
+                tourOpen={tourOpen}
+                setShowDrawTools={setShowDrawTools}
+                setShowSearchLocation={setShowSearchLocation}
+            />
         </div>
     );
 };
 
-export default MenuOptions;
+export default React.memo(MenuOptions);

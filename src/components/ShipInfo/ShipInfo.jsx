@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Card, Space, Button, Spin, ConfigProvider } from "antd";
+import { Card, Space, Button, Spin, ConfigProvider, Progress } from "antd";
 import { SwapRightOutlined, CloseOutlined } from "@ant-design/icons";
 import DraggableModal from "../DraggableModal/DraggableModal";
 import TrackPopup from "../TrackPopup/TrackPopup";
-import "./shipInfo.css";
 import ShipInfoBody from "./ShipInfoBody";
 import CountryFlag from "react-country-flag";
 import Draggable from "react-draggable";
 import useShipData from "../../hooks/useShipData";
 import L from "leaflet";
+import { getShipID, getShipPicture } from "../../utils/api";
+import "./shipInfo.css";
 
 const ShipInfo = ({ ship, setSelectedBoat }) => {
     const mmsi = ship.mm;
@@ -59,25 +60,16 @@ console.log("type is",shipName);
 
     const fetchImage = async () => {
         setLoading(true);
-        const shiIdUrl = `http://13.236.117.100:8080/get/shipID?mmsi=${mmsi}`;
         try {
-            const response = await fetch(shiIdUrl, {
-                method: "GET",
-            });
-            if (response.ok) {
-                const responseData = await response.json();
+            const response = await getShipID(mmsi);
+            if (response.status === 200) {
+                const responseData = await response.data;
                 const shipId = responseData.vessel_id;
-                console.log(shipId);
                 if (shipId) {
-                    const imageUrl = `http://13.236.117.100:8080/get/shipPicture?ship_id=${shipId}`;
-                    // Check if the image URL returns a 404 status
-                    const imageResponse = await fetch(imageUrl, {
-                        method: "GET",
-                    });
-                    if (response.ok) {
-                        const responseData = await imageResponse.json();
+                    const imageResponse = await getShipPicture(shipId);
+                    if (response.status === 200) {
+                        const responseData = await imageResponse.data;
                         const shipImage = responseData.ship_image;
-                        console.log(shipImage);
                         if (shipImage) {
                             setShipImage(shipImage);
                         } else {
@@ -120,6 +112,11 @@ console.log("type is",shipName);
     useEffect(() => {
         const el = document.getElementById("ship-dragble-card");
         L.DomEvent.on(el, "dblclick", L.DomEvent.stopPropagation);
+    }, []);
+
+    useEffect(() => {
+        const el = document.getElementById("ship-info-body");
+        L.DomEvent.on(el, "mousedown", L.DomEvent.stopPropagation);
     }, []);
 
     return (
@@ -170,6 +167,28 @@ console.log("type is",shipName);
                                             {shipData.vesselType}
                                         </div>
                                     </div>
+                                    <div
+                                        className="pollution-level"
+                                        style={{
+                                            position: "absolute",
+                                            top: 14,
+                                            right: 35,
+                                        }}
+                                    >
+                                        <Progress
+                                            type="circle"
+                                            percent={(shipData.lv / 30) * 100}
+                                            size={[28]}
+                                            strokeColor={{
+                                                "0%": "#93CB96",
+                                                "50%": "#F6ED9F",
+                                                "100%": "#F44336",
+                                            }}
+                                            format={() =>
+                                                `${Math.ceil(shipData.lv)}`
+                                            }
+                                        />
+                                    </div>
                                     <div className="close-icon">
                                         <CloseOutlined
                                             onClick={closeShipInfo}
@@ -193,7 +212,10 @@ console.log("type is",shipName);
                                         style={{ width: "100%", marginTop: 2 }}
                                     />
                                 )}
-                                <div>
+                                <div
+                                    className="ship-info-body"
+                                    id="ship-info-body"
+                                >
                                     <ShipInfoBody
                                         shipData={shipData}
                                     ></ShipInfoBody>
@@ -233,7 +255,11 @@ console.log("type is",shipName);
                     </Space>
                 </div>
             </Draggable>
-            <DraggableModal visible={showChart} onCancel={handleCancel} />
+            <DraggableModal
+                visible={showChart}
+                onCancel={handleCancel}
+                mmsi={mmsi}
+            />
         </>
     );
 };

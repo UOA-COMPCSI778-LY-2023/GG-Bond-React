@@ -1,25 +1,65 @@
-import React from 'react';
-import './MarineTrafficStyle.css';
+import React from "react";
+import { List, Col, Row } from "antd";
+import TypeCodeArrow from "./TypeCodeArrow";
+import CountryFlag from "react-country-flag";
 
 function SearchResults({ results, onSelectShip }) {
-  // 使用静态测试数据
-  const staticResults = [
-    { mmsi: '123456789', vesselName: 'Static Ship 1' },
-    { mmsi: '987654321', vesselName: 'Static Ship 2' }
-  ];
+    if (!results || results.length === 0) {
+        return null;
+    }
 
-  return (
-    <div className="search-results-container">
-      {/* 使用静态测试数据代替动态结果 */}
-      {staticResults.map((result, index) => (
-        <div key={index} className="dropdown-item" onClick={() => onSelectShip(result)}>
-          <p><strong>MMSI:</strong> {result.mmsi}</p>
-          <p><strong>Name:</strong> {result.vesselName}</p>
-          {/* 其他信息 */}
+    const renderItem = (item, index) => (
+        <List.Item
+            onClick={() => onSelectShip(item)}
+            className="music-style-list-item"
+            style={{ marginBottom: "0px" }}
+        >
+            <Row gutter={24} justify="space-around" align="middle">
+                <Col span={1}>
+                    <TypeCodeArrow typeCode={item.typeCode} />
+                </Col>
+                <Col span={8}>
+                    <p>Name: {item.vesselName}</p>
+                </Col>
+                <Col span={8}>
+                    <p> MMSI:{item.mmsi}</p>
+                </Col>
+                <Col span={4}>
+                    <p>{item.vesselType}</p>
+                </Col>
+                <Col span={2}>
+                    {item.alpha2 !== null ? (
+                        <CountryFlag
+                            className="country-flag"
+                            countryCode={item.alpha2}
+                            svg
+                            style={{
+                                width: "2.2em",
+                                height: "2.2em",
+                            }}
+                        />
+                    ) : (
+                        <img
+                            className="country-flag-img"
+                            src="defaultCountryImage.png"
+                            alt="defaul-country"
+                        />
+                    )}
+                </Col>
+            </Row>
+        </List.Item>
+    );
+
+    return (
+        <div className="search-results-container">
+            <List
+                itemLayout="vertical"
+                size="large"
+                dataSource={results}
+                renderItem={renderItem}
+            />
         </div>
-      ))}
-    </div>
-  );
+    );
 }
 
 export default SearchResults;

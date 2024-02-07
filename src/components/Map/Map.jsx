@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import L from "leaflet";
-import axios from "axios";
+import { getShipBasicData } from "../../utils/api";
 import { MapContainer, useMapEvents, ScaleControl } from "react-leaflet";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
@@ -31,6 +31,7 @@ function Map() {
     const [selectedLayer, setSelectedLayer] = useState("Light map");
     const [selectedVt, setSelectedVt] = useState(new Set()); // 使用 Set 来存储选中的 vt 值
     const [isAnimating, setIsAnimating] = useState(false);
+    const [tourOpen, setTourOpen] = useState(false);
     const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
     useEffect(() => {
@@ -53,7 +54,6 @@ function Map() {
         };
     }, [cookies, navigate, map]);
 
-
     const handleVtSelect = (vt) => {
         setSelectedVt(prevSelectedVt => {
             const newSelectedVt = new Set(prevSelectedVt);
@@ -68,14 +68,19 @@ function Map() {
 
     // 更新历史轨迹数据的逻辑
 
-    const getShipBasicData = async (latLngNE, latLngSW) => {
+    const fetchShipBasicData = async (latLngNE, latLngSW) => {
+
         const type = "0";
         const source = 0;
         const limit = 500;
-        const url = `http://13.236.117.100:8888/rest/v1/ship/list/${latLngSW.lng}/${latLngSW.lat}/${latLngNE.lng}/${latLngNE.lat}/${type}/${source}/${limit}`;
-
         try {
-            const response = await axios.get(url);
+            const response = await getShipBasicData(
+                latLngNE,
+                latLngSW,
+                type,
+                source,
+                limit
+            );
 
             if (response.status !== 200) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -96,15 +101,13 @@ function Map() {
         if (map) {
             const latLngNE = map.getBounds()._northEast;
             const latLngSW = map.getBounds()._southWest;
-            getShipBasicData(latLngNE, latLngSW);
+            fetchShipBasicData(latLngNE, latLngSW);
         }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [map]);
 
     const handleMoveEnd = useCallback(() => {
         if (map) {
-            getShipBasicData(
+            fetchShipBasicData(
                 map.getBounds()._northEast,
                 map.getBounds()._southWest
             );
@@ -121,7 +124,19 @@ function Map() {
 
     //Help function to check boat
     function deepEqual(obj1, obj2) {
-        if (obj1 === obj2) return true;
+        if (
+            obj1 === null ||
+            obj2 === null ||
+            typeof obj1 === "undefined" ||
+            typeof obj2 === "undefined"
+        ) {
+            return false;
+        }
+
+        if (obj1.mm !== undefined && obj2.mm !== undefined) {
+            if (obj1.mm === obj2.mm) return true;
+        }
+
         if (
             typeof obj1 !== "object" ||
             obj1 === null ||
@@ -149,8 +164,8 @@ function Map() {
         <div className="Map">
             <MapContainer
                 id="mapId"
-                center={[-36.842, 174.76]}
-                zoom={14}
+                center={[-40.797, 174.99]}
+                zoom={6}
                 scrollWheelZoom={true}
                 maxBoundsViscosity={1.0}
                 maxBounds={bounds}
@@ -163,9 +178,7 @@ function Map() {
                     heatData={heatData}
                     setSelectedLayer={setSelectedLayer}
                 />
-                <MenuOptions />
-
-
+                <MenuOptions tourOpen={tourOpen} setTourOpen={setTourOpen} />
 
 
                 {
@@ -191,9 +204,7 @@ function Map() {
                 )}
                 <VtSelect onVtSelect={handleVtSelect} />
             </MapContainer>
-
-
-            <SearchShip setSelectedBoat={setSelectedBoat} />
+            <SearchShip setSelectedBoat={setSelectedBoat} map={map} />
         </div>
     );
 }

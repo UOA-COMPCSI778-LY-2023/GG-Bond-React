@@ -15,11 +15,10 @@
     background-color: white;
     padding: 20px;
     border-radius: 5px;
-    /* 调整弹窗大小 */
-    width: auto; /* 或者您可以使用具体的尺寸，如 '400px' */
-    max-width: 80%; /* 防止弹窗过大 */
-    max-height: 80%;
-    overflow: auto; /* 如果内容超出窗口大小，允许滚动 */
+    width: 300px; 
+    max-width: 60%; 
+    max-height: 60%; 
+    overflow: auto;
 }
 
 .close-button {
@@ -28,3 +27,4 @@
     font-weight: bold;
     cursor: pointer;
 }
+
