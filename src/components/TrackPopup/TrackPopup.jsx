@@ -8,7 +8,7 @@ import "./TrackPopup.css";
 const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrack, setShowTrack] = useState(true);
-console.log("sppp",shipName);
+  console.log("sppp", shipName);
   console.log("mmsi is ", mmsi);
   // 使用useHistoryTrack获取历史轨迹数据
   const { historicalTrackData } = useHistoryTrack(0, mmsi); // 使用固定的间隔和mmsi
@@ -81,14 +81,14 @@ console.log("sppp",shipName);
       zIndex: 1000,
       borderTop: '1px solid #e0e0e0'
     }}>
-      {transformedTrackData && realtimestamps && Array.isArray(transformedTrackData) &&(
+      {transformedTrackData && realtimestamps && Array.isArray(transformedTrackData) && (
         <ShipTrack
           track={transformedTrackData}
           showTrack={showTrack}
           currentIndex={currentIndex}
           isAnimating={isAnimating}
           heading={transformedTrackData[currentIndex]?.heading}
-          shipName = {shipName}
+          shipName={shipName}
         />
       )}
 
@@ -114,7 +114,7 @@ console.log("sppp",shipName);
           onClick={handleClose}
           type="default"
           icon={<CloseOutlined />}
-          style={{ fontSize: '18px',  border: 'none' }} // No border
+          style={{ fontSize: '18px', border: 'none' }} // No border
         />
       </div>
 
@@ -129,7 +129,7 @@ console.log("sppp",shipName);
           }}
           showInfo={false} // 隐藏默认百分比文本
         />
-        <div style={{ minWidth: '50px', textAlign: 'center', marginLeft: '10px' , color: '#595959', fontSize: '18px'}}>
+        <div style={{ minWidth: '50px', textAlign: 'center', marginLeft: '10px', color: '#595959', fontSize: '18px' }}>
           {progressPercent}%
         </div>
       </div>
@@ -137,15 +137,19 @@ console.log("sppp",shipName);
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '15px', justifyContent: 'space-between' }}>
         {/* 污染值提示的渐变条，保持原始颜色，视觉优化版 */}
         <div style={{
-          height: '10px',
+          height: '15px',
           borderRadius: '10px', // 更圆润的边角
           background: 'linear-gradient(to right, #00ff00 0%, #ff0000 100%)', // 保持原始的绿到红的渐变
           border: '1px solid #d9d9d9', // 更细腻的边框颜色
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // 轻微的阴影效果
           flex: 1, // 使渐变条填满除了显示"pollution"文字部分的容器
           marginRight: '10px' // 保持与进度条旁数字的间距一致
-        }}></div>
-        <div style={{ minWidth: '50px', textAlign: 'center' , color: '#595959', fontSize: '18px'}}>
+        }}>
+          <span style={{ position: 'absolute', color: 'black', left:'4%',fontWeight: 'bold',fontSize: '12px' }}>0</span> {/* 左侧的0 */}
+          {/* 使用绝对定位并将left设置为90%，使其接近右侧边缘 */}
+          <span style={{ position: 'absolute', left: '70%', color: 'black',fontWeight: 'bold', fontSize: '12px' }}>100</span> {/* 右侧的100 */}
+        </div>
+        <div style={{ minWidth: '50px', textAlign: 'center', color: '#595959', fontSize: '18px' }}>
           Pollution Level
         </div>
       </div>

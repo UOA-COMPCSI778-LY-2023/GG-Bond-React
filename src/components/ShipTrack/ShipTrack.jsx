@@ -11,7 +11,7 @@ const warshipIcon = (heading, shipName) => {
     html: ReactDOMServer.renderToString(
       <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {/* 图标 */}
-        <FiNavigation2 style={{ stroke: "black", fill: 'blue', transform: `rotate(${heading}deg) scale(1.5)` }} />
+        <FiNavigation2 style={{ stroke: "black", fill: 'green', transform: `rotate(${heading}deg) scale(1.5)` }} />
         {/* 文字部分，保持水平且位于图标顶部 */}
         <div style={{
           position: 'absolute',
