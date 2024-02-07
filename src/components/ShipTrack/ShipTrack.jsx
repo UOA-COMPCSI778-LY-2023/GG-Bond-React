@@ -32,8 +32,8 @@ const warshipIcon = (heading, shipName) => {
         </div>
       </div>
     ),
-    iconSize: [8, 8], // 根据实际图标大小调整
-    iconAnchor: [8, 8] // 调整以确保图标和文字正确对齐
+    iconSize: [7.5, 7.5], // 根据实际图标大小调整
+    iconAnchor: [7.5, 7.5] // 调整以确保图标和文字正确对齐
   });
 };
 
