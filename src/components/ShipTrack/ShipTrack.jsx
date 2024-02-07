@@ -4,15 +4,45 @@ import L from 'leaflet';
 import { FiNavigation2 } from "react-icons/fi";
 import ReactDOMServer from "react-dom/server";
 
-const warshipIcon = (heading) => {
+
+const warshipIcon = (heading, shipName) => {
   return L.divIcon({
     className: 'custom-icon',
-    html: ReactDOMServer.renderToString(<FiNavigation2 style={{ stroke: "black", fill: 'blue', transform: `rotate(${heading}deg)` }} />),
-    iconAnchor: [12.5, 12.5] // 这个值可能需要根据你的图标大小进行调整
+    html: ReactDOMServer.renderToString(
+      <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* 图标 */}
+        <FiNavigation2 style={{ stroke: "black", fill: 'blue', transform: `rotate(${heading}deg) scale(1.5)` }} />
+        {/* 文字部分，保持水平且位于图标顶部 */}
+        <div style={{
+          position: 'absolute',
+          top: '-20px', // 根据实际需要调整
+          left: '50%',
+          transform: 'translateX(-50%)', 
+          fontWeight: 'bold', 
+          fontSize: '15px', 
+          color: 'black', 
+          whiteSpace: 'nowrap',
+          textShadow: `
+            -1px -1px 0 #fff,  
+             1px -1px 0 #fff,
+            -1px  1px 0 #fff,
+             1px  1px 0 #fff`
+        }}>
+          {shipName}
+        </div>
+      </div>
+    ),
+    iconSize: [8, 8], // 根据实际图标大小调整
+    iconAnchor: [8, 8] // 调整以确保图标和文字正确对齐
   });
 };
 
-const ShipTrack = ({ track, showTrack, currentIndex }) => {
+
+
+
+
+
+const ShipTrack = ({ track, showTrack, currentIndex,shipName }) => {
   const [markerPosition, setMarkerPosition] = useState(null);
 
   useEffect(() => {
@@ -75,7 +105,7 @@ const ShipTrack = ({ track, showTrack, currentIndex }) => {
       {markerPosition && (
         <Marker
           position={markerPosition}
-          icon={warshipIcon(track[currentIndex].heading)}
+          icon={warshipIcon(track[currentIndex].heading, shipName)}
         />
       )}
     </>
