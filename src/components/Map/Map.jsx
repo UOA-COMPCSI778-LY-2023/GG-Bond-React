@@ -13,6 +13,10 @@ import MapLayers from "../MapLayers/MapLayers";
 import "leaflet-hash-plus";
 import "leaflet.heat";
 import "./Map.css";
+import VtSelect from "../ShipMarker/VtSelect";
+import TrackPopup from "../TrackPopup/TrackPopup";
+
+
 
 //map boundary limit
 const corner1 = L.latLng(-90, -240);
@@ -25,10 +29,11 @@ function Map() {
     const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
     const [selectedLayer, setSelectedLayer] = useState("Light map");
+    const [selectedVt, setSelectedVt] = useState(new Set()); // 使用 Set 来存储选中的 vt 值
+    const [isAnimating, setIsAnimating] = useState(false);
     const [tourOpen, setTourOpen] = useState(false);
     const [cookies] = useCookies(["loggedIn"]);
     const navigate = useNavigate();
-
     useEffect(() => {
         let hashInstance;
         if (!cookies.loggedIn) {
@@ -48,6 +53,30 @@ function Map() {
             }
         };
     }, [cookies, navigate, map]);
+
+    const handleVtSelect = (vt) => {
+        setSelectedVt(prevSelectedVt => {
+            const newSelectedVt = new Set(prevSelectedVt);
+            if (newSelectedVt.has(vt)) {
+                newSelectedVt.delete(vt);
+            } else {
+                newSelectedVt.add(vt);
+            }
+            return newSelectedVt;
+        });
+    };
+
+    const handleSelectBoat = (boatData) => {
+        if (selectedBoat && selectedBoat.mm === boatData.mm) {
+            // 如果点击的是当前已选中的船只，则取消选择
+            setSelectedBoat(null);
+        } else {
+            // 否则，更新为新选中的船只
+            setSelectedBoat(boatData);
+        }
+    };
+
+    // 更新历史轨迹数据的逻辑
 
     const fetchShipBasicData = async (latLngNE, latLngSW) => {
         const type = "0";
@@ -160,18 +189,21 @@ function Map() {
                 />
                 <MenuOptions tourOpen={tourOpen} setTourOpen={setTourOpen} />
 
-                {shipsBasicData.map((boatData, index) => {
-                    return (
-                        <ShipMarker
-                            key={index}
-                            boatData={boatData}
-                            setSelectedBoat={setSelectedBoat}
-                            isSelected={deepEqual(boatData, selectedBoat)}
-                            selectedLayer={selectedLayer}
-                            heatData={heatData}
-                        />
-                    );
-                })}
+
+                {
+                    shipsBasicData
+                    .filter(boatData => selectedVt.size === 0 || selectedVt.has(boatData.vt)) // 仍然基于VT过滤
+                        .map((boatData) => (
+                            <ShipMarker
+                                key={boatData.mm}
+                                boatData={boatData}
+                                setSelectedBoat={setSelectedBoat}
+                                isSelected={deepEqual(boatData, selectedBoat)}
+                                selectedLayer={selectedLayer}
+                            />
+                        ))
+                }
+
 
                 {selectedBoat && (
                     <ShipInfo
@@ -179,6 +211,7 @@ function Map() {
                         setSelectedBoat={setSelectedBoat}
                     />
                 )}
+                <VtSelect onVtSelect={handleVtSelect} />
             </MapContainer>
             <SearchShip setSelectedBoat={setSelectedBoat} map={map} />
         </div>

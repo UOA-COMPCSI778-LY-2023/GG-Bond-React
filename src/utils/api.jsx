@@ -79,6 +79,12 @@ const getShipDetail = async (mmsi) => {
     return response;
 };
 
+const getHistoryTrack = async (mmsi, interval) => {
+    const url = `/rest/v1/ship/history/${mmsi}/${interval}`;
+    const response = await shipDataApi.get(url);
+    return response;
+};
+
 export {
     getShipID,
     getShipPicture,
@@ -88,4 +94,5 @@ export {
     getPollutionData,
     getTotalPollution,
     getShipDetail,
+    getHistoryTrack
 };

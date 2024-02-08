@@ -39,6 +39,8 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
     };
     const typePath = getTypePath(shipData.vesselType);
 
+    const shipName = shipData.vesselName;
+console.log("type is",shipName);
     // get ship country picture
     const getCountry = (shipCountryCode) => {
         if (["NAN", "nan"].includes(shipCountryCode)) {
@@ -246,6 +248,8 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                 }}
                                 isAnimating={isAnimating}
                                 setIsAnimating={setIsAnimating}
+                                mmsi={ship.mm}
+                                shipName={shipData.vesselName}
                             />
                         )}
                     </Space>
@@ -259,5 +263,6 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
         </>
     );
 };
+
 
 export default ShipInfo;
