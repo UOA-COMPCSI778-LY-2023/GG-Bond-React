@@ -90,7 +90,7 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
         <>
             <Draggable
                 onDrag={(e) => e.stopPropagation()}
-                defaultPosition={{ x: 50, y: 20 }}
+                defaultPosition={{ x: 358, y: 46 }}
             >
                 <div className="downloadcard" id="downloadcard">
                     <Space

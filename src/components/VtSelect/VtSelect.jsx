@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import L from "leaflet";
 import { FiNavigation2 } from "react-icons/fi";
 const VtSelect = ({ onVtSelect }) => {
     const shipTypes = [
@@ -16,65 +17,71 @@ const VtSelect = ({ onVtSelect }) => {
     ];
 
     const containerStyle = {
-        position: 'absolute',
-        top: '52px',
-        right: '60px',
-        padding: '10px',
-        borderRadius: '10px',
-        backgroundColor: '#f9f9f9',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        position: "fixed",
+        top: "52px",
+        right: "60px",
+        padding: "10px",
+        borderRadius: "10px",
+        backgroundColor: "#f9f9f9",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         zIndex: 600,
-        maxWidth: '300px'
+        maxWidth: "300px",
     };
 
     const labelStyle = {
-        display: 'block',
-        margin: '10px 0',
-        padding: '10px 15px',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        backgroundColor: '#fff',
+        display: "block",
+        margin: "10px 0",
+        padding: "10px 15px",
+        borderRadius: "5px",
+        cursor: "pointer",
+        backgroundColor: "#fff",
         fontFamily: '"Helvetica", "Arial", sans-serif', // 更换字体
-        fontSize: '14px', // 增大字体大小
-        fontWeight: 'bold', // 字体加粗
-        color: 'black',
-        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)', // 添加文本阴影
-        transition: 'background-color 0.3s, box-shadow 0.3s'
+        fontSize: "14px", // 增大字体大小
+        fontWeight: "bold", // 字体加粗
+        color: "black",
+        textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)", // 添加文本阴影
+        transition: "background-color 0.3s, box-shadow 0.3s",
     };
 
     const hoverStyle = {
-        backgroundColor: '#e8e8e8',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+        backgroundColor: "#e8e8e8",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
     };
 
+    useEffect(() => {
+        const el = document.getElementById("shipfilter");
+        L.DomEvent.on(el, "dblclick", L.DomEvent.stopPropagation);
+    }, []);
+
     return (
-        <div style={containerStyle}>
+        <div style={containerStyle} id="shipfilter">
             {shipTypes.map(({ vt, name, color }) => (
                 <label
                     key={vt}
                     style={labelStyle}
-                    onMouseEnter={e => {
-                        e.target.style.backgroundColor = hoverStyle.backgroundColor;
+                    onMouseEnter={(e) => {
+                        e.target.style.backgroundColor =
+                            hoverStyle.backgroundColor;
                         e.target.style.boxShadow = hoverStyle.boxShadow;
                     }}
-                    onMouseLeave={e => {
-                        e.target.style.backgroundColor = '#fff';
-                        e.target.style.boxShadow = 'none';
+                    onMouseLeave={(e) => {
+                        e.target.style.backgroundColor = "#fff";
+                        e.target.style.boxShadow = "none";
                     }}
                 >
                     <input
                         type="checkbox"
                         onChange={() => onVtSelect(vt)}
-                        style={{ marginRight: '5px' }}
+                        style={{ marginRight: "5px" }}
                     />
                     <FiNavigation2
                         style={{
                             stroke: "rgba(0, 0, 0, 0.5)", // 更淡的黑色边框
-                            strokeWidth: '0.5', // 较薄的边框
+                            strokeWidth: "0.5", // 较薄的边框
                             fill: color,
-                            marginRight: '8px',
-                            verticalAlign: 'middle',
-                            fontSize: '20px'
+                            marginRight: "8px",
+                            verticalAlign: "middle",
+                            fontSize: "20px",
                         }}
                     />
                     {name}
