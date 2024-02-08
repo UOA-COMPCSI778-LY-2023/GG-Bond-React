@@ -70,10 +70,10 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
   return (
     <div style={{
       position: 'fixed',
-      bottom: '-520px',
+      bottom: '2%',
       left: '900px',
       transform: 'translateX(-50%)',
-      width: '180%',
+      width: '30%',
       padding: '15px',
       backgroundColor: '#f7f7f7',
       boxShadow: '0 2px 4px rgba(0,0,0,0.1)',

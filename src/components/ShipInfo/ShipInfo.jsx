@@ -40,7 +40,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
     const typePath = getTypePath(shipData.vesselType);
 
     const shipName = shipData.vesselName;
-console.log("type is",shipName);
+    console.log("type is", shipName);
     // get ship country picture
     const getCountry = (shipCountryCode) => {
         if (["NAN", "nan"].includes(shipCountryCode)) {
@@ -239,22 +239,24 @@ console.log("type is",shipName);
                                 </div>
                             </div>
                         </Card>
-                        {showTrackPopup && (
-                            <TrackPopup
-                                visible={showTrackPopup}
-                                onClose={() => {
-                                    setShowTrackPopup(false);
-                                    setIsAnimating(false);
-                                }}
-                                isAnimating={isAnimating}
-                                setIsAnimating={setIsAnimating}
-                                mmsi={ship.mm}
-                                shipName={shipData.vesselName}
-                            />
-                        )}
+
                     </Space>
                 </div>
             </Draggable>
+
+            {showTrackPopup && (
+                <TrackPopup
+                    visible={showTrackPopup}
+                    onClose={() => {
+                        setShowTrackPopup(false);
+                        setIsAnimating(false);
+                    }}
+                    isAnimating={isAnimating}
+                    setIsAnimating={setIsAnimating}
+                    mmsi={ship.mm}
+                    shipName={shipData.vesselName}
+                />
+            )}
             <DraggableModal
                 visible={showChart}
                 onCancel={handleCancel}
