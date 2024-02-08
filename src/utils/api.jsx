@@ -43,9 +43,22 @@ const getShipsBySearch = async (searchTerm) => {
 };
 
 const getDownloadFile = async (start_time, end_time, type, polygon, circle) => {
-    const url = `/rest/v1/ship/download/${start_time}/${end_time}/${type}/${polygon}/${circle}`;
-    const response = await shipDataApi.get(url);
-    return response;
+    const url = `rest/v1/ship/download/${start_time}/${end_time}/${type}/${polygon}/${circle}`;
+    if (type === "") {
+        return false;
+    } else if (polygon === "none" && circle === "none") {
+        return false;
+    }
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = config.shipDataURL + url;
+    document.body.appendChild(iframe);
+
+    setTimeout(() => {
+        document.body.removeChild(iframe);
+    }, 5000);
+
+    return true;
 };
 
 const getPollutionData = async (mmsi) => {

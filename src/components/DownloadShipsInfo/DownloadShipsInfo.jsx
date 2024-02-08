@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import L from "leaflet";
 import { getDownloadFile } from "../../utils/api";
-import { saveAs } from "file-saver";
 import { Card, Space, Button, Divider, message } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import Draggable from "react-draggable";
@@ -71,21 +70,18 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
                 polygonStr
             );
 
-            if (response.status !== 200) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+            if (!response) {
+                if (typeStr === "") {
+                    message.error(`Must choose at least one ship type!`);
+                } else if (polygonStr === "none" && circleStr === "none") {
+                    message.error(
+                        `Use the drawing tool (polygon or circle) to select at least one area.`
+                    );
+                }
+            } else {
+                message.success("Download started!");
             }
-
-            const jsonBlob = new Blob([JSON.stringify(response.data.data)], {
-                type: "application/json",
-            });
-
-            saveAs(jsonBlob, "ship_data.json");
-
-            console.log(response.data.data);
-
-            message.success("Download started!");
         } catch (error) {
-            message.error("Download failed!");
             console.error("Error fetching ship details:", error.message);
         }
     };

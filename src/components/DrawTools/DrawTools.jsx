@@ -74,7 +74,7 @@ function DrawTools({ onChange, setShapeContainer }) {
                         return newShapes;
                     });
                 } else if (type === "circle") {
-                    const radius = layer._radius;
+                    const radius = layer._mRadius;
                     setShapeContainer((prevShapes) => {
                         const newShapes = {
                             ...prevShapes,
