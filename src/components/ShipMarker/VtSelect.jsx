@@ -17,13 +17,13 @@ const VtSelect = ({ onVtSelect }) => {
 
     const containerStyle = {
         position: 'absolute',
-        top: '10%',
-        left: '0%',
+        top: '52px',
+        right: '60px',
         padding: '10px',
         borderRadius: '10px',
         backgroundColor: '#f9f9f9',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        zIndex: 1000,
+        zIndex: 600,
         maxWidth: '300px'
     };
 
