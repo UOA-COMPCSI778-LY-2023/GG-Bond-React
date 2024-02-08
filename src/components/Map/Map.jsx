@@ -66,6 +66,16 @@ function Map() {
         });
     };
 
+    const handleSelectBoat = (boatData) => {
+        if (selectedBoat && selectedBoat.mm === boatData.mm) {
+            // 如果点击的是当前已选中的船只，则取消选择
+            setSelectedBoat(null);
+        } else {
+            // 否则，更新为新选中的船只
+            setSelectedBoat(boatData);
+        }
+    };
+
     // 更新历史轨迹数据的逻辑
 
     const fetchShipBasicData = async (latLngNE, latLngSW) => {
@@ -182,10 +192,10 @@ function Map() {
 
                 {
                     shipsBasicData
-                        .filter(boatData => selectedVt.size > 0 && selectedVt.has(boatData.vt))
-                        .map((boatData, index) => (
+                    .filter(boatData => selectedVt.size === 0 || selectedVt.has(boatData.vt)) // 仍然基于VT过滤
+                        .map((boatData) => (
                             <ShipMarker
-                                key={index}
+                                key={boatData.mm}
                                 boatData={boatData}
                                 setSelectedBoat={setSelectedBoat}
                                 isSelected={deepEqual(boatData, selectedBoat)}
