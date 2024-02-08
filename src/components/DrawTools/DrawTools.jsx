@@ -39,7 +39,7 @@ function DrawTools({ onChange, setShapeContainer }) {
                         newShapes["polygon"][shapeId] = latlngs;
                     } else if (newShapes["circle"].hasOwnProperty(shapeId)) {
                         const latlng = layer[shapeId]._latlng;
-                        const radius = layer[shapeId]._radius;
+                        const radius = layer[shapeId]._mRadius;
                         newShapes["circle"][shapeId][1] = latlng;
                         newShapes["circle"][shapeId][0] = radius;
                     }
@@ -74,7 +74,7 @@ function DrawTools({ onChange, setShapeContainer }) {
                         return newShapes;
                     });
                 } else if (type === "circle") {
-                    const radius = layer._radius;
+                    const radius = layer._mRadius;
                     setShapeContainer((prevShapes) => {
                         const newShapes = {
                             ...prevShapes,

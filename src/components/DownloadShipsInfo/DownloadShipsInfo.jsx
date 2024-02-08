@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import L from "leaflet";
 import { getDownloadFile } from "../../utils/api";
-import { saveAs } from "file-saver";
 import { Card, Space, Button, Divider, message } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import Draggable from "react-draggable";
 import ShipTypeCheckboxes from "../ShipTypeCheckboxes/ShipTypeCheckboxes";
-import DownloadTimePicker from "../DownloadTimePicker/DownloadTimePicker";
+// import DownloadTimePicker from "../DownloadTimePicker/DownloadTimePicker";
 import "./DownloadShipsInfo.css";
 
 const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
     const [checkedList, setCheckedList] = useState([]);
-    const [selectedTimeRange, setSelectedTimeRange] = useState([]);
+    // const [selectedTimeRange, setSelectedTimeRange] = useState([]);
 
     function checkedListToString() {
         if (checkedList.length === 11) {
@@ -42,7 +41,7 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
         const polygonStrings = Object.values(polygons).map((polygon) =>
             polygon
                 .map((points) =>
-                    points.map((point) => `${point.lng},${point.lat}`).join(";")
+                    points.map((point) => `${point.lng},${point.lat}`).join("_")
                 )
                 .join("|")
         );
@@ -64,28 +63,25 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
         let circleStr = convertCirclesToString();
         try {
             const response = await getDownloadFile(
-                selectedTimeRange[0],
-                selectedTimeRange[1],
+                "0", // selectedTimeRange[0],
+                "0", // selectedTimeRange[1],
                 typeStr,
                 circleStr,
                 polygonStr
             );
 
-            if (response.status !== 200) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+            if (!response) {
+                if (typeStr === "") {
+                    message.error(`Must choose at least one ship type!`);
+                } else if (polygonStr === "none" && circleStr === "none") {
+                    message.error(
+                        `Use the drawing tool (polygon or circle) to select at least one area.`
+                    );
+                }
+            } else {
+                message.success("Download started!");
             }
-
-            const jsonBlob = new Blob([JSON.stringify(response.data.data)], {
-                type: "application/json",
-            });
-
-            saveAs(jsonBlob, "ship_data.json");
-
-            console.log(response.data.data);
-
-            message.success("Download started!");
         } catch (error) {
-            message.error("Download failed!");
             console.error("Error fetching ship details:", error.message);
         }
     };
@@ -94,7 +90,7 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
         <>
             <Draggable
                 onDrag={(e) => e.stopPropagation()}
-                defaultPosition={{ x: 50, y: 20 }}
+                defaultPosition={{ x: 358, y: 46 }}
             >
                 <div className="downloadcard" id="downloadcard">
                     <Space
@@ -112,9 +108,9 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
                                 </div>
 
                                 <Divider />
-                                <DownloadTimePicker
+                                {/* <DownloadTimePicker
                                     setSelectedTimeRange={setSelectedTimeRange}
-                                />
+                                /> */}
                                 <ShipTypeCheckboxes
                                     setCheckedList={setCheckedList}
                                     checkedList={checkedList}
