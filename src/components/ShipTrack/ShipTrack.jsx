@@ -78,7 +78,7 @@ const ShipTrack = ({ track, showTrack, currentIndex,shipName }) => {
 
     return track.slice(0, -1).map((data, index) => {
       const nextData = track[index + 1];
-      const color = getPollutionColor((data.pollution + nextData.pollution)*2);
+      const color = getPollutionColor((data.pollution + nextData.pollution));
       const glowStyle = {
         color: color,
         weight: 5,

@@ -87,7 +87,7 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
           showTrack={showTrack}
           currentIndex={currentIndex}
           isAnimating={isAnimating}
-          heading={transformedTrackData[currentIndex]?.heading}
+          heading={transformedTrackData[currentIndex] ? transformedTrackData[currentIndex].heading : 0}
           shipName={shipName}
         />
       )}
