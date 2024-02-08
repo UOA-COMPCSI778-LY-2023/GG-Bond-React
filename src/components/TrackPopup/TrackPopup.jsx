@@ -38,8 +38,9 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
   }, [isAnimating, transformedTrackData]);
 
   const progressPercent = transformedTrackData && realtimestamps
-    ? ((currentIndex / (realtimestamps.length - 1)) * 100).toFixed(2)
-    : 0;
+  ? Math.min(((currentIndex / (realtimestamps.length - 1)) * 100), 100).toFixed(3)
+  : 0;
+
   const currentTime = realtimestamps && realtimestamps[currentIndex];
 
   const handleStartPause = () => {
@@ -141,7 +142,7 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px', justifyContent: 'space-between' }}>
         <Progress
           percent={parseFloat(progressPercent)}
-          style={{ width: '100%' }}
+          style={{ width: '550px' }}
           strokeColor={{
             '0%': '#34C759',
             '100%': '#FF3B30',
