@@ -69,7 +69,6 @@ function Map() {
     // 更新历史轨迹数据的逻辑
 
     const fetchShipBasicData = async (latLngNE, latLngSW) => {
-
         const type = "0";
         const source = 0;
         const limit = 500;
