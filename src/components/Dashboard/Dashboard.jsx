@@ -31,18 +31,10 @@ export default function Dashboard() {
     }, [cookies, navigate]);
 
     useEffect(() => {
-        const divElement = document.getElementById("viz1707263943533");
+        const divElement = document.getElementById("viz1707346449443");
         const vizElement = divElement.getElementsByTagName("object")[0];
-        if (divElement.offsetWidth > 800) {
-            vizElement.style.width = "1600px";
-            vizElement.style.height = "1530px";
-        } else if (divElement.offsetWidth > 500) {
-            vizElement.style.width = "1600px";
-            vizElement.style.height = "1530px";
-        } else {
-            vizElement.style.width = "1600px";
-            vizElement.style.height = "1530px";
-        }
+        vizElement.style.width = "1400px";
+        vizElement.style.height = "2127px";
 
         const scriptElement = document.createElement("script");
         scriptElement.src =
@@ -76,14 +68,14 @@ export default function Dashboard() {
             </FloatButton.Group>
             <div
                 className="tableauPlaceholder"
-                id="viz1707263943533"
+                id="viz1707346449443"
                 style={{ position: "relative" }}
             >
                 <noscript>
                     <a href="#">
                         <img
-                            alt="Dashboard 1 "
-                            src="https://public.tableau.com/static/images/Ma/Maritime_Analytics_1600/Dashboard1/1_rss.png"
+                            alt="Dashboard 1"
+                            src="https://public.tableau.com/static/images/Ma/MaritimeAnalytics_Final/Dashboard1/1_rss.png"
                             style={{ border: "none" }}
                         />
                     </a>
@@ -97,13 +89,13 @@ export default function Dashboard() {
                     <param name="site_root" value="" />
                     <param
                         name="name"
-                        value="Maritime_Analytics_1600/Dashboard1"
+                        value="MaritimeAnalytics_Final/Dashboard1"
                     />
                     <param name="tabs" value="no" />
                     <param name="toolbar" value="yes" />
                     <param
                         name="static_image"
-                        value="https://public.tableau.com/static/images/Ma/Maritime_Analytics_1600/Dashboard1/1.png"
+                        value="https://public.tableau.com/static/images/Ma/MaritimeAnalytics_Final/Dashboard1/1.png"
                     />
                     <param name="animate_transition" value="yes" />
                     <param name="display_static_image" value="yes" />

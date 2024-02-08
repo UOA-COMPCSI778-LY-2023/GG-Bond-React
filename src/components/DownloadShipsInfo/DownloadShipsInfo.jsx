@@ -6,12 +6,12 @@ import { Card, Space, Button, Divider, message } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import Draggable from "react-draggable";
 import ShipTypeCheckboxes from "../ShipTypeCheckboxes/ShipTypeCheckboxes";
-import DownloadTimePicker from "../DownloadTimePicker/DownloadTimePicker";
+// import DownloadTimePicker from "../DownloadTimePicker/DownloadTimePicker";
 import "./DownloadShipsInfo.css";
 
 const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
     const [checkedList, setCheckedList] = useState([]);
-    const [selectedTimeRange, setSelectedTimeRange] = useState([]);
+    // const [selectedTimeRange, setSelectedTimeRange] = useState([]);
 
     function checkedListToString() {
         if (checkedList.length === 11) {
@@ -42,7 +42,7 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
         const polygonStrings = Object.values(polygons).map((polygon) =>
             polygon
                 .map((points) =>
-                    points.map((point) => `${point.lng},${point.lat}`).join(";")
+                    points.map((point) => `${point.lng},${point.lat}`).join("_")
                 )
                 .join("|")
         );
@@ -64,8 +64,8 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
         let circleStr = convertCirclesToString();
         try {
             const response = await getDownloadFile(
-                selectedTimeRange[0],
-                selectedTimeRange[1],
+                "0", // selectedTimeRange[0],
+                "0", // selectedTimeRange[1],
                 typeStr,
                 circleStr,
                 polygonStr
@@ -112,9 +112,9 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
                                 </div>
 
                                 <Divider />
-                                <DownloadTimePicker
+                                {/* <DownloadTimePicker
                                     setSelectedTimeRange={setSelectedTimeRange}
-                                />
+                                /> */}
                                 <ShipTypeCheckboxes
                                     setCheckedList={setCheckedList}
                                     checkedList={checkedList}
