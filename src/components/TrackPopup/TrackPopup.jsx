@@ -8,16 +8,11 @@ import "./TrackPopup.css";
 const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrack, setShowTrack] = useState(true);
-  console.log("sppp", shipName);
-  console.log("mmsi is ", mmsi);
-  // 使用useHistoryTrack获取历史轨迹数据
-  const { historicalTrackData } = useHistoryTrack(0, mmsi); // 使用固定的间隔和mmsi
-
-  // 定义状态来存储转换后的轨迹数据和时间戳
+  const { historicalTrackData } = useHistoryTrack(0, mmsi);
   const [transformedTrackData, setTransformedTrackData] = useState([]);
   const [realtimestamps, setRealtimestamps] = useState([]);
+
   useEffect(() => {
-    console.log("Historical Track Data:", historicalTrackData);
     if (historicalTrackData && historicalTrackData.data) {
       const newTransformedTrackData = historicalTrackData.data.map(item => ({
         position: [parseFloat(item.latitude), parseFloat(item.longitude)],
@@ -25,17 +20,15 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
         heading: parseFloat(item.heading)
       }));
       const newRealtimestamps = historicalTrackData.data.map(item => item.dtStaticUtc);
-
       setTransformedTrackData(newTransformedTrackData);
       setRealtimestamps(newRealtimestamps);
     }
   }, [historicalTrackData]);
-  console.log("data total", transformedTrackData);
+
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     let interval;
-    console.log('www', transformedTrackData);
     if (isAnimating && Array.isArray(transformedTrackData) && transformedTrackData.length > 0) {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % transformedTrackData.length);
@@ -49,7 +42,6 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
     : 0;
   const currentTime = realtimestamps && realtimestamps[currentIndex];
 
-
   const handleStartPause = () => {
     setIsAnimating(!isAnimating);
   };
@@ -62,7 +54,7 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
     setIsAnimating(false);
     setShowTrack(false);
     setIsVisible(false);
-    setCurrentIndex(0); // Reset currentIndex
+    setCurrentIndex(0);
   };
 
   if (!isVisible) return null;
@@ -71,15 +63,16 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
     <div style={{
       position: 'fixed',
       bottom: '2%',
-      left: '900px',
+      left: '50%',
       transform: 'translateX(-50%)',
       width: '30%',
-      padding: '15px',
-      backgroundColor: '#f7f7f7',
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-      borderRadius: '8px 8px 0 0',
+      padding: '20px',
+      backgroundColor: 'rgba(255, 255, 255, 0.9)', // 将背景颜色设置为带有透明度的白色
+      boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+      borderRadius: '10px',
       zIndex: 1000,
-      borderTop: '1px solid #e0e0e0'
+      border: '3px solid #4A90E2', // 添加这一行来设置四周的边框
+      fontWeight: 'bold'
     }}>
       {transformedTrackData && realtimestamps && Array.isArray(transformedTrackData) && (
         <ShipTrack
@@ -92,42 +85,68 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
         />
       )}
 
-
       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', marginTop: '10px' }}>
         <Button
+        className={`button-start-pause ${isAnimating ? 'isAnimating' : ''}`}
           onClick={handleStartPause}
           icon={isAnimating ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
-          style={{ fontSize: '18px', padding: '6px 20px', border: 'none' }} // No border
+          style={{
+            fontSize: '18px',
+            padding: '6px 20px',
+            border: 'none',
+            backgroundColor: isAnimating ? '#F5A623' : '#7ED321',
+            color: '#FFFFFF',
+            borderRadius: '5px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            transition: 'all 0.3s'
+          }}
         >
           {isAnimating ? 'Pause' : 'Start'}
         </Button>
 
         <Button
           onClick={handleShowHide}
+          className={`button-show-hide ${showTrack ? 'showTrack' : ''}`}
           icon={showTrack ? <EyeInvisibleOutlined /> : <EyeOutlined />}
-          style={{ fontSize: '18px', padding: '6px 20px', border: 'none' }} // No border
+          style={{
+            fontSize: '18px',
+            padding: '6px 20px',
+            border: 'none',
+            backgroundColor: showTrack ? '#3498db' : '#9b59b6',
+            color: '#FFFFFF',
+            borderRadius: '5px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            transition: 'all 0.3s'
+          }}
         >
           {showTrack ? 'Hide Track' : 'Show Track'}
         </Button>
 
         <Button
           onClick={handleClose}
+          className="button-close"
           type="default"
           icon={<CloseOutlined />}
-          style={{ fontSize: '18px', border: 'none' }} // No border
+          style={{
+            fontSize: '18px',
+            border: 'none',
+            backgroundColor: '#e74c3c',
+            color: '#FFFFFF',
+            borderRadius: '5px',
+            transition: 'all 0.3s'
+          }}
         />
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px', justifyContent: 'space-between' }}>
         <Progress
           percent={parseFloat(progressPercent)}
-          className="custom-progress" // 应用自定义样
-          style={{ width: '100%' }} // 使进度条填满容器
+          style={{ width: '100%' }}
           strokeColor={{
-            '0%': '#108ee9',
-            '100%': '#87d068',
+            '0%': '#34C759',
+            '100%': '#FF3B30',
           }}
-          showInfo={false} // 隐藏默认百分比文本
+          showInfo={false}
         />
         <div style={{ minWidth: '50px', textAlign: 'center', marginLeft: '10px', color: '#595959', fontSize: '18px' }}>
           {progressPercent}%
@@ -135,22 +154,35 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '15px', justifyContent: 'space-between' }}>
-        {/* 污染值提示的渐变条，保持原始颜色，视觉优化版 */}
         <div style={{
+          position: 'relative', // 确保子元素的绝对定位基于此容器
           height: '15px',
-          borderRadius: '10px', // 更圆润的边角
-          background: 'linear-gradient(to right, #00ff00 0%, #ff0000 100%)', // 保持原始的绿到红的渐变
-          border: '1px solid #d9d9d9', // 更细腻的边框颜色
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // 轻微的阴影效果
-          flex: 1, // 使渐变条填满除了显示"pollution"文字部分的容器
-          marginRight: '10px' // 保持与进度条旁数字的间距一致
+          borderRadius: '10px',
+          background: 'linear-gradient(to right, #34C759 0%, #FF3B30 100%)',
+          border: '1px solid #d9d9d9',
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+          flex: 1,
+          marginRight: '10px',
+          display: 'flex',
+          alignItems: 'center'
         }}>
-          <span style={{ position: 'absolute', color: 'black', left:'4%',fontWeight: 'bold',fontSize: '12px' }}>0</span> {/* 左侧的0 */}
-          {/* 使用绝对定位并将left设置为90%，使其接近右侧边缘 */}
-          <span style={{ position: 'absolute', left: '70%', color: 'black',fontWeight: 'bold', fontSize: '12px' }}>100</span> {/* 右侧的100 */}
+          {/* 使用数组生成0到100的标签 */}
+          {[...Array(11)].map((_, index) => (
+            <span key={index} style={{
+              position: 'absolute',
+              left: `${index * 10}%`,
+              transform: index === 0 ? 'translateX(0%)' : index === 10 ? 'translateX(-100%)' : 'translateX(-50%)', // 对首尾数值特殊处理
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: '12px',
+              userSelect: 'none', // 防止文本被选中
+            }}>
+              {index * 10}
+            </span>
+          ))}
         </div>
         <div style={{ minWidth: '50px', textAlign: 'center', color: '#595959', fontSize: '18px' }}>
-          Pollution Level
+          Pollution
         </div>
       </div>
 
@@ -159,6 +191,5 @@ const TrackPopup = ({ isAnimating, setIsAnimating, mmsi, shipName }) => {
     </div>
   );
 };
-
 
 export default TrackPopup;
