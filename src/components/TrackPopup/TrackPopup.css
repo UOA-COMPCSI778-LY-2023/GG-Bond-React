@@ -6,7 +6,7 @@
 .custom-progress .ant-progress-inner {
   height: 15px !important;
   /* 调整进度条的高度 */
-  width: 250px;
+  width: 250px !important;
 }
 
 .custom-progress .ant-progress-bg {
