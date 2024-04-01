@@ -11,6 +11,8 @@ const DraggableModal = ({ visible, onCancel, mmsi }) => {
             visible={visible}
             onCancel={onCancel}
             footer={null}
+            style={{ top: 10 }}
+            // 使用拖动库
             modalRender={(modal) => (
                 <Draggable handle=".ant-modal-header">{modal}</Draggable>
             )}

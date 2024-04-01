@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import L from "leaflet";
 import { LiaDrawPolygonSolid } from "react-icons/lia";
 import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
@@ -6,10 +6,10 @@ import DownloadShipsInfo from "../DownloadShipsInfo/DownloadShipsInfo";
 import DrawTools from "../DrawTools/DrawTools";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "./MenuOptions.css";
-import ShipTypeFilter from "../ShipTypeFilter/ShipTypeFilter";
+import VtSelect from "../VtSelect/VtSelect";
 import UserTour from "../UserTour/UserTour";
+import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-
 import { FloatButton } from "antd";
 import {
     ToolOutlined,
@@ -19,45 +19,15 @@ import {
     createFromIconfontCN,
     EnvironmentOutlined,
     QuestionCircleOutlined,
+    BarChartOutlined,
 } from "@ant-design/icons";
 
 const IconFont = createFromIconfontCN({
     scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js",
 });
 
-const shipTypes = [
-    // { type: 'ALL', color: 'Black' },
-    { type: "Tank", color: "Red" },
-    { type: "Cargo", color: "LightGreen" },
-    { type: "Fishing", color: "YellowBrown" },
-    { type: "Tug", color: "Blue" },
-    { type: "Sailboat", color: "Navy" },
-    { type: "Cruise", color: "Purple" },
-    { type: "Container", color: "Orange" },
-    { type: "Bulk Carrier", color: "Maroon" },
-    { type: "Naval", color: "Gray" },
-    { type: "Patrol", color: "Olive" },
-    { type: "Research", color: "Lime" },
-    { type: "Yacht", color: "Teal" },
-    { type: "Oil Tanker", color: "Black" },
-    { type: "Ferry", color: "RoyalBlue" },
-    { type: "Submarine", color: "Aqua" },
-    // Add additional ship types as necessary
-];
-
-const countryTypes = [
-    // { type: 'ALL', color: 'Black' },
-    { type: "CN", color: "Red" },
-    { type: "NZ", color: "LightGreen" },
-    { type: "USA", color: "YellowBrown" },
-
-    // Add additional ship types as necessary
-];
-
-const MenuOptions = ({ tourOpen, setTourOpen }) => {
-    const [showFilterDropdown, setShowFilterDropdown] = useState(false);
-    const [selectedFilters, setSelectedFilters] = useState([]);
-    const [selectedCountries, setSelectedCountries] = useState([]);
+const MenuOptions = ({ tourOpen, setTourOpen, handleVtSelect }) => {
+    const [showFilterDropdown, setShowFilterDropdown] = useState(true);
     const [showDrawTools, setShowDrawTools] = useState(true);
     const [showSearchLocation, setShowSearchLocation] = useState(true);
     const [showDownloadPanel, setShowDownloadPanel] = useState(false);
@@ -65,32 +35,10 @@ const MenuOptions = ({ tourOpen, setTourOpen }) => {
         polygon: {},
         circle: {},
     });
+    const navigate = useNavigate();
 
     const toggleFilterDropdown = () => {
         setShowFilterDropdown(!showFilterDropdown);
-    };
-
-    const handleFilterSelect = (filterType) => {
-        setSelectedFilters((prevFilters) => {
-            // Add or remove filter from the array
-            if (prevFilters.includes(filterType)) {
-                return prevFilters.filter((f) => f !== filterType);
-            } else {
-                return [...prevFilters, filterType];
-            }
-        });
-    };
-
-    const handleCountrySelect = (countryType) => {
-        setSelectedCountries((prevCountries) => {
-            if (prevCountries.includes(countryType)) {
-                return prevCountries.filter(
-                    (country) => country !== countryType
-                );
-            } else {
-                return [...prevCountries, countryType];
-            }
-        });
     };
 
     const toggleDrawTools = (e) => {
@@ -106,6 +54,11 @@ const MenuOptions = ({ tourOpen, setTourOpen }) => {
         console.log(shapesContainer);
         setShowDownloadPanel(!showDownloadPanel);
     };
+
+    const toggleDashboard = () => {
+        navigate("/dashboard");
+    };
+
     const [cookies, setCookie, removeCookie] = useCookies(["loggedIn"]);
 
     const toggleLogOut = () => {
@@ -153,6 +106,13 @@ const MenuOptions = ({ tourOpen, setTourOpen }) => {
                 />
 
                 <FloatButton
+                    onClick={toggleDashboard}
+                    tooltip={<div>Dashboard</div>}
+                    icon={<BarChartOutlined />}
+                    className="menubtn dashboardBtn"
+                />
+
+                <FloatButton
                     onClick={toggleDownloadPanel}
                     tooltip={<div>Download</div>}
                     icon={<DownloadOutlined />}
@@ -174,17 +134,7 @@ const MenuOptions = ({ tourOpen, setTourOpen }) => {
                 />
             </FloatButton.Group>
 
-            {showFilterDropdown && (
-                <ShipTypeFilter
-                    selectedFilters={selectedFilters}
-                    handleFilterSelect={handleFilterSelect}
-                    shipTypes={shipTypes}
-                    selectedCountries={selectedCountries}
-                    handleCountrySelect={handleCountrySelect}
-                    countryTypes={countryTypes}
-                />
-            )}
-            {/* filter */}
+            {showFilterDropdown && <VtSelect onVtSelect={handleVtSelect} />}
             {showDrawTools && (
                 <DrawTools
                     onChange={(geojsonData) => console.log(geojsonData)}

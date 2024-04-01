@@ -1,7 +1,7 @@
 const config = {
-    shipDataURL: 'http://13.236.117.100:8888/',
-    shipImgURL:'http://13.236.117.100:8080/',
-    pollutionForcastURL: 'http://3.104.55.204:8080',
+    shipDataURL: 'https://eco.marinehub.online/back/',
+    shipImgURL:'https://marineflask.azurewebsites.net:8080/',
+    pollutionForcastURL: 'https://marineflask.azurewebsites.net:8080/',
   };
   
   export default config;
