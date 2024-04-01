@@ -223,6 +223,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                         className="past-track-button"
                                         type="primary"
                                         onClick={handleTrackButtonClick}
+                                        onTouchStart={handleTrackButtonClick} 
                                         icon={<SwapRightOutlined />}
                                     >
                                         Past Track
@@ -231,6 +232,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                         className="pollution-button"
                                         type="primary"
                                         onClick={handleShowChart}
+                                        onTouchStart={handleShowChart} 
                                     >
                                         Pollution Forecast
                                     </Button>
