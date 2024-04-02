@@ -40,10 +40,10 @@ const RadarChart = ({ mmsi }) => {
                     icon: "rect",
                     data: [
                         {
-                            name: "Pollution",
+                            name: "Current Ship Parameters",
                         },
                         {
-                            name: "Average Pollution",
+                            name: "Average Ship Parameters",
                         },
                     ],
                 },
@@ -85,42 +85,7 @@ const RadarChart = ({ mmsi }) => {
                 },
                 series: [
                     {
-                        name: "Pollution",
-                        type: "radar",
-                        lineStyle: {
-                            normal: {
-                                color: "rgba(75, 192, 192, 1)",
-                                width: 1,
-                            },
-                        },
-                        areaStyle: {
-                            normal: {
-                                color: "rgba(75, 192, 192, 0.2)",
-                            },
-                        },
-                        itemStyle: {
-                            normal: {
-                                color: "rgba(75, 192, 192, 0.2)",
-                                borderColor: "rgba(75, 192, 192, 1)",
-                                borderWidth: 1,
-                                borderType: "solid",
-                            },
-                        },
-                        data: [
-                            {
-                                value: [
-                                    radarData.sog,
-                                    radarData.length,
-                                    radarData.width,
-                                    radarData.total_co2,
-                                    radarData.total_fuel,
-                                ],
-                                name: "Pollution",
-                            },
-                        ],
-                    },
-                    {
-                        name: "Average Pollution",
+                        name: "Current Ship Parameters",
                         type: "radar",
                         lineStyle: {
                             normal: {
@@ -144,13 +109,48 @@ const RadarChart = ({ mmsi }) => {
                         data: [
                             {
                                 value: [
+                                    radarData.sog,
+                                    radarData.length,
+                                    radarData.width,
+                                    radarData.total_co2,
+                                    radarData.total_fuel,
+                                ],
+                                name: "Current Ship Parameters",
+                            },
+                        ],
+                    },
+                    {
+                        name: "Average Ship Parameters",
+                        type: "radar",
+                        lineStyle: {
+                            normal: {
+                                color: "rgba(75, 192, 192, 1)",
+                                width: 1,
+                            },
+                        },
+                        areaStyle: {
+                            normal: {
+                                color: "rgba(75, 192, 192, 0.2)",
+                            },
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: "rgba(75, 192, 192, 0.2)",
+                                borderColor: "rgba(75, 192, 192, 1)",
+                                borderWidth: 1,
+                                borderType: "solid",
+                            },
+                        },
+                        data: [
+                            {
+                                value: [
                                     radarData.sog_avg,
                                     radarData.length_avg,
                                     radarData.width_avg,
                                     radarData.total_co2_avg,
                                     radarData.total_fuel_avg,
                                 ],
-                                name: "Average Pollution",
+                                name: "Average Ship Parameters",
                             },
                         ],
                     },

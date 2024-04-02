@@ -24,7 +24,7 @@ function Map() {
     const [shipsBasicData, setShipsBasicData] = useState([]);
     const [heatData, setHeatData] = useState([]);
     const [map, setMap] = useState(null);
-    const [selectedLayer, setSelectedLayer] = useState("Light map");
+    const [selectedLayer, setSelectedLayer] = useState("Satellite");
     const [selectedVt, setSelectedVt] = useState(new Set()); // 使用 Set 来存储选中的 vt 值
     const [tourOpen, setTourOpen] = useState(false);
     const [cookies] = useCookies(["loggedIn"]);

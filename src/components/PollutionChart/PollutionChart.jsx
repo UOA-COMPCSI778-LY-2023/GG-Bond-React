@@ -33,16 +33,16 @@ const ChartComponent = ({ mmsi }) => {
                       ],
                       datasets: [
                           {
-                              label: "CO2 pollution",
+                              label: "Current Ship CO2 Pollution",
                               data: fuelPollution,
-                              borderColor: "rgba(75, 192, 192, 1)",
+                              borderColor: "rgba(255, 99, 132, 1)",
                               borderWidth: 1,
                               fill: false,
                           },
                           {
-                              label: "Averge CO2 Pollution ",
+                              label: "Average Ship CO2 Pollution ",
                               data: fuelPollutionAvg,
-                              borderColor: "rgba(255, 99, 132, 1)",
+                              borderColor: "rgba(75, 192, 192, 1)",
                               borderWidth: 1,
                               fill: false,
                           },
