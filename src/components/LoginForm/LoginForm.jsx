@@ -114,7 +114,7 @@ const LoginForm = () => {
         tab2: (
             <p>
                 <p>
-                    <img src="/comingsoon.jpg" width="250" />
+                    <img src="comingsoon.jpg" width="250" />
                 </p>
                 <p>Coming Soon!</p>
             </p>

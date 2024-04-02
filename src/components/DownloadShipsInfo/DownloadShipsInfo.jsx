@@ -128,6 +128,7 @@ const DownloadShipsInfo = ({ setShowDownloadPanel, shapesContainer }) => {
                             <div
                                 className="close-icon"
                                 onClick={handleCloseDownloadPanel}
+                                onTouchStart={handleCloseDownloadPanel}
                             >
                                 <CloseOutlined />
                             </div>

@@ -192,6 +192,7 @@ const ShipInfo = ({ ship, setSelectedBoat }) => {
                                     <div className="close-icon">
                                         <CloseOutlined
                                             onClick={closeShipInfo}
+                                            onTouchStart={closeShipInfo}
                                         />
                                     </div>
                                 </div>

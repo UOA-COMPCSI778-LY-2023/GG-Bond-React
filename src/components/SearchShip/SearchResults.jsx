@@ -18,8 +18,13 @@ function SearchResults({ results, onSelectShip }) {
                 <Col span={1}>
                     <TypeCodeArrow typeCode={item.typeCode} />
                 </Col>
-                <Col span={8}>
-                    <p>Name: {item.vesselName}</p>
+                <Col span={7}>
+                    <p style={{
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        width: '100%', // 确保它填充其父容器（即<Col>）的宽度
+                    }}>Name: {item.vesselName}</p>
                 </Col>
                 <Col span={8}>
                     <p> MMSI:{item.mmsi}</p>
@@ -27,7 +32,7 @@ function SearchResults({ results, onSelectShip }) {
                 <Col span={4}>
                     <p>{item.vesselType}</p>
                 </Col>
-                <Col span={2}>
+                <Col span={3}>
                     {item.alpha2 !== null ? (
                         <CountryFlag
                             className="country-flag"

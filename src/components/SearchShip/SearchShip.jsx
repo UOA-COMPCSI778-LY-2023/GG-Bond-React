@@ -36,7 +36,7 @@ function SearchShip({ setSelectedBoat, map }) {
         const newShip = { mm, ...rest };
         console.log(newShip);
         setSelectedBoat(newShip);
-        map.setView([newShip.latitude, newShip.longitude], 13); //Maxinum Zoom level: 13
+        map.setView([newShip.latitude, newShip.longitude], 7); //Maxinum Zoom level: 13
     };
 
     return (

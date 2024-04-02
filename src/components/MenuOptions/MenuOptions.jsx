@@ -64,6 +64,7 @@ const MenuOptions = ({ tourOpen, setTourOpen, handleVtSelect }) => {
     const toggleLogOut = () => {
         removeCookie("loggedIn");
     };
+    
 
     useEffect(() => {
         const el = document.getElementById("menuoptions");
@@ -94,7 +95,7 @@ const MenuOptions = ({ tourOpen, setTourOpen, handleVtSelect }) => {
                 />
                 <FloatButton
                     icon={<SearchOutlined />}
-                    onClick={(e) => console.log("name:" + e.target.tagName)}
+                    // onClick={(e) => console.log("name:" + e.target.tagName)}
                     tooltip={<div>Search</div>}
                     className="menubtn"
                 />

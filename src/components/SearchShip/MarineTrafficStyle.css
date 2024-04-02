@@ -6,7 +6,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  width: 35%;
+  width: 40%;
   background-color: #fff;
   box-shadow: none;
   border-radius: 20px;
@@ -46,7 +46,7 @@
 
 .dropdown-item {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px 16px;
   margin: 10px;
   border: 1px solid #e0e0e0;
   background-color: #f9f9f9;
@@ -107,7 +107,7 @@
   max-height: 300px;
   overflow-y: auto;
   border-radius: 8px;
-  width: 34%;
+  width: 39%;
 }
 
 .search-results-container > * {
@@ -127,8 +127,8 @@
   
 }
 .icon-location {
-  height: 24px; /* 或其他适合您设计的大小 */
-  width: 24px; /* 或其他适合您设计的大小 */
+  height: 20px; /* 或其他适合您设计的大小 */
+  width: 20px; /* 或其他适合您设计的大小 */
   margin-left: auto; /* 将图标推到最右边 */
   align-items: flex-end; 
   /* 如果需要，可以添加其他样式 */

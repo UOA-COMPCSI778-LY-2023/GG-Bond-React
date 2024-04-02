@@ -21,7 +21,8 @@ function TypeCodeArrow({ typeCode }) {
                 alignSelf: "center",
                 color: color,
                 marginRight: "10px",
-                fontSize: "24px",
+                marginLeft: "-px",
+                fontSize: "18px",
             }}
         >
             ➤
